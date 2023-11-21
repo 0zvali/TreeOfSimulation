@@ -83,7 +83,10 @@ addLayer("F", {
         },
     },
     layerShown() {
-        return hasUpgrade("c", 45) || player.F.unlocked;
+        let value = false
+        if (hasUpgrade("c", 45) || player.F.unlocked) value = true;    
+        if (hasUpgrade('R', 16) || player.CT.unlocked) value = false;
+        return value
       },
 milestones: {
         11: {

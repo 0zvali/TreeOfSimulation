@@ -3,18 +3,17 @@ let modInfo = {
 	id: "experiments",
 	author: "Ozvali",
 	pointsName: "infects",
-	modFiles: ["layers/a.js", "layers/c.js", "layers/E.js", "layers/F.js", "layers/H.js", "layers/R.js", "layers/W.js", "tree.js"],
-
+	modFiles:["layers/a.js", "layers/c.js", "layers/E.js", "layers/F.js", "layers/H.js", "layers/R.js", "layers/W.js", "layers/timeline.js", "layers/timeline_FL.js", "layers/timeline_EX.js", "layers/timeline_SL.js", "tree.js"],
 	discordName: "The Modding Tree Discord Server",
 	discordLink: "https://discord.com/invite/F3xveHV",
 	initialStartPoints: new Decimal (0), // Used for hard resets and new players
-	offlineLimit: 1,  // In hours
+	offlineLimit: 0,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.1.3_stable+4",
-	name: "Weapons, Weapons, Weapons!",
+	num: "2.0_betatest_1",
+	name: "Another World?",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -23,6 +22,28 @@ let changelog = `<h1>Changelog:</h1><br>
 		y = minor update<br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
+
+		<h1>v2.0: Another World?</h1><br>
+			- Added 4 Layers<br> 
+			- Added 6 Achievements<br> 
+			- Added Balancing Before Timeline 1<br> 
+			- Introducing Timeline 2 (Another World...)<br> 
+			- Added 3 Challenges<br> 
+			- Added Formula Balancing on Newer Content<br> 
+			- Fixed Multiple bugs<br> 
+			- Feedback is needed for slow'd gameplay...too fast gameplay...or unbalanced entirely...<br> 
+			- Endgame: 1 Soul - Timeline 2<br> <br> 
+
+		<h3>v1.1.4_stable</h3><br>
+			- Added 2 Room Upgrades<br>
+			- Removed Room Softcap but decreased the Room Effect significantly<br>
+			- Changed Room Formula (^0.05 > ^0.046)<br>
+			- Changed Weapon Formula (^0.03 > ^0.025)<br> 
+			- Fixed Weapon Milestone<br>
+			- Fixed 3 Crystal Upgrades<br>
+			- Fixed 2 Experiment Upgrades<br>
+			- Fixed 2 Room Upgrades being Inflated<br>
+			- Fixed 4 Room Upgrades not giving effects<br><br>
 
  		<h3>v1.1.3_stable</h3><br>
    			- Added 2 Weapon Milestones<br>
@@ -369,6 +390,8 @@ function getPointGen() {
 	if (hasUpgrade('H', 13)) gain = gain.times(upgradeEffect('H',13))
 	if (hasUpgrade('H', 21)) gain = gain.times(upgradeEffect('H',21))
 	if (hasUpgrade('H', 35)) gain = gain.times(15)
+	// R Upgrades
+	if (hasUpgrade('R', 16)) gain = gain.times(upgradeEffect('R', 16))
 	// All Milestones
 	if (hasMilestone('W', 11)) gain = gain.times(2.2)
 	// Layer Effects
@@ -383,6 +406,27 @@ function getPointGen() {
 	if (hasAchievement('a', 36)) gain = gain.times(3)
 	// Prevents Devspeed changes
 	if (player.devSpeed>=1.01) gain = gain.div(1e300)
+
+
+	// ~~~~~~~~~~~~~~~Chapter 2 - 1st Collapsed Timeline~~~~~~~~~~~~~~~~~~~~~~~
+
+
+	// FL Upgrades (# Order)
+	if (hasUpgrade('FL', 12)) gain = gain.times(upgradeEffect('FL', 12))
+	if (hasUpgrade('FL', 21)) gain = gain.times(upgradeEffect('FL', 21))
+	// EX Upgrades (# Order)
+	if (hasUpgrade('EX', 11)) gain = gain.times(upgradeEffect('EX', 11))
+	if (hasUpgrade('EX', 12)) gain = gain.times(upgradeEffect('EX', 12))
+	if (hasUpgrade('EX', 21)) gain = gain.times(upgradeEffect('EX', 21))
+	if (hasUpgrade('EX', 23)) gain = gain.times(upgradeEffect('EX', 23))
+
+	// Milestones (# Order)
+	if (hasMilestone('FL', 11)) gain = gain.times(player.points.add(1).pow(0.07))
+	// Challenges (# Order)
+	if (inChallenge('CT', 11)) gain = gain.div(2.5)
+	if (inChallenge('CT', 12)) gain = gain.div(4)
+	if (inChallenge('CT', 21)) gain = gain.div(10)
+	if (hasChallenge('CT', 21)) gain = gain.times(player.FL.points.add(1).pow(0.066))
 	return gain
 }
 
@@ -392,13 +436,14 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"<a>Endgame: 8 Weapons</a>"
+	"<a>Endgame: 1 Soul - Timeline 2</a><br>"
+	
 ]
 
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.W.points.gte(8)
+	return player.SL.points.gte(1)
 }
 
 

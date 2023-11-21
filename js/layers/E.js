@@ -9,6 +9,7 @@ addLayer("E", {
         total: new Decimal(0),
     }
     },
+
     color: "#BF233F",
     requires: new Decimal(1.25e8), // Can be a function that takes requirement increases into account
     resource: "experiments", // Name of prestige currency
@@ -36,6 +37,8 @@ addLayer("E", {
     	if (hasUpgrade('H', 11)) mult = mult.times(upgradeEffect('H',11))
         if (hasUpgrade('H', 23)) mult = mult.times(upgradeEffect('H',23))
         if (hasUpgrade('H', 25)) mult = mult.times(upgradeEffect('H',25))
+        // R Upgrades (# Order)
+        if (hasUpgrade('R', 15)) mult = mult.times(upgradeEffect('R',15))
         // Combo Upgrades | Upgrade Increasers
         if (hasUpgrade('W', 14) && hasUpgrade('c', 13)) mult = mult.times(upgradeEffect('c', 13))
         // Milestone Effects
@@ -478,6 +481,9 @@ milestones: {
     },
  },  
 layerShown() {
-    return hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1) || player.F.unlocked;
+    let value = false
+    if (hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1) || player.F.unlocked) value = true;
+    if (hasUpgrade('R', 16) || player.CT.unlocked) value = false;
+    return value
     },
  })             

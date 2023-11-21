@@ -13,7 +13,7 @@ addLayer("W", {
     baseResource: "crystals", // Name of resource prestige is based on
     baseAmount() {return player.c.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.035, // Prestige currency exponent
+    exponent: 0.025, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
@@ -51,7 +51,10 @@ addLayer("W", {
     },
     layerShown() {return true},
     layerShown() {
-        return hasUpgrade("F", 36) || player.W.points.gte(1) || player.W.unlocked;
+        let value = false
+        if (hasUpgrade("F", 36) || player.W.points.gte(1) || player.W.unlocked) value = true;
+        if (player.points.gte(1e999) || player.CT.unlocked) value = false;
+        return value
     },
 milestones: {
         11: {
