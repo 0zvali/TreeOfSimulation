@@ -8,8 +8,6 @@ addLayer("a", {
         tooltip() { // Optional, tooltip displays when the layer is locked
             return ("Accomplishments")
         },
-        
-            },
         tabFormat: {
             "Achievements": {
                 content: [
