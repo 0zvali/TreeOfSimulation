@@ -8,16 +8,12 @@ addLayer("a", {
         tooltip() { // Optional, tooltip displays when the layer is locked
             return ("Accomplishments")
         },
-        infoboxes: {
-            achievement_details: {
-            title: "Achievements",
-            body: `Whoa, some achievements...`,
-            },
+        
             },
         tabFormat: {
             "Achievements": {
                 content: [
-                    ["infobox","achievement_details"],
+                    
                     "blank",
                     "achievements",
                     "blank",
