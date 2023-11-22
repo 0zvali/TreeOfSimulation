@@ -35,6 +35,7 @@ addLayer("SL", {
     },
     effect() {
         let eff = player.SL.points.add(1.25).pow(0.27)
+        eff = eff.times(tmp.SL.effectBase)
         return eff
     },
     effectDescription() {
