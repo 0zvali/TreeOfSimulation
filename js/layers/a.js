@@ -258,7 +258,7 @@ addLayer("a", {
             `Complete 'Universal Floors'.`
             }, 
         56: {
-            name: "Contracting with the Devil",
+            name: "Contract with the Devil",
              done() { return player.SL.points.gte(1)},
              unlocked(){return hasAchievement('a', 46) },
             tooltip: 
