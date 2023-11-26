@@ -439,6 +439,19 @@ function addedPlayerData() { return {
 var displayThings = [
 	"<a>Endgame: 1 Soul</a>",
 	function() {
+		return "You currently have an infect boost of " + format(gain) + "x"
+	  },
+	function() {
+		if (!inChallenge('CT', 11))
+		return "You are currently in: 'Explosive Floors' (Infects /2.5)"
+		if (!inChallenge('CT', 12))
+		return "You are currently in: 'Planetary Length' (Infects /4, EX /1.5, FL *3)"
+		if (!inChallenge('CT', 21))
+		return "You are currently in: 'Explosive Floors' (Infects /10, EX /2, FL *250)"
+		else
+		return "You are currently in: Normal Timeline"
+	  },
+	function() {
 		return "You are in Timeline " + formatWhole(player.CT.points.plus(1)) + "<br><br><br>"
 	  },
 ]
