@@ -439,7 +439,7 @@ function addedPlayerData() { return {
 var displayThings = [
 	"<a>Endgame: 1 Soul</a>",
 	function() {
-		return "You currently have an infect boost of " + format(player.points.gain) + "x"
+		return "You currently have an infect boost of " + format(player.points.getPointGen.gain) + "x"
 	  },
 	function() {
 		if (inChallenge('CT', 11))
