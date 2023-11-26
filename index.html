@@ -68,6 +68,9 @@
 			col: (player.tab !== 'none' && player.navTab !== 'none'), 
 			left: (player.tab !== 'none' && player.navTab !== 'none')}"
 			:style="{'margin-top': !readData(layoutInfo.showTree) && player.tab == 'info-tab' ? '50px' : ''}">
+			<div id = "newsTicker">
+				<div id = "newsContent" style = "display: inline-block; position: relative;"></div>
+			</div>
 			<div id="version" onclick="showTab('changelog-tab')" class="overlayThing">
 				{{VERSION.withoutName}}</div>
 			<button
