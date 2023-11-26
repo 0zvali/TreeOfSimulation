@@ -1,5 +1,5 @@
- // credit to Yahtzee Master#0168
-let ticker = document.getElementById("newsContent");
+"use strict" // credit to Yahtzee Master#0168
+ticker = document.getElementById("newsContent");
 let tickerContainer = document.getElementById("newsTicker"); // ticker is the text element, tickerContainer is... the thing that contains ticker
 
 let newsPosition = -1e100; // hopefully noones screen is this big
