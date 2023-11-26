@@ -1,4 +1,4 @@
-"use strict"; // credit to Yahtzee Master#0168
+ // credit to Yahtzee Master#0168
 let ticker = document.getElementById("newsContent");
 let tickerContainer = document.getElementById("newsTicker"); // ticker is the text element, tickerContainer is... the thing that contains ticker
 
