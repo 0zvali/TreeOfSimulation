@@ -346,7 +346,7 @@ function canGenPoints(){
 // Calculate points/sec!
 function getPointGen() {
 	if(!canGenPoints())
-		return new Decimal(0)
+		return new Decimal(1)
 
 	let gain = new Decimal(1)
 	// C Upgrades
