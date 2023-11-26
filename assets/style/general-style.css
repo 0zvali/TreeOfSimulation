@@ -62,6 +62,23 @@ h1, h2, h3, b, input {
 	text-shadow: 0 0 10px var(--points);
 }
 
+#newsTicker {
+    margin: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+
+    border: 3px solid rgb((112, 8, 8)55, 255, 255);
+    border-radius: 5px;
+
+  padding: 5px;
+
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#newsContent {
+    transition-duration: 0s !important;
+}
 @keyframes bgZoom {
 	0% {
 		scale: 1.1;
