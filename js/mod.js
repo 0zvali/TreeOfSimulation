@@ -439,7 +439,7 @@ function addedPlayerData() { return {
 var displayThings = [
 	"<a>Endgame: 1 Soul</a>",
 	function() {
-		return "You are in Timeline " + format(player.CT.points.plus(1)) + "<br><br><br>"
+		return "You are in Timeline " + formatWhole(player.CT.points.plus(1)) + "<br><br><br>"
 	  },
 ]
 
