@@ -20,7 +20,7 @@ function newNewsMessage() {
   for (const i in newsArray)
     if (newsArray[i][1] === undefined || newsArray[i][1]())
       newsCandidates.push(newsArray[i][0]);
-  player.newsTotal = player.newsTotal.add(1);
+  player.newsTotal = player.newsTotal.plus(1);
   ticker.innerHTML = newsCandidates[Math.floor(newsCandidates.length * Math.random())];
   newsPosition = tickerContainer.offsetWidth;
   ticker.style.left = `${newsPosition}px`};
