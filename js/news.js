@@ -41,9 +41,22 @@ const newsArray = [
   ["But that's just a theory! A TMT Theory!"],
   ["Why did the chicken cross the road?"],
   ["Peace and Peace and Peace and Peace and Peace"],
+  ["Did you hear about the guy who put tape on a leaking pipe...what a fool"],
+  ["Lovebeast isn't real enough to cause harm to the world"],
+  ["Time is running out"],
+  ["You have dysentery!"],
+  ["Vending machines can get you stuck somehow..."],
+  ["There's two types of players; pacifists...and murderers..."],
+  ["This is existing...because it just is..."],
+  ["This is sponsered by Raid Shadow Legends"],
+  ["He's cranking 90's!"],
+  ["Why did you add news ticker text at 2 in the morning dude..."],
+  ["Multiple Timelines, Endless Possiblities, and yet you choose to collapse them."],
+  ["There's no such thing as stopping now"],
+  ["Is it just me, or are Experiments more dangerous than humans..."],
 ];
 setTimeout(() => {
   ticker = document.getElementById("newsContent");
   tickerContainer = document.getElementById("newsTicker");
-  setInterval(tickNews, 20);
+  setInterval(tickNews, 25);
 }, 250);
