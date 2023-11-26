@@ -79,6 +79,7 @@ h1, h2, h3, b, input {
 #newsContent {
     transition-duration: 0s !important;
 }
+
 @keyframes bgZoom {
 	0% {
 		scale: 1.1;
