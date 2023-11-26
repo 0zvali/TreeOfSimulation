@@ -28,11 +28,23 @@ function newNewsMessage() {
 // you can add a second element to each message's array
 // the second element is a function that returns a boolean of whether to shown it
 const newsArray = [
-  ["put news news"],
-  ["even more news"],
+  ["I hear that if you change your devSpeed..."],
+  ["There are dangerous beings out there"],
+  ["What? You haven't heard of the Prestige Tree?"],
+  ["Wait...is this Covid-33?"],
+  ["What's the difference between this game, and another game......There isn't a difference, it's a game."],
+  ["Oh..pfft, you haven't heard of muck before?"],
+  ["I heard that someone is making the 1,000 layer Tree...Is that true?"],
+  ["Crystals have the tendency to move"],
+  ["Rabbits are supposed to be pretty friendly in the community."],
+  ["Wait why does this news ticker have a blue border?"],
+  ["But that's just a theory! A TMT Theory!"],
+  ["What? You only have " + format(player.points) + " infects? Rookie Numbers I tell ya"],
+  ["Why did the chicken cross the road?"],
+  ["Peace and Peace and Peace and Peace and Peace"],
 ];
 setTimeout(() => {
   ticker = document.getElementById("newsContent");
   tickerContainer = document.getElementById("newsTicker");
-  setInterval(tickNews, 20);
+  setInterval(tickNews, 15);
 }, 250);
