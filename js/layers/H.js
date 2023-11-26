@@ -45,7 +45,7 @@ addLayer("H", {
         dis = "which boosts Infects, Experiments, and Crystal gain by "+ format(tmp.H.effect) +"x"
         return dis
     },
-    row: 2, // Row the layer is in on the tree (0 is the first row)
+    row: 3, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "h", description: "h: reset for Humans", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],

@@ -38,7 +38,7 @@ addLayer("R", {
         dis = "which boosts Infects, Experiments, and Crystal gain by "+ format(tmp.R.effect) +"x"
         return dis
     },
-    row: 2, // Row the layer is in on the tree (0 is the first row)
+    row: 3, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "r", description: "r: reset for Rooms", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],

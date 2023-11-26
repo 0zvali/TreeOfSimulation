@@ -34,7 +34,7 @@ addLayer("W", {
         dis = "which boosts all previous layers (Except Rooms) by "+ format(tmp.W.effect) +"x"
         return dis
     },
-    row: 3, // Row the layer is in on the tree (0 is the first row)
+    row: 4, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "w", description: "w: reset for Weapons", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],

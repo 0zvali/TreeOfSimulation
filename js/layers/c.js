@@ -62,7 +62,7 @@ addLayer("c", {
         if (hasUpgrade('c', 53)) pow = pow.add(.01)
         return pow
     },
-    row: 0, // Row the layer is in on the tree (0 is the first row)
+    row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "c", description: "c: reset for Crystals", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],

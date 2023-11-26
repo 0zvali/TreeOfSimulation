@@ -41,7 +41,7 @@ addLayer("CT", {
         if (player.CT.points.gte(1)) dis = "You are currently in Timeline 2 which is much different then Timeline 1"
         return dis
     },
-    row: 4, // Row the layer is in on the tree (0 is the first row)
+    row: 5, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "t", description: "T: reset for Collapsed Timelines", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],

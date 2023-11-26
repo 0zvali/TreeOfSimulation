@@ -44,7 +44,7 @@ addLayer("EX", {
         let value1 = new Decimal(0);
         return value1
     },
-    row: 0, // Row the layer is in on the tree (0 is the first row)
+    row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "x", description: "x: reset for Explosives", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
