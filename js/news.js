@@ -20,7 +20,7 @@ function newNewsMessage() {
   for (const i in newsArray)
     if (newsArray[i][1] === undefined || newsArray[i][1]())
       newsCandidates.push(newsArray[i][0]);
-  player.newsTotal = player.newsTotal.plus(1);
+  player.newsTotal = player.newsTotal.add(1);
   ticker.innerHTML = newsCandidates[Math.floor(newsCandidates.length * Math.random())];
   newsPosition = tickerContainer.offsetWidth;
   ticker.style.left = `${newsPosition}px`};
@@ -29,6 +29,7 @@ function newNewsMessage() {
 // the second element is a function that returns a boolean of whether to shown it
 const newsArray = [
   ["put news news"],
+  ["even more news"],
 ];
 setTimeout(() => {
   ticker = document.getElementById("newsContent");
