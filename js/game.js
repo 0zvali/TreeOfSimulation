@@ -392,7 +392,34 @@ function hardReset(resetOptions) {
 }
 
 var ticking = false
+var lastTenTicks = []
+var interval
+var tickWait = 0
+var tickWaitStart = 0
+function input () {
+	value = document.getElementById("myRange").value
+	document.getElementById("demo").innerHTML = value
+	player.ms = Number(value)
+	clearInterval(interval)
+	startInterval()
+}
+function startInterval() {
+	interval = setInterval(function() {
+	tickWait = 1/0
 
+	var tickStart = new Date().getTime()
+	try {
+		gameLoop()
+	} catch (e) {
+		console.error(e)
+	}
+	var tickEnd = new Date().getTime()
+	var tickDiff = tickEnd - tickStart
+
+	tickWait = tickDiff * 2
+	tickWaitStart = tickEnd
+	}, player.ms);
+}
 var interval = setInterval(function() {
 	if (player===undefined||tmp===undefined) return;
 	if (ticking) return;
