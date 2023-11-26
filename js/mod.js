@@ -437,7 +437,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"<a>Endgame: 1 Soul - Timeline 2</a><br>"
+	"<a>Endgame: 1 Soul - Timeline 2</a><br><br><br>"
 	
 ]
 
