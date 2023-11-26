@@ -67,6 +67,12 @@ a {
 	cursor: pointer
 }
 
+.s {
+	color: #266bb1;
+	text-decoration-line: none;
+	cursor: pointer
+}
+
 .link {
 	display: block;
 	font-size: 20px;

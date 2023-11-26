@@ -54,6 +54,7 @@ const newsArray = [
   ["Multiple Timelines, Endless Possiblities, and yet you choose to collapse them."],
   ["There's no such thing as stopping now"],
   ["Is it just me, or are Experiments more dangerous than humans..."],
+  ["this news ticker is sponsored by the fame tree! Get famous behind a screen today! Go to  <a class=link href=https://raw.githack.com/jezzacozzie/The-Fame-Tree/master/index.html target=_blank>Fame Tree</a> today!"],
 ];
 setTimeout(() => {
   ticker = document.getElementById("newsContent");
