@@ -45,5 +45,5 @@ const newsArray = [
 setTimeout(() => {
   ticker = document.getElementById("newsContent");
   tickerContainer = document.getElementById("newsTicker");
-  setInterval(tickNews, 20);
-}, 550);
+  setInterval(tickNews, 25);
+}, 150);
