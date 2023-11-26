@@ -39,7 +39,6 @@ const newsArray = [
   ["Rabbits are supposed to be pretty friendly in the community."],
   ["Wait why does this news ticker have a blue border?"],
   ["But that's just a theory! A TMT Theory!"],
-  ["What? You only have " + format(player.points) + " infects? Rookie Numbers I tell ya"],
   ["Why did the chicken cross the road?"],
   ["Peace and Peace and Peace and Peace and Peace"],
 ];
