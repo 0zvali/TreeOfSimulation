@@ -1,6 +1,32 @@
 // ************ Themes ************
-var themes = ["E205", "E205_outside", "E205-Timeline2"];
-let displayNames = ["Inside", "Outside", "Corrupted"];
+var themes = [
+function() {
+	if (player.CT.points.gte(1))
+	return "E205-Timeline2"
+	else 
+	return "E205"
+  },
+  function() {
+	if (player.CT.points.gte(1))
+	return "E205-Timeline2"
+	else 
+	return "E205_outside"
+  },
+	];
+let displayNames = [
+	function() {
+		if (player.CT.points.gte(1))
+		return "Corrupted"
+		else 
+		return "Inside"
+	  },
+	  function() {
+		if (player.CT.points.gte(1))
+		return "Corrupted"
+		else 
+		return "Outside"
+	  },
+	];
 
 function changeTheme() {
 	document.body.classList = "theme-default " + "theme-" + options.theme;
@@ -19,12 +45,6 @@ function switchTheme() {
 		index ++;
 		options.theme = themes[index];
 		options.theme = themes[1];
-	}
-	if (player.CT.points.gte(1)) {
-		index ++;
-		options.theme = themes[index];
-		options.theme = themes[1];
-		options.theme = themes[2];
 	}
 	
 	changeTheme();
