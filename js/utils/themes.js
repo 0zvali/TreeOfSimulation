@@ -21,6 +21,9 @@ function switchTheme() {
 		options.theme = themes[1];
 	}
 	if (player.CT.points.gte(1)) {
+		index ++;
+		options.theme = themes[index];
+		options.theme = themes[1];
 		options.theme = themes[2];
 	}
 	
