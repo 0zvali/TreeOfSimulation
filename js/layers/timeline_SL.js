@@ -39,7 +39,7 @@ addLayer("SL", {
         return eff
     },
     effectDescription() {
-        dis = "which is boosting floor gain by "+format(tmp.E.effect)+"x"
+        dis = "which is boosting floor gain by "+format(tmp.SL.effect)+"x"
         return dis
     },
     effectBase() {
