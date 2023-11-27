@@ -176,7 +176,7 @@ milestones: {
         description: "Increase Experiment Effect Base by infects & 5x Infects",
         cost: new Decimal(33),
         effect() {
-            return (player.points.add(1.136).log10().pow(0.067)).max(1).min(3.14)
+            return (player.points.add(1.136).log10().pow(0.15)).max(1).min(6.28)
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(3.14) ? "(Base Capped)" : "";
