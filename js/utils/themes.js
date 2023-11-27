@@ -1,32 +1,7 @@
 // ************ Themes ************
-var themes = [
-function() {
-	if (player.CT.points.gte(1))
-	return "E205-Timeline2"
-	else 
-	return "E205"
-  },
-  function() {
-	if (player.CT.points.gte(1))
-	return "E205-Timeline2"
-	else 
-	return "E205_outside"
-  },
+var themes = ["E205", "E205_Timeline2"
 	];
-let displayNames = [
-	function() {
-		if (player.CT.points.gte(1))
-		return "Corrupted"
-		else 
-		return "Inside"
-	  },
-	  function() {
-		if (player.CT.points.gte(1))
-		return "Corrupted"
-		else 
-		return "Outside"
-	  },
-	];
+let displayNames = ["Inside", "Corruption"];
 
 function changeTheme() {
 	document.body.classList = "theme-default " + "theme-" + options.theme;
