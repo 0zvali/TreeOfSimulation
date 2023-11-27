@@ -449,6 +449,10 @@ var displayThings = [
 		return "You are currently in: Normal Timeline"
 	  },
 	function() {
+		if (player.devSpeed > 1)
+		return `<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'>I will never let you change time in this reality</h4>`
+	  },
+	function() {
 		return "You are in Timeline " + formatWhole(player.CT.points.plus(1)) + "<br><br><br>"
 	  },
 ]
