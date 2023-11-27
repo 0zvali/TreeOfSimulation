@@ -1,6 +1,6 @@
 // ************ Themes ************
-var themes = ["E205", "E205_outside"];
-let displayNames = ["Inside", "Outside"];
+var themes = ["E205", "E205_outside", "E205-Timeline2"];
+let displayNames = ["Inside", "Outside", "Corrupted"];
 
 function changeTheme() {
 	document.body.classList = "theme-default " + "theme-" + options.theme;
@@ -19,6 +19,9 @@ function switchTheme() {
 		index ++;
 		options.theme = themes[index];
 		options.theme = themes[1];
+	}
+	if (player.CT.points.gte(1)) {
+		option.theme = themes[2];
 	}
 	
 	changeTheme();
