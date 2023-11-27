@@ -27,6 +27,7 @@ addLayer("c", {
         if (hasUpgrade('c', 43)) mult = mult.times(upgradeEffect('c',43))
         if (hasUpgrade('c', 44)) mult = mult.times(upgradeEffect('c',44))
         // E Upgrade Effects (# Order)
+        if (hasUpgrade('E', 15)) mult = mult.times(upgradeEffect('E',15))
         if (hasUpgrade('E', 16)) mult = mult.times(upgradeEffect('E',16))
         if (hasUpgrade('E', 25)) mult = mult.times(upgradeEffect('E',25))
         if (hasUpgrade('E', 32)) mult = mult.times(upgradeEffect('E',32))
