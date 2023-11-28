@@ -115,9 +115,9 @@ milestones: {
             requirementDescription: "100 Fusions",
             effectDescription() {
                 let text = 
-                `Keep the 4th Row of Experiment Upgrades (And 'Goon')`;
+                `Keep the 4th Row of Experiment Upgrades (I wonder if you found the easier path...)`;
                 if (hasMilestone("F", 14)) text =
-                `Keep the 4th Row of Experiment Upgrades<br>
+                `Keep the 4th Row of Experiment Upgrades (Getting 100 Fusions before starting on the Experiment Upgrades of course)<br>
                 Give us more Fusion stuff you damn mod creator...<br>
                 It's annoying to go back and forth y'know.`;
                 return text;
