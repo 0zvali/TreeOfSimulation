@@ -176,7 +176,7 @@ milestones: {
         description: "Increase Experiment Effect Base by infects & 5x Infects",
         cost: new Decimal(33),
         effect() {
-            return (player.points.add(1.136).log10().pow(0.225)).max(1).min(6.28)
+            return (player.points.add(1.136).log10().pow(0.3)).max(1).min(6.28)
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(3.14) ? "(Base Capped)" : "";
@@ -224,10 +224,10 @@ milestones: {
         description: "Boosts Experiment Gain by Infects",
         cost: new Decimal(180),
         effect(){
-            return (player.points.plus(1).pow(0.07).plus(1)).max(1).min(7.5)
+            return (player.points.plus(1).pow(0.03).plus(1)).max(1).min(16)
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(7.5) ? "(Capped)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(16) ? "(Capped)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
