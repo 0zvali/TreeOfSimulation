@@ -325,7 +325,7 @@ milestones: {
     },
     32: {
         title: "Malachite",
-        description: "Infects & Experiments boosts Crystals. Keep the first 2 upgrades on the 5th Row! (QoL for once?)",
+        description: "Infects & Experiments boosts Crystals. Keep the first 2 upgrades on the 5th Row of Crystals! (QoL at v2.0.1 finally?)",
         cost: new Decimal(3.5e6),
         effect(){
             return (((player.points.plus(0.1).log10().pow(0.455))) + (player.E.points.plus(1).log10().pow(0.55)))
