@@ -24,7 +24,7 @@ let changelog = `<h1>Changelog:</h1><br>
 		a = bug/mechanic fixes<br><br>
 
 		<h3>v2.0.1: Breaking News...</h3><br>
-			- Added News Ticker (w vorona and w jt)<br>
+			- Removal of News Ticker<br>
 			- Added Corrupted Theme<br>
 			- Added more UI features to show Challenge & Timeline<br>
 			- Balanced 'Lovebeast' Formula<br>
@@ -445,7 +445,6 @@ function getPointGen() {
 
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() { return {
-	newsTotal: decimalZero,
 }}
 
 // Display extra things at the top of the page
