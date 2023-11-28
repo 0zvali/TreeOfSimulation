@@ -301,7 +301,7 @@ addLayer("c", {
             if(hasUpgrade("W", 15)) desc = "Crystals are boosting themselves and Infects (3x > 620x Cap)";
             return desc
         },
-        cost: new Decimal(9.99e17),
+        cost: new Decimal(1e16),
         effect() {
             let effect0 = (player.c.points.max(1).add(0.8).log10().pow(0.076)).max(1).min(3);
                 if(hasUpgrade("W", 15)) effect0 = (player.c.points.max(1).add(0.44).log10().pow(0.33)).max(1).min(620)
@@ -328,7 +328,7 @@ addLayer("c", {
             if(hasUpgrade("W", 15)) desc = "Crystals are layering again?...Experiments boosts Infects & Fusions (10x > 120x Cap)";
             return desc
         },
-        cost: new Decimal(3.88e19),
+        cost: new Decimal(6.5e16),
         effect() {
             let effect0 = (player.E.points.max(1).add(0.96).log10().pow(0.63)).max(1).min(10);
                 if(hasUpgrade("W", 15)) effect0 = (player.E.points.max(1).add(0.5).pow(0.14)).max(1).min(120)
