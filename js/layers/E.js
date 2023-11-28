@@ -312,7 +312,7 @@ milestones: {
         description: "Experiments boosts Infects",
         cost: new Decimal(250000),
         effect(){
-            return (player.E.points.plus(0.74).log10().pow(0.56)).max(1).min(25)
+            return (player.E.points.plus(0.74).log10().pow(0.85)).max(1).min(25)
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
