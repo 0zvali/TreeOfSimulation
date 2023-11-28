@@ -126,14 +126,14 @@ milestones: {
             },
         },
         15: {
-            requirementDescription: "1e11 Experiments and 7 Fusions",
+            requirementDescription: "5e9 Experiments and 4 Fusions",
             effectDescription(){
                 let text
                 text = `Passively Gain 50% Experiments/sec & 35% Crystals/sec.`
                 if (hasMilestone("E",15)) text = `Passively Gain 50% Experiments/sec & 35% Crystals/sec.<br> You get to keep this Milestone if you have 'Kryruin'!`
                 return text
             },
-            done() { return player.E.points.gte(1e11) && player.F.points.gte(7) },
+            done() { return player.E.points.gte(5e9) && player.F.points.gte(4) },
             unlocked(){
                 return hasMilestone('E',14) 
             },
