@@ -12,8 +12,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "2.0_betatest_1",
-	name: "Another World?",
+	num: "2.0.1",
+	name: "Breaking News...",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -22,6 +22,19 @@ let changelog = `<h1>Changelog:</h1><br>
 		y = minor update<br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
+
+		<h3>v2.0.1: Breaking News...</h3><br>
+			- Added News Ticker (w vorona and w jt)<br>
+			- Added Corrupted Theme<br>
+			- Added more UI features to show Challenge & Timeline<br>
+			- Balanced 'Lovebeast' Formula<br>
+			- Balanced 'Snapper' Formula<br>
+			- Balanced after 5M Experiments<br>
+			- Balanced Timeline 2 by a smudge<br>
+			- Fixed Souls having no effects<br>
+			- Fixed News Ticker being shown on the bottom (:css_bonk:)<br>
+			- No New Content Currently D:<br><br>
+
 
 		<h1>v2.0: Another World?</h1><br>
 			- Added 4 Layers<br> 
