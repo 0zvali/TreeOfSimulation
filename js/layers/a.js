@@ -134,7 +134,7 @@ addLayer("a", {
             },
         26: {
                 name: "The Beginning of Experimental Life",
-                done() { return player.E.points.gte(400000000) },
+                done() { return player.E.points.gte(100000000) },
                 tooltip: `
                 Get 100,000,000 Experiments<br>
                 Reward: 2.5x Infects
