@@ -398,7 +398,7 @@ addLayer("c", {
             description: "Salty Crystals...Boost Crystals by Experiments",
             cost: new Decimal(3.44e27),
             unlocked(){
-                return hasMilestone("E", 13) && hasUpgrade("c", 43);
+                return (hasMilestone("E", 13) && hasUpgrade("c", 43)) || hasUpgrade('F', 12);
             },
             effect() {
                 return player.E.points.add(1).pow(0.06)
