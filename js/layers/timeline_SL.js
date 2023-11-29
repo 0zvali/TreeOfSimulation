@@ -66,7 +66,7 @@ buyables: {
         11: {
           cost(x) {
             let current = x.add(1);
-            let cost = D(50).mul(current);
+            let cost = Decimal(50).mul(current);
             return cost;
           },
           title: "Soulless Actions",
@@ -84,10 +84,10 @@ buyables: {
             setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1));
           },
           effect(x) {
-            let eff = D(1).sub(0.1).max(0.5);
+            let eff = Decimal(1).sub(0.1).max(0.5);
             return eff;
           },
-          purchaseLimit: D(5),
+          purchaseLimit: Decimal(5),
         },
     },
 upgrades: {
