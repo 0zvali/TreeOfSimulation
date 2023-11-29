@@ -452,10 +452,6 @@ function addedPlayerData() { return {
 var displayThings = [
 	"<a>Endgame: 1 Soul</a>",
 	function() {
-		return format(ticker)
-	  },
-
-	function() {
 		if (inChallenge('CT', 11))
 		return "You are currently in: 'Explosive Floors' (Infects /2.5)"
 		if (inChallenge('CT', 12))
@@ -487,43 +483,6 @@ function colored(layer, text, tag='h2') { return `<${tag} style='color:${temp[la
 var backgroundStyle = {
 
 }
-
-const intervalArray = [
-	["19$ Fortnite Card. Who wants it?"],
-	["Buyn Buyn Buyn Buyn Buyn Buyn"],
-	["Downgraded News be like:"],
-	["Now this is more lame as a news ticker but atleast it doesn't suck"],
-]
-  let ticker = document.getElementById("newsContent");
-  
-  let newsPosition = 0;
-  
-  function tickNews() {
-	if (player) {
-	if (!player.hideNews) {
-	newsPosition = 0;
-	ticker.style = `${newsPosition}px`;
-  
-	if (newsPosition < -ticker.offsetWidth) newNewsMessage()};
-	}
-  }
-  
-  function newNewsMessage() {
-	if (!player.hideNews) {
-	const newsCandidates = [];
-	for (const i in intervalArray)
-	  if (intervalArray[i][1] === undefined || intervalArray[i][1]())
-		newsCandidates.push(intervalArray[i][0]);
-	player.newsTotal = player.newsTotal.plus(1);
-	ticker.innerHTML =
-	  newsCandidates[Math.floor(newsCandidates.length * Math.random())];
-	ticker.style = `${newsPosition}px`};
-  }
-
-  setTimeout(() => {
-	ticker = document.getElementById("newsContent");
-	setInterval(tickNews, 1500);
-  }, 150);
 // You can change this if you have things that can be messed up by long tick lengths
 function maxTickLength() {
 	return(3600) // Default is 1 hour which is just arbitrarily large
