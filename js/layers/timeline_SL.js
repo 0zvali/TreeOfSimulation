@@ -72,7 +72,7 @@ buyables: {
           title: "Soulless Actions",
           display() {
             return `Divide the Floor Requirement by 10%<br>
-            Cost: ${format(getBuyableCost('SL', 11))}
+            Cost: ${format(cost(x))}
             Effect: /${format(buyableEffect('SL', 11))}
             Bought: ${getBuyableAmount('SL', 11)}/5`;
           },
