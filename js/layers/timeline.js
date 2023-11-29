@@ -73,7 +73,7 @@ challenges: {
             canComplete: function() {return player.EX.points.gte(1)},
             goalDescription: "1 Explosive",
             rewardDescription: "Triple Floor Gain",
-            onEnter(){player.SL.keep = true},
+            onEnter(){if (player.SL.unlocked) player.SL.keep = true},
             unlocked(){
                 return hasMilestone('EX', 11) || inChallenge('CT', 11) || hasChallenge('CT', 11)
             },
@@ -88,7 +88,7 @@ challenges: {
             canComplete: function() {return player.FL.points.gte(150000000)},
             goalDescription: "150,000,000 Floors",
             rewardDescription() { return "Infects boosts EX (" + format(player.points.add(1).pow(0.05)) + "x)"},
-            onEnter(){player.SL.keep = true},
+            onEnter(){if (player.SL.unlocked) player.SL.keep = true},
             unlocked(){
                 return hasMilestone('FL', 11) || inChallenge('CT', 12) || hasChallenge('CT', 12)
             },
@@ -104,7 +104,7 @@ challenges: {
             canComplete: function() {return player.FL.points.gte(1e28)},
             goalDescription: "1e28 Floors (Break the universe...)",
             rewardDescription() { return "Floors boosts Infects & Unlock the next layer (" + format(player.FL.points.add(1).pow(0.066)) + "x)"},
-            onEnter(){player.SL.keep = true},
+            onEnter(){if (player.SL.unlocked) player.SL.keep = true},
             unlocked(){
                 return hasUpgrade('EX', 22) || inChallenge('CT', 21) || hasChallenge('CT', 21)
             },
