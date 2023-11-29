@@ -66,13 +66,13 @@ buyables: {
         11: {
           cost(x) {
             let current = x.add(1);
-            let cost = new Decimal(50).mul(current);
+            let cost = D(50).mul(current);
             return cost;
           },
           title: "Soulless Actions",
           display() {
             return `Divide the Floor Requirement by 10%<br>
-            Cost: ${format(cost(x))}
+            Cost: ${format(getBuyableCost(this.layer, this.id))}
             Effect: /${format(buyableEffect('SL', 11))}
             Bought: ${getBuyableAmount('SL', 11)}/5`;
           },
@@ -84,10 +84,10 @@ buyables: {
             setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1));
           },
           effect(x) {
-            let eff = new Decimal(1).sub(0.1).max(0.5);
+            let eff = D(1).sub(0.1).max(0.5);
             return eff;
           },
-          purchaseLimit: new Decimal(5),
+          purchaseLimit: D(5),
         },
     },
 upgrades: {
