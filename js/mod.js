@@ -453,7 +453,7 @@ let newsNews = document.getElementById("intervalArray")
 var displayThings = [
 	"<a>Endgame: 1 Soul</a>",
 	function() {
-		return format(newsNews)
+		return format(intervalArray)
 	  },
 
 	function() {
