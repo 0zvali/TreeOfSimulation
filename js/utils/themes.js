@@ -1,6 +1,5 @@
 // ************ Themes ************
-var themes = ["E205", "E205_Timeline2"
-	];
+var themes = ["E205", "E205_outside"];
 let displayNames = ["Inside", "Corruption"];
 
 function changeTheme() {

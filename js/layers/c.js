@@ -27,6 +27,7 @@ addLayer("c", {
         if (hasUpgrade('c', 43)) mult = mult.times(upgradeEffect('c',43))
         if (hasUpgrade('c', 44)) mult = mult.times(upgradeEffect('c',44))
         // E Upgrade Effects (# Order)
+        if (hasUpgrade('E', 15)) mult = mult.times(upgradeEffect('E',15))
         if (hasUpgrade('E', 16)) mult = mult.times(upgradeEffect('E',16))
         if (hasUpgrade('E', 25)) mult = mult.times(upgradeEffect('E',25))
         if (hasUpgrade('E', 32)) mult = mult.times(upgradeEffect('E',32))
@@ -79,13 +80,14 @@ addLayer("c", {
         if (hasUpgrade ('F', 16) && resettingLayer == "F") player.E.milestones.push("15")
         if (hasUpgrade ('F', 22) && resettingLayer == "F") player.E.milestones.push("16")
         if (hasUpgrade('R', 16)) player.R.upgrades.push("13", "14", "15", "16")
+        if (hasUpgrade('E', 32)) player.c.upgrades.push("41", "42")
         // Human Milestone
         if (hasMilestone ('H', 11) && resettingLayer == "H") player.c.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33", "34", "35","41", "42", "43", "44", "45","51", "52", "53", "54", "55")
         if (hasMilestone ('H', 13) && resettingLayer == "H") player.E.upgrades.push("11","12","13","14","15","16","21","22","23","24","25","26","31","32","33","34","35","36")
         if (hasMilestone ('H', 13) && resettingLayer == "H") player.E.upgrades.push("41", "42", "43", "44", "45", "46")
         if (hasMilestone ('H', 13) && resettingLayer == "H") player.E.milestones.push("11", "12", "13", "14")
         if (hasMilestone ('H', 13) && resettingLayer == "H") player.E.milestones.push("15")
-        if (hasMilestone ('H', 13) && resettingLayer == "H") player.E.milestones.push("16")
+        if (hasMilestone ('H', 13)) player.E.milestones.push("16")
         // Room Milestone (To Prevent ResettingLayer)
         if (hasMilestone ('R', 11)) player.c.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33", "34", "35","41", "42", "43", "44", "45","51", "52", "53", "54", "55")
         if (hasMilestone ('R', 11)) player.E.upgrades.push("11","12","13","14","15","16","21","22","23","24","25","26","31","32","33","34","35","36","41","42","43","44","45","46")
@@ -300,7 +302,7 @@ addLayer("c", {
             if(hasUpgrade("W", 15)) desc = "Crystals are boosting themselves and Infects (3x > 620x Cap)";
             return desc
         },
-        cost: new Decimal(9.99e17),
+        cost: new Decimal(1e16),
         effect() {
             let effect0 = (player.c.points.max(1).add(0.8).log10().pow(0.076)).max(1).min(3);
                 if(hasUpgrade("W", 15)) effect0 = (player.c.points.max(1).add(0.44).log10().pow(0.33)).max(1).min(620)
@@ -327,7 +329,7 @@ addLayer("c", {
             if(hasUpgrade("W", 15)) desc = "Crystals are layering again?...Experiments boosts Infects & Fusions (10x > 120x Cap)";
             return desc
         },
-        cost: new Decimal(3.88e19),
+        cost: new Decimal(6.5e16),
         effect() {
             let effect0 = (player.E.points.max(1).add(0.96).log10().pow(0.63)).max(1).min(10);
                 if(hasUpgrade("W", 15)) effect0 = (player.E.points.max(1).add(0.5).pow(0.14)).max(1).min(120)
@@ -396,7 +398,7 @@ addLayer("c", {
             description: "Salty Crystals...Boost Crystals by Experiments",
             cost: new Decimal(3.44e27),
             unlocked(){
-                return hasMilestone("E", 13) && hasUpgrade("c", 43);
+                return (hasMilestone("E", 13) && hasUpgrade("c", 43)) || hasUpgrade('F', 12);
             },
             effect() {
                 return player.E.points.add(1).pow(0.06)

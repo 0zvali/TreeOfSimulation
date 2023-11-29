@@ -169,10 +169,10 @@ upgrades: {
             description: "Infects boost infects...oh no...",
             cost: new Decimal(15000),
             effect() {
-                return (player.points.max(1).add(1.1).pow(1.5));
+                return (player.points.max(1).add(1.1).pow(1.5)).max(1).min("e1e50");
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(1e999) ? "(Capped)" : "";
+                let capped = upgradeEffect(this.layer, this.id).gte("e1e50") ? "(hardcapped)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },

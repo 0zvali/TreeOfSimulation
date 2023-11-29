@@ -22,7 +22,7 @@ addLayer("SL", {
     baseResource: "Floors", // Name of resource prestige is based on
     baseAmount() {return player.FL.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.58, // Prestige currency exponent
+    exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
@@ -39,7 +39,7 @@ addLayer("SL", {
         return eff
     },
     effectDescription() {
-        dis = "which is boosting floor gain by "+format(tmp.E.effect)+"x"
+        dis = "which is boosting floor gain by "+format(tmp.SL.effect)+"x"
         return dis
     },
     effectBase() {

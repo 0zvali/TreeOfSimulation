@@ -126,14 +126,14 @@ milestones: {
             },
         },
         15: {
-            requirementDescription: "1e11 Experiments and 7 Fusions",
+            requirementDescription: "5e9 Experiments and 4 Fusions",
             effectDescription(){
                 let text
                 text = `Passively Gain 50% Experiments/sec & 35% Crystals/sec.`
                 if (hasMilestone("E",15)) text = `Passively Gain 50% Experiments/sec & 35% Crystals/sec.<br> You get to keep this Milestone if you have 'Kryruin'!`
                 return text
             },
-            done() { return player.E.points.gte(1e11) && player.F.points.gte(7) },
+            done() { return player.E.points.gte(5e9) && player.F.points.gte(4) },
             unlocked(){
                 return hasMilestone('E',14) 
             },
@@ -176,7 +176,7 @@ milestones: {
         description: "Increase Experiment Effect Base by infects & 5x Infects",
         cost: new Decimal(33),
         effect() {
-            return (player.points.add(1.136).log10().pow(0.067)).max(1).min(3.14)
+            return (player.points.add(1.136).log10().pow(0.55)).max(1).min(13)
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(3.14) ? "(Base Capped)" : "";
@@ -224,10 +224,10 @@ milestones: {
         description: "Boosts Experiment Gain by Infects",
         cost: new Decimal(180),
         effect(){
-            return (player.points.plus(1).pow(0.07).plus(1)).max(1).min(7.5)
+            return (player.points.plus(1).pow(0.03).plus(1)).max(1).min(16)
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(7.5) ? "(Capped)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(16) ? "(Capped)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
@@ -312,7 +312,7 @@ milestones: {
         description: "Experiments boosts Infects",
         cost: new Decimal(250000),
         effect(){
-            return (player.E.points.plus(0.74).log10().pow(0.56)).max(1).min(25)
+            return (player.E.points.plus(0.74).log10().pow(0.85)).max(1).min(25)
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
@@ -325,7 +325,7 @@ milestones: {
     },
     32: {
         title: "Malachite",
-        description: "Infects & Experiments boosts Crystals",
+        description: "Infects & Experiments boosts Crystals. Keep the first 2 upgrades on the 4th Row of Crystals! (QoL at v2.0.1 finally?)",
         cost: new Decimal(3.5e6),
         effect(){
             return (((player.points.plus(0.1).log10().pow(0.455))) + (player.E.points.plus(1).log10().pow(0.55)))
