@@ -502,7 +502,7 @@ const intervalArray = [
 	if (player) {
 	if (!player.hideNews) {
 	newsPosition = 0;
-	ticker = `${newsPosition}px`;
+	ticker.style = `${newsPosition}px`;
   
 	if (newsPosition < -ticker.offsetWidth) newNewsMessage()};
 	}
@@ -517,7 +517,7 @@ const intervalArray = [
 	player.newsTotal = player.newsTotal.plus(1);
 	ticker.innerHTML =
 	  newsCandidates[Math.floor(newsCandidates.length * Math.random())];
-	ticker = `${newsPosition}px`};
+	ticker.style = `${newsPosition}px`};
   }
 
   setTimeout(() => {
