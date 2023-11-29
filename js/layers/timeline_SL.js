@@ -61,6 +61,34 @@ addLayer("SL", {
     },
 milestones: {
     },
+
+buyables: {
+        11: {
+          cost(x) {
+            let current = x.add(1);
+            let cost = new Decimal(50).mul(current);
+            return cost;
+          },
+          title: "Soulless Actions",
+          display() {
+            return `Divide the Floor Requirement by 10%<br>
+            Cost: ${format(getBuyableCost(this.layer, this.id))}
+            Effect: /${format(buyableEffect(this.layer, this.id))}
+            Bought: ${getBuyableAmount(this.layer, this.id)}/5`;
+          },
+          canAfford() {
+            return player[this.layer].points.gte(this.cost());
+          },
+          buy() {
+            player[this.layer].points = player[this.layer].points.sub(this.cost());
+            setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1));
+          },
+          effect(x) {
+            let eff = D(1).sub(0.1).min(100);
+            return eff;
+          },
+          purchaseLimit: D(5),
+        },
 upgrades: {
         rows: 2,
         cols: 5,
