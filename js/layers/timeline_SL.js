@@ -89,6 +89,7 @@ buyables: {
           },
           purchaseLimit: D(5),
         },
+    },
 upgrades: {
         rows: 2,
         cols: 5,
