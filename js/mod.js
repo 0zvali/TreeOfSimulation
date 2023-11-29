@@ -453,7 +453,7 @@ let newsNews = document.getElementById("intervalArray")
 var displayThings = [
 	"<a>Endgame: 1 Soul</a>",
 	function() {
-		return format(intervalArray)
+		return format(player.intervalArray)
 	  },
 
 	function() {
@@ -497,7 +497,8 @@ const intervalArray = [
 ]
 setTimeout(() => {
 	newsNews = document.getElementById("intervalArray");
-	player.intervalArray = player.intervalArray.plus(1)
+	player.intervalArray = intervalArray[1]
+	intervalArray++
 	setInterval(5000);
   }, 150);
 // You can change this if you have things that can be messed up by long tick lengths
