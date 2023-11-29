@@ -450,7 +450,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"<a>Endgame: 1 Soul</a>",
+	"<a>Endgame: 75000 Soul</a>",
 	function() {
 		if (inChallenge('CT', 11))
 		return "You are currently in: 'Explosive Floors' (Infects /2.5)"
@@ -458,6 +458,8 @@ var displayThings = [
 		return "You are currently in: 'Planetary Length' (Infects /4, EX /1.5, FL *3)"
 		if (inChallenge('CT', 21))
 		return "You are currently in: 'Universal Floors' (Infects /10, EX /2, FL *250)"
+		if (inChallenge('CT', 22))
+		return "You are currently in: 'Soul Shield' (Infects /500 & EX /200)"
 		else
 		return "You are currently in: Normal Timeline"
 	  },

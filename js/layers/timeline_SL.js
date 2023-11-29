@@ -25,6 +25,7 @@ addLayer("SL", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasChallenge('CT', 22)) mult = mult.times(player.SL.points.add(1).pow(0.06))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -61,35 +62,6 @@ addLayer("SL", {
     },
 milestones: {
     },
-
-buyables: {
-        11: {
-          cost(x) {
-            let current = x.add(1);
-            let cost = new Decimal(50).times(current);
-            return cost;
-          },
-          title: "Soulless Actions",
-          display() {
-            return `Divide the Floor Requirement by 10%<br>
-            Cost: ${format(getBuyableCost(this.layer, this.id))}
-            Effect: /${format(buyableEffect('SL', 11))}
-            Bought: ${getBuyableAmount('SL', 11)}/5`;
-          },
-          canAfford() {
-            return player[this.layer].points.gte(this.cost());
-          },
-          buy() {
-            player[this.layer].points = player[this.layer].points.sub(this.cost());
-            setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1));
-          },
-          effect(x) {
-            let eff = new Decimal(1).sub(0.1).max(0.5);
-            return eff;
-          },
-          purchaseLimit: new Decimal(5),
-        },
-    },
 upgrades: {
         rows: 2,
         cols: 5,
@@ -99,6 +71,46 @@ upgrades: {
             cost: new Decimal(1),
             unlocked(){
                 return player.SL.points.gte(0)
+            },
+        },
+        12: {
+            title: "Soulful Actions",
+            description: "Divide Floor Requirement by 1.2",
+            cost: new Decimal(5),
+            unlocked(){
+                return hasUpgrade('SL', 11)
+            },
+        },
+        13: {
+            title: "Heaven's Gift",
+            description: "Divide Floor Requirement by 1.5",
+            cost: new Decimal(40),
+            unlocked(){
+                return hasUpgrade('SL', 12)
+            },
+        },
+        14: {
+            title: "Explosive Souls",
+            description: "Quadtruple Explosive Gain",
+            cost: new Decimal(170),
+            unlocked(){
+                return hasUpgrade('SL', 13)
+            },
+        },
+        15: {
+            title: "Infectious Souls",
+            description: "Divide Explosive Requirement by 1.35",
+            cost: new Decimal(650),
+            unlocked(){
+                return hasUpgrade('SL', 14)
+            },
+        },
+        21: {
+            title: "Souling the Souls",
+            description: "Unlock another CT Challenge",
+            cost: new Decimal(7500),
+            unlocked(){
+                return hasUpgrade('SL', 15)
             },
         },
     },

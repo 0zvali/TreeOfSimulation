@@ -109,5 +109,19 @@ challenges: {
                 return hasUpgrade('EX', 22) || inChallenge('CT', 21) || hasChallenge('CT', 21)
             },
         },
+        22: {
+            name: "Soul Shield",
+            challengeDescription: 
+            `Souls now have sheilds, but it's making it harder to progress.<br>
+            Infect gain /500, Explosive gain /200<br>
+            Floor Requirement is now 50 instead of 150!`,
+            canComplete: function() {return player.FL.points.gte(1e5)},
+            goalDescription: "1e5 Floors",
+            rewardDescription() { return "Souls boosts itself (" + format(player.SL.points.add(1).pow(0.06)) + "x)"},
+            onEnter(){if (player.SL.unlocked) player.SL.keep = true},
+            unlocked(){
+                return hasUpgrade('SL', 21) || inChallenge('CT', 22) || hasChallenge('CT', 22)
+            },
+        },
     },
 })
