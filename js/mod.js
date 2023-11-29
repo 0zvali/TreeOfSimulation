@@ -448,6 +448,7 @@ function addedPlayerData() { return {
 	intervalArray: decimalZero,
 }}
 
+let newsNews = document.getElementById("intervalArray")
 // Display extra things at the top of the page
 var displayThings = [
 	"<a>Endgame: 1 Soul</a>",
