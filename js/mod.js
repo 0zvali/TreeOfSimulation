@@ -498,7 +498,8 @@ const intervalArray = [
 setTimeout(() => {
 	newsNews = document.getElementById("intervalArray");
 	player.intervalArray = intervalArray[1]
-	intervalArray++
+	index++
+	player.intervalArray = intervalArray[index]
 	setInterval(5000);
   }, 150);
 // You can change this if you have things that can be messed up by long tick lengths
