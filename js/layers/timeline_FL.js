@@ -16,7 +16,7 @@ addLayer("FL", {
         if (inChallenge('CT', 12)) requirement = new Decimal(75);
         if (inChallenge('CT', 21)) requirement = new Decimal(40);
         if (hasUpgrade('FL', 23)) requirement = requirement.div(upgradeEffect('FL', 23))
-        if (hasBuyable('SL', 11)) requirement = requirement.div(buyableEffect('SL', 11))
+        if (getBuyableAmount('SL', 11).gte(0)) requirement = requirement.div(buyableEffect('SL', 11))
         return requirement
     },// Can be a function that takes requirement increases into account
     resource: "Floors", // Name of prestige currency
