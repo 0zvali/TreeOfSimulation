@@ -84,10 +84,10 @@ buyables: {
             setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1));
           },
           effect(x) {
-            let eff = D(1).sub(0.1).min(100);
+            let eff = new Decimal(1).sub(0.1).max(0.5);
             return eff;
           },
-          purchaseLimit: D(5),
+          purchaseLimit: new Decimal(5),
         },
     },
 upgrades: {
