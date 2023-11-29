@@ -451,7 +451,7 @@ function addedPlayerData() { return {
 var displayThings = [
 	"<a>Endgame: 1 Soul</a>",
 	function() {
-		return `intervalArray`
+		return `newsNews`
 	  },
 
 	function() {
@@ -494,7 +494,7 @@ const intervalArray = [
 	["Now this is more lame as a news ticker but atleast it doesn't suck"],
 ]
 setTimeout(() => {
-	displayThings = document.getElementById("intervalArray");
+	newsNews = document.getElementById("intervalArray");
 	setInterval(5000);
   }, 150);
 // You can change this if you have things that can be messed up by long tick lengths
