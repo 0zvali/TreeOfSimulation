@@ -451,12 +451,9 @@ function addedPlayerData() { return {
 var displayThings = [
 	"<a>Endgame: 1 Soul</a>",
 	function() {
-		if (player.timePlayed += 10)
-		return  "Did you know that we had that purpose of life?"
-		if (player.timePlayed += 20)
-		return 	"Did you know that Experiments only infect others...?"
-		else "Test"
+		return `intervalArray`
 	  },
+
 	function() {
 		if (inChallenge('CT', 11))
 		return "You are currently in: 'Explosive Floors' (Infects /2.5)"
@@ -490,6 +487,16 @@ var backgroundStyle = {
 
 }
 
+const intervalArray = [
+	["19$ Fortnite Card. Who wants it?"],
+	["Buyn Buyn Buyn Buyn Buyn Buyn"],
+	["Downgraded News be like:"],
+	["Now this is more lame as a news ticker but atleast it doesn't suck"],
+]
+setTimeout(() => {
+	displayThings = document.getElementById("intervalArray");
+	setInterval(5000);
+  }, 150);
 // You can change this if you have things that can be messed up by long tick lengths
 function maxTickLength() {
 	return(3600) // Default is 1 hour which is just arbitrarily large
