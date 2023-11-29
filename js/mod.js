@@ -445,6 +445,7 @@ function getPointGen() {
 
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() { return {
+	intervalArray: decimalZero,
 }}
 
 // Display extra things at the top of the page
@@ -495,6 +496,7 @@ const intervalArray = [
 ]
 setTimeout(() => {
 	newsNews = document.getElementById("intervalArray");
+	player.intervalArray = player.intervalArray.plus(1)
 	setInterval(5000);
   }, 150);
 // You can change this if you have things that can be messed up by long tick lengths
