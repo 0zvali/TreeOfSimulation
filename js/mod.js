@@ -448,12 +448,11 @@ function addedPlayerData() { return {
 	intervalArray: decimalZero,
 }}
 
-let newsNews = document.getElementById("intervalArray")
 // Display extra things at the top of the page
 var displayThings = [
 	"<a>Endgame: 1 Soul</a>",
 	function() {
-		return format(player.intervalArray)
+		return format(intervalArray)
 	  },
 
 	function() {
@@ -495,12 +494,35 @@ const intervalArray = [
 	["Downgraded News be like:"],
 	["Now this is more lame as a news ticker but atleast it doesn't suck"],
 ]
-setTimeout(() => {
-	newsNews = document.getElementById("intervalArray");
-	player.intervalArray = intervalArray[1]
-	index++
-	player.intervalArray = intervalArray[index]
-	setInterval(5000);
+  let ticker = document.getElementById("newsContent");
+  
+  let newsPosition = 0;
+  
+  function tickNews() {
+	if (player) {
+	if (!player.hideNews) {
+	newsPosition = 0;
+	ticker = `${newsPosition}px`;
+  
+	if (newsPosition < -ticker.offsetWidth) newNewsMessage()};
+	}
+  }
+  
+  function newNewsMessage() {
+	if (!player.hideNews) {
+	const newsCandidates = [];
+	for (const i in intervalArray)
+	  if (intervalArray[i][1] === undefined || intervalArray[i][1]())
+		newsCandidates.push(intervalArray[i][0]);
+	player.newsTotal = player.newsTotal.plus(1);
+	ticker.innerHTML =
+	  newsCandidates[Math.floor(newsCandidates.length * Math.random())];
+	ticker = `${newsPosition}px`};
+  }
+
+  setTimeout(() => {
+	ticker = document.getElementById("newsContent");
+	setInterval(tickNews, 1500);
   }, 150);
 // You can change this if you have things that can be messed up by long tick lengths
 function maxTickLength() {
