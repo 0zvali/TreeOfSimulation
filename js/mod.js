@@ -452,7 +452,7 @@ function addedPlayerData() { return {
 var displayThings = [
 	"<a>Endgame: 1 Soul</a>",
 	function() {
-		return format(intervalArray)
+		return format(ticker)
 	  },
 
 	function() {
