@@ -72,9 +72,9 @@ buyables: {
           title: "Soulless Actions",
           display() {
             return `Divide the Floor Requirement by 10%<br>
-            Cost: ${format(getBuyableCost(this.layer, this.id))}
-            Effect: /${format(buyableEffect(this.layer, this.id))}
-            Bought: ${getBuyableAmount(this.layer, this.id)}/5`;
+            Cost: ${format(getBuyableCost('SL', 11))}
+            Effect: /${format(buyableEffect('SL', 11))}
+            Bought: ${getBuyableAmount('SL', 11)}/5`;
           },
           canAfford() {
             return player[this.layer].points.gte(this.cost());
