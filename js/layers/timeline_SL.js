@@ -66,7 +66,7 @@ buyables: {
         11: {
           cost(x) {
             let current = x.add(1);
-            let cost = player.SL.points.gte(50).mul(current);
+            let cost = new Decimal(50).times(current);
             return cost;
           },
           title: "Soulless Actions",
