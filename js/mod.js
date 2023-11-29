@@ -451,9 +451,9 @@ function addedPlayerData() { return {
 var displayThings = [
 	"<a>Endgame: 1 Soul</a>",
 	function() {
-		if (player.timeSpent += 10)
+		if (player.timePlayed += 10)
 		return  "Did you know that we had that purpose of life?"
-		if (player.timeSpent += 20)
+		if (player.timePlayed += 20)
 		return 	"Did you know that Experiments only infect others...?"
 		else "Test"
 	  },
