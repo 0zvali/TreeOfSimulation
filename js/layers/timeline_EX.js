@@ -19,7 +19,7 @@ addLayer("EX", {
         if (inChallenge('CT', 22)) requirement = requirement.times(200)
         if (hasUpgrade('FL', 22)) requirement = requirement.div(upgradeEffect('FL', 22))
         if (hasUpgrade('SL', 15)) requirement = requirement.div(5.4);
-        if (hasUpgrade('SL', 21)) requirement = requirement.div(player.SL.points.add(1).pow(0.5).div(3));
+        if (hasUpgrade('SL', 21)) requirement = requirement.div(player.SL.points.add(1).pow(0.35).div(3));
 
         return requirement
     },

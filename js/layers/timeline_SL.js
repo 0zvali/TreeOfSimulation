@@ -43,7 +43,7 @@ addLayer("SL", {
     },
     effectDescription() {
         dis = "which is boosting floor gain by "+format(tmp.SL.effect)+"x"
-        if (hasUpgrade('SL', 21)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "and dividing explosive & floor requirement by /"+format(player.SL.points.add(1).pow(0.5).div(3))
+        if (hasUpgrade('SL', 21)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "and dividing explosive & floor requirement by /"+format(player.SL.points.add(1).pow(0.35).div(3))
         return dis
     },
     effectBase() {
