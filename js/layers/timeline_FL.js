@@ -19,7 +19,7 @@ addLayer("FL", {
         if (hasUpgrade('FL', 23)) requirement = requirement.div(upgradeEffect('FL', 23));
         if (hasUpgrade('SL', 12)) requirement = requirement.div(1.2);
         if (hasUpgrade('SL', 13)) requirement = requirement.div(1.5);
-        if (hasUpgrade('SL', 21)) requirement = requirement.div((player.SL.points.max(1).add(1).pow(0.15).div(3)).max(1));
+        if (hasUpgrade('SL', 21)) requirement = requirement.div((player.SL.points.add(1).pow(0.15)));
         
         return requirement
     },// Can be a function that takes requirement increases into account
