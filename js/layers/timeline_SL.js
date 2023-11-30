@@ -27,6 +27,7 @@ addLayer("SL", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (hasChallenge('CT', 22)) mult = mult.times(player.SL.points.add(1).pow(0.06))
+        if (hasUpgrade('SL', 15)) mult = mult.times(7)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -101,8 +102,8 @@ upgrades: {
         },
         15: {
             title: "Infectious Souls",
-            description: "Divide Explosive Requirement by 1.35 & 2x Soul Gain",
-            cost: new Decimal(650),
+            description: "Divide Explosive Requirement by 5.4 & 7x Soul Gain",
+            cost: new Decimal(450),
             unlocked(){
                 return hasUpgrade('SL', 14)
             },
