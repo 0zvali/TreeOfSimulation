@@ -7,6 +7,9 @@ addLayer("SL", {
 		points: new Decimal(0),
         best: new Decimal(0),
     }},
+    soulOne(){
+        if (player.SL.points.gte(0) && player.SL.unlocked) player.SL.points = 1
+    },
     color(){ 
         let color = `#603736`
         return color
