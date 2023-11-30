@@ -16,6 +16,7 @@ addLayer("SL", {
     }},
     requires(){ 
         let requirement = new Decimal(1e40);
+        if (hasUpgrade('SL', 14)) requirement = requirement.div(2.3)
         return requirement
     },
     resource: "Souls", // Name of prestige currency
@@ -41,6 +42,7 @@ addLayer("SL", {
     },
     effectDescription() {
         dis = "which is boosting floor gain by "+format(tmp.SL.effect)+"x"
+        if (hasUpgrade('SL', 21)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "and dividing explosive & floor requirement by /"+format(player.SL.points.add(1).pow(0.5).div(3))
         return dis
     },
     effectBase() {
@@ -91,7 +93,7 @@ upgrades: {
         },
         14: {
             title: "Explosive Souls",
-            description: "Quadtruple Explosive Gain",
+            description: "Quadtruple Explosive Gain & Divide Soul Requirement by 2.3",
             cost: new Decimal(170),
             unlocked(){
                 return hasUpgrade('SL', 13)
@@ -99,7 +101,7 @@ upgrades: {
         },
         15: {
             title: "Infectious Souls",
-            description: "Divide Explosive Requirement by 1.35",
+            description: "Divide Explosive Requirement by 1.35 & 2x Soul Gain",
             cost: new Decimal(650),
             unlocked(){
                 return hasUpgrade('SL', 14)
@@ -107,8 +109,8 @@ upgrades: {
         },
         21: {
             title: "Souling the Souls",
-            description: "Unlock another CT Challenge",
-            cost: new Decimal(7500),
+            description: "Unlock another CT Challenge & Another Soul Effect",
+            cost: new Decimal(4700),
             unlocked(){
                 return hasUpgrade('SL', 15)
             },
