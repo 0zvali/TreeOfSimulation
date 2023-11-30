@@ -15,6 +15,7 @@ addLayer("FL", {
         let requirement = new Decimal(150);
         if (inChallenge('CT', 12)) requirement = new Decimal(75);
         if (inChallenge('CT', 21)) requirement = new Decimal(40);
+        if (inChallenge('CT', 22)) requirement = new Decimal(5);
         if (hasUpgrade('FL', 23)) requirement = requirement.div(upgradeEffect('FL', 23));
         if (hasUpgrade('SL', 12)) requirement = requirement.div(1.2);
         if (hasUpgrade('SL', 13)) requirement = requirement.div(1.5);
