@@ -177,17 +177,18 @@ addLayer("FL", {
             title(){
             let title = "650,000th Floor"
                 if (inChallenge('CT', 21)) title = "12,000,000th Floor"
-return title
+                return title
             },
             description: "Divide Explosive Requirement based on Infects (Cap is /39)",
             cost(){ 
             let cost = new Decimal(650000)
                 if (inChallenge('CT', 21)) cost = new Decimal(12000000)
-return cost
+                return cost
             },
             effect() {
                 let effect = (player.points.max(1).add(1.1).pow(0.0555)).max(1).min(39);
                 if (inChallenge('CT', 21)) effect = (player.points.max(1).add(1.15).pow(0.07)).max(1).min(39);
+                if (inChallenge('CT', 22)) effect = (player.points.max(1).add(1.5).pow(0.3)).max(1).min(39);
                 return effect
             },
             effectDisplay() { return "/"+format(upgradeEffect(this.layer, this.id)) },
