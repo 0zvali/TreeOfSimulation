@@ -116,8 +116,8 @@ challenges: {
             Infect gain /500, Explosive gain /200<br>
             Floor Requirement is now 50 instead of 150!<br>
             WHO MADE INFECT GAIN SO LOW WTH`,
-            canComplete: function() {return player.FL.points.gte(1e5)},
-            goalDescription: "1e5 Floors",
+            canComplete: function() {return player.FL.points.gte(5)},
+            goalDescription: "5 Floors",
             rewardDescription() { return "Souls boosts itself (" + format(player.SL.points.add(1).pow(0.06)) + "x)"},
             onEnter(){player.SL.keep = true, player.SL.upgrades.push("11", "12", "13", "14", "15", "21") = true},
             onExit(){player.SL.keep = true, player.SL.upgrades.push("11", "12", "13", "14", "15", "21") = true},
