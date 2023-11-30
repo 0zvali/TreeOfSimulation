@@ -99,6 +99,7 @@ addLayer("FL", {
             effect() {
                 let effect1 = (player.FL.points.max(1).add(1.22).pow(0.15)).max(1).min(300);
                 if (inChallenge('CT', 11)) effect1 = (player.FL.points.max(1).add(1.66).pow(0.26)).max(1).min(300);
+                if (inChallenge('CT', 22)) effect1 = (player.FL.points.max(1).add(2).pow(0.7)).max(1).min(300);
                 return effect1
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
