@@ -118,7 +118,8 @@ challenges: {
             canComplete: function() {return player.FL.points.gte(1e5)},
             goalDescription: "1e5 Floors",
             rewardDescription() { return "Souls boosts itself (" + format(player.SL.points.add(1).pow(0.06)) + "x)"},
-            onEnter(){if (player.SL.unlocked) player.SL.keep = true},
+            onEnter(){player.SL.keep = true, player.SL.keep.upgrades = true},
+            onExit(){player.SL.keep = true, player.SL.keep.upgrades = true},
             unlocked(){
                 return hasUpgrade('SL', 21) || inChallenge('CT', 22) || hasChallenge('CT', 22)
             },
