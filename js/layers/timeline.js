@@ -114,7 +114,7 @@ challenges: {
             challengeDescription: 
             `Souls now have sheilds, but it's making it harder to progress.<br>
             Infect gain /500, Explosive gain /200<br>
-            Floor Requirement is now 5 instead of 150!<br>
+            Floor Requirement is now 50 instead of 150!<br>
             WHO MADE INFECT GAIN SO LOW WTH`,
             canComplete: function() {return player.FL.points.gte(1e5)},
             goalDescription: "1e5 Floors",
