@@ -12,7 +12,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "2.0.1",
+	num: "2.0.2",
 	name: "Breaking News...",
 }
 
@@ -418,7 +418,7 @@ function getPointGen() {
 	if (hasAchievement('a', 32)) gain = gain.times(2.5)
 	if (hasAchievement('a', 36)) gain = gain.times(3)
 	// Prevents Devspeed changes
-	if (player.devSpeed>=1.01) gain = gain.div(1e300)
+	if (player.devSpeed > 1) gain = gain.div(1e300)
 
 
 	// ~~~~~~~~~~~~~~~Chapter 2 - 1st Collapsed Timeline~~~~~~~~~~~~~~~~~~~~~~~
@@ -451,7 +451,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"<a>Endgame: 75000 Soul</a>",
+	"<a>Endgame: 85000 Soul</a>",
 	function() {
 		if (inChallenge('CT', 11))
 		return "You are currently in: 'Explosive Floors' (Infects /2.5)"
@@ -476,7 +476,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.SL.points.gte(1)
+	return player.SL.points.gte(85000)
 }
 
 
