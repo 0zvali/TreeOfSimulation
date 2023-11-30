@@ -49,6 +49,7 @@ addLayer("FL", {
         let exp = new Decimal(1)
         if (hasUpgrade('FL', 24)) exp = exp.add(.3)
         if (hasUpgrade('SL', 14)) exp = exp.add(.05)
+        if (hasUpgrade('EX', 25)) exp = exp.add(.0165)
         return exp
     },
     doReset(resettingLayer) {

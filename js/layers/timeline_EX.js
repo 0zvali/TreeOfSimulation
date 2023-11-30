@@ -185,7 +185,7 @@ upgrades: {
         },
         25: {
             title: "Semi-Major Explosive V",
-            description: "100x Floor Gain",
+            description: "100x Floor Gain & 0.0165 base gain to Floors...",
             cost: new Decimal(7e19),
             unlocked(){
                 return hasUpgrade('EX', 24)
