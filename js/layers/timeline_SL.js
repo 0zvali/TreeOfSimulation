@@ -94,7 +94,7 @@ upgrades: {
         },
         14: {
             title: "Explosive Souls",
-            description: "Quadtruple Explosive Gain & Divide Soul Requirement by 2.3",
+            description: "Quadtruple Explosive Gain, Divide Soul Requirement by 2.3, and add a .05 base gain to Floors",
             cost: new Decimal(170),
             unlocked(){
                 return hasUpgrade('SL', 13)

@@ -47,6 +47,7 @@ addLayer("FL", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         let exp = new Decimal(1)
         if (hasUpgrade('FL', 24)) exp = exp.add(.3)
+        if (hasUpgrade('SL', 14)) exp = exp.add(.05)
         return exp
     },
     doReset(resettingLayer) {
