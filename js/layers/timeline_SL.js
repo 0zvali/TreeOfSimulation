@@ -8,11 +8,11 @@ addLayer("SL", {
         best: new Decimal(0),
     }},
     color(){ 
-        let color = `#403736`
+        let color = `#603736`
         return color
     },
     nodeStyle() {return {
-        "background": (player.SL.unlocked||canReset("SL"))?"radial-gradient(#403736, #7a6261)":"#bf8f8f" ,
+        "background": (player.SL.unlocked||canReset("SL"))?"radial-gradient(#603736, #4a6261)":"#bf8f8f" ,
     }},
     requires(){ 
         let requirement = new Decimal(1e40);
