@@ -12,6 +12,7 @@ addLayer("CT", {
         if (inChallenge('CT', 11)) color = `#ed4046`
         if (inChallenge('CT', 12)) color = `#ed4046`
         if (inChallenge('CT', 21)) color = `#ed4046`
+        if (inChallenge('CT', 22)) color = `#ed4046`
         return color
     },
     requires: new Decimal("e1e50"), // Can be a function that takes requirement increases into account
