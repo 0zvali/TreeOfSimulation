@@ -7,9 +7,6 @@ addLayer("SL", {
 		points: new Decimal(0),
         best: new Decimal(0),
     }},
-    soulOne(){
-        if (player.SL.points.gte(0) && player.SL.unlocked) player.SL.points = 1
-    },
     color(){ 
         let color = `#603736`
         return color
@@ -46,7 +43,7 @@ addLayer("SL", {
     },
     effectDescription() {
         dis = "which is boosting floor gain by "+format(tmp.SL.effect)+"x"
-        if (hasUpgrade('SL', 21)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "and dividing explosive & floor requirement by /"+format(player.SL.points.add(1).pow(0.35).div(3))
+        if (hasUpgrade('SL', 21)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "and dividing explosive & floor requirement by /"+format(player.SL.points.max(1).add(1).pow(0.35).div(3))
         return dis
     },
     effectBase() {
