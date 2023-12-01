@@ -188,7 +188,7 @@ addLayer("FL", {
             effect() {
                 let effect = (player.points.max(1).add(1.1).pow(0.0555)).max(1).min(39);
                 if (inChallenge('CT', 21)) effect = (player.points.max(1).add(1.15).pow(0.07)).max(1).min(39);
-                if (inChallenge('CT', 22)) effect = (player.points.max(1).add(7.6).pow(0.3)).max(1).min(1500);
+                if (inChallenge('CT', 22)) effect = (player.points.max(1).add(7.6).pow(0.6)).max(1).min(1500);
                 return effect
             },
             effectDisplay() { return "/"+format(upgradeEffect(this.layer, this.id)) },
