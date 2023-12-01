@@ -5,8 +5,8 @@ addLayer("SL", {
     startData() { return {
         unlocked: false,
 		points(){ 
-            let points = 0
-            if (hasChallenge('CT', 22)) points.add(1500)
+            let points = new Decimal(0)
+            if (hasChallenge('CT', 22)) points = points.add(1500)
             return points
         },
         best: new Decimal(0),
