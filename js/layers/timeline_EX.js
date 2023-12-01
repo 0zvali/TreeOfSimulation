@@ -47,7 +47,8 @@ addLayer("EX", {
     },
     passiveGeneration() {
         let value1 = new Decimal(0);
-        if ((challengeCompletions("CT", 22) = 2) || (challengeCompletions('CT', 22) = 3)) value1 = value1.add(0.25)
+        if (challengeCompletions("CT", 22) = 2) value1 = value1.add(0.25)
+        if (challengeCompletions('CT', 22) = 3) value1 = value1.add(0.25)
         if (challengeCompletions("CT", 22) = 4) value1 = value1.add(0.4)
         return value1
     },
