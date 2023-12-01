@@ -116,7 +116,8 @@ challenges: {
             `Souls now have sheilds, but it's making it harder to progress.<br>
             Infect gain /500, Explosive gain /200<br>
             Floor Requirement is now 5 instead of 150!<br>
-            Some Upgrades are also changed to make it easier!`,
+            Some Upgrades are also changed to make it easier (even some caps...)!<br>
+            Soul Requirement is lower'd significantly!`,
             canComplete: function() {return player.FL.points.gte(1e10)},
             goalDescription: "1e10 Floors",
             rewardDescription() { return "Souls boosts itself (" + format(player.SL.points.add(1).pow(0.06)) + "x)"},
