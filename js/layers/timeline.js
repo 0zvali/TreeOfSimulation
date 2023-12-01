@@ -111,7 +111,6 @@ challenges: {
             },
         },
         22: {
-            challengeCompletions: 0,
             name: "Soul Shield",
             challengeDescription(){ 
                 let description = 
