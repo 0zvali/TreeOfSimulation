@@ -16,7 +16,7 @@ addLayer("SL", {
     }},
     requires(){ 
         let requirement = new Decimal(1e40);
-        if (hasUpgrade('SL', 14)) requirement = requirement.div(2.3)
+        if (inChallenge('CT', 22)) requirement = requirement.div(1.66e32);
         return requirement
     },
     resource: "Souls", // Name of prestige currency
@@ -65,6 +65,7 @@ addLayer("SL", {
     },
 milestones: {
     },
+
 upgrades: {
         rows: 2,
         cols: 5,
