@@ -118,8 +118,8 @@ challenges: {
             Floor Requirement is now 5 instead of 150!<br>
             Some Upgrades are also changed to make it easier (even some caps...)!<br>
             Soul Requirement is lower'd significantly!`,
-            canComplete: function() {return player.SL.points.gte(1e20)},
-            goalDescription: "1e20 Souls",
+            canComplete: function() {return player.SL.points.gte(1e26)},
+            goalDescription: "1e26 Souls",
             rewardDescription() { return "Souls boosts itself (" + format(player.SL.points.add(1).pow(0.06)) + "x)"},
             onEnter(){player.SL.keep = true, player.SL.upgrades.push("11", "12", "13", "14", "15", "21") = true},
             onExit(){player.SL.keep = true, player.SL.upgrades.push("11", "12", "13", "14", "15", "21") = true},
