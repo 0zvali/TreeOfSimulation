@@ -112,17 +112,58 @@ challenges: {
         },
         22: {
             name: "Soul Shield",
-            challengeDescription: 
-            `Souls now have sheilds, but it's making it harder to progress.<br>
+            challengeDescription(){ 
+            `Souls now have sheild, but it's making it harder to progress.<br>
             Infect gain /500, Explosive gain /200<br>
             Floor Requirement is now 5 instead of 150!<br>
             Some Upgrades are also changed to make it easier (even some caps...)!<br>
-            Soul Requirement is lower'd significantly!`,
-            canComplete: function() {return player.SL.points.gte(1e25)},
-            goalDescription: "1e25 Souls",
-            rewardDescription() { return "Souls boosts itself (" + format(player.SL.points.add(1).pow(0.06)) + "x)"},
+            Soul Requirement is lower'd significantly!<br>
+            Completions: ${challengeCompletions("CT", 22)}/4`;
+            if (challengeCompletions('CT', 22).gte(2))
+                `Souls now have sheild, but it's making it harder to progress.<br>
+                Infect gain /500, Explosive gain /200<br>
+                Floor Requirement is now 5 instead of 150!<br>
+                Some Upgrades are also changed to make it easier (even some caps...)!<br>
+                Soul Requirement is lower'd significantly!<br>
+                Completions: ${challengeCompletions("CT", 22)}/4<br><br>
+                
+                Passives: 25% Floor & 10% Explosive`;
+                if (challengeCompletions('CT', 22).gte(4))
+                `Souls now have sheild, but it's making it harder to progress.<br>
+                Infect gain /500, Explosive gain /200<br>
+                Floor Requirement is now 5 instead of 150!<br>
+                Some Upgrades are also changed to make it easier (even some caps...)!<br>
+                Soul Requirement is lower'd significantly!<br>
+                Completions: ${challengeCompletions("CT", 22)}/4<br><br>
+                
+                Passives: 65% Floor & 30% Explosive`;    
+            },
+            canComplete: function() {
+                let value = player.SL.points.gte(1e25)
+                if (challengeCompletions("CT", 22).gte(1)) value = player.SL.points.gte(1e26)
+                if (challengeCompletions("CT", 22).gte(2)) value = player.SL.points.gte(1e28)
+                if (challengeCompletions("CT", 22).gte(3)) value = player.SL.points.gte(1e30)
+                if (challengeCompletions("CT", 22).gte(3)) value = player.SL.points.gte(1e34)
+                },
+            goalDescription: function() {
+                let description = "1e25 Souls"
+                if (challengeCompletions("CT", 22).gte(1)) description = "1e26 Souls"
+                if (challengeCompletions("CT", 22).gte(2)) description = "1e28 Souls"
+                if (challengeCompletions("CT", 22).gte(3)) description = "1e30 Souls"
+                if (challengeCompletions("CT", 22).gte(4)) description = "1e34 Souls"
+            },
+            rewardDescription() { return "Souls are boosted by the amount of completions"+ format(rewardEffect)},
+            rewardEffect() {
+                let value = new Decimal(5);
+                let eff = new Decimal(challengeCompletions("CT", 22)).max(1);
+                value = value.pow(eff).times(eff);
+                value = value.times(value);
+                if (inChallenge("CT", 22)) value = new Decimal(1);
+                return value;
+              },
             onEnter(){player.SL.keep = true, player.SL.upgrades.push("11", "12", "13", "14", "15", "21") = true},
             onExit(){player.SL.keep = false, player.SL.upgrades.push("11", "12", "13", "14", "15", "21") = true},
+            completionLimit: new Decimal(4),
             unlocked(){
                 return hasUpgrade('SL', 21) || inChallenge('CT', 22) || hasChallenge('CT', 22)
             },

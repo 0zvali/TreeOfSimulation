@@ -30,7 +30,7 @@ addLayer("SL", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
-        if (hasChallenge('CT', 22)) mult = mult.times(player.SL.points.add(1).pow(0.06))
+        if (hasChallenge('CT', 22)) mult = mult.times(5).pow(challengeCompletions('CT', 22))
         if (hasUpgrade('SL', 15)) mult = mult.times(7)
         return mult
     },
