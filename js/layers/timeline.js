@@ -114,13 +114,14 @@ challenges: {
             challengeCompletions: 0,
             name: "Soul Shield",
             challengeDescription(){ 
+                let description = 
             `Souls now have shield, but it's making it harder to progress.<br>
             Infect gain /500, Explosive gain /200<br>
             Floor Requirement is now 5 instead of 150!<br>
             Some Upgrades are also changed to make it easier (even some caps...)!<br>
             Soul Requirement is lower'd significantly!<br>
             Completions: ${challengeCompletions("CT", 22)}/4`;
-            if ((challengeCompletions('CT', 22) = 2) || (challengeCompletions('CT', 22) = 3))
+            if (challengeCompletions('CT', 22) = 2) description =
                 `Souls now have shield, but it's making it harder to progress.<br>
                 Infect gain /500, Explosive gain /200<br>
                 Floor Requirement is now 5 instead of 150!<br>
@@ -129,7 +130,7 @@ challenges: {
                 Completions: ${challengeCompletions("CT", 22)}/4<br><br>
                 
                 Passives: 25% Floor & 10% Explosive`;
-                if (challengeCompletions('CT', 22) = 4)
+            if (challengeCompletions('CT', 22) = 3) description =
                 `Souls now have shield, but it's making it harder to progress.<br>
                 Infect gain /500, Explosive gain /200<br>
                 Floor Requirement is now 5 instead of 150!<br>
@@ -137,7 +138,17 @@ challenges: {
                 Soul Requirement is lower'd significantly!<br>
                 Completions: ${challengeCompletions("CT", 22)}/4<br><br>
                 
-                Passives: 65% Floor & 30% Explosive`;    
+                Passives: 25% Floor & 10% Explosive`;
+            if (challengeCompletions('CT', 22) = 4) description =
+                `Souls now have shield, but it's making it harder to progress.<br>
+                Infect gain /500, Explosive gain /200<br>
+                Floor Requirement is now 5 instead of 150!<br>
+                Some Upgrades are also changed to make it easier (even some caps...)!<br>
+                Soul Requirement is lower'd significantly!<br>
+                Completions: ${challengeCompletions("CT", 22)}/4<br><br>
+                
+                Passives: 65% Floor & 30% Explosive`; 
+                return description   
             },
             canComplete: function() {
                 let value = player.SL.points.gte(1e25)
