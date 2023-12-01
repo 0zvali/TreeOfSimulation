@@ -4,7 +4,11 @@ addLayer("SL", {
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: false,
-		points: new Decimal(0),
+		points(){ 
+            let points = 0
+            if (hasChallenge('CT', 22)) points.add(1500)
+            return points
+        },
         best: new Decimal(0),
     }},
     color(){ 
