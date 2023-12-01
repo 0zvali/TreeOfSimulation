@@ -119,7 +119,7 @@ challenges: {
             Some Upgrades are also changed to make it easier (even some caps...)!<br>
             Soul Requirement is lower'd significantly!<br>
             Completions: ${challengeCompletions("CT", 22)}/4`;
-            if (challengeCompletions('CT', 22).gte(2))
+            if ((challengeCompletions('CT', 22) = 2) || (challengeCompletions('CT', 22) = 3))
                 `Souls now have shield, but it's making it harder to progress.<br>
                 Infect gain /500, Explosive gain /200<br>
                 Floor Requirement is now 5 instead of 150!<br>
@@ -128,7 +128,7 @@ challenges: {
                 Completions: ${challengeCompletions("CT", 22)}/4<br><br>
                 
                 Passives: 25% Floor & 10% Explosive`;
-                if (challengeCompletions('CT', 22).gte(4))
+                if (challengeCompletions('CT', 22) = 4)
                 `Souls now have shield, but it's making it harder to progress.<br>
                 Infect gain /500, Explosive gain /200<br>
                 Floor Requirement is now 5 instead of 150!<br>
@@ -140,18 +140,18 @@ challenges: {
             },
             canComplete: function() {
                 let value = player.SL.points.gte(1e25)
-                if (challengeCompletions("CT", 22).gte(1)) value = player.SL.points.gte(1e26)
-                if (challengeCompletions("CT", 22).gte(2)) value = player.SL.points.gte(1e28)
-                if (challengeCompletions("CT", 22).gte(3)) value = player.SL.points.gte(1e30)
-                if (challengeCompletions("CT", 22).gte(4)) value = player.SL.points.gte(1e34)
+                if (challengeCompletions("CT", 22) = 1) value = player.SL.points.gte(1e26)
+                if (challengeCompletions("CT", 22) = 2) value = player.SL.points.gte(1e28)
+                if (challengeCompletions("CT", 22) = 3) value = player.SL.points.gte(1e30)
+                if (challengeCompletions("CT", 22) = 4) value = player.SL.points.gte(1e34)
                 return value
                 },
             goalDescription: function() {
                 let description = "1e25 Souls"
-                if (challengeCompletions("CT", 22).gte(1)) description = "1e26 Souls"
-                if (challengeCompletions("CT", 22).gte(2)) description = "1e28 Souls"
-                if (challengeCompletions("CT", 22).gte(3)) description = "1e30 Souls"
-                if (challengeCompletions("CT", 22).gte(4)) description = "1e34 Souls"
+                if (challengeCompletions("CT", 22) = 1) description = "1e26 Souls"
+                if (challengeCompletions("CT", 22) = 2) description = "1e28 Souls"
+                if (challengeCompletions("CT", 22) = 3) description = "1e30 Souls"
+                if (challengeCompletions("CT", 22) = 4) description = "1e34 Souls"
                 return description
             },
             rewardDescription() { return "Souls are boosted by the amount of completions"+ format(rewardEffect)},
