@@ -47,9 +47,9 @@ addLayer("CT", {
         {key: "t", description: "T: reset for Collapsed Timelines", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown() {
-        let value = false
-        if (player.points.gte(1e9999) || player.CT.unlocked) value = true
-        return value
+        let value3 = false
+        if (player.points.gte(1e9999) || player.CT.unlocked) value3 = true
+        return value3
     },
 milestones: {
         11: {
@@ -111,6 +111,7 @@ challenges: {
             },
         },
         22: {
+            challengeCompletions: 0,
             name: "Soul Shield",
             challengeDescription(){ 
             `Souls now have shield, but it's making it harder to progress.<br>
