@@ -144,6 +144,7 @@ challenges: {
                 if (challengeCompletions("CT", 22).gte(2)) value = player.SL.points.gte(1e28)
                 if (challengeCompletions("CT", 22).gte(3)) value = player.SL.points.gte(1e30)
                 if (challengeCompletions("CT", 22).gte(4)) value = player.SL.points.gte(1e34)
+                return value
                 },
             goalDescription: function() {
                 let description = "1e25 Souls"
@@ -151,6 +152,7 @@ challenges: {
                 if (challengeCompletions("CT", 22).gte(2)) description = "1e28 Souls"
                 if (challengeCompletions("CT", 22).gte(3)) description = "1e30 Souls"
                 if (challengeCompletions("CT", 22).gte(4)) description = "1e34 Souls"
+                return description
             },
             rewardDescription() { return "Souls are boosted by the amount of completions"+ format(rewardEffect)},
             rewardEffect() {
