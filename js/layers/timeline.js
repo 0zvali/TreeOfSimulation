@@ -113,14 +113,14 @@ challenges: {
         22: {
             name: "Soul Shield",
             challengeDescription(){ 
-            `Souls now have sheild, but it's making it harder to progress.<br>
+            `Souls now have shield, but it's making it harder to progress.<br>
             Infect gain /500, Explosive gain /200<br>
             Floor Requirement is now 5 instead of 150!<br>
             Some Upgrades are also changed to make it easier (even some caps...)!<br>
             Soul Requirement is lower'd significantly!<br>
             Completions: ${challengeCompletions("CT", 22)}/4`;
             if (challengeCompletions('CT', 22).gte(2))
-                `Souls now have sheild, but it's making it harder to progress.<br>
+                `Souls now have shield, but it's making it harder to progress.<br>
                 Infect gain /500, Explosive gain /200<br>
                 Floor Requirement is now 5 instead of 150!<br>
                 Some Upgrades are also changed to make it easier (even some caps...)!<br>
@@ -129,7 +129,7 @@ challenges: {
                 
                 Passives: 25% Floor & 10% Explosive`;
                 if (challengeCompletions('CT', 22).gte(4))
-                `Souls now have sheild, but it's making it harder to progress.<br>
+                `Souls now have shield, but it's making it harder to progress.<br>
                 Infect gain /500, Explosive gain /200<br>
                 Floor Requirement is now 5 instead of 150!<br>
                 Some Upgrades are also changed to make it easier (even some caps...)!<br>
