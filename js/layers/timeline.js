@@ -143,7 +143,7 @@ challenges: {
                 if (challengeCompletions("CT", 22).gte(1)) value = player.SL.points.gte(1e26)
                 if (challengeCompletions("CT", 22).gte(2)) value = player.SL.points.gte(1e28)
                 if (challengeCompletions("CT", 22).gte(3)) value = player.SL.points.gte(1e30)
-                if (challengeCompletions("CT", 22).gte(3)) value = player.SL.points.gte(1e34)
+                if (challengeCompletions("CT", 22).gte(4)) value = player.SL.points.gte(1e34)
                 },
             goalDescription: function() {
                 let description = "1e25 Souls"
