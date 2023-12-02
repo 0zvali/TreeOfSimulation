@@ -25,7 +25,7 @@ let changelog = `<h1>Changelog:</h1><br>
 
 		<h2>v2.1: Obfuscating Souls</h2><br>
 			- Added a new Layer<br>
-			- Fixed 'Soul Shield' Challenge<br>
+			- Fixed 'Soul Sheild' Challenge<br>
 			- Added 3 Soul Milestones<br>
 			- Added 4 Soul Upgrades<br>
 			- Bugfixes<br>

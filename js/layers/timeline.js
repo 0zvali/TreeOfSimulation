@@ -111,7 +111,7 @@ challenges: {
             },
         },
         22: {
-            name: "Soul Shield",
+            name: "Soul Sheild",
             challengeDescription: 
             `Souls now have sheilds, but it's making it harder to progress.<br>
             Infect gain /500, Explosive gain /200<br>
