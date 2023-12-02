@@ -10,6 +10,11 @@ addLayer("E", {
     }
     },
 
+
+    lockedData(){
+        if(player.CT.points >= 1) unlocked = false;
+        if(player.CT.points >= 1) hotkeys = false;
+    },
     color: "#BF233F",
     requires: new Decimal(1.25e8), // Can be a function that takes requirement increases into account
     resource: "experiments", // Name of prestige currency

@@ -7,6 +7,10 @@ addLayer("H", {
 		points: new Decimal(0),
         best: new Decimal(0),
     }},
+    lockedData(){
+        if(player.CT.points >= 1) unlocked = false;
+        if(player.CT.points >= 1) hotkeys = false;
+    },
     color: "#d19226",
     requires: new Decimal(1.22e42), // Can be a function that takes requirement increases into account
     resource: "humans", // Name of prestige currency
