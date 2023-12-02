@@ -181,7 +181,7 @@ upgrades: {
         25: {
             title: "Powering Souls",
             description: "Souls boosts Floor base slightly (Cap ^1.3)",
-            cost: new Decimal(1e17),
+            cost: new Decimal(2.33e15),
             effect() {
                 return (player.SL.points.max(1).add(1).pow(0.0013)).max(1).min(1.3);
             },
