@@ -20,7 +20,6 @@ addLayer("FL", {
         if (hasUpgrade('SL', 12)) requirement = requirement.div(1.2);
         if (hasUpgrade('SL', 13)) requirement = requirement.div(1.5);
         if (hasUpgrade('SL', 21)) requirement = requirement.div(player.SL.points.add(1).pow(0.15));
-        if (hasUpgrade('SL', 23)) requirement = requirement.div(player.SL.points.add(1).pow(0.16));
         if (requirement <= 0.02) requirement = new Decimal(1)
         
         return requirement
