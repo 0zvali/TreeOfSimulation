@@ -9,7 +9,7 @@ addLayer("W", {
     }},
     lockedData(){
         if(player.CT.points >= 1) unlocked = false;
-        if(player.CT.points >= 1) hotkeys = false;
+        if(player.CT.points >= 1) player.W.hotkeys = false;
     },
     color: "#b5c3dd",
     requires: new Decimal(1e100), // Can be a function that takes requirement increases into account

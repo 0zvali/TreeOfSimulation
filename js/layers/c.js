@@ -14,7 +14,7 @@ addLayer("c", {
     }},
     lockedData(){
         if(player.CT.points >= 1) unlocked = false;
-        if(player.CT.points >= 1) hotkeys = false;
+        if(player.CT.points >= 1) player.c.hotkeys = false;
     },
     requires:
     new Decimal(5),    // Can be a function that takes requirement increases into account    
