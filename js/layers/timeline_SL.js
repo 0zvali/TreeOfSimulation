@@ -69,13 +69,13 @@ addLayer("SL", {
     },
 milestones: {
     11: {
-        requirementDescription: "1e13 Souls",
+        requirementDescription: "250,000 Souls",
         effectDescription(){ 
             let des
-            des = `Passively earn 10% Floors & Explosives`
+            des = `Passively earn 10% Floors & Explosives & add a base of 0.1 to Floors`
             return des
         },
-        done() { return player.SL.points.gte(1e13)},
+        done() { return player.SL.points.gte(250000)},
         unlocked() { return hasChallenge('CT', 22)},
     },
     12: {
@@ -152,7 +152,7 @@ upgrades: {
         23: {
             title: "Explosive Effects",
             description: "^1.15 to 1st Soul Effect",
-            cost: new Decimal(1750000),
+            cost: new Decimal(350000),
             unlocked(){
                 return hasUpgrade('SL', 22)
             },
@@ -160,7 +160,7 @@ upgrades: {
         24: {
             title: "Effective Souls",
             description: "Add a base of 0.13 to soul gain",
-            cost: new Decimal(14855666),
+            cost: new Decimal(1455666),
             unlocked(){
                 return hasUpgrade('SL', 23)
             },

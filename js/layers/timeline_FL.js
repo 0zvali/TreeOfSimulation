@@ -52,6 +52,7 @@ addLayer("FL", {
         if (hasUpgrade('FL', 24)) exp = exp.add(.3)
         if (hasUpgrade('SL', 14)) exp = exp.add(.05)
         if (hasUpgrade('EX', 25)) exp = exp.add(.0165)
+        if (hasMilestone('SL', 11)) exp = exp.add(.1)
         return exp
     },
     doReset(resettingLayer) {
