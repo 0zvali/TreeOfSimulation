@@ -159,7 +159,7 @@ upgrades: {
             tooltip: "((Floors^0.1)*(log(100))^0.45",
             cost: new Decimal(1.33e11),
             effect() {
-                return (player.FL.points.pow(0.1).log10(100)).pow(0.45);
+                return ((player.FL.points.max(1).add(1).pow(0.1).log10(100)).pow(0.45)).max(1).min(1e100);
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
@@ -172,7 +172,7 @@ upgrades: {
             tooltip: "((Floors^0.05) + (Explosives^0.05))",
             cost: new Decimal(1e16),
             effect() {
-                return (player.FL.points.pow(0.05).add(player.EX.points.pow(0.05)));
+                return (player.FL.points.max(1).pow(0.05).add(player.EX.points.pow(0.05))).max(1).min(1e100);
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
