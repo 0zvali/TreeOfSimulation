@@ -31,7 +31,7 @@ let changelog = `<h1>Changelog:</h1><br>
 			- Requirement is now nerf'd at 1 if it is under 0.99.<br>
 			- Fixed 'NaN' bug from Explosive Upgrades<br>
 			- Nerf'd Soul Sheild slightly<br>
-			- Balanced & Refixes up to 1e20 Souls in Normal Timeline<br>
+			- Balanced & Adjustments up to 1e20 Souls in Normal Timeline<br>
 			- Endgame: 2 Obfuscation<br><br>
 
 		<h3>v2.0.1: Breaking News...</h3><br>
