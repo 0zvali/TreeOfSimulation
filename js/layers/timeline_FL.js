@@ -44,6 +44,7 @@ addLayer("FL", {
         if (inChallenge('CT', 21)) mult = mult.times(250);
         if (hasUpgrade('EX', 25)) mult = mult.times(100);
         if (player.SL.unlocked) mult = mult.times(tmp.SL.effect);
+        if (player.O.unlocked) mult = mult.times(tmp.O.effect);
         if (hasUpgrade('SL', 23)) mult = mult.times(tmp.SL.effect.pow(0.15)); 
         return mult;
     },

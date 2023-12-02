@@ -29,6 +29,7 @@ addLayer("SL", {
         mult = new Decimal(1)
         if (hasChallenge('CT', 22)) mult = mult.times(5).pow(challengeCompletions('CT', 22))
         if (hasUpgrade('SL', 15)) mult = mult.times(7)
+        if (player.O.unlocked) mult = mult.times(tmp.O.effect);
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
