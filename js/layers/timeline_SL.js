@@ -91,13 +91,13 @@ milestones: {
         unlocked() { return hasChallenge('CT', 22)},
     },
     13: {
-        requirementDescription: "2.44e20 Souls",
+        requirementDescription: "2.44e19 Souls",
         effectDescription(){ 
             let des
             des = `Add another Soul Effect.`
             return des
         },
-        done() { return player.SL.points.gte(2.44e20)},
+        done() { return player.SL.points.gte(2.44e19)},
         unlocked() { return hasChallenge('CT', 22) && hasMilestone('SL', 12)},
     },
 },
