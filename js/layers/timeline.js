@@ -120,7 +120,7 @@ challenges: {
             Soul Requirement is lower'd significantly!`,
             canComplete: function() {return player.SL.points.gte(1e25)},
             goalDescription: "1e25 Souls",
-            rewardDescription() { return `Souls boosts itself + (format(player.SL.points.add(1).pow(0.06)) + x) + <br> Keep Floors & Explosive Upgrades.`},
+            rewardDescription() { return "Souls boosts itself" + (format(player.SL.points.add(1).pow(0.06)) + x) + `<br> Keep Floors & Explosive Upgrades.`},
             onEnter(){player.SL.keep = true, player.SL.upgrades.push("11", "12", "13", "14", "15", "21") = true},
             onExit(){player.SL.upgrades.push("11", "12", "13", "14", "15", "21") = true},
             unlocked(){
