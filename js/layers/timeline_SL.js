@@ -44,6 +44,8 @@ addLayer("SL", {
     effectDescription() {
         dis = "which is boosting floor gain by "+format(tmp.SL.effect)+"x"
         if (hasUpgrade('SL', 21)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "and dividing explosive & floor requirement by /"+format(player.SL.points.add(1).pow(0.15))
+        if (hasUpgrade('SL', 22)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "and dividing explosive & floor requirement by /"+format(player.SL.points.add(1).pow(0.36))
+        if (hasUpgrade('SL', 23 && hasUpgrade('SL', 22))) dis = "which is boosting floor gain by "+format(tmp.SL.effect.pow(1.15))+`x<br>` + "and dividing explosive & floor requirement by /"+format(player.SL.points.add(1).pow(0.36))
         return dis
     },
     effectBase() {
@@ -135,6 +137,22 @@ upgrades: {
             cost: new Decimal(4700),
             unlocked(){
                 return hasUpgrade('SL', 15)
+            },
+        },
+        22: {
+            title: "Soulful Contract",
+            description: "^1.33 to 2nd Soul Effect",
+            cost: new Decimal(150000),
+            unlocked(){
+                return hasUpgrade('SL', 21) && hasChallenge('CT', 22)
+            },
+        },
+        23: {
+            title: "Explosive Effects",
+            description: "^1.15 to 1st Soul Effect",
+            cost: new Decimal(1750000),
+            unlocked(){
+                return hasUpgrade('SL', 22)
             },
         },
     },

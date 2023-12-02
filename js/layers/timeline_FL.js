@@ -20,6 +20,7 @@ addLayer("FL", {
         if (hasUpgrade('SL', 12)) requirement = requirement.div(1.2);
         if (hasUpgrade('SL', 13)) requirement = requirement.div(1.5);
         if (hasUpgrade('SL', 21)) requirement = requirement.div(player.SL.points.add(1).pow(0.15));
+        if (hasUpgrade('SL', 23)) requirement = requirement.div(player.SL.points.add(1).pow(0.16));
         
         return requirement
     },// Can be a function that takes requirement increases into account
@@ -29,21 +30,24 @@ addLayer("FL", {
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.8, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
-        mult = new Decimal(1)
-        if (hasUpgrade('FL', 11)) mult = mult.times(upgradeEffect('FL', 11))
-        if (hasUpgrade('FL', 13)) mult = mult.times(upgradeEffect('FL', 13))
-        if (hasUpgrade('FL', 14)) mult = mult.times(upgradeEffect('FL', 14))
-        if (hasUpgrade('EX', 14)) mult = mult.times(upgradeEffect('EX', 14))
-        if (hasUpgrade('EX', 15)) mult = mult.times(upgradeEffect('EX', 15))
-        if (hasUpgrade('EX', 21)) mult = mult.times(upgradeEffect('EX', 21))
-        if (hasUpgrade('EX', 24)) mult = mult.times(upgradeEffect('EX', 24))
-        if (hasUpgrade('SL', 11)) mult = mult.times(3)
-        if (hasChallenge('CT', 11)) mult = mult.times(3)
-        if (inChallenge('CT', 12)) mult = mult.times(3)
-        if (inChallenge('CT', 21)) mult = mult.times(250)
-        if (hasUpgrade('EX', 25)) mult = mult.times(100)
-        if (player.SL.unlocked) mult = mult.times(tmp.SL.effect)
-        return mult
+        mult = new Decimal(1);
+        if (hasUpgrade('FL', 11)) mult = mult.times(upgradeEffect('FL', 11));
+        if (hasUpgrade('FL', 13)) mult = mult.times(upgradeEffect('FL', 13));
+        if (hasUpgrade('FL', 14)) mult = mult.times(upgradeEffect('FL', 14));
+        if (hasUpgrade('EX', 14)) mult = mult.times(upgradeEffect('EX', 14));
+        if (hasUpgrade('EX', 15)) mult = mult.times(upgradeEffect('EX', 15));
+        if (hasUpgrade('EX', 21)) mult = mult.times(upgradeEffect('EX', 21));
+        if (hasUpgrade('EX', 24)) mult = mult.times(upgradeEffect('EX', 24));
+        if (hasUpgrade('SL', 11)) mult = mult.times(3);
+        if (hasChallenge('CT', 11)) mult = mult.times(3);
+        if (inChallenge('CT', 12)) mult = mult.times(3);
+        if (inChallenge('CT', 21)) mult = mult.times(250);
+        if (hasUpgrade('EX', 25)) mult = mult.times(100);
+        if (player.SL.unlocked) mult = mult.times(tmp.SL.effect);
+        if (hasUpgrade('SL', 23)) mult = mult.times(tmp.SL.effect.pow(0.15));
+        return effects;
+        
+        return mult;
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         let exp = new Decimal(1)
