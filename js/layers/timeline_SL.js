@@ -64,6 +64,26 @@ addLayer("SL", {
         return value
     },
 milestones: {
+    11: {
+        requirementDescription: "1e13 Souls",
+        effectDescription(){ 
+            let des
+            des = `Passively earn 10% Floors & Explosives`
+            return des
+        },
+        done() { return player.SL.points.gte(1e13)},
+        unlocked() { return hasChallenge('CT', 22)},
+    },
+    12: {
+        requirementDescription: "1e21 Souls",
+        effectDescription(){ 
+            let des
+            des = `Add a base of 0.3 to Explosives`
+            return des
+        },
+        done() { return player.SL.points.gte(1e21)},
+        unlocked() { return hasChallenge('CT', 22)},
+    },
     },
 
 upgrades: {
