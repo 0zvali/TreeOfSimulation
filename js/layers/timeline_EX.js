@@ -45,6 +45,11 @@ addLayer("EX", {
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
     },
+    autoUpgrade(){
+        let auto = false
+        if (hasChallenge('CT', 22)) auto = true
+        return auto
+    },
     passiveGeneration() {
         let value1 = new Decimal(0);
         if (hasMilestone('SL', 11)) value1 = value1.add(0.1)
