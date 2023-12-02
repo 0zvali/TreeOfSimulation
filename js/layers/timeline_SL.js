@@ -160,7 +160,7 @@ upgrades: {
         24: {
             title: "Effective Souls",
             description: "Add a base of 0.13 to soul gain",
-            cost: new Decimal(1455666),
+            cost: new Decimal(1e11),
             unlocked(){
                 return hasUpgrade('SL', 23)
             },
