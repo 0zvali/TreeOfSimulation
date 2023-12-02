@@ -17,6 +17,7 @@ addLayer("SL", {
     requires(){ 
         let requirement = new Decimal(1e40);
         if (inChallenge('CT', 22)) requirement = requirement.div(1.66e32);
+        if (hasMilestone('SL', 13)) requirement = requirement.div((player.SL.points.add(1).pow(0.004)));
         return requirement
     },
     resource: "Souls", // Name of prestige currency
@@ -48,6 +49,7 @@ addLayer("SL", {
         if (hasUpgrade('SL', 21)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "and dividing explosive & floor requirement by /"+format(player.SL.points.add(1).pow(0.15))
         if (hasUpgrade('SL', 22)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "and dividing explosive & floor requirement by /"+format(player.SL.points.add(1).pow(0.36))
         if (hasUpgrade('SL', 23 && hasUpgrade('SL', 22))) dis = "which is boosting floor gain by "+format(tmp.SL.effect.pow(1.15))+`x<br>` + "and dividing explosive & floor requirement by /"+format(player.SL.points.add(1).pow(0.36))
+        if (hasMilestone('SL', 13)) dis = "which is boosting floor gain by "+format(tmp.SL.effect.pow(1.15))+`x<br>` + "Divide explosive & floor requirement by /" +format(player.SL.points.add(1).pow(0.36)) + `<br>` + "Divide Soul Requirement by /" + format(player.SL.points.add(1).pow(0.004))
         return dis
     },
     effectBase() {
@@ -79,14 +81,24 @@ milestones: {
         unlocked() { return hasChallenge('CT', 22)},
     },
     12: {
-        requirementDescription: "1e21 Souls",
+        requirementDescription: "4e18 Souls",
         effectDescription(){ 
             let des
             des = `Add a base of 0.3 to Explosives`
             return des
         },
-        done() { return player.SL.points.gte(1e21)},
+        done() { return player.SL.points.gte(4e18)},
         unlocked() { return hasChallenge('CT', 22)},
+    },
+    13: {
+        requirementDescription: "2.44e20 Souls",
+        effectDescription(){ 
+            let des
+            des = `Add another Soul Effect.`
+            return des
+        },
+        done() { return player.SL.points.gte(2.44e20)},
+        unlocked() { return hasChallenge('CT', 22) && hasMilestone('SL', 12)},
     },
 },
 
