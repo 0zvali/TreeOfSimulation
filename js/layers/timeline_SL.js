@@ -88,7 +88,7 @@ milestones: {
         done() { return player.SL.points.gte(1e21)},
         unlocked() { return hasChallenge('CT', 22)},
     },
-    },
+},
 
 upgrades: {
         rows: 2,
@@ -170,7 +170,7 @@ upgrades: {
             description: "Souls boosts Floor base slightly (Cap ^1.3)",
             cost: new Decimal(1e17),
             effect() {
-                return (player.SL.points.max(1).add(1).pow(0.002)).max(1).min(1.3);
+                return (player.SL.points.max(1).add(1).pow(0.0013)).max(1).min(1.3);
             },
             effectDisplay() { return "+^"+ format(upgradeEffect(this.layer, this.id)) },
             unlocked(){

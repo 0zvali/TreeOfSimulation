@@ -21,6 +21,7 @@ addLayer("EX", {
         if (hasUpgrade('SL', 15)) requirement = requirement.div(5.4);
         if (hasUpgrade('SL', 21)) requirement = requirement.div(player.SL.points.add(1).pow(0.15));
         if (hasUpgrade('SL', 23)) requirement = requirement.div(player.SL.points.add(1).pow(0.16));
+        if (requirement <= 0.02) requirement = new Decimal(1)
         return requirement
     },
     resource: "Explosives", // Name of prestige currency
@@ -40,7 +41,8 @@ addLayer("EX", {
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-        return new Decimal(1)
+        exp = new Decimal(1)
+        if (hasMilestone('SL', 12)) exp = exp.add(.3)
     },
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
