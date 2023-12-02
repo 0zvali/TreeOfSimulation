@@ -10,7 +10,6 @@ addLayer("F", {
 
     lockedData(){
         if(player.CT.points >= 1) unlocked = false;
-        if(player.CT.points >= 1) player.F.hotkeys = false;
     },
     color: "#322CA8",
     requires: new Decimal(1e30), // Can be a function that takes requirement increases into account

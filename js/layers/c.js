@@ -14,10 +14,12 @@ addLayer("c", {
     }},
     lockedData(){
         if(player.CT.points >= 1) unlocked = false;
-        if(player.CT.points >= 1) player.c.hotkeys = false;
     },
-    requires:
-    new Decimal(5),    // Can be a function that takes requirement increases into account    
+    requires(){
+        let requirement = new Decimal(5)
+        if (player.CT.points >= 1) requirement = requirement.times(1e1500)
+        return requirement
+    },    // Can be a function that takes requirement increases into account    
     resource: "crystals", // Name of prestige currency
     baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
