@@ -164,7 +164,7 @@ upgrades: {
         23: {
             title: "Explosive Effects",
             description: "^1.15 to 1st Soul Effect",
-            cost: new Decimal(350000),
+            cost: new Decimal(1e10),
             unlocked(){
                 return hasUpgrade('SL', 22)
             },
@@ -172,7 +172,7 @@ upgrades: {
         24: {
             title: "Effective Souls",
             description: "Add a base of 0.13 to soul gain",
-            cost: new Decimal(1e11),
+            cost: new Decimal(1e13),
             unlocked(){
                 return hasUpgrade('SL', 23)
             },
