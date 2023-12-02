@@ -17,7 +17,7 @@ addLayer("SL", {
     requires(){ 
         let requirement = new Decimal(1e40);
         if (inChallenge('CT', 22)) requirement = requirement.div(1.66e32);
-        if (hasMilestone('SL', 13)) requirement = requirement.div((player.SL.points.add(1).pow(0.004)));
+        if (hasMilestone('SL', 13)) requirement = requirement.div((player.SL.points.add(1).pow(0.012)));
         return requirement
     },
     resource: "Souls", // Name of prestige currency
@@ -49,7 +49,7 @@ addLayer("SL", {
         if (hasUpgrade('SL', 21)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "and dividing explosive & floor requirement by /"+format(player.SL.points.add(1).pow(0.15))
         if (hasUpgrade('SL', 22)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "and dividing explosive & floor requirement by /"+format(player.SL.points.add(1).pow(0.36))
         if (hasUpgrade('SL', 23 && hasUpgrade('SL', 22))) dis = "which is boosting floor gain by "+format(tmp.SL.effect.pow(1.15))+`x<br>` + "and dividing explosive & floor requirement by /"+format(player.SL.points.add(1).pow(0.36))
-        if (hasMilestone('SL', 13)) dis = "which is boosting floor gain by "+format(tmp.SL.effect.pow(1.15))+`x<br>` + "Divide explosive & floor requirement by /" +format(player.SL.points.add(1).pow(0.36)) + `<br>` + "Divide Soul Requirement by /" + format(player.SL.points.add(1).pow(0.004))
+        if (hasMilestone('SL', 13)) dis = "which is boosting floor gain by "+format(tmp.SL.effect.pow(1.15))+`x<br>` + "Divide explosive & floor requirement by /" +format(player.SL.points.add(1).pow(0.36)) + `<br>` + "Divide Soul Requirement by /" + format(player.SL.points.add(1).pow(0.012))
         return dis
     },
     effectBase() {
