@@ -111,9 +111,9 @@ challenges: {
             },
         },
         22: {
-            name: "Soul Sheild",
+            name: "Soul Shield",
             challengeDescription: 
-            `Souls now have sheilds, but it's making it harder to progress.<br>
+            `Souls are equiped with shields, but it's making it harder to progress.<br>
             Infect gain /500, Explosive gain /200<br>
             Floor Requirement is now 5 instead of 150!<br>
             Some Upgrades are also changed to make it easier (even some caps...)!<br>

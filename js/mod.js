@@ -25,12 +25,12 @@ let changelog = `<h1>Changelog:</h1><br>
 
 		<h2>v2.1: Obfuscating Souls</h2><br>
 			- Added a new Layer<br>
-			- Fixed 'Soul Sheild' Challenge<br>
+			- Fixed 'Soul Shield' Challenge<br>
 			- Added 3 Soul Milestones<br>
 			- Added 4 Soul Upgrades<br>
 			- Requirement is now nerf'd at 1 if it is under 0.99.<br>
 			- Fixed 'NaN' bug from Explosive Upgrades<br>
-			- Nerf'd Soul Sheild slightly<br>
+			- Nerf'd Soul Shield slightly<br>
 			- Balanced & Adjustments up to 1e20 Souls in Normal Timeline<br>
 			- Endgame: 2 Obfuscation<br><br>
 
