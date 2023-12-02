@@ -35,8 +35,8 @@ addLayer("O", {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
     },
     effect() {
-        let eff = player.O.points.add(1.25).pow(0.32)
-        eff = eff.times(tmp.SL.effectBase)
+        let eff = player.O.points.add(2).pow(0.32)
+        eff = eff.times(tmp.O.effectBase)
         return eff
     },
     effectDescription() {
