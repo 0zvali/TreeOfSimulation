@@ -15,7 +15,7 @@ addLayer("O", {
         "background": (player.O.unlocked||canReset("O"))?"radial-gradient(#c7148b, #516fc2)":"#bf8f8f" ,
     }},
     requires(){ 
-        let requirement = new Decimal(1e999);
+        let requirement = new Decimal(1e21);
         return requirement
     },
     resource: "Obfuscation", // Name of prestige currency
