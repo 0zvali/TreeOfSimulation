@@ -44,9 +44,7 @@ addLayer("FL", {
         if (inChallenge('CT', 21)) mult = mult.times(250);
         if (hasUpgrade('EX', 25)) mult = mult.times(100);
         if (player.SL.unlocked) mult = mult.times(tmp.SL.effect);
-        if (hasUpgrade('SL', 23)) mult = mult.times(tmp.SL.effect.pow(0.15));
-        return effects;
-        
+        if (hasUpgrade('SL', 23)) mult = mult.times(tmp.SL.effect.pow(0.15)); 
         return mult;
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
