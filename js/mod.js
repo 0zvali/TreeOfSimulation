@@ -487,7 +487,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.SL.points.gte(85000)
+	return player.O.points.gte(2)
 }
 
 
