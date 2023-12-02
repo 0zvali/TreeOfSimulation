@@ -31,7 +31,9 @@ addLayer("SL", {
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-        return new Decimal(1)
+        exp = new Decimal(1)
+        if (hasUpgrade('SL', 24)) exp = exp.add(0.13)
+        return exp
     },
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
@@ -153,6 +155,14 @@ upgrades: {
             cost: new Decimal(1750000),
             unlocked(){
                 return hasUpgrade('SL', 22)
+            },
+        },
+        24: {
+            title: "Effective Souls",
+            description: "Add a base of 0.13 to soul gain",
+            cost: new Decimal(14855666),
+            unlocked(){
+                return hasUpgrade('SL', 23)
             },
         },
     },
