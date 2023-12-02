@@ -183,7 +183,7 @@ upgrades: {
             description: "Souls boosts Floor base slightly (Cap ^1.3)",
             cost: new Decimal(2.33e15),
             effect() {
-                return (player.SL.points.max(1).add(1).pow(0.0013)).max(1).min(1.3);
+                return (player.SL.points.max(1).add(1).pow(0.0023)).max(1).min(1.3);
             },
             effectDisplay() { return "+^"+ format(upgradeEffect(this.layer, this.id)) },
             unlocked(){
