@@ -12,8 +12,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "2.0.2",
-	name: "Breaking News...",
+	num: "2.1",
+	name: "Obfuscating Souls",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -22,6 +22,15 @@ let changelog = `<h1>Changelog:</h1><br>
 		y = minor update<br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
+
+		<h2>v2.1: Obfuscating Souls</h2><br>
+			- Added a new Layer<br>
+			- Fixed 'Soul Shield' Challenge<br>
+			- Added 3 Soul Milestones<br>
+			- Added 4 Soul Upgrades<br>
+			- Bugfixes<br>
+			- Fixed 'NaN' bug from Explosive Upgrades<br>
+			- Nerf'd Soul Sheild slightly<br><br>
 
 		<h3>v2.0.1: Breaking News...</h3><br>
 			- Removal of News Ticker<br>
