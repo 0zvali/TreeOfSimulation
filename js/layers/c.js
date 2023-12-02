@@ -12,6 +12,9 @@ addLayer("c", {
     nodeStyle() {return {
         "background-color": ((player.c.unlocked||canReset("c"))?"#FA7BDC":"#bf8f8f"),
     }},
+    lockedData(){
+        if(player.CT.points >= 1) unlocked = false;
+    },
     requires:
     new Decimal(5),    // Can be a function that takes requirement increases into account    
     resource: "crystals", // Name of prestige currency
@@ -65,7 +68,7 @@ addLayer("c", {
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "c", description: "c: reset for Crystals", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "c", description: "c: reset for Crystals", onPress(){if (canReset(this.layer) && player.c.unlocked) doReset(this.layer)}},
     ],
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
