@@ -20,7 +20,7 @@ addLayer("EX", {
         if (hasUpgrade('FL', 22)) requirement = requirement.div(upgradeEffect('FL', 22))
         if (hasUpgrade('SL', 15)) requirement = requirement.div(5.4);
         if (hasUpgrade('SL', 21)) requirement = requirement.div(player.SL.points.add(1).pow(0.15));
-        if (requirement <= 0.02) requirement = new Decimal(1)
+        if (requirement <= 0.99) requirement = new Decimal(1)
         return requirement
     },
     resource: "Explosives", // Name of prestige currency
