@@ -57,7 +57,7 @@ addLayer("O", {
     ],
     layerShown() {
         let value = false
-        if (player.SL.points >= 1e21) value = true
+        if (player.SL.points >= 1e20) value = true
         return value
     },
 milestones: {
