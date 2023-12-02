@@ -43,6 +43,7 @@ addLayer("EX", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
         if (hasMilestone('SL', 12)) exp = exp.add(.3)
+        return exp
     },
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
