@@ -8,9 +8,13 @@ addLayer("c", {
         best: new Decimal(0),
         total: new Decimal(0),
     }},
-    color: "#FA7BDC",
+    color(){ 
+        let color = "#FA7BDC"
+        if (hasMilestone('O', 11)) color = "#DC7BDC"
+        return color
+    },
     nodeStyle() {return {
-        "background-color": ((player.c.unlocked||canReset("c"))?"#FA7BDC":"#bf8f8f"),
+        "background": (player.O.unlocked && hasMilestone('O', 11) && canReset("c"))?"radial-gradient(#DC7BDC, #16786c)":"#bf8f8f" ,
     }},
     lockedData(){
         if(player.CT.points >= 1) unlocked = false;
@@ -71,7 +75,11 @@ addLayer("c", {
         if (hasUpgrade('c', 53)) pow = pow.add(.01)
         return pow
     },
-    row: 1, // Row the layer is in on the tree (0 is the first row)
+    row(){
+        let row = 1
+        if (hasMilestone('O', 11)) row = 2
+        return row
+     }, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "c", description: "c: reset for Crystals", onPress(){if (canReset(this.layer) && player.c.unlocked) doReset(this.layer)}},
     ],
