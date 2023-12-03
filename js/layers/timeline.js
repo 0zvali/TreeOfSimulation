@@ -106,6 +106,7 @@ challenges: {
             goalDescription: "1e28 Floors (Break the universe...)",
             rewardDescription() { return "Floors boosts Infects & Unlock the next layer (" + format(player.FL.points.add(1).pow(0.066)) + "x)"},
             onEnter(){if (player.SL.unlocked) player.SL.keep = true},
+            onExit(){if (player.SL.unlocked) player.SL.keep = false},
             unlocked(){
                 return hasUpgrade('EX', 22) || inChallenge('CT', 21) || hasChallenge('CT', 21)
             },

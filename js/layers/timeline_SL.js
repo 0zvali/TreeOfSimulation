@@ -78,7 +78,7 @@ milestones: {
             des = `Passively earn 10% Floors & Explosives & add a base of 0.1 to Floors`
             return des
         },
-        done() { return player.SL.points.gte(250000)},
+        done() { return player.SL.points.gte(250000) && hasChallenge('CT', 22)},
         unlocked() { return hasChallenge('CT', 22)},
     },
     12: {
@@ -88,7 +88,7 @@ milestones: {
             des = `Add a base of 0.3 to Explosives`
             return des
         },
-        done() { return player.SL.points.gte(4e18)},
+        done() { return player.SL.points.gte(4e18) && hasChallenge('CT', 22)},
         unlocked() { return hasChallenge('CT', 22)},
     },
     13: {
@@ -98,7 +98,7 @@ milestones: {
             des = `Add another Soul Effect.`
             return des
         },
-        done() { return player.SL.points.gte(2.44e19)},
+        done() { return player.SL.points.gte(2.44e19) && hasChallenge('CT', 22)},
         unlocked() { return hasChallenge('CT', 22) && hasMilestone('SL', 12)},
     },
 },
