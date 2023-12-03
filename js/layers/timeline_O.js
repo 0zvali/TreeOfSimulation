@@ -61,4 +61,16 @@ addLayer("O", {
         if (player.SL.points >= 1e20 || player.O.unlocked) value = true
         return value
     },
+    milestones: {
+        11: {
+            requirementDescription: "1 Obfuscation",
+            effectDescription(){ 
+                let des
+                des = `Obfuscating Time.`
+                return des
+            },
+            done() { return player.O.points.gte(1)},
+            unlocked() { return hasChallenge('CT', 22)},
+        },
+    },
 })

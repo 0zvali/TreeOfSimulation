@@ -472,6 +472,8 @@ var displayThings = [
 		return "You are currently in: 'Universal Floors' (Infects /10, EX /2, FL *250)"
 		if (inChallenge('CT', 22))
 		return "You are currently in: 'Soul Shield' (Infects /500 & EX /200)"
+		if (hasMilestone('O', 11))
+		return "You are currently in: Submergence Timeline"
 		else
 		return "You are currently in: Normal Timeline"
 	  },
@@ -480,6 +482,9 @@ var displayThings = [
 		return `<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'>I will never let you change time in this reality</h4>`
 	  },
 	function() {
+		if (hasMilestone('O', 11))
+		return "You are in Timeline 7(*SC3)a466s(34f)$ " + "<br><br><br>"
+		else
 		return "You are in Timeline " + formatWhole(player.CT.points.plus(1)) + "<br><br><br>"
 	  },
 ]

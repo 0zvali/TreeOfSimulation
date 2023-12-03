@@ -18,6 +18,8 @@ addLayer("c", {
     requires(){
         let requirement = new Decimal(5)
         if (player.CT.points >= 1) requirement = requirement.times(1e1500)
+        if (hasMilestone('O', 11)) requirement = requirement.div(1e1500)
+        if (hasMilestone('O', 11)) requirement = requirement.times(1e15)
         return requirement
     },    // Can be a function that takes requirement increases into account    
     resource: "crystals", // Name of prestige currency
@@ -118,6 +120,7 @@ addLayer("c", {
     layerShown(){    
     let value = true;
     if (hasUpgrade('R', 16) || player.CT.unlocked) value = false
+    if (hasMilestone('O', 11)) value = true
     return value
     },
 	infoboxes: {
@@ -130,7 +133,11 @@ addLayer("c", {
     rows: 5,
     cols: 5,
     11: {
-        title: "Feelings",
+        title(){ 
+            let title = "Feelings"
+            if (hasMilestone('O', 11)) title = "Corrupted Feelings"
+            return title
+        },
         description: "Crystals boosts infects slightly",
         cost: new Decimal(1),
         effect() {
