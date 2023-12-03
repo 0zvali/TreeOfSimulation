@@ -16,6 +16,7 @@ addLayer("O", {
     }},
     requires(){ 
         let requirement = new Decimal(4e20);
+        if (inChallenge('CT', 22)) requirement = requirement.pow(3)
         return requirement
     },
     resource: "Obfuscation", // Name of prestige currency

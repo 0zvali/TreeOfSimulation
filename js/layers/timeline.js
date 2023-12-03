@@ -123,7 +123,6 @@ challenges: {
             goalDescription: "1e25 Souls",
             rewardDescription() { return "Souls boosts itself (" + (format(player.SL.points.add(1).pow(0.06)) + "x)") + `<br> Keep Floors & Explosive Upgrades.`},
             onEnter(){ return player.SL.upgrades.push('11', '12', '13', '14', '15', '21')},
-            
             unlocked(){
                 return hasUpgrade('SL', 21) || inChallenge('CT', 22) || hasChallenge('CT', 22)
             },
