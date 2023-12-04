@@ -11,7 +11,12 @@ addLayer("H", {
         if(player.CT.points >= 1) unlocked = false;
     },
     color: "#d19226",
-    requires: new Decimal(1.22e42), // Can be a function that takes requirement increases into account
+    requires(){ 
+        let requirement = new Decimal(1.22e42);
+        if (hasUpgrade('O', 11)) requirement = requirement.div()
+        if (requirement <= 0.99) requirement = new Decimal(1e10)
+        return requirement
+    }, // Can be a function that takes requirement increases into account
     resource: "humans", // Name of prestige currency
     baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
@@ -29,7 +34,9 @@ addLayer("H", {
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-        return new Decimal(1)
+        let expo = new Decimal(1)
+        if (hasUpgrade('O', 11)) expo = expo.add(.1)
+        return expo
     },
     effect() {
         let eff2 = player.H.points.add(1).pow(0.26)

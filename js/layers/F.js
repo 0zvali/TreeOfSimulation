@@ -34,7 +34,9 @@ addLayer("F", {
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-        return new Decimal(1)
+        let expo = new Decimal(1)
+        if (hasUpgrade('O', 11)) expo = expo.add(.15)
+        return expo
     },
     effect() {
         let eff1 = player.F.points.add(1.3).pow(0.488)

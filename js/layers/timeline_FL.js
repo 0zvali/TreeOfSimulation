@@ -56,6 +56,7 @@ addLayer("FL", {
         if (hasMilestone('SL', 11)) exp = exp.add(.1)
         if (hasMilestone('SL', 11)) exp = exp.add(.1)
         if (hasUpgrade('SL', 25)) exp = exp.add(upgradeEffect("SL", 25).sub(0.999))
+        if (hasUpgrade('O', 11)) exp = exp.add(.03)
         return exp
     },
     doReset(resettingLayer) {

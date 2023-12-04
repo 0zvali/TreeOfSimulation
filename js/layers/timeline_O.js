@@ -84,4 +84,28 @@ addLayer("O", {
             unlocked() { return hasMilestone('O', 11)},
         },
     },
+    upgrades: {
+        rows: 1,
+        cols: 5,
+        11: {
+            title(){ 
+                let title = "Ob-fusion-ing"
+                return title
+            },
+            description: "^1.1 Humans, ^1.15 Fusions, ^1.1 Weapons, ^1.03 Floors, Decrease Human Requirement significantly. Weapons boost Weapons sightly",
+            cost: new Decimal(1),
+            effect() {
+                let effect1 = (player.W.points.max(1).add(1.3).pow(0.18)).max(1).min(1400);
+                return effect1
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(1400) ? "(Capped so late?)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return player.c.points.gte(0)
+            },
+        },
+    },
 })
