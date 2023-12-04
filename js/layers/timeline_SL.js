@@ -34,6 +34,7 @@ addLayer("SL", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
+        if (hasUpgrade('SL', 23)) exp = exp.add(.013)
         if (hasUpgrade('SL', 24)) exp = exp.add(0.13)
         return exp
     },
@@ -54,7 +55,7 @@ addLayer("SL", {
     },
     effectBase() {
         let base = new Decimal(1)
-        if (hasUpgrade('SL', 23)) base = base.add(.15)
+        if (hasUpgrade('SL', 23)) base = base.add(.22)
         return base
     },
     passiveGeneration() {
@@ -165,7 +166,7 @@ upgrades: {
         },
         23: {
             title: "Explosive Effects",
-            description: "^1.15 to 1st Soul Effect",
+            description: "^1.22 to 1st Soul Effect",
             cost: new Decimal(1e10),
             unlocked(){
                 return hasUpgrade('SL', 22)
