@@ -66,7 +66,7 @@ addLayer("O", {
             requirementDescription: "1 Obfuscation",
             effectDescription(){ 
                 let des
-                des = `Obfuscating Time.`
+                des = `Obfuscating Time...<br> Keep Soul Upgrades on reset`
                 return des
             },
             done() { return player.O.points.gte(1)},
