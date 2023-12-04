@@ -93,9 +93,9 @@ addLayer("O", {
                 return title
             },
             description: "^1.1 Humans, ^1.15 Fusions, ^1.1 Weapons, ^1.03 Floors, Decrease Human Requirement significantly. Weapons boost Weapons sightly",
-            cost: new Decimal(1),
+            cost: new Decimal(650),
             effect() {
-                let effect1 = (player.W.points.max(1).add(1.3).pow(0.18)).max(1).min(1400);
+                let effect1 = (player.W.points.max(1).add(1.3).pow(0.18)).max(1).min(140000);
                 return effect1
             },
             effectDisplay() {
