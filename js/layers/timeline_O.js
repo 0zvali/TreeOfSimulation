@@ -135,7 +135,7 @@ addLayer("O", {
             description: "^1.2 all Effects, Humans Divide Fusion Requirement (Cap is /1e10)",
             cost: new Decimal(1.2e14),
             effect() {
-                let effect1 = (player.H.points.max(1).add(1).pow(0.02)).max(1).min(1e10);
+                let effect1 = (player.H.points.max(1).add(1).pow(0.005)).max(1).min(1e10);
                 return effect1
             },
             effectDisplay() { return "/"+format(upgradeEffect(this.layer, this.id)) },
