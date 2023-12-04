@@ -69,7 +69,7 @@ addLayer("FL", {
         if (hasChallenge('CT', 21)) player.FL.milestones.push('11')
         if (hasChallenge('CT', 21)) player.EX.milestones.push('11')
         if (inChallenge('CT', 22)) player.SL.upgrades.push('11', '12', '13', '14', '15', '21')
-        if (hasMilestone('O', 11)) player.SL.upgrades.push('11', '12', '13', '14', '15', '21')
+        if (hasMilestone('O', 11)) player.SL.upgrades.push('11', '12', '13', '14', '15', '21', '22', '23', '24', '25')
         if (hasChallenge('CT', 22)) player.EX.upgrades.push('11', '12', '13', '14', '15', '21', '22', '23', '24', '25')
         if (hasChallenge('CT', 22)) player.FL.upgrades.push('11', '12', '13', '14', '21', '22', '23', '24')
     },
