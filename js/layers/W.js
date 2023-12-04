@@ -33,6 +33,7 @@ addLayer("W", {
     },
     effectBase() {
         let base = new Decimal(1) 
+        return base
     },
     effectDescription() {
         dis = "which boosts all previous layers (Except Rooms) by "+ format(tmp.W.effect) +"x"
