@@ -24,7 +24,7 @@ addLayer("O", {
     baseResource: "Souls", // Name of resource prestige is based on
     baseAmount() {return player.SL.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.15, // Prestige currency exponent
+    exponent: 0.02, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
