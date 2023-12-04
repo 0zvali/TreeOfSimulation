@@ -489,6 +489,6 @@ layerShown() {
     if (hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1) || player.F.unlocked) value = true;
     if (hasUpgrade('R', 16) || player.CT.unlocked) value = false;
     if ((hasMilestone("O", 11) && hasUpgrade('c', 25) && player.CT.unlocked || player.E.points.gte(1) || player.F.unlocked)) value = true;
-    return value1
+    return value
     },
  })             
