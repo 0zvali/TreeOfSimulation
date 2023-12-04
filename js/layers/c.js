@@ -14,10 +14,11 @@ addLayer("c", {
         return color
     },
     nodeStyle() {return {
-        "background": (player.O.unlocked && hasMilestone('O', 11) && canReset("c"))?"radial-gradient(#DC7BDC, #16786c)":"#bf8f8f" ,
+        "background": (player.O.unlocked && hasMilestone('O', 11))?"radial-gradient(#DC7BDC, #16786c)":"#bf8f8f" ,
     }},
     lockedData(){
         if(player.CT.points >= 1) unlocked = false;
+        if(hasMilestone('O', 11)) unlocked = true;
     },
     requires(){
         let requirement = new Decimal(5)
@@ -81,7 +82,7 @@ addLayer("c", {
     },
     row(){
         let row = 1
-        if (hasMilestone('O', 11)) row = 2
+        if (hasMilestone('O', 11)) row = 1
         return row
      }, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
