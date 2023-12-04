@@ -22,7 +22,9 @@ addLayer("W", {
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-        return new Decimal(1)
+        let expo = new Decimal(1)
+        if (hasMilestone('O', 12)) expo = expo.add(0.3)
+        return expo
     },
     effect() {
         let eff4 = player.W.points.add(1).pow(0.575)
@@ -31,8 +33,6 @@ addLayer("W", {
     },
     effectBase() {
         let base = new Decimal(1) 
-        if (hasMilestone('O', 12)) base = base.add(0.3)
-        return base
     },
     effectDescription() {
         dis = "which boosts all previous layers (Except Rooms) by "+ format(tmp.W.effect) +"x"
