@@ -57,6 +57,7 @@ addLayer("W", {
         let value = false
         if (hasUpgrade("F", 36) || player.W.points.gte(1) || player.W.unlocked) value = true;
         if (player.points.gte(1e999) || player.CT.unlocked) value = false;
+        if ((hasMilestone("O", 11) && hasUpgrade("F", 36)) || player.W.points.gte(1)) value = true;
         return value
     },
 milestones: {
