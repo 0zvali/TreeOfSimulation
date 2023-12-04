@@ -81,7 +81,7 @@ addLayer("O", {
                 return des
             },
             done() { return player.O.points.gte(50)},
-            unlocked() { return hasChallenge('O', 11)},
+            unlocked() { return hasMilestone('O', 11)},
         },
     },
 })
