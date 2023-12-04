@@ -116,6 +116,7 @@ addLayer("c", {
         if (hasMilestone ('W', 11)) player.F.milestones.push("11", "12", "13", "14", "15")
         if (hasMilestone ('W', 11)) player.H.milestones.push("11", "12", "13", "14", "15")
         if (hasMilestone ('W', 11)) player.R.milestones.push("11", "12")
+        if (hasMilestone ('W', 14)) player.R.upgrades.push("13", "14", "15")
     },
     passiveGeneration() {
         let value1 = new Decimal(0);
