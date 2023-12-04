@@ -11,6 +11,9 @@ addLayer("EX", {
         let color = `#7dee99`
         return color
     },
+    milestoneDisabler(){
+        if(hasMilestone('O', 11)) milestonePopups: false
+    },
     requires(){ 
         let requirement = new Decimal(6000);
         if (inChallenge('CT', 11)) requirement = new Decimal(1500);

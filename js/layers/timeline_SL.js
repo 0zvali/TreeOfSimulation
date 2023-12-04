@@ -14,6 +14,9 @@ addLayer("SL", {
     nodeStyle() {return {
         "background": (player.SL.unlocked||canReset("SL"))?"radial-gradient(#603736, #4a6261)":"#bf8f8f" ,
     }},
+    milestoneDisabler(){
+        if(hasMilestone('O', 11)) milestonePopups: false
+    },
     requires(){ 
         let requirement = new Decimal(1e40);
         if (inChallenge('CT', 22)) requirement = requirement.div(1.66e32);

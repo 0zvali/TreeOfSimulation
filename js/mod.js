@@ -483,7 +483,7 @@ var displayThings = [
 	  },
 	function() {
 		if (hasMilestone('O', 11))
-		return "You are in Timeline 7(*SC3)a466s(34f)$ " + "<br><br><br>"
+		return "You are in Timeline <h4 style='color: darkred; text-shadow: yellow 1.75px 1.75px 10px;'>Submergence</h4> " + "<br><br><br>"
 		else
 		return "You are in Timeline " + formatWhole(player.CT.points.plus(1)) + "<br><br><br>"
 	  },
@@ -492,7 +492,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.O.points.gte(2)
+	return player.O.points.gte(350000)
 }
 
 
