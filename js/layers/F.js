@@ -90,7 +90,7 @@ addLayer("F", {
         let value = false
         if (hasUpgrade("c", 45) || player.F.unlocked) value = true;    
         if (hasUpgrade('R', 16) || player.CT.unlocked) value = false;
-        if ((hasMilestone("O", 11) && hasUpgrade('c', 25)) || player.F.points.gte(1)) value = true;
+        if ((hasMilestone("O", 11) && hasUpgrade('c', 25) && hasUpgrade('c', 45)) || player.F.points.gte(1)) value = true;
         return value
       },
 milestones: {
