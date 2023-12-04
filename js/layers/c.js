@@ -13,9 +13,6 @@ addLayer("c", {
         if (hasMilestone('O', 11)) color = "#DC7BDC"
         return color
     },
-    nodeStyle() {return {
-        "background": (player.O.unlocked && hasMilestone('O', 11))?"radial-gradient(#DC7BDC, #16786c)":"#bf8f8f" ,
-    }},
     lockedData(){
         if(player.CT.points >= 1) unlocked = false;
         if(hasMilestone('O', 11)) unlocked = true;
