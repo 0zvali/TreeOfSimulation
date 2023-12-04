@@ -6,13 +6,11 @@ addLayer("EX", {
         unlocked: false,
 		points: new Decimal(0),
         best: new Decimal(0),
+        milestonePopups: false,
     }},
     color(){ 
         let color = `#7dee99`
         return color
-    },
-    milestoneDisabler(){
-        if(hasMilestone('O', 11)) milestonePopups: false
     },
     requires(){ 
         let requirement = new Decimal(6000);
