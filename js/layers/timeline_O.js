@@ -104,7 +104,7 @@ addLayer("O", {
                 return text;
             },
             unlocked(){
-                return player.c.points.gte(0)
+                return hasMilestone("O", 12)
             },
         },
     },
