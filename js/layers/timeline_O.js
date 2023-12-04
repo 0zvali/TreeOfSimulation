@@ -73,5 +73,15 @@ addLayer("O", {
             done() { return player.O.points.gte(1)},
             unlocked() { return hasChallenge('CT', 22)},
         },
+        12: {
+            requirementDescription: "50 Obfuscation",
+            effectDescription(){ 
+                let des
+                des = `^1.3 Weapons`
+                return des
+            },
+            done() { return player.O.points.gte(50)},
+            unlocked() { return hasChallenge('O', 11)},
+        },
     },
 })

@@ -31,6 +31,7 @@ addLayer("W", {
     },
     effectBase() {
         let base = new Decimal(1) 
+        if (hasMilestone('O', 12)) base = base.add(0.3)
         return base
     },
     effectDescription() {
