@@ -23,14 +23,18 @@ addLayer("c", {
         let requirement = new Decimal(5)
         if (player.CT.points >= 1) requirement = requirement.times(1e1500)
         if (hasMilestone('O', 11)) requirement = requirement.div(1e1500)
-        if (hasMilestone('O', 11)) requirement = requirement.times(1e15)
+        if (hasMilestone('O', 11)) requirement = requirement.times(1e25)
         return requirement
     },    // Can be a function that takes requirement increases into account    
     resource: "crystals", // Name of prestige currency
     baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: .85, // Prestige currency exponent
+    exponent(){ 
+        let expo = .85
+        if (hasMilestone('O', 11)) expo = .55
+        return expo
+    },
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         // C Upgrade Effects (# Order)
@@ -85,6 +89,7 @@ addLayer("c", {
     ],
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
+        if (hasMilestone('O', 11)) player.c.keep = true
         if (hasMilestone ('E', 11)) player.c.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33")
         if (hasUpgrade ('E', 23)) player.c.upgrades.push("34", "35")
         if (hasMilestone ('E', 14)) player.c.upgrades.push("41", "42", "43", "44", "45")
@@ -149,7 +154,9 @@ addLayer("c", {
         description: "Crystals boosts infects slightly",
         cost: new Decimal(1),
         effect() {
-            return (player.c.points.max(1).add(1.3).pow(0.152)).max(1).min(142);
+            let effect1 = (player.c.points.max(1).add(1.3).pow(0.152)).max(1).min(142);
+            if (hasMilestone('O', 11)) effect1 = (player.c.points.max(1).add(1.3).pow(0.3)).max(1).min(142)
+            return effect1
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(142) ? "(Capped so late?)" : "";
@@ -161,11 +168,17 @@ addLayer("c", {
         },
     },
 	12: {
-	    title: "Submergance",
+        title(){ 
+            let title = "Submergance"
+            if (hasMilestone('O', 11)) title = "Corrupted Submergance"
+            return title
+        },
         description: "Crystals boosts infects",
         cost: new Decimal(5),
         effect() {
-            return (player.c.points.max(1).add(1.45).pow(0.25)).max(1).min(33.33);
+            let effect1 = (player.c.points.max(1).add(1.45).pow(0.25)).max(1).min(33.33);
+            if (hasMilestone('O', 11)) effect1 = (player.c.points.max(1).add(1.45).pow(0.33)).max(1).min(33.33);
+            return effect1
 
         },
         effectDisplay() {
