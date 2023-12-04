@@ -42,6 +42,7 @@ addLayer("H", {
         let eff2 = player.H.points.add(1).pow(0.26)
         if (hasAchievement ('a', 45)) eff2 = eff2.times(2.66) 
         if (hasMilestone('W', 12)) eff2 = eff2.times(4)
+        if (hasUpgrade('O', 13)) eff2 = eff2.pow(1.2)
         eff2 = eff2.times(tmp.H.effectBase)
         return eff2
     },

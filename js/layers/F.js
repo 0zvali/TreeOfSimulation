@@ -16,6 +16,7 @@ addLayer("F", {
     requires(){ 
         let requirement = new Decimal(1e30);
         if (hasUpgrade('O', 12)) requirement = requirement.div(3e7)
+        if (hasUpgrade('O', 13)) requirement = requirement.div(upgradeEffect('O', 13))
         if (requirement <= 0.99) requirement = new Decimal(1)
         return requirement
     },
@@ -50,6 +51,7 @@ addLayer("F", {
         if (hasUpgrade('c', 54)) eff1 = eff1.times(3.5)
         if (hasMilestone('H', 15)) eff1 = eff1.times(2)
         if (hasMilestone('W', 12)) eff1 = eff1.times(4)
+        if (hasUpgrade('O', 13)) eff1 = eff1.pow(1.2)
         eff1 = eff1.times(tmp.F.effectBase)
         return eff1
     },

@@ -31,6 +31,7 @@ addLayer("R", {
         let eff3 = player.R.points.add(1).pow(0.5)
         if (hasUpgrade('H', 31)) eff3 = eff3.times(4)
         if (hasMilestone('W', 12)) eff3 = eff3.times(4)
+        if (hasUpgrade('O', 13)) eff3 = eff3.pow(1.2)
         eff3 = eff3.times(tmp.R.effectBase)
         return eff3
     },

@@ -30,6 +30,7 @@ addLayer("W", {
     },
     effect() {
         let eff4 = player.W.points.add(1).pow(0.575)
+        if (hasUpgrade('O', 13)) eff4 = eff4.pow(1.2)
         eff4 = eff4.times(tmp.W.effectBase)
         return eff4
     },
