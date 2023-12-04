@@ -92,14 +92,34 @@ addLayer("O", {
                 let title = "Ob-fusion-ing"
                 return title
             },
-            description: "^1.1 Humans, ^1.15 Fusions, ^1.1 Weapons, ^1.03 Floors, Decrease Human Requirement significantly. Weapons boost Weapons sightly",
+            description: "^1.1 Humans, ^1.15 Fusions, ^1.1 Weapons, ^1.03 Floors, Decrease Human Requirement significantly. Weapons boost Weapons slightly",
             cost: new Decimal(650),
             effect() {
-                let effect1 = (player.W.points.max(1).add(1.3).pow(0.18)).max(1).min(140000);
+                let effect1 = (player.W.points.max(1).add(1.3).pow(0.2)).max(1).min(140000);
                 return effect1
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(1400) ? "(Capped so late?)" : "";
+                let capped = upgradeEffect(this.layer, this.id).gte(140000) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasMilestone("O", 12)
+            },
+        },
+        12: {
+            title(){ 
+                let title = "Ob-Humanization"
+                return title
+            },
+            description: "^1.2 Explosives, ^1.1 Crystals, ^1.35 Rooms, ^1.2 Experiments, Decrease Fusion Requirement significantly. Rooms boosts Weapons slightly",
+            cost: new Decimal(650),
+            effect() {
+                let effect1 = (player.R.points.max(1).add(1).pow(0.17)).max(1).min(10000);
+                return effect1
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(10000) ? "(Capped)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
