@@ -41,6 +41,11 @@ addLayer("R", {
         dis = "which boosts Infects, Experiments, and Crystal gain by "+ format(tmp.R.effect) +"x"
         return dis
     },
+    passiveGeneration() {
+        let value1 = new Decimal(0);
+        if (hasMilestone('W', 14)) value1 = value1.add(1)
+        return value1;
+    },
     row: 3, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "r", description: "r: reset for Rooms", onPress(){if (canReset(this.layer)) doReset(this.layer)}},

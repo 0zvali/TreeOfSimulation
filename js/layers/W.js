@@ -87,6 +87,15 @@ milestones: {
               },
             done() { return player.W.points.gte(100) },
         },
+        14: {
+            requirementDescription: "250 Weapons",
+            effectDescription() {
+                let text = "Passively gain 100% of everything before Weapons";
+                return text;
+              },
+            done() { return player.W.points.gte(250) && hasMilestone('O', 11) },
+            unlocked() { return hasMilestone('O', 11)}
+        },
 },
 
 upgrades: {

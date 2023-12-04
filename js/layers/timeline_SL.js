@@ -59,6 +59,7 @@ addLayer("SL", {
     },
     passiveGeneration() {
         let value1 = new Decimal(0);
+        if (hasMilestone('W', 14)) value1 = value1.add(1)
         return value1
     },
     row: 2, // Row the layer is in on the tree (0 is the first row)
