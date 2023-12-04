@@ -63,6 +63,7 @@ addLayer("R", {
         let value = false
         if (hasUpgrade("H", 25) || player.R.points.gte(1) || player.R.unlocked) value = true;
         if (hasUpgrade('R', 16) || player.CT.unlocked) value = false;
+        if ((hasMilestone("O", 11) && hasUpgrade('H', 25)) || player.R.points.gte(1)) value = true;
         return value
     },
 milestones: {
@@ -170,7 +171,11 @@ upgrades: {
         16: {
             title: "Hallway C",
             description: "Infects boost infects...oh no...",
-            cost: new Decimal(15000),
+            cost(){ 
+                let cost = new Decimal(15000)
+                if (hasMilestone('O', 11)) cost = cost.pow(15000)
+                return cost
+            },
             effect() {
                 return (player.points.max(1).add(1.1).pow(1.5)).max(1).min("e1e50");
             },
