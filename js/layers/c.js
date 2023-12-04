@@ -75,6 +75,7 @@ addLayer("c", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         pow = new Decimal(1)
         if (hasUpgrade('c', 53)) pow = pow.add(.01)
+        if (hasUpgrade('O', 12)) pow = pow.add(.1)
         return pow
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)

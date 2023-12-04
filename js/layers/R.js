@@ -24,6 +24,7 @@ addLayer("R", {
     },
     gainExp(){
         base = new Decimal(1)
+        if (hasUpgrade('O', 12)) base = base.add(.35)
         return base
     },
     effect() {

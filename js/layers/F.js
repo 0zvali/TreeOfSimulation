@@ -12,7 +12,13 @@ addLayer("F", {
         if(player.CT.points >= 1) unlocked = false;
     },
     color: "#322CA8",
-    requires: new Decimal(1e30), // Can be a function that takes requirement increases into account
+    requires: new Decimal(1e30),
+    requires(){ 
+        let requirement = new Decimal(1e30);
+        if (hasUpgrade('O', 12)) requirement = requirement.div(3e7)
+        if (requirement <= 0.99) requirement = new Decimal(1)
+        return requirement
+    },
     resource: "fusions", // Name of prestige currency
     baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource

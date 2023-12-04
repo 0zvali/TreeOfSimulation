@@ -20,6 +20,7 @@ addLayer("W", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
         if (hasUpgrade('O', 11)) mult = mult.times(upgradeEffect('O', 11))
+        if (hasUpgrade('O', 12)) mult = mult.times(upgradeEffect('O', 12))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

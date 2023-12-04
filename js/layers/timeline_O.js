@@ -113,13 +113,13 @@ addLayer("O", {
                 return title
             },
             description: "^1.2 Explosives, ^1.1 Crystals, ^1.35 Rooms, ^1.2 Experiments, Decrease Fusion Requirement significantly. Rooms boosts Weapons slightly",
-            cost: new Decimal(650),
+            cost: new Decimal(300000000),
             effect() {
-                let effect1 = (player.R.points.max(1).add(1).pow(0.17)).max(1).min(10000);
+                let effect1 = (player.R.points.max(1).add(1).pow(0.13)).max(1).min(600000);
                 return effect1
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(10000) ? "(Capped)" : "";
+                let capped = upgradeEffect(this.layer, this.id).gte(600000) ? "(Capped)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
