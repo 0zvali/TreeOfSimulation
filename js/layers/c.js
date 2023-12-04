@@ -83,7 +83,7 @@ addLayer("c", {
     ],
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
-        if (hasMilestone('O', 11)) player.c.keep = true
+        if (hasMilestone('O', 11)) doReset(this.layer) = false
         if (hasMilestone ('E', 11)) player.c.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33")
         if (hasUpgrade ('E', 23)) player.c.upgrades.push("34", "35")
         if (hasMilestone ('E', 14)) player.c.upgrades.push("41", "42", "43", "44", "45")
