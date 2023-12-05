@@ -57,6 +57,8 @@ addLayer("c", {
         if (hasUpgrade('H', 22)) mult = mult.times(upgradeEffect('H',22))
         if (hasUpgrade('H', 33)) mult = mult.times(upgradeEffect('H',33))
         if (hasUpgrade('H', 34)) mult = mult.times(upgradeEffect('H',34))
+        // D Upgrade Effects (# Order)
+        if (hasUpgrade('D', 11)) mult = mult.times("1e697")	
         // Combo Upgrades | Upgrade Effect Increases
         if (hasUpgrade('W', 15) && hasUpgrade('c', 34)) mult = mult.times(upgradeEffect('c', 34))
         // Milestone Effects

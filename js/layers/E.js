@@ -52,6 +52,7 @@ addLayer("E", {
         if (player.H.unlocked) mult = mult.times(tmp.H.effect)
         if (player.R.unlocked) mult = mult.times(tmp.R.effect)
         if (player.W.unlocked) mult = mult.times(tmp.W.effect)
+        if (player.D.unlocked) mult = mult.times(tmp.D.effect)
         // Achievement Effects
         if (hasAchievement('a', 34)) mult = mult.times(1.33)
         if (hasAchievement('a', 41)) mult = mult.times(1.69)

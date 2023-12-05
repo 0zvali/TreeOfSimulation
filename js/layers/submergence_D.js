@@ -15,7 +15,7 @@ addLayer("D", {
         "background": (player.D.unlocked||canReset("D"))?"linear-gradient(#87143b, #9DD1C2)":"#bf8f8f" ,
     }},
     requires(){ 
-        let requirement = new Decimal(4e20);
+        let requirement = new Decimal(4e2000);
         return requirement
     },
     resource: "Distortion", // Name of prestige currency
@@ -70,10 +70,10 @@ addLayer("D", {
                 let title = "Distorted Crystals"
                 return title
             },
-            description: "1e1690x Crystals",
+            description: "1e694x Crystals",
             cost: new Decimal(1),
             unlocked(){
-                return player.D.points.gte(1)
+                return player.D.points.gte(0)
             },
         },
     },

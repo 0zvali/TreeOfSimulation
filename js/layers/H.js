@@ -31,6 +31,7 @@ addLayer("H", {
         if (hasMilestone('W', 11)) mult = mult.times(2.2)
         if (hasUpgrade('W', 13)) mult = mult.times(upgradeEffect('W',13))
         if (hasMilestone('W', 13)) mult = mult.times(player.W.points.add(1).pow(0.35))
+        if (player.D.unlocked) mult = mult.times(tmp.D.effect)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
