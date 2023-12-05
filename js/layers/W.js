@@ -4,11 +4,15 @@ addLayer("W", {
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: false,
-		points: new Decimal(0),
         best: new Decimal(0),
     }},
     lockedData(){
         if(player.CT.points >= 1) unlocked = false;
+    },
+    points(){
+        let points = new Decimal(0)
+        if (player.W.points >= "1e10000") points = new Decimal("1e10000")
+        return points
     },
     color: "#b5c3dd",
     requires: new Decimal(1e100), // Can be a function that takes requirement increases into account
@@ -42,6 +46,7 @@ addLayer("W", {
     },
     effectDescription() {
         dis = "which boosts all previous layers (Except Rooms) by "+ format(tmp.W.effect) +"x"
+        if (player.W.points >= "1e10000") dis = "which boosts all previous layers (Except Rooms) by "+ format(tmp.W.effect) +"x (Weapon Capped)"
         return dis
     },
     row: 4, // Row the layer is in on the tree (0 is the first row)
