@@ -15,7 +15,7 @@ addLayer("D", {
         "background": (player.D.unlocked||canReset("D"))?"linear-gradient(#87143b, #9DD1C2)":"#bf8f8f" ,
     }},
     requires(){ 
-        let requirement = new Decimal(4e2000);
+        let requirement = new Decimal("4e2000");
         return requirement
     },
     resource: "Distortion", // Name of prestige currency
