@@ -142,7 +142,7 @@ addLayer("c", {
             requirementDescription: "1e10,000 Infects",
             effectDescription: `x1e20 Weapons & x1e100 Floors`,
             done() { return player.points.gte("1e10000") },
-            unlocked(){hasUpgrade('O', 14)},
+            unlocked(){return hasUpgrade('O', 14)},
         },
     },
  upgrades: {
