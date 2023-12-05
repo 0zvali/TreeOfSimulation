@@ -139,9 +139,9 @@ addLayer("c", {
     },
     milestones: {
         11: {
-            requirementDescription: "1e25,000 Crystals",
+            requirementDescription: "1e10,000 Infects",
             effectDescription: `^1.2 Souls, ^1.2 Experiments, Set Humans & Fusion Requirements to 1`,
-            done() { return player.c.points.gte(1e25000) },
+            done() { return player.points.gte(1e10000) },
         },
     },
  upgrades: {
