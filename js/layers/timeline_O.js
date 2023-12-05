@@ -162,11 +162,11 @@ addLayer("O", {
         },
         15: {
             title(){ 
-                let title = "Obfuscationinging"
+                let title = "Obfuscationing (Endgame Currently)"
                 return title
             },
             description: "^1.5 Obfuscation & ^1.1 Weapons",
-            cost: new Decimal(1e135),
+            cost: new Decimal(1e999),
             unlocked(){
                 return hasUpgrade("O", 13)
             },
