@@ -167,7 +167,6 @@ addLayer("O", {
             },
             description: "^1.5 Obfuscation & ^1.1 Weapons",
             cost: new Decimal(1e135),
-            effectDisplay() { return "/"+format(upgradeEffect(this.layer, this.id)) },
             unlocked(){
                 return hasUpgrade("O", 13)
             },
