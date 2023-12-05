@@ -162,11 +162,11 @@ addLayer("O", {
         },
         15: {
             title(){ 
-                let title = "Obfuscationing (Don't go past this upgrade)"
+                let title = "Obfuscationing (Highest is 1e134 O. you can't go farther))"
                 return title
             },
             description: "Unlock another Layer & 1e30x Obfuscation",
-            cost: new Decimal(1.8e133),
+            cost: new Decimal(1.8e185),
             unlocked(){
                 return hasUpgrade("O", 13)
             },
