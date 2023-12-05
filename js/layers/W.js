@@ -26,6 +26,7 @@ addLayer("W", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         let expo = new Decimal(1)
         if (hasMilestone('O', 12)) expo = expo.add(0.3)
+        if (hasUpgrade('O', 15)) expo = expo.add(.1)
         return expo
     },
     effect() {

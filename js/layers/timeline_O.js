@@ -31,6 +31,7 @@ addLayer("O", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
+        if (hasUpgrade('O', 15)) exp = exp.add(.5)
         return exp
     },
     doReset(resettingLayer) {
@@ -154,6 +155,18 @@ addLayer("O", {
                 let effect1 = (player.W.points.max(1).add(1).pow(0.075)).max(1).min(1e20);
                 return effect1
             },
+            effectDisplay() { return "/"+format(upgradeEffect(this.layer, this.id)) },
+            unlocked(){
+                return hasUpgrade("O", 13)
+            },
+        },
+        15: {
+            title(){ 
+                let title = "Obfuscationinging"
+                return title
+            },
+            description: "^1.5 Obfuscation & ^1.1 Weapons",
+            cost: new Decimal(1e135),
             effectDisplay() { return "/"+format(upgradeEffect(this.layer, this.id)) },
             unlocked(){
                 return hasUpgrade("O", 13)
