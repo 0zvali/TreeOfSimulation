@@ -53,7 +53,7 @@ addLayer("SL", {
         if (hasUpgrade('SL', 21)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "and dividing explosive & floor requirement by /"+format(player.SL.points.add(1).pow(0.15))
         if (hasUpgrade('SL', 22)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "and dividing explosive & floor requirement by /"+format(player.SL.points.add(1).pow(0.36))
         if (hasMilestone('SL', 13)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "Divide explosive & floor requirement by /" +format(player.SL.points.add(1).pow(0.36)) + `<br>` + "Divide Soul Requirement by /" + format(player.SL.points.add(1).pow(0.012))
-        if (hasUpgrade('O', 13)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "Divide explosive & floor requirement by /" +format(player.SL.points.add(1).pow(0.36.pow(1.2))) + `<br>` + "Divide Soul Requirement by /" + format(player.SL.points.add(1).pow(0.012.pow(1.2)))
+        if (hasUpgrade('O', 13)) dis = "too many effects lmao"
         return dis
     },
     effectBase() {
