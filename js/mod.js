@@ -483,7 +483,7 @@ var displayThings = [
 	  },
 	function() {
 		if (hasMilestone('O', 11))
-		return "You are in Timeline <h4 style='color: darkred; text-shadow: yellow 1.75px 1.75px 10px;'>Submergence</h4> " + "<br><br><br>"
+		return "<br><br><br>"
 		else
 		return "You are in Timeline " + formatWhole(player.CT.points.plus(1)) + "<br><br><br>"
 	  },
