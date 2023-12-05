@@ -4,16 +4,11 @@ addLayer("W", {
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: false,
-        points: points,
+        points: new Decimal(0),
         best: new Decimal(0),
     }},
     lockedData(){
         if(player.CT.points >= 1) unlocked = false;
-    },
-    points(){
-        let points = new Decimal(0)
-        if (player.W.points >= "1e10000") points = new Decimal("1e10000")
-        return points
     },
     color: "#b5c3dd",
     requires: new Decimal(1e100), // Can be a function that takes requirement increases into account
@@ -32,6 +27,7 @@ addLayer("W", {
         let expo = new Decimal(1)
         if (hasMilestone('O', 12)) expo = expo.add(0.3)
         if (hasUpgrade('O', 15)) expo = expo.add(.1)
+        if (player.W.points >= "1e10000") expo = expo.minus(.39)
         return expo
     },
     effect() {
