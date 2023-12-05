@@ -27,11 +27,11 @@ addLayer("O", {
     exponent: 0.013, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('O', 15)) mult = mult.times(1e30)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
-        if (hasUpgrade('O', 15)) exp = exp.add(.5)
         return exp
     },
     doReset(resettingLayer) {
@@ -162,11 +162,11 @@ addLayer("O", {
         },
         15: {
             title(){ 
-                let title = "Obfuscationing (Endgame Currently)"
+                let title = "Obfuscationing (Don't go past this upgrade)"
                 return title
             },
-            description: "^1.5 Obfuscation & ^1.1 Weapons",
-            cost: new Decimal("1e999"),
+            description: "Unlock another Layer & 1e30x Obfuscation",
+            cost: new Decimal(1.8e133),
             unlocked(){
                 return hasUpgrade("O", 13)
             },

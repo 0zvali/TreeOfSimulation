@@ -21,12 +21,12 @@ addLayer("W", {
         let mult = new Decimal(1)
         if (hasUpgrade('O', 11)) mult = mult.times(upgradeEffect('O', 11))
         if (hasUpgrade('O', 12)) mult = mult.times(upgradeEffect('O', 12))
+        if (hasMilestone('c', 11)) mult = mult.times(1e20)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         let expo = new Decimal(1)
         if (hasMilestone('O', 12)) expo = expo.add(0.3)
-        if (hasUpgrade('O', 15)) expo = expo.add(.1)
         return expo
     },
     effect() {

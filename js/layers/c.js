@@ -140,9 +140,9 @@ addLayer("c", {
     milestones: {
         11: {
             requirementDescription: "1e10,000 Infects",
-            effectDescription: `^1.2 Souls, ^1.2 Experiments, Set Humans & Fusion Requirements to 1`,
+            effectDescription: `x1e20 Weapons & x1e100 Floors`,
             done() { return player.points.gte("1e10000") },
-            unlocked() {hasUpgrade('O', 14)},
+            unlocked(){hasUpgrade('O', 14)},
         },
     },
  upgrades: {

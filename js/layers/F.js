@@ -18,7 +18,6 @@ addLayer("F", {
         if (hasUpgrade('O', 12)) requirement = requirement.div(3e7)
         if (hasUpgrade('O', 13)) requirement = requirement.div(upgradeEffect('O', 13))
         if (requirement <= 0.99) requirement = new Decimal(1)
-        if (hasMilestone('c', 11)) requirement = new Decimal(1)
         return requirement
     },
     resource: "fusions", // Name of prestige currency
@@ -39,6 +38,7 @@ addLayer("F", {
         if (hasUpgrade('W', 13)) mult = mult.times(upgradeEffect('W',13))
         if (hasMilestone('W', 13)) mult = mult.times(player.W.points.add(1).pow(0.35))
         if (hasUpgrade('W', 15) && hasUpgrade('c', 35)) mult = mult.times(upgradeEffect('c', 35))
+        
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
