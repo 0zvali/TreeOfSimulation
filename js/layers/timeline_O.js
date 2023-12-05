@@ -166,7 +166,7 @@ addLayer("O", {
                 return title
             },
             description: "^1.5 Obfuscation & ^1.1 Weapons",
-            cost: new Decimal(1e999),
+            cost: new Decimal("1e999"),
             unlocked(){
                 return hasUpgrade("O", 13)
             },
