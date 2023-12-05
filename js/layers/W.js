@@ -27,7 +27,6 @@ addLayer("W", {
         let expo = new Decimal(1)
         if (hasMilestone('O', 12)) expo = expo.add(0.3)
         if (hasUpgrade('O', 15)) expo = expo.add(.1)
-        if (player.W.points >= "1e10000") expo = expo.minus(.39)
         return expo
     },
     effect() {
@@ -43,7 +42,6 @@ addLayer("W", {
     },
     effectDescription() {
         dis = "which boosts all previous layers (Except Rooms) by "+ format(tmp.W.effect) +"x"
-        if (player.W.points >= "1e10000") dis = "which boosts all previous layers (Except Rooms) by "+ format(tmp.W.effect) +"x (Weapon Capped)"
         return dis
     },
     row: 4, // Row the layer is in on the tree (0 is the first row)
@@ -67,6 +65,7 @@ addLayer("W", {
         if (hasUpgrade("F", 36) || player.W.points.gte(1) || player.W.unlocked) value = true;
         if (player.points.gte(1e999) || player.CT.unlocked) value = false;
         if ((hasMilestone("O", 11) && hasUpgrade("F", 36)) || player.W.points.gte(1)) value = true;
+        if (player.W.points >= "1e10000") value = false
         return value
     },
 milestones: {
