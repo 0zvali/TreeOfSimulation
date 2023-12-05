@@ -62,6 +62,7 @@ addLayer("E", {
     gainExp() {
         exp = new Decimal(1)
         if (hasUpgrade('O', 12)) exp = exp.add(.2)
+        if (hasMilestone('c', 11)) exp = exp.add(.2)
         return exp
     },
     effect() {

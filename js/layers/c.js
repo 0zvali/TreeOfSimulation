@@ -137,6 +137,13 @@ addLayer("c", {
             body: `Crystals hurt people which would infect them. The main problem of Infects...`,
         },
     },
+    milestones: {
+        11: {
+            requirementDescription: "1e25,000 Crystals",
+            effectDescription: `^1.2 Souls, ^1.2 Experiments, Set Humans & Fusion Requirements to 1`,
+            done() { return player.c.points.gte(1e25000) },
+        },
+    },
  upgrades: {
     rows: 5,
     cols: 5,

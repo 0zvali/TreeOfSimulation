@@ -15,6 +15,7 @@ addLayer("H", {
         let requirement = new Decimal(1.22e42);
         if (hasUpgrade('O', 11)) requirement = requirement.div(1e10)
         if (requirement <= 0.99) requirement = new Decimal(1)
+        if (hasMilestone('c', 11)) requirement = new Decimal(1)
         return requirement
     }, // Can be a function that takes requirement increases into account
     resource: "humans", // Name of prestige currency

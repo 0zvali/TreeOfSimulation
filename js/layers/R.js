@@ -11,7 +11,13 @@ addLayer("R", {
         if(player.CT.points >= 1) unlocked = false;
     },
     color: "#064526",
-    requires: new Decimal(1e30), // Can be a function that takes requirement increases into account
+    requires: new Decimal(1e30),
+    requires(){ 
+        let requirement = new Decimal(1e30);
+        if (hasUpgrade('O', 14)) requirement = requirement.div(upgradeEffect('O', 14))
+        if (requirement <= 0.99) requirement = new Decimal(1)
+        return requirement
+    },
     resource: "rooms", // Name of prestige currency
     baseResource: "experiments", // Name of resource prestige is based on
     baseAmount() {return player.E.points}, // Get the current amount of baseResource

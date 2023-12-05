@@ -18,6 +18,7 @@ addLayer("F", {
         if (hasUpgrade('O', 12)) requirement = requirement.div(3e7)
         if (hasUpgrade('O', 13)) requirement = requirement.div(upgradeEffect('O', 13))
         if (requirement <= 0.99) requirement = new Decimal(1)
+        if (hasMilestone('c', 11)) requirement = new Decimal(1)
         return requirement
     },
     resource: "fusions", // Name of prestige currency

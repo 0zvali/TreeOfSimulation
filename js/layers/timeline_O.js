@@ -143,5 +143,21 @@ addLayer("O", {
                 return hasUpgrade("O", 12)
             },
         },
+        14: {
+            title(){ 
+                let title = "Ob-Room-ication"
+                return title
+            },
+            description: "^1.1 Weapon Effect, Weapons Divide Room Gain Significantly (Cap is /1e20), also unlock an...crystal milestone?",
+            cost: new Decimal(3.4e108),
+            effect() {
+                let effect1 = (player.W.points.max(1).add(1).pow(0.075)).max(1).min(1e20);
+                return effect1
+            },
+            effectDisplay() { return "/"+format(upgradeEffect(this.layer, this.id)) },
+            unlocked(){
+                return hasUpgrade("O", 13)
+            },
+        },
     },
 })
