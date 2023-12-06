@@ -6,9 +6,6 @@ addLayer("D", {
         unlocked: false,
 		points: new Decimal(0),
         best: new Decimal(0),
-        discovery: new Decimal(0),
-        security: new Decimal(0),
-        science: new Decimal(0),
     }},
     color(){ 
         let color = `#87143b`
@@ -55,10 +52,6 @@ addLayer("D", {
         let value1 = new Decimal(0);
         return value1
     },
-    passiveGeneration(discovery) {
-        let value2 = new Decimal(0);
-        return value1
-    },
     row: 4, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "d", description: "d: reset for Distortion", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
@@ -98,16 +91,6 @@ addLayer("D", {
                     {}],
                 ["display-text",
                     function () { return 'You have ' + formatWhole(player.D.total) + ' total Distortion.' },
-                    {}],
-                "blank",
-                ["display-text",
-                    function(){ return 'You have ' + format(player.D.discovery) + ' Discovery.'},
-                    {}],
-                ["display-text",
-                    function(){ return 'You have ' + format(player.D.security) + ' Security.'},
-                    {}],
-                ["display-text",
-                    function(){ return 'You have ' + format(player.D.science) + ' Science.'},
                     {}],
                 "blank",
                 ["bar", "bigBar"],
