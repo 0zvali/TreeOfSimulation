@@ -55,6 +55,10 @@ addLayer("D", {
         let value1 = new Decimal(0);
         return value1
     },
+    passiveGeneration(discovery) {
+        let value2 = new Decimal(0);
+        return value1
+    },
     row: 4, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "d", description: "d: reset for Distortion", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
