@@ -6,6 +6,9 @@ addLayer("D", {
         unlocked: false,
 		points: new Decimal(0),
         best: new Decimal(0),
+        discovery: new Decimal(0),
+        security: new Decimal(0),
+        science: new Decimal(0),
     }},
     color(){ 
         let color = `#87143b`
@@ -77,7 +80,7 @@ addLayer("D", {
                 "blank",
                 "milestones",
                 "blank",
-                "upgrades",
+                ["upgrades", [1]],
             ]
         },
         "Distortion Bars": {
@@ -93,7 +96,19 @@ addLayer("D", {
                     function () { return 'You have ' + formatWhole(player.D.total) + ' total Distortion.' },
                     {}],
                 "blank",
+                ["display-text",
+                    function(){ return 'You have ' + format(player.D.discovery) + ' Discovery.'},
+                    {}],
+                ["display-text",
+                    function(){ return 'You have ' + format(player.D.security) + ' Security.'},
+                    {}],
+                ["display-text",
+                    function(){ return 'You have ' + format(player.D.science) + ' Science.'},
+                    {}],
+                "blank",
                 ["bar", "bigBar"],
+                "blank",
+                ["upgrades", [2]],
             ]
         },
     },
@@ -161,6 +176,22 @@ addLayer("D", {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
                 return hasUpgrade("O", 25) && hasUpgrade("D", 12)
+            },
+        },
+        14: {
+            title(){ 
+                let title = "Distorted Crystals"
+                return title
+            },
+            description: "Crystals boosts Floors (Cap is x1e4900) & x1e675 Humans",
+            cost: new Decimal(125000),
+            effect() {
+                let effect1 = (player.c.points.max(1).add(1).pow(0.014)).max(1).min("1e4900");
+                return effect1
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+            unlocked(){
+                return hasUpgrade("D", 13)
             },
         },
     },
