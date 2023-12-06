@@ -107,18 +107,39 @@ addLayer("D", {
             fillStyle: { 'background-color': "#87143b" },
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
-                let prog = player.O.points.div("1e1200")
-                if (player.O.best.gte("1e1200")) prog = 1
+                let prog = player.O.points.div("1e1500")
+                if (player.O.best.gte("1e1500")) prog = 1
                 return prog
             },
             display() {
-                if (player.O.best.lte("9.99e1199"))
-                    return format(player.O.points) + "/1e1200 Obfuscation"
+                if (player.O.best.lte("9.99e1499"))
+                    return format(player.O.points) + "/1e1500 Obfuscation"
                 else
-                    return "Unlocked Weapon Upgrades"
+                    return "Unlock Row 2 Designated Distortion Upgrades"
             },
             unlocked(){
                 return hasUpgrade('D', 12)
+            },
+        },
+        big2Bar: {
+            direction: RIGHT,
+            width: 650,
+            height: 40,
+            fillStyle: { 'background-color': "#87143b" },
+            borderStyle() { return { "border-color": "#9DD1C2" } },
+            progress() {
+                let prog = player.SL.points.div("1e195000")
+                if (player.SL.best.gte("1e195000")) prog = 1
+                return prog
+            },
+            display() {
+                if (player.O.best.lte("9.99e194999"))
+                    return format(player.SL.points) + "/1e195000 Souls"
+                else
+                    return "Unlock Row 3 Designated Distortion Upgrades"
+            },
+            unlocked(){
+                return hasUpgrade('D', 15)
             },
         },
     },
