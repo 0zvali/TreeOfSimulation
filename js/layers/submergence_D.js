@@ -60,6 +60,42 @@ addLayer("D", {
         if (hasUpgrade('O', 15)) value = true
         return value
     },
+    tabFormat: {
+        "Main": {
+            content: [
+                "main-display",
+                "blank",
+                "prestige-button",
+                "blank",
+                ["display-text",
+                    function () { return 'You have ' + formatWhole(player.D.best) + ' best Distortion.' },
+                    {}],
+                ["display-text",
+                    function () { return 'You have ' + formatWhole(player.D.total) + ' total Distortion.' },
+                    {}],
+                "blank",
+                "milestones",
+                "blank",
+                "upgrades",
+            ]
+        },
+        "Distortion Bars": {
+            content: [
+                "main-display",
+                "blank",
+                "prestige-button",
+                "blank",
+                ["display-text",
+                    function () { return 'You have ' + formatWhole(player.D.best) + ' best Distortion.' },
+                    {}],
+                ["display-text",
+                    function () { return 'You have ' + formatWhole(player.D.total) + ' total Distortion.' },
+                    {}],
+                "blank",
+                ["bar", "bigBar"],
+            ]
+        },
+    },
     bars: {
         bigBar: {
             direction: RIGHT,
