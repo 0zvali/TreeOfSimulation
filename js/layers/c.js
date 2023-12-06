@@ -63,6 +63,7 @@ addLayer("c", {
         if (hasUpgrade('W', 15) && hasUpgrade('c', 34)) mult = mult.times(upgradeEffect('c', 34))
         // Milestone Effects
         if (hasMilestone('W', 11)) mult = mult.times(2.2)
+        if (hasMilestone('EX', 12)) mult = mult.times("1e200")
         // Achievement Effects
     	if (hasAchievement('a', 32)) mult = mult.times(2.5)
         // Layer Effects (Lowest Layer)

@@ -86,6 +86,15 @@ milestones: {
             },
             done() { return player.EX.points.gte(3) || hasMilestone('EX', 11)},
         },
+        12: {
+            requirementDescription: "1e30,000 Explosives",
+            effectDescription(){ 
+                let des
+                des = `x1e400 Floors & x1e200 Crystals`
+                return des
+            },
+            done() { return player.O.points.gte("1e500")},
+        },
     },
 upgrades: {
         rows: 2,
