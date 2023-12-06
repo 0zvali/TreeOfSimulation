@@ -115,7 +115,7 @@ addLayer("D", {
                     return "Unlocked Weapon Upgrades"
             },
             unlocked(){
-                hasUpgrade('D', 12)
+                return hasUpgrade('D', 12)
             },
         },
     },
