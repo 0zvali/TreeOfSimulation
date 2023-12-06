@@ -492,7 +492,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.O.points.gte("1e915") && player.W.points.gte("1e1605") && player.points.gte("1e44000")
+	return (player.O.points.gte("1e915") && player.W.points.gte("1e1605") && player.points.gte("1e44000"))
 }
 
 
