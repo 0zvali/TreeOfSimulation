@@ -27,7 +27,7 @@ addLayer("R", {
         mult = new Decimal(1)
         if (hasUpgrade('R', 14)) mult = mult.times(upgradeEffect('R', 14))
         if (hasUpgrade('O', 23)) mult = mult.times(1e50)
-        if (hasUpgrade('D', 15)) mult = mult.times("1e340")
+        if (hasUpgrade('D', 15)) mult = mult.times("1e350")
         return mult
     },
     gainExp(){

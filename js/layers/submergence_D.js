@@ -209,7 +209,7 @@ addLayer("D", {
                 let title = "Distorted Floors II"
                 return title
             },
-            description: "Floors boosts itself (Cap is x1e6600) & x1e340 Rooms",
+            description: "Floors boosts itself (Cap is x1e6600) & x1e350 Rooms",
             cost: new Decimal(1950000),
             effect() {
                 let effect1 = (player.FL.points.max(1).add(1).pow(0.00305)).max(1).min("1e6600");
@@ -249,10 +249,10 @@ addLayer("D", {
         },
         23: {
             title(){ 
-                let title = "Placeholder II"
+                let title = "Placeholder III"
                 return title
             },
-            description: "Placeholder II",
+            description: "Placeholder III",
             cost: new Decimal("1e999"),
             effect() {
                 let effect1 = (player.FL.points.max(1).add(1).pow(0.00001)).max(1).min("1e6600");
@@ -265,10 +265,10 @@ addLayer("D", {
         },
         24: {
             title(){ 
-                let title = "Placeholder II"
+                let title = "Placeholder IV"
                 return title
             },
-            description: "Placeholder II",
+            description: "Placeholder IV",
             cost: new Decimal("1e999"),
             effect() {
                 let effect1 = (player.FL.points.max(1).add(1).pow(0.0000001)).max(1).min("1e6600");
@@ -281,10 +281,10 @@ addLayer("D", {
         },
         25: {
             title(){ 
-                let title = "Placeholder II"
+                let title = "Placeholder V"
                 return title
             },
-            description: "Placeholder II",
+            description: "Placeholder V",
             cost: new Decimal("1e999"),
             effect() {
                 let effect1 = (player.FL.points.max(1).add(1).pow(0.00001)).max(1).min("1e6600");
