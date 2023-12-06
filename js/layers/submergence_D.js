@@ -209,7 +209,7 @@ addLayer("D", {
                 let title = "Distorted Floors II"
                 return title
             },
-            description: "Floors boosts itself (Cap is x1e6600) & x1e270 Rooms",
+            description: "Floors boosts itself (Cap is x1e6600) & x1e340 Rooms",
             cost: new Decimal(1950000),
             effect() {
                 let effect1 = (player.FL.points.max(1).add(1).pow(0.003)).max(1).min("1e6600");
