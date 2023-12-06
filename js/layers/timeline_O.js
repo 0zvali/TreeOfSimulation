@@ -196,7 +196,7 @@ addLayer("O", {
         },
         23: {
             title(){ 
-                let title = "Fusionization"
+                let title = "Obusate Rooming"
                 return title
             },
             description: "x9.4 Distortion Effect & x1e50 Rooms",
