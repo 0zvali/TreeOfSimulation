@@ -200,9 +200,25 @@ addLayer("O", {
                 return title
             },
             description: "x9.4 Distortion Effect & x1e50 Rooms",
-            cost: new Decimal("1.3e545"),
+            cost: new Decimal("1.3e581"),
             unlocked(){
-                return hasUpgrade("O", 21)
+                return hasUpgrade("O", 22)
+            },
+        },
+        24: {
+            title(){ 
+                let title = "Explosivation"
+                return title
+            },
+            description: "Explosives does something again holy cow! Explosives boosts Floors Significantly (Cap is 1e1500x)",
+            cost: new Decimal("6.77e692"),
+            effect() {
+                let effect1 = (player.EX.points.max(1).add(1).pow(0.004)).max(1).min("1e1500");
+                return effect1
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+            unlocked(){
+                return hasUpgrade("O", 23)
             },
         },
     },

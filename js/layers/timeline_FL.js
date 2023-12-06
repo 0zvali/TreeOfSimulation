@@ -49,6 +49,7 @@ addLayer("FL", {
         if (hasMilestone('c', 11)) mult = mult.times(1e100)
         if (hasUpgrade('D', 12)) mult = mult.times("1e355")	
         if (hasMilestone('EX', 12)) mult = mult.times("1e400")
+        if (hasUpgrade('O', 24)) mult = mult.times(upgradeEffect('O', 24));
         return mult;
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
