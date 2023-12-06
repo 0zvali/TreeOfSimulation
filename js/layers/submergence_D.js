@@ -78,10 +78,10 @@ addLayer("D", {
         },
         12: {
             title(){ 
-                let title = "Distorted Explosives"
+                let title = "Distorted Floors"
                 return title
             },
-            description: "1e355x Explosives & Unlock more O Upgrades",
+            description: "1e355x Floors & Unlock more O Upgrades",
             cost: new Decimal(100),
             unlocked(){
                 return hasUpgrade('D', 11)
