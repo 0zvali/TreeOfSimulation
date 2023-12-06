@@ -178,7 +178,7 @@ addLayer("O", {
                 return title
             },
             description: "x1e30 O Effect, x1e50 Room Effect, x1e5 Weapon Effect",
-            cost: new Decimal(3.14e332),
+            cost: new Decimal("3.14e332"),
             unlocked(){
                 return hasUpgrade("O", 15) && hasUpgrade('D', 12)
             },
