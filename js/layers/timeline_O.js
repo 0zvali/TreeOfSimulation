@@ -194,5 +194,16 @@ addLayer("O", {
                 return hasUpgrade("O", 21)
             },
         },
+        23: {
+            title(){ 
+                let title = "Fusionization"
+                return title
+            },
+            description: "x9.4 Distortion Effect & x1e50 Rooms",
+            cost: new Decimal("1.3e545"),
+            unlocked(){
+                return hasUpgrade("O", 21)
+            },
+        },
     },
 })

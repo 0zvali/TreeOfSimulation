@@ -36,6 +36,7 @@ addLayer("D", {
     },
     effect() {
         let eff = player.D.points.add(1).pow(0.4)
+        if (hasUpgrade('O', 23)) eff = eff.times(9.4)
         eff = eff.times(tmp.D.effectBase)
         return eff
     },
@@ -110,7 +111,7 @@ addLayer("D", {
             },
             display() {
                 if (player.O.best.lte("9.99e1199"))
-                    return format(player.O.points) + "/1e500 Obfuscation"
+                    return format(player.O.points) + "/1e1200 Obfuscation"
                 else
                     return "Unlocked Weapon Upgrades"
             },
