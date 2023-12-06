@@ -212,7 +212,7 @@ addLayer("D", {
             description: "Floors boosts itself (Cap is x1e6600) & x1e340 Rooms",
             cost: new Decimal(1950000),
             effect() {
-                let effect1 = (player.FL.points.max(1).add(1).pow(0.0034)).max(1).min("1e6600");
+                let effect1 = (player.FL.points.max(1).add(1).pow(0.00305)).max(1).min("1e6600");
                 return effect1
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
