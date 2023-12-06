@@ -462,7 +462,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"<a>Endgame: 2 Obfuscation</a>",
+	"<a>Endgame: 1e44,000 Infects, 1e915 Obfuscation, 1e1605 Weapons</a>",
 	function() {
 		if (inChallenge('CT', 11))
 		return "You are currently in: 'Explosive Floors' (Infects /2.5)"
@@ -492,7 +492,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.O.points.gte(350000)
+	return player.O.points.gte("1e915") && player.W.points.gte("1e1605") && player.points.gte("1e44000")
 }
 
 
