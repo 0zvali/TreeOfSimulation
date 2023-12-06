@@ -146,7 +146,7 @@ addLayer("c", {
     },
     milestones: {
         11: {
-            requirementDescription: "1e50,000 Infects",
+            requirementDescription: "Distortion Upgrade II",
             effectDescription: `x1e20 Weapons & x1e100 Floors`,
             done() { return player.points.gte("1e50000") },
             unlocked(){return hasUpgrade('O', 14)},
