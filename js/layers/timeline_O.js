@@ -211,7 +211,7 @@ addLayer("O", {
                 return title
             },
             description: "Explosives does something again holy cow! Explosives boosts Floors Significantly (Cap is 1e1500x)",
-            cost: new Decimal("1.8e649"),
+            cost: new Decimal("1.8e648"),
             effect() {
                 let effect1 = (player.EX.points.max(1).add(1).pow(0.004)).max(1).min("1e1500");
                 if (hasUpgrade('O', 25)) effect1 = (player.EX.points.max(1).add(1).pow(0.0112)).max(1).min("1e1500");
