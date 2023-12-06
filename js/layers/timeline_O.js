@@ -39,6 +39,7 @@ addLayer("O", {
     },
     effect() {
         let eff = player.O.points.add(2).pow(0.32)
+        if (hasUpgrade('O', 21)) eff = eff.times(1e30)
         eff = eff.times(tmp.O.effectBase)
         return eff
     },
@@ -86,7 +87,7 @@ addLayer("O", {
         },
     },
     upgrades: {
-        rows: 1,
+        rows: 2,
         cols: 5,
         11: {
             title(){ 
@@ -168,7 +169,7 @@ addLayer("O", {
             description: "Unlock another Layer & 1e30x Obfuscation",
             cost: new Decimal(1.8e185),
             unlocked(){
-                return hasUpgrade("O", 13)
+                return hasUpgrade("O", 14)
             },
         },
         21: {
@@ -177,14 +178,9 @@ addLayer("O", {
                 return title
             },
             description: "x1e30 O Effect, x1e50 Room Effect, x1e5 Weapon Effect",
-            cost: new Decimal(7.5e106),
-            effect() {
-                let effect1 = (player.W.points.max(1).add(1).pow(0.075)).max(1).min(1e20);
-                return effect1
-            },
-            effectDisplay() { return "/"+format(upgradeEffect(this.layer, this.id)) },
+            cost: new Decimal(3.14e332),
             unlocked(){
-                return hasUpgrade("O", 13)
+                return hasUpgrade("O", 15) && hasUpgrade('D', 12)
             },
         },
     },
