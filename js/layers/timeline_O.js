@@ -200,7 +200,7 @@ addLayer("O", {
                 return title
             },
             description: "x9.4 Distortion Effect & x1e50 Rooms",
-            cost: new Decimal("1.3e581"),
+            cost: new Decimal("5.8e583"),
             unlocked(){
                 return hasUpgrade("O", 22)
             },
