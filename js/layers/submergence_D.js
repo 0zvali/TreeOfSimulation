@@ -76,5 +76,16 @@ addLayer("D", {
                 return player.D.points.gte(0)
             },
         },
+        12: {
+            title(){ 
+                let title = "Distorted Explosives"
+                return title
+            },
+            description: "1e355x Explosives & Unlock more O Upgrades",
+            cost: new Decimal(100),
+            unlocked(){
+                return hasUpgrade('D', 11)
+            },
+        },
     },
 })
