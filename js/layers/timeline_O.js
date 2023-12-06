@@ -183,5 +183,16 @@ addLayer("O", {
                 return hasUpgrade("O", 15) && hasUpgrade('D', 12)
             },
         },
+        22: {
+            title(){ 
+                let title = "Fusionization"
+                return title
+            },
+            description: "x1e170 Fusion Effect & x1e130 Experiment Effect",
+            cost: new Decimal("1.3e385"),
+            unlocked(){
+                return hasUpgrade("O", 21)
+            },
+        },
     },
 })
