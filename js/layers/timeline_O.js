@@ -228,7 +228,7 @@ addLayer("O", {
                 return title
             },
             description: "Explosives boosts Infects & Increase 'Explosivation' to a better formula. (Cap is 1e3300x)",
-            cost: new Decimal("1.2e663"),
+            cost: new Decimal("1.2e664"),
             effect() {
                 let effect1 = (player.EX.points.max(1).add(1).pow(0.016)).max(1).min("1e3300");
                 return effect1
