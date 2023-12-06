@@ -89,7 +89,7 @@ milestones: {
         13: {
             requirementDescription: "100 Weapons",
             effectDescription() {
-                let text = "Increase humans and fusion gain by " + format(player.W.points.add(1).pow(0.35)) +" (based on Weapons)";
+                let text = "Increase humans and fusion gain by " + format((player.W.points.max(1).add(1).pow(0.35)).max(1).min(1e200)) +" (based on Weapons)";
                 return text;
               },
             done() { return player.W.points.gte(100) },
