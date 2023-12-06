@@ -120,6 +120,10 @@ addLayer("c", {
         if (hasMilestone ('W', 11)) player.H.milestones.push("11", "12", "13", "14", "15")
         if (hasMilestone ('W', 11)) player.R.milestones.push("11", "12")
         if (hasMilestone ('W', 14)) player.R.upgrades.push("13", "14", "15")
+        // Mid-Late Game Keeping
+        if (player.O.points.gte("1e500")) player.EX.milestones.push("11")
+        if (player.O.points.gte("1e500")) player.SL.milestones.push("11", "12", "13")
+        if (player.O.points.gte("1e1000")) player.c.milestones.push("11")
     },
     passiveGeneration() {
         let value1 = new Decimal(0);
