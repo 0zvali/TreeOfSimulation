@@ -38,6 +38,7 @@ addLayer("F", {
         if (hasUpgrade('W', 13)) mult = mult.times(upgradeEffect('W',13))
         if (hasMilestone('W', 13)) mult = mult.times((player.W.points.max(1).add(1).pow(0.35)).max(1).min(1e200))
         if (hasUpgrade('W', 15) && hasUpgrade('c', 35)) mult = mult.times(upgradeEffect('c', 35))
+        if (hasUpgrade('D', 13)) mult = mult.times("1e600")
         
         return mult
     },

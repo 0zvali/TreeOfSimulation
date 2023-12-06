@@ -147,5 +147,21 @@ addLayer("D", {
                 return hasUpgrade('D', 11)
             },
         },
+        13: {
+            title(){ 
+                let title = "Distorted Explosives"
+                return title
+            },
+            description: "Floors boosts Explosives (Cap is x1e18500) & x1e600 Fusions",
+            cost: new Decimal(25000),
+            effect() {
+                let effect1 = (player.FL.points.max(1).add(1).pow(0.021)).max(1).min("1e18500");
+                return effect1
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+            unlocked(){
+                return hasUpgrade("O", 25) && hasUpgrade("D", 12)
+            },
+        },
     },
 })
