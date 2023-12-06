@@ -12,7 +12,7 @@ addLayer("D", {
         return color
     },
     nodeStyle() {return {
-        "background": (player.D.unlocked||canReset("D"))?"radical-gradient(#87143b, #9DD1C2)":"#bf8f8f" ,
+        "background": (player.D.unlocked||canReset("D"))?"radial-gradient(#87143b, #9DD1C2)":"#bf8f8f" ,
     }},
     requires(){ 
         let requirement = new Decimal("4e2000");
