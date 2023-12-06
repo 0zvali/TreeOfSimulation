@@ -484,6 +484,8 @@ var displayThings = [
 	function() {
 		if (hasMilestone('O', 11))
 		return "<br><br><br>"
+		if (player.CT.points.gte(2))
+		return "You are in Timeline " + formatWhole(player.CT.points.plus(1)) + "<br><br><br>"
 		else
 		return "You are in Timeline " + formatWhole(player.CT.points.plus(1)) + "<br><br><br>"
 	  },
