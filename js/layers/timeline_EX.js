@@ -31,8 +31,6 @@ addLayer("EX", {
     exponent: 0.75, // Prestige currency exponent
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
-        if (hasUpgrade('O', 12)) player.EX.milestones.keep("11")
-        if (hasUpgrade('O', 12)) player.SL.milestones.keep("11", "12", "13")
     },
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
@@ -51,9 +49,6 @@ addLayer("EX", {
         if (hasMilestone('SL', 12)) exp = exp.add(.3)
         if (hasUpgrade('O', 12)) exp = exp.add(.2)
         return exp
-    },
-    doReset(resettingLayer) {
-        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
     },
     autoUpgrade(){
         let auto = false
