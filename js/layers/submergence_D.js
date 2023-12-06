@@ -220,5 +220,80 @@ addLayer("D", {
                 return hasUpgrade("D", 14)
             },
         },
+        21: {
+            title(){ 
+                let title = "Placeholder I"
+                return title
+            },
+            description: "Placeholder I",
+            cost: new Decimal("1e999"),
+            effect() {
+                let effect1 = (player.FL.points.max(1).add(1).pow(0.00001)).max(1).min("1e6600");
+                return effect1
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+            unlocked(){
+                return player.O.points.gte("1e1500")
+            },
+        },
+        22: {
+            title(){ 
+                let title = "Placeholder II"
+                return title
+            },
+            description: "Placeholder II",
+            cost: new Decimal("1e999"),
+            unlocked(){
+                return  player.O.points.gte("1e1500")
+            },
+        },
+        23: {
+            title(){ 
+                let title = "Placeholder II"
+                return title
+            },
+            description: "Placeholder II",
+            cost: new Decimal("1e999"),
+            effect() {
+                let effect1 = (player.FL.points.max(1).add(1).pow(0.00001)).max(1).min("1e6600");
+                return effect1
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+            unlocked(){
+                return  player.O.points.gte("1e1500")
+            },
+        },
+        24: {
+            title(){ 
+                let title = "Placeholder II"
+                return title
+            },
+            description: "Placeholder II",
+            cost: new Decimal("1e999"),
+            effect() {
+                let effect1 = (player.FL.points.max(1).add(1).pow(0.0000001)).max(1).min("1e6600");
+                return effect1
+            },
+            effectDisplay() { return "+^"+ format(upgradeEffect(this.layer, this.id))},
+            unlocked(){
+                return  player.O.points.gte("1e1500")
+            },
+        },
+        25: {
+            title(){ 
+                let title = "Placeholder II"
+                return title
+            },
+            description: "Placeholder II",
+            cost: new Decimal("1e999"),
+            effect() {
+                let effect1 = (player.FL.points.max(1).add(1).pow(0.00001)).max(1).min("1e6600");
+                return effect1
+            },
+            effectDisplay() { return "/"+format(upgradeEffect(this.layer, this.id)) },
+            unlocked(){
+                return  player.O.points.gte("1e1500")
+            },
+        },
     },
 })
