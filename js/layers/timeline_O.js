@@ -214,11 +214,28 @@ addLayer("O", {
             cost: new Decimal("1.8e649"),
             effect() {
                 let effect1 = (player.EX.points.max(1).add(1).pow(0.004)).max(1).min("1e1500");
+                if (hasUpgrade('O', 25)) effect1 = (player.EX.points.max(1).add(1).pow(0.0112)).max(1).min("1e1500");
                 return effect1
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
                 return hasUpgrade("O", 23)
+            },
+        },
+        25: {
+            title(){ 
+                let title = "Obusate Explosives"
+                return title
+            },
+            description: "Explosives boosts Infects & Increase 'Explosivation' to a better formula. (Cap is 1e3300x)",
+            cost: new Decimal("1.2e663"),
+            effect() {
+                let effect1 = (player.EX.points.max(1).add(1).pow(0.016)).max(1).min("1e3300");
+                return effect1
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+            unlocked(){
+                return hasUpgrade("O", 24)
             },
         },
     },
