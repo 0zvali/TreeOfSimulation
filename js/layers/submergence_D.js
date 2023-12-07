@@ -63,7 +63,7 @@ addLayer("D", {
         return value
     },
     tabFormat: {
-        "Main": {
+        "Main Distortion": {
             content: [
                 "main-display",
                 "blank",
