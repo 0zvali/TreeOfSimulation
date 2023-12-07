@@ -95,9 +95,7 @@ addLayer("D", {
                     {}],
                 "blank",
                 ["bar", "bigBar"],
-                "blank",
                 ["upgrades", [2]],
-                "blank",
                 ["bar", "big2Bar"],
             ]
         },
