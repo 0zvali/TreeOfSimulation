@@ -99,6 +99,22 @@ addLayer("D", {
                 ["bar", "big2Bar"],
             ]
         },
+        "Distortion Challenges": {
+            content: [
+                "main-display",
+                "blank",
+                "prestige-button",
+                "blank",
+                ["display-text",
+                function () { return 'You have ' + formatWhole(player.D.best) + ' best Distortion.' },
+                {}],
+                ["display-text",
+                function () { return 'You have ' + formatWhole(player.D.total) + ' total Distortion.' },
+                {}],
+                "blank",
+                "challenges",
+            ]
+        },
     },
     bars: {
         bigBar: {
