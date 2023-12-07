@@ -137,8 +137,8 @@ addLayer("D", {
                     return format(player.O.points) + "/1e1500 Obfuscation"
                 if (player.O.best.gte("1e1500"))
                     return "Unlock Row 2 Designated Distortion Upgrades"
-                if ((hasUpgrade('D', 25)) && player.O.best.lte("9.99e7499"))
-                    return "Unlock Row 2 Designated Distortion Upgrades<br>" + format(player.O.points) + "/1e8500 Obfuscation"
+                if (hasUpgrade('D', 25) && player.O.best.lte("9.99e8499"))
+                    return "Unlock Row 2 Designated Distortion Upgrades<br>" + format(player.O.points) + " /1e8500 Obfuscation"
                 else
                     return "Unlock Row 2 Designated Distortion Upgrades<br> Unlock 2nd Row 2 Designated Distortion Upgrades"
             },
