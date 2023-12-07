@@ -25,6 +25,7 @@ addLayer("O", {
     baseAmount() {return player.SL.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.013, // Prestige currency exponent
+    resetsNothing() {return hasUpgrade('D', 23)},
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (hasUpgrade('O', 15)) mult = mult.times(1e30)

@@ -18,7 +18,7 @@ addLayer("D", {
         let requirement = new Decimal("4e2000");
         return requirement
     },
-    resource: "Distortion", // Name of prestige currency
+    resource: "Distortion", // Name R prestige currency
     baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
@@ -167,7 +167,7 @@ addLayer("D", {
             requirementDescription: "300,000,000 Distortion",
             effectDescription(){ 
                 let des
-                des = `Passively Gain 1e50x of Everything (Except Obfuscation, Weapons, and Distortion)<br> Now that's fast!`
+                des = `Passively Gain 1e50x R Everything (Except Obfuscation, Weapons, and Distortion)<br> Now that's fast!`
                 return des
             },
             done() { return player.D.points.gte(300000000) && hasUpgrade('D', 21)},
@@ -279,13 +279,8 @@ addLayer("D", {
                 let title = "Placeholder III"
                 return title
             },
-            description: "Placeholder III",
+            description: "Only Distortion resets previous stuff...What's going on? 1e5000x Infects",
             cost: new Decimal("1e999"),
-            effect() {
-                let effect1 = (player.FL.points.max(1).add(1).pow(0.00001)).max(1).min("1e6600");
-                return effect1
-            },
-            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
                 return  player.O.points.gte("1e1500")
             },
