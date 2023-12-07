@@ -136,13 +136,13 @@ addLayer("D", {
                 if (player.O.best.lte("9.99e1499"))
                     return format(player.O.points) + "/1e1500 Obfuscation"
                 if (player.O.best.gte("1e1500"))
-                    return "Unlock Row 2 Designated Distortion Upgrades"
+                    return "Unlock 1st Row 2 Designated Distortion Upgrades"
                 if (hasUpgrade('D', 25))
-                    return "Unlock Row 2 Designated Distortion Upgrades<br>" + format(player.O.points) + " /1e8500 Obfuscation"
+                    return "Unlock 1st Row 2 Designated Distortion Upgrades(" + format(player.O.points) + " /1e8500 Obfuscation)"
                 if (player.O.best.lte("9.99e8499")&& hasUpgrade('D', 25))
-                    return "Unlock Row 2 Designated Distortion Upgrades<br>" + format(player.O.points) + " /1e8500 Obfuscation"
+                    return "Unlock 1st Row 2 Designated Distortion Upgrades(" + format(player.O.points) + " /1e8500 Obfuscation)"
                 else
-                    return "Unlock Row 2 Designated Distortion Upgrades<br> Unlock 2nd Row 2 Designated Distortion Upgrades"
+                    return "Unlock 1st & 2nd Row 2 Designated Distortion"
             },
             unlocked(){
                 return hasUpgrade('D', 12)
