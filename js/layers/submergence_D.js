@@ -81,7 +81,7 @@ addLayer("D", {
                 ["upgrades", [1]],
             ]
         },
-        "Distortion Bars": {
+        "Distortion Rows 2 & 3": {
             content: [
                 "main-display",
                 "blank",
