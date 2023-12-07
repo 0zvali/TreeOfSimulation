@@ -29,6 +29,8 @@ let changelog = `<h1>Changelog:</h1><br>
 		- Added more than 25 things<br>
 		- Fixed Weapons going to e1,000,000 before the 5th Distortion Upgrade<br>
 		- Fixed Explosives now having a purpose again & removing Milestones popups later<br>
+		- Weapons now cap at 1e10,000 to prevent inflation of all layers<br>
+		- 'Hallway C' cost is now ^3000 higher<br>
 		- Nerf'd Weapon effect slightlyyyy<br>
 		- Balanced & Adjustments up to Endgame<br>
 		- Added Bar Requirements to unlock more content<br>
