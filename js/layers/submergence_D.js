@@ -293,7 +293,7 @@ addLayer("D", {
             description: "Distortion boosts Experiment Effect (Cap is ^1.35). Passively Gain 100x Weapons",
             cost: new Decimal(4.9e10),
             effect() {
-                let effect1 = (player.D.points.max(1).add(1).log10(3).pow(0.002)).max(1).min(1.35);
+                let effect1 = (player.D.points.max(1).add(1).log10(3).pow(0.008)).max(1).min(1.35);
                 return effect1
             },
             effectDisplay() { return "+^"+ format(upgradeEffect(this.layer, this.id))},
