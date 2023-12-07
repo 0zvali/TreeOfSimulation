@@ -46,6 +46,7 @@ addLayer("EX", {
         if (hasUpgrade('D', 21)) mult = mult.times(upgradeEffect('D', 21))
         if (hasUpgrade('SL', 11)) mult = mult.times(3)
         if (hasUpgrade('SL', 11)) mult = mult.times(4)
+        if (hasUpgrade('D', 25)) mult = mult.times(upgradeEffect('D', 25))
 
         return mult
     },

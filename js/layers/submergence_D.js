@@ -173,6 +173,26 @@ addLayer("D", {
             done() { return player.D.points.gte(300000000) && hasUpgrade('D', 21)},
             unlocked() { return hasUpgrade('D', 21)}
         },
+        12: {
+            requirementDescription: "Placeholder I",
+            effectDescription(){ 
+                let des
+                des = ` `
+                return des
+            },
+            done() { return player.D.points.gte("1e999") && hasUpgrade('D', 25)},
+            unlocked() { return hasUpgrade('D', 25)}
+        },
+        13: {
+            requirementDescription: "Placeholder II",
+            effectDescription(){ 
+                let des
+                des = ` `
+                return des
+            },
+            done() { return player.D.points.gte("1e999") && hasUpgrade('D', 25)},
+            unlocked() { return hasUpgrade('D', 25)}
+        },
     },
     upgrades: {
         rows: 2,
@@ -303,16 +323,16 @@ addLayer("D", {
         },
         25: {
             title(){ 
-                let title = "Placeholder V"
+                let title = "Distorted Souls II (Endgame Currently)"
                 return title
             },
-            description: "Placeholder V",
-            cost: new Decimal("1e999"),
+            description: "1e390x Souls & Souls boosts Explosives significantly (Cap is 1e394500x), unlock 2 Milestones",
+            cost: new Decimal(2.9e12),
             effect() {
-                let effect1 = (player.FL.points.max(1).add(1).pow(0.00001)).max(1).min("1e6600");
+                let effect1 = (player.SL.points.max(1).add(1).pow(0.032)).max(1).min("1e394500");
                 return effect1
             },
-            effectDisplay() { return "/"+format(upgradeEffect(this.layer, this.id)) },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
                 return  player.O.points.gte("1e1500")
             },
