@@ -95,6 +95,7 @@ addLayer("D", {
                     {}],
                 "blank",
                 ["bar", "bigBar"],
+                ["bar", "big1Bar"],
                 "blank",
                 ["upgrades", [2]],
                 "blank",
@@ -122,30 +123,43 @@ addLayer("D", {
         bigBar: {
             direction: RIGHT,
             width: 670,
-            height: 45,
+            height: 40,
             fillStyle: { 'background-color': "#107a2c" },
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
                 let prog = player.O.points.div("1e1500")
                 if (player.O.best.gte("1e1500")) prog = 1
-                if (hasUpgrade('D', 25)) prog = player.O.points.div("1e8500")
-                if (player.O.best.gte("1e8500")) prog = 1
                 return prog
             },
             display() {
                 if (player.O.best.lte("9.99e1499"))
                     return format(player.O.points) + "/1e1500 Obfuscation"
-                if (player.O.best.gte("1e1500"))
-                    return "Unlock 1st Row 2 Designated Distortion Upgrades"
-                if (hasUpgrade('D', 25))
-                    return "Unlock 1st Row 2 Designated Distortion Upgrades(" + format(player.O.points) + " /1e8500 Obfuscation)"
-                if (player.O.best.lte("9.99e8499")&& hasUpgrade('D', 25))
-                    return "Unlock 1st Row 2 Designated Distortion Upgrades(" + format(player.O.points) + " /1e8500 Obfuscation)"
                 else
-                    return "Unlock 1st & 2nd Row 2 Designated Distortion"
+                    return "Unlock 1st Row 2 Designated Distortion"
             },
             unlocked(){
                 return hasUpgrade('D', 12)
+            },
+        },
+        big1Bar: {
+            direction: RIGHT,
+            width: 670,
+            height: 40,
+            fillStyle: { 'background-color': "#107a2c" },
+            borderStyle() { return { "border-color": "#9DD1C2" } },
+            progress() {
+                let prog = player.O.points.div("1e8500")
+                if (player.O.best.gte("1e8500")) prog = 1
+                return prog
+            },
+            display() {
+                if (player.O.best.lte("9.99e8499"))
+                    return format(player.O.points) + "/1e8500 Obfuscation"
+                else
+                    return "Unlock 2nd Row 2 Designated Distortion"
+            },
+            unlocked(){
+                return hasUpgrade('D', 25)
             },
         },
         big2Bar: {
