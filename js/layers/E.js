@@ -106,6 +106,7 @@ addLayer("E", {
         if (hasMilestone('E', 13)) value1 = value1.add(0.01)
         if (hasMilestone('E', 15)) value1 = value1.add(0.49)
         if (hasMilestone('H', 12)) value1 = value1.add(9.5)
+        if (hasMilestone('D', 11)) value1 = new Decimal(1e50)
         return value1
     },
     layerShown(){return true},

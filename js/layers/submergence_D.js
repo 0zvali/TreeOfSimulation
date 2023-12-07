@@ -167,7 +167,7 @@ addLayer("D", {
             requirementDescription: "300,000,000 Distortion",
             effectDescription(){ 
                 let des
-                des = `Passively Gain 1e50x Everything (Now that's fast & efficent!)`
+                des = `Passively Gain 1e50x Everything (Except Obfuscation, Weapons, and Distortion)<br> Now that's fast!`
                 return des
             },
             done() { return player.D.points.gte(300000000) && hasUpgrade('D', 21)},

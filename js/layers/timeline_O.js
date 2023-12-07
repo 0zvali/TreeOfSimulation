@@ -57,7 +57,7 @@ addLayer("O", {
     },
     row: 4, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "o", description: "s: reset for Obfuscation", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "o", description: "o: reset for Obfuscation", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown() {
         let value = false

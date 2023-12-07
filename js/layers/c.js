@@ -129,6 +129,7 @@ addLayer("c", {
         let value1 = new Decimal(0);
         if (hasMilestone('E', 12)) value1 = value1.add(0.15)
         if (hasMilestone('E', 15)) value1 = value1.add(0.20)
+        if (hasMilestone('D', 11)) value1 = new Decimal(1e50)
         return value1
     },
     layerShown(){    
