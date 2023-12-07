@@ -280,7 +280,7 @@ addLayer("D", {
                 return title
             },
             description: "Only Distortion resets previous stuff...What's going on? 1e5000x Infects",
-            cost: new Decimal("1e999"),
+            cost: new Decimal(1.3e9),
             unlocked(){
                 return  player.O.points.gte("1e1500")
             },
