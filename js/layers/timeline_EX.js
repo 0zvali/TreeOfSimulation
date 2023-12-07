@@ -31,6 +31,8 @@ addLayer("EX", {
     exponent: 0.75, // Prestige currency exponent
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
+        if (hasChallenge('CT', 21)) player.EX.milestones.push('11')
+        if (hasUpgrade('D', 15)) player.EX.milestones.push('12')
     },
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
