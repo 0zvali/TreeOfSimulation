@@ -52,9 +52,7 @@ addLayer("W", {
         return dis
     },
     passiveGeneration() {
-        let value1 = new Decimal(0);
-        if (hasUpgrade('D', 24)) value1 = value1.add(10)
-        return value1
+        return (hasUpgrade('D', 24)) && player.W.points.lte("1e9975") ? 0.25: (hasUpgrade('D', 24)) && player.W.points.lte("1e10000") ? 0.01:0
     },
     row: 4, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
