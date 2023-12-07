@@ -122,7 +122,7 @@ addLayer("D", {
         bigBar: {
             direction: RIGHT,
             width: 670,
-            height: 50,
+            height: 45,
             fillStyle: { 'background-color': "#107a2c" },
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
@@ -149,7 +149,7 @@ addLayer("D", {
         big2Bar: {
             direction: RIGHT,
             width: 670,
-            height: 50,
+            height: 45,
             fillStyle: { 'background-color': "#107a2c" },
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
