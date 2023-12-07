@@ -269,14 +269,14 @@ addLayer("D", {
                 return title
             },
             description: "1e400x Souls & 1e150x Soul Effect I",
-            cost: new Decimal("1e999"),
+            cost: new Decimal(730000000),
             unlocked(){
                 return  player.O.points.gte("1e1500")
             },
         },
         23: {
             title(){ 
-                let title = "Placeholder III"
+                let title = "Distorted Rows"
                 return title
             },
             description: "Only Distortion resets previous stuff...What's going on? 1e5000x Infects",
