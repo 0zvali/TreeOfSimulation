@@ -33,6 +33,7 @@ addLayer("EX", {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
         if (hasChallenge('CT', 21)) player.EX.milestones.push('11')
         if (hasUpgrade('D', 15)) player.EX.milestones.push('12')
+        if (hasChallenge('CT', 22)) player.EX.upgrades.push('11', '12', '13', '14', '15', '21', '22', '23', '24', '25')
     },
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
