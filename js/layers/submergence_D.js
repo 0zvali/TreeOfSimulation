@@ -106,7 +106,7 @@ addLayer("D", {
             direction: RIGHT,
             width: 650,
             height: 40,
-            fillStyle: { 'background-color': "#1fbf49" },
+            fillStyle: { 'background-color': "#107a2c" },
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
                 let prog = player.O.points.div("1e1500")
@@ -127,7 +127,7 @@ addLayer("D", {
             direction: RIGHT,
             width: 650,
             height: 40,
-            fillStyle: { 'background-color': "#1fbf49" },
+            fillStyle: { 'background-color': "#107a2c" },
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
                 let prog = player.SL.points.div("1e666666")
