@@ -121,20 +121,26 @@ addLayer("D", {
     bars: {
         bigBar: {
             direction: RIGHT,
-            width: 650,
-            height: 40,
+            width: 670,
+            height: 50,
             fillStyle: { 'background-color': "#107a2c" },
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
                 let prog = player.O.points.div("1e1500")
                 if (player.O.best.gte("1e1500")) prog = 1
+                if (hasUpgrade('D', 25)) prog = player.O.points.div("1e8500")
+                if (player.O.best.gte("1e8500")) prog = 1
                 return prog
             },
             display() {
                 if (player.O.best.lte("9.99e1499"))
                     return format(player.O.points) + "/1e1500 Obfuscation"
-                else
+                if (player.O.best.gte("1e1500"))
                     return "Unlock Row 2 Designated Distortion Upgrades"
+                if ((hasUpgrade('D', 25)) && player.O.best.lte("9.99e7499"))
+                    return "Unlock Row 2 Designated Distortion Upgrades<br>" + format(player.O.points) + "/1e8500 Obfuscation"
+                else
+                    return "Unlock Row 2 Designated Distortion Upgrades<br> Unlock 2nd Row 2 Designated Distortion Upgrades"
             },
             unlocked(){
                 return hasUpgrade('D', 12)
@@ -142,8 +148,8 @@ addLayer("D", {
         },
         big2Bar: {
             direction: RIGHT,
-            width: 650,
-            height: 40,
+            width: 670,
+            height: 50,
             fillStyle: { 'background-color': "#107a2c" },
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
