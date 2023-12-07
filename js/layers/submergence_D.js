@@ -229,7 +229,7 @@ addLayer("D", {
             description: "Experiments now boosts Explosives & Floors significantly (Cap is 1e16700x). Also boost Distortion Effect by ^2.2",
             cost: new Decimal(120000000),
             effect() {
-                let effect1 = (player.E.points.max(1).add(1).pow(0.006)).max(1).min("1e16700");
+                let effect1 = (player.E.points.max(1).add(1).pow(0.017)).max(1).min("1e16700");
                 return effect1
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
