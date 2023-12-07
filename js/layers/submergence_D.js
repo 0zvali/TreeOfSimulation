@@ -287,13 +287,13 @@ addLayer("D", {
         },
         24: {
             title(){ 
-                let title = "Placeholder IV"
+                let title = "Distorted Experiments II"
                 return title
             },
-            description: "Placeholder IV",
-            cost: new Decimal("1e999"),
+            description: "Distortion boosts Experiment Effect (Cap is ^1.35). Passively Gain 100x Weapons",
+            cost: new Decimal(4.9e10),
             effect() {
-                let effect1 = (player.FL.points.max(1).add(1).pow(0.0000001)).max(1).min("1e6600");
+                let effect1 = (player.D.points.max(1).add(1).log10().pow(0.3)).max(1).min(1.35);
                 return effect1
             },
             effectDisplay() { return "+^"+ format(upgradeEffect(this.layer, this.id))},

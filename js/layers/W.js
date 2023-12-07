@@ -11,7 +11,12 @@ addLayer("W", {
         if(player.CT.points >= 1) unlocked = false;
     },
     color: "#b5c3dd",
-    requires: new Decimal(1e100), // Can be a function that takes requirement increases into account
+    requires(){ 
+        let requirement = new Decimal(1e100)
+        if (player.W.points.gte("9.99e9999")) requirement = requirement.times("e1e153")
+        return requirement
+        
+    }, // Can be a function that takes requirement increases into account
     resource: "weapons", // Name of prestige currency
     baseResource: "crystals", // Name of resource prestige is based on
     baseAmount() {return player.c.points}, // Get the current amount of baseResource
