@@ -12,8 +12,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "2.1",
-	name: "Obfuscating Souls",
+	num: "2.3",
+	name: "Distorted Reality",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -22,6 +22,25 @@ let changelog = `<h1>Changelog:</h1><br>
 		y = minor update<br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
+
+		<h2>v2.3: Distorted Reality</h2><br>
+		- Added a new Layer<br>
+		- Fixed 'Soul Shield' Challenge again<br>
+		- Added more than 25 things<br>
+		- Fixed Weapons going to e1,000,000 before the 5th Distortion Upgrade<br>
+		- Fixed Explosives now having a purpose again & removing Milestones popups later<br>
+		- Nerf'd Weapon effect slightlyyyy<br>
+		- Balanced & Adjustments up to Endgame<br>
+		- Added Bar Requirements to unlock more content<br>
+		- Planned Distortion Challenges<br>
+		- Hidden CT for later purposes after Obsfucation<br>
+		- Added Submergance Timeline<br>
+		- Fixed UI<br>
+		- Fixed Several CSS Errors<br>
+		- Lower'd 5th Obsfucation Upgrade Cost Significantly<br>
+		- Endgame is at an area where you can't go past it but Mod Creator can<br>
+		- Endgame: 1e115,600 Infects<br><br>
+
 
 		<h2>v2.1: Obfuscating Souls</h2><br>
 			- Added a new Layer<br>
@@ -465,7 +484,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"<a>Endgame: 1e44,000 Infects, 1e915 Obfuscation, 1e1605 Weapons</a>",
+	"<a>Endgame(v2.3): 1e115,600 Infects</a>",
 	function() {
 		if (inChallenge('CT', 11))
 		return "You are currently in: 'Explosive Floors' (Infects /2.5)"
@@ -497,7 +516,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return (player.O.points.gte("1e915") && player.W.points.gte("1e1605") && player.points.gte("1e44000"))
+	return player.points.gte("1e115600")
 }
 
 
