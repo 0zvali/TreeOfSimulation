@@ -185,7 +185,7 @@ addLayer("D", {
             requirementDescription: "Placeholder I",
             effectDescription(){ 
                 let des
-                des = ` `
+                des = `You've reached the current Endgame, come back when v2.4 drops!`
                 return des
             },
             done() { return player.D.points.gte("1e999") && hasUpgrade('D', 25)},
@@ -195,7 +195,7 @@ addLayer("D", {
             requirementDescription: "Placeholder II",
             effectDescription(){ 
                 let des
-                des = ` `
+                des = `You've reached the current Endgame, come back when v2.4 drops!`
                 return des
             },
             done() { return player.D.points.gte("1e999") && hasUpgrade('D', 25)},
@@ -334,7 +334,7 @@ addLayer("D", {
                 let title = "Distorted Souls II (Endgame Currently)"
                 return title
             },
-            description: "1e390x Souls & Souls boosts Explosives significantly (Cap is 1e394500x), unlock 2 Milestones",
+            description: "1e390x Souls & Souls boosts Explosives significantly (Cap is 1e394500x), unlock 2 Distortion Milestones",
             cost: new Decimal(2.9e12),
             effect() {
                 let effect1 = (player.SL.points.max(1).add(1).pow(0.032)).max(1).min("1e394500");
