@@ -279,7 +279,7 @@ addLayer("D", {
                 let title = "Distorted Rows"
                 return title
             },
-            description: "Only Distortion resets previous stuff...What's going on? 1e5000x Infects",
+            description: "Only Distortion resets previous stuff...What's going on? 1e666x Infects",
             cost: new Decimal(1.3e9),
             unlocked(){
                 return  player.O.points.gte("1e1500")
