@@ -163,6 +163,16 @@ addLayer("D", {
         },
     },
     milestones: {
+        11: {
+            requirementDescription: "300,000,000 Distortion",
+            effectDescription(){ 
+                let des
+                des = `Passively Gain 1e50x Everything (Now that's fast & efficent!)`
+                return des
+            },
+            done() { return player.D.points.gte(300000000) && hasUpgrade('D', 21)},
+            unlocked() { return hasUpgrade('D', 21)}
+        },
     },
     upgrades: {
         rows: 2,
@@ -242,7 +252,7 @@ addLayer("D", {
                 let title = "Distorted Experiments"
                 return title
             },
-            description: "Experiments now boosts Explosives & Floors significantly (Cap is 1e16700x). Also boost Distortion Effect by ^2.2",
+            description: "Experiments now boosts Explosives & Floors significantly (Cap is 1e16700x). ^2.2 Distortion Effect. Unlock an Distortion Milestone",
             cost: new Decimal(120000000),
             effect() {
                 let effect1 = (player.E.points.max(1).add(1).pow(0.017)).max(1).min("1e16700");
