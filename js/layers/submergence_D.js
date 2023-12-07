@@ -37,6 +37,7 @@ addLayer("D", {
     effect() {
         let eff = player.D.points.add(1).pow(0.4)
         if (hasUpgrade('O', 23)) eff = eff.times(9.4)
+        if (hasUpgrade('D', 21)) eff = eff.pow(2.2)
         eff = eff.times(tmp.D.effectBase)
         return eff
     },
@@ -222,13 +223,13 @@ addLayer("D", {
         },
         21: {
             title(){ 
-                let title = "Placeholder I"
+                let title = "Distorted Experiments"
                 return title
             },
-            description: "Placeholder I",
-            cost: new Decimal("1e999"),
+            description: "Experiments now boosts Explosives & Floors significantly (Cap is 1e16700x). Also boost Distortion Effect by ^2.2",
+            cost: new Decimal(120000000),
             effect() {
-                let effect1 = (player.FL.points.max(1).add(1).pow(0.00001)).max(1).min("1e6600");
+                let effect1 = (player.E.points.max(1).add(1).pow(0.006)).max(1).min("1e16700");
                 return effect1
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
@@ -238,10 +239,10 @@ addLayer("D", {
         },
         22: {
             title(){ 
-                let title = "Placeholder II"
+                let title = "Distorted Souls"
                 return title
             },
-            description: "Placeholder II",
+            description: "1e400x Souls & 1e150x Soul Effect I",
             cost: new Decimal("1e999"),
             unlocked(){
                 return  player.O.points.gte("1e1500")

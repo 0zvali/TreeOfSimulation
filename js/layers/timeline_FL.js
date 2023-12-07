@@ -46,12 +46,13 @@ addLayer("FL", {
         if (player.SL.unlocked) mult = mult.times(tmp.SL.effect);
         if (player.O.unlocked) mult = mult.times(tmp.O.effect);
         if (hasUpgrade('SL', 23)) mult = mult.times(tmp.SL.effect.pow(0.15)); 
-        if (hasMilestone('c', 11)) mult = mult.times(1e100)
-        if (hasUpgrade('D', 12)) mult = mult.times("1e355")	
-        if (hasMilestone('EX', 12)) mult = mult.times("1e400")
+        if (hasMilestone('c', 11)) mult = mult.times(1e100);
+        if (hasUpgrade('D', 12)) mult = mult.times("1e355");
+        if (hasMilestone('EX', 12)) mult = mult.times("1e400");
         if (hasUpgrade('O', 24)) mult = mult.times(upgradeEffect('O', 24));
         if (hasUpgrade('D', 14)) mult = mult.times(upgradeEffect('D', 14));
         if (hasUpgrade('D', 15)) mult = mult.times(upgradeEffect('D', 15));
+        if (hasUpgrade('D', 21)) mult = mult.times(upgradeEffect('D', 21));
         return mult;
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

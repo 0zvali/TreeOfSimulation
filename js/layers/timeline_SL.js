@@ -32,6 +32,7 @@ addLayer("SL", {
         if (hasUpgrade('SL', 15)) mult = mult.times(7)
         if (player.O.unlocked) mult = mult.times(tmp.O.effect);
         if (player.D.unlocked) mult = mult.times(tmp.D.effect)
+        if (hasUpgrade('D', 22)) mult = mult.times(1e400)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -46,6 +47,7 @@ addLayer("SL", {
     effect() {
         let eff = player.SL.points.add(1.25).pow(0.27)
         if (hasUpgrade('O', 13)) eff = eff.pow(1.2)
+        if (hasUpgrade('D', 22)) eff = eff.times(1e150)
         eff = eff.times(tmp.SL.effectBase)
         return eff
     },
@@ -54,7 +56,7 @@ addLayer("SL", {
         if (hasUpgrade('SL', 21)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "and dividing explosive & floor requirement by /"+format(player.SL.points.add(1).pow(0.15))
         if (hasUpgrade('SL', 22)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "and dividing explosive & floor requirement by /"+format(player.SL.points.add(1).pow(0.36))
         if (hasMilestone('SL', 13)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "Divide explosive & floor requirement by /" +format(player.SL.points.add(1).pow(0.36)) + `<br>` + "Divide Soul Requirement by /" + format(player.SL.points.add(1).pow(0.012))
-        if (hasUpgrade('O', 13)) dis = "too many effects"
+        if (hasUpgrade('O', 13)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "Divide explosive & floor requirement by /" +format(player.SL.points.add(1).pow(0.47)) + `<br>` + "Divide Soul Requirement by /" + format(player.SL.points.add(1).pow(0.014))
         return dis
     },
     effectBase() {
