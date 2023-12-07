@@ -51,6 +51,11 @@ addLayer("W", {
         dis = "which boosts all previous layers (Except Rooms) by "+ format(tmp.W.effect) +"x"
         return dis
     },
+    passiveGeneration() {
+        let value1 = new Decimal(0);
+        if (hasUpgrade('D', 24)) value1 = value1.add(10)
+        return value1
+    },
     row: 4, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "w", description: "w: reset for Weapons", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
