@@ -207,13 +207,13 @@ addLayer("D", {
             unlocked() { return hasUpgrade('D', 25)}
         },
         13: {
-            requirementDescription: "Placeholder II",
+            requirementDescription: "1e10000 Weapons",
             effectDescription(){ 
                 let des
-                des = `You've reached the current Endgame, come back when v2.4 drops!`
+                des = `Oh, Max Weapons...? How about Meta Weapons instead? (Unlock Meta Weapons)`
                 return des
             },
-            done() { return player.D.points.gte("1e999") && hasUpgrade('D', 25)},
+            done() { return player.W.points.gte("1e10001") && hasUpgrade('D', 25)},
             unlocked() { return hasUpgrade('D', 25)}
         },
     },
