@@ -190,8 +190,8 @@ addLayer("D", {
             name: "R3alIz@ti0n",
             challengeDescription: 
             `Realization is now distorted.<br>
-            All Effects are now ^0.05<br>
-            Infects are now ^0.5<br>`,
+            All Effects are now ^0.0001<br>
+            Infects are now ^0.2<br>`,
             canComplete: function() {return player.R.points.gte(150000)},
             goalDescription: "150,000 Rooms",
             rewardDescription: "^1.3 Obfuscation Gain",

@@ -55,7 +55,7 @@ addLayer("F", {
         if (hasMilestone('W', 12)) eff1 = eff1.times(4)
         if (hasUpgrade('O', 13)) eff1 = eff1.pow(1.2)
         if (hasUpgrade('O', 22)) eff1 = eff1.times(1e170)
-        if (inChallenge('D', 11)) eff1 = eff1.pow(0.05)
+        if (inChallenge('D', 11)) eff1 = eff1.pow(0.001)
         eff1 = eff1.times(tmp.F.effectBase)
         return eff1
     },
