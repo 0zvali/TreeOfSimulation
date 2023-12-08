@@ -148,7 +148,7 @@ addLayer("D", {
             fillStyle: { 'background-color': "#107a2c" },
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
-                let prog = (max(0).add(1).log(player.O.points.div("1e8500"))).max(0).min(1)
+                let prog = add(1).log(player.O.points.div("1e8500"))
                 if (player.O.best.gte("1e8500")) prog = 1
                 return prog
             },
