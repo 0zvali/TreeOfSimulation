@@ -11,9 +11,11 @@ addLayer("D", {
         let color = `#87143b`
         return color
     },
-    nodeStyle() {return {
-        "background": (player.D.unlocked||canReset("D"))?"radial-gradient(#87143b, #9DD1C2)":"#bf8f8f" ,
-    }},
+    nodeStyle() {
+        let background = {"background": (player.D.unlocked||canReset("D"))?"radial-gradient(#87143b, #9DD1C2)":"#bf8f8f"} 
+        if (inChallenge('D', 11)) background = {"background": (player.D.unlocked||canReset("D"))?"radial-gradient(#EE4B2B, #420D69)":"#bf8f8f"} 
+        return background
+    },
     requires(){ 
         let requirement = new Decimal("4e2000");
         return requirement
