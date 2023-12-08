@@ -25,6 +25,7 @@ addLayer("D", {
     exponent: 0.0001, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasMilestone('D', 12)) mult = mult.times(player.W.points.add(1).pow(0.0008))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -196,13 +197,13 @@ addLayer("D", {
             unlocked() { return hasUpgrade('D', 21)}
         },
         12: {
-            requirementDescription: "Placeholder I",
+            requirementDescription: "1e2460 Obfuscation",
             effectDescription(){ 
                 let des
-                des = `You've reached the current Endgame, come back when v2.4 drops!`
+                des = `Distortion is boosted by Weapons by (`+ format(player.W.points.add(1).pow(0.0008))+`)`
                 return des
             },
-            done() { return player.D.points.gte("1e999") && hasUpgrade('D', 25)},
+            done() { return player.O.points.gte("1e2460") && hasUpgrade('D', 25)},
             unlocked() { return hasUpgrade('D', 25)}
         },
         13: {
