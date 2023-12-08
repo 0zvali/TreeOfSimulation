@@ -203,7 +203,7 @@ addLayer("D", {
                 des = `Distortion is boosted by Weapons by (`+ format(player.W.points.add(1).pow(0.0008))+`)`
                 return des
             },
-            done() { return player.O.points.gte("1e2460") && hasUpgrade('D', 25)},
+            done() { return player.O.points.gte("1e2462") && hasUpgrade('D', 25)},
             unlocked() { return hasUpgrade('D', 25)}
         },
         13: {
