@@ -28,7 +28,7 @@ addLayer("R", {
         if (hasUpgrade('R', 14)) mult = mult.times(upgradeEffect('R', 14))
         if (hasUpgrade('O', 23)) mult = mult.times(1e50)
         if (hasUpgrade('D', 15)) mult = mult.times("1e354")
-        if (inChallenge('D', 11)) mult = mult.div("1e401")
+        if (inChallenge('D', 11)) mult = mult.div("5e398")
         return mult
     },
     gainExp(){
