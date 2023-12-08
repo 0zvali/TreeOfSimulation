@@ -161,7 +161,7 @@ addLayer("c", {
             if (hasMilestone('O', 11)) title = "Corrupted Feelings"
             return title
         },
-        description: "Crystals boosts infects slightly",
+        description:  "Crystals boosts infects slightly",
         cost: new Decimal(1),
         effect() {
             let effect1 = (player.c.points.max(1).add(1.3).pow(0.152)).max(1).min(142);
