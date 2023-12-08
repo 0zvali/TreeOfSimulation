@@ -486,7 +486,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"<a>Endgame(v2.3): 1e115,600 Infects</a>",
+	"<a>Endgame: 1e115,700 Infects</a>",
 	function() {
 		if (inChallenge('CT', 11))
 		return "You are currently in: 'Explosive Floors' (Infects /2.5)"
