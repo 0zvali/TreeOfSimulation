@@ -49,7 +49,7 @@ addLayer("SL", {
         let eff = player.SL.points.add(1.25).pow(0.27)
         if (hasUpgrade('O', 13)) eff = eff.pow(1.2)
         if (hasUpgrade('D', 22)) eff = eff.times(1e150)
-        if (inChallenge('D', 11)) eff = eff.pow(0.5)
+        if (inChallenge('D', 11)) eff = eff.pow(0.05)
         eff = eff.times(tmp.SL.effectBase)
         return eff
     },
