@@ -185,6 +185,21 @@ addLayer("D", {
             },
         },
     },
+    challenges: {
+        11: {
+            name: "R3alIz@ti0n",
+            challengeDescription: 
+            `Realization is now distorted.<br>
+            All Effects are now ^0.5<br>
+            Infects are now ^0.9<br>`,
+            canComplete: function() {return player.R.points.gte(150000)},
+            goalDescription: "150,000 Rooms",
+            rewardDescription: "^1.3 Obfuscation Gain",
+            unlocked(){
+                return hasMilestone('D', 12) || inChallenge('D', 11) || hasChallenge('D', 11)
+            },
+       },
+    },
     milestones: {
         11: {
             requirementDescription: "300,000,000 Distortion",
@@ -200,7 +215,7 @@ addLayer("D", {
             requirementDescription: "1e2460 Obfuscation",
             effectDescription(){ 
                 let des
-                des = `Distortion is boosted by Weapons (`+ format(player.W.points.add(1).pow(0.0029))+`x)`
+                des = `Distortion is boosted by Weapons (`+ format(player.W.points.add(1).pow(0.0029))+`x)<br> Unlock the first Distortion Challenge`
                 return des
             },
             done() { return player.O.points.gte("1e2462") && hasUpgrade('D', 25)},
