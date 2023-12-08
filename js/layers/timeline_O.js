@@ -63,7 +63,7 @@ addLayer("O", {
     layerShown() {
         let value = false
         if (player.SL.points >= 1e20 || player.O.unlocked) value = true
-        if (inChallenge('CT', 22) value = false
+        if (inChallenge('CT', 22)) value = false
         return value
     },
     milestones: {
