@@ -40,7 +40,7 @@ addLayer("W", {
         if (hasUpgrade('O', 13)) eff4 = eff4.pow(1.2)
         if (hasUpgrade('O', 14)) eff4 = eff4.pow(1.1)
         if (hasUpgrade('O', 21)) eff4 = eff4.times(1e5)
-        if (inChallenge('D', 11)) eff = eff.pow(0.5)
+        if (inChallenge('D', 11)) eff4 = eff4.pow(0.5)
         eff4 = eff4.times(tmp.W.effectBase)
         return eff4
     },
