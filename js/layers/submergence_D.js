@@ -78,7 +78,6 @@ addLayer("D", {
                     {}],
                 "blank",
                 "milestones",
-                {embedLayer: "mana", unlocked(){return hasUpgrade('D', 25)}},
                 "blank",
                 ["upgrades", [1]],
             ]
@@ -120,6 +119,10 @@ addLayer("D", {
                 "challenges",
             ]
         },
+        "Mana":{
+            embedLayer: "mana", 
+            unlocked() {return hasUpgrade('D', 25)},
+        }
     },
     bars: {
         bigBar: {
