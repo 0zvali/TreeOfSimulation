@@ -383,7 +383,7 @@ addLayer("D", {
                 return title
             },
             description: "1e150x Fusion Effect & 1e490x Fusion Gain",
-            cost: new Decimal(1e89),
+            cost: new Decimal(1e69),
             unlocked(){
                 return  player.O.points.gte("1e12000")
             },
