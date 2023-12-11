@@ -14,7 +14,6 @@ addLayer('mana', {
         ["display-text", () => `You are gaining ${layerText("mana", format(player.a.gain))} mana per second`],
         "blank",
         "milestones",
-        "buyables",
         "upgrades"
     ],
     update(diff) {
