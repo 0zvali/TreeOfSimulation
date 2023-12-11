@@ -405,9 +405,9 @@ addLayer("D", {
                 return title
             },
             description: "Fusions boosts Human Effect (Cap is ^1.2); ^1.03 Fusion Effect",
-            cost: new Decimal("4.9e350"),
+            cost: new Decimal(4.7e90),
             effect() {
-                let effect1 = (player.F.points.max(1).add(1).log10(3).pow(0.005)).max(1).min(1.2);
+                let effect1 = (player.F.points.max(1).add(1).log10(3).pow(0.007)).max(1).min(1.2);
                 return effect1
             },
             effectDisplay() { return "+^"+ format(upgradeEffect(this.layer, this.id))},
@@ -420,10 +420,10 @@ addLayer("D", {
                 let title = "Distorted Humans II"
                 return title
             },
-            description: "Humans boosts Room Effect (Cap is ^1.1). ^1.04 Human Gain",
+            description: "Humans boosts Room Effect (Cap is ^1.35). ^1.04 Human Gain",
             cost: new Decimal("4.9e350"),
             effect() {
-                let effect1 = (player.H.points.max(1).add(1).log10(3).pow(0.003)).max(1).min(1.1);
+                let effect1 = (player.H.points.max(1).add(1).log10(3).pow(0.0053)).max(1).min(1.35);
                 return effect1
             },
             effectDisplay() { return "+^"+ format(upgradeEffect(this.layer, this.id))},

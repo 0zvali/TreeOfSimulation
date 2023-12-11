@@ -34,6 +34,7 @@ addLayer("H", {
         if (player.D.unlocked) mult = mult.times(tmp.D.effect)
         if (hasUpgrade('D', 14)) mult = mult.times("1e675")
         if (hasUpgrade('D', 32)) mult = mult.times("1e19000")
+        if (hasUpgrade('D', 34)) mult = mult.pow(1.04)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

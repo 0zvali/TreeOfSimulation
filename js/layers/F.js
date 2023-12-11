@@ -58,6 +58,7 @@ addLayer("F", {
         if (hasUpgrade('O', 22)) eff1 = eff1.times(1e170)
         if (inChallenge('D', 11)) eff1 = eff1.pow(0.001)
         if (hasUpgrade('D', 31)) eff1 = eff1.times("1e3250")
+        if (hasUpgrade('D', 33)) eff1 = eff1.pow(1.03)
         eff1 = eff1.times(tmp.F.effectBase)
         return eff1
     },
