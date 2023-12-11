@@ -40,6 +40,7 @@ addLayer("SL", {
         exp = new Decimal(1)
         if (hasUpgrade('SL', 23)) exp = exp.add(.013)
         if (hasUpgrade('SL', 24)) exp = exp.add(0.13)
+        if (hasChallenge('D', 11)) exp = exp.add(.3)
         return exp
     },
     doReset(resettingLayer) {
