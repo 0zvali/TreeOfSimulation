@@ -152,12 +152,12 @@ addLayer("D", {
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
                 let prog = 0.5
-                if (player.O.best.gte("1e8500")) prog = 1
+                if (player.O.best.gte("1e12000")) prog = 1
                 return prog
             },
             display() {
-                if (player.O.best.lte("9.99e8499"))
-                    return format(player.O.points) + "/1e8500 Obfuscation"
+                if (player.O.best.lte("9.99e11999"))
+                    return format(player.O.points) + "/1e12,000 Obfuscation"
                 else
                     return "Unlock 2nd Row 2 Designated Distortion"
             },
@@ -173,12 +173,12 @@ addLayer("D", {
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
                 let prog = player.SL.points.div("1e666666")
-                if (player.SL.best.gte("1e666666")) prog = 1
+                if (player.SL.best.gte("1e6666666")) prog = 1
                 return prog
             },
             display() {
-                if (player.O.best.lte("9.99e666665"))
-                    return format(player.SL.points) + "/1e666,666 Souls"
+                if (player.O.best.lte("9.99e6666665"))
+                    return format(player.SL.points) + "/1e6,666,666 Souls"
                 else
                     return "Unlock Row 3 Designated Distortion Upgrades"
             },
