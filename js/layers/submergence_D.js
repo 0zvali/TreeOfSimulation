@@ -98,7 +98,7 @@ addLayer("D", {
                 ["bar", "bigBar"],
                 ["bar", "big1Bar"],
                 "blank",
-                ["upgrades", [2]],
+                ["upgrades", [2, 3]],
                 "blank",
                 ["bar", "big2Bar"],
             ]
@@ -375,6 +375,71 @@ addLayer("D", {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
                 return  player.O.points.gte("1e1500")
+            },
+        },
+        31: {
+            title(){ 
+                let title = "Distorted Fusions "
+                return title
+            },
+            description: "1e150x Fusion Effect & 1e20x Fusion Gain",
+            cost: new Decimal(1e89),
+            unlocked(){
+                return  player.O.points.gte("1e12000")
+            },
+        },
+        32: {
+            title(){ 
+                let title = "Distorted Humans"
+                return title
+            },
+            description: "1e1750x Humans",
+            cost: new Decimal(1e150),
+            unlocked(){
+                return  player.O.points.gte("1e12000")
+            },
+        },
+        33: {
+            title(){ 
+                let title = "Distorted Fusions II"
+                return title
+            },
+            description: "Fusions boosts Human Effect (Cap is ^1.2). ^1.03 Fusion Effect",
+            cost: new Decimal("4.9e350"),
+            effect() {
+                let effect1 = (player.F.points.max(1).add(1).log10(3).pow(0.005)).max(1).min(1.2);
+                return effect1
+            },
+            effectDisplay() { return "+^"+ format(upgradeEffect(this.layer, this.id))},
+            unlocked(){
+                return  player.O.points.gte("1e12000")
+            },
+        },
+        34: {
+            title(){ 
+                let title = "Distorted Humans II"
+                return title
+            },
+            description: "Humans boosts Room Effect (Cap is ^1.1). ^1.04 Human Gain",
+            cost: new Decimal("4.9e350"),
+            effect() {
+                let effect1 = (player.H.points.max(1).add(1).log10(3).pow(0.003)).max(1).min(1.1);
+                return effect1
+            },
+            effectDisplay() { return "+^"+ format(upgradeEffect(this.layer, this.id))},
+            unlocked(){
+                return  player.O.points.gte("1e12000")
+            },
+        },
+        35: {
+            title(){ 
+                let title = "Distorted Rooms"
+                return title
+            },
+            description: "^1.002 Infects, ^1.05 Room Gain, ^1.02 Human Gain, ^1.03 Fusion Gain",
+            cost: new Decimal("4.9e350"),
+            unlocked(){
+                return  player.O.points.gte("1e12000")
             },
         },
     },
