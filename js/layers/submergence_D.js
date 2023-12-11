@@ -194,8 +194,8 @@ addLayer("D", {
             `Realization is now distorted.<br>
             All Effects are now ^0.0001<br>
             Infects are now ^0.01<br>`,
-            canComplete: function() {return player.R.points.gte(1e100)},
-            goalDescription: "1e100 Rooms",
+            canComplete: function() {return player.R.points.gte(1e44)},
+            goalDescription: "1e44 Rooms",
             rewardDescription: "^1.3 Obfuscation Gain",
             unlocked(){
                 return hasMilestone('D', 12) || inChallenge('D', 11) || hasChallenge('D', 11)
