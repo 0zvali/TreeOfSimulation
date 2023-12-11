@@ -39,6 +39,7 @@ addLayer("F", {
         if (hasMilestone('W', 13)) mult = mult.times((player.W.points.max(1).add(1).pow(0.35)).max(1).min(1e200))
         if (hasUpgrade('W', 15) && hasUpgrade('c', 35)) mult = mult.times(upgradeEffect('c', 35))
         if (hasUpgrade('D', 13)) mult = mult.times("1e600")
+        if (hasUpgrade('D', 31)) mult = mult.times("1e490")
         
         return mult
     },
@@ -56,6 +57,7 @@ addLayer("F", {
         if (hasUpgrade('O', 13)) eff1 = eff1.pow(1.2)
         if (hasUpgrade('O', 22)) eff1 = eff1.times(1e170)
         if (inChallenge('D', 11)) eff1 = eff1.pow(0.001)
+        if (hasUpgrade('D', 31)) eff1 = eff1.times(1e150)
         eff1 = eff1.times(tmp.F.effectBase)
         return eff1
     },

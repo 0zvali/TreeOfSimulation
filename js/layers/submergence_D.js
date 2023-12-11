@@ -382,7 +382,7 @@ addLayer("D", {
                 let title = "Distorted Fusions "
                 return title
             },
-            description: "1e150x Fusion Effect & 1e20x Fusion Gain",
+            description: "1e150x Fusion Effect & 1e490x Fusion Gain",
             cost: new Decimal(1e89),
             unlocked(){
                 return  player.O.points.gte("1e12000")
@@ -393,7 +393,7 @@ addLayer("D", {
                 let title = "Distorted Humans"
                 return title
             },
-            description: "1e1750x Humans",
+            description: "1e1750x Humans & 1.1x 1.1x 1.1x 1.1x 1.1x....",
             cost: new Decimal(1e150),
             unlocked(){
                 return  player.O.points.gte("1e12000")
@@ -404,7 +404,7 @@ addLayer("D", {
                 let title = "Distorted Fusions II"
                 return title
             },
-            description: "Fusions boosts Human Effect (Cap is ^1.2). ^1.03 Fusion Effect",
+            description: "Fusions boosts Human Effect (Cap is ^1.2); ^1.03 Fusion Effect",
             cost: new Decimal("4.9e350"),
             effect() {
                 let effect1 = (player.F.points.max(1).add(1).log10(3).pow(0.005)).max(1).min(1.2);
