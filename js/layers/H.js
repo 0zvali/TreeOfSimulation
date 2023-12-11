@@ -47,6 +47,7 @@ addLayer("H", {
         if (hasMilestone('W', 12)) eff2 = eff2.times(4)
         if (hasUpgrade('O', 13)) eff2 = eff2.pow(1.2)
         if (inChallenge('D', 11)) eff2 = eff2.pow(0.001)
+        if (hasUpgrade('D', 33)) eff2 = eff2.pow(upgradeEffect('D', 33))
         eff2 = eff2.times(tmp.H.effectBase)
         return eff2
     },
