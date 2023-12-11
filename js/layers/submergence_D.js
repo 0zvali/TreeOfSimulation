@@ -117,7 +117,7 @@ addLayer("D", {
                 {}],
                 "blank",
                 ["display-text",
-                function () {return 'Note: Passive Gain on all layers are disabled to prevent anything from inflating during any challenge!'},{}],
+                function () {return 'Note: Passive Gain on all layers are disabled to prevent anything from inflating during any challenge!<br> Unless the challenge says that it has passive for CERTAIN layers, then get used to doing manual for Distortion Challenges...'},{}],
                 "challenges",
             ]
         },
