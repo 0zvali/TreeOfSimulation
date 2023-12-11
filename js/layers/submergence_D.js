@@ -116,6 +116,8 @@ addLayer("D", {
                 function () { return 'You have ' + formatWhole(player.D.total) + ' total Distortion.' },
                 {}],
                 "blank",
+                ["display-text",
+                function () {return 'Note: Passive Gain on all layers are disabled to prevent anything from inflating during any challenge!'},{}],
                 "challenges",
             ]
         },
