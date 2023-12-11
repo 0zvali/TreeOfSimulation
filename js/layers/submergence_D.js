@@ -394,7 +394,7 @@ addLayer("D", {
                 return title
             },
             description: "1e1750x Humans & 1.1x 1.1x 1.1x 1.1x 1.1x....",
-            cost: new Decimal(1e150),
+            cost: new Decimal(1.42e75),
             unlocked(){
                 return  player.O.points.gte("1e12000")
             },
