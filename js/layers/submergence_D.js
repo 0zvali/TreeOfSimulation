@@ -122,7 +122,7 @@ addLayer("D", {
         "Mana":{
             embedLayer: "mana", 
             unlocked() {return hasUpgrade('D', 25)},
-        }
+        },
     },
     bars: {
         bigBar: {
