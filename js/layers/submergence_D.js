@@ -382,7 +382,7 @@ addLayer("D", {
                 let title = "Distorted Fusions "
                 return title
             },
-            description: "1e150x Fusion Effect & 1e490x Fusion Gain",
+            description: "1e3250x Fusion Effect & 1e490x Fusion Gain",
             cost: new Decimal(1e69),
             unlocked(){
                 return  player.O.points.gte("1e12000")
