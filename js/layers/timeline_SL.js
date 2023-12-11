@@ -59,6 +59,7 @@ addLayer("SL", {
         if (hasUpgrade('SL', 22)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "and dividing explosive & floor requirement by /"+format(player.SL.points.add(1).pow(0.36))
         if (hasMilestone('SL', 13)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "Divide explosive & floor requirement by /" +format(player.SL.points.add(1).pow(0.36)) + `<br>` + "Divide Soul Requirement by /" + format(player.SL.points.add(1).pow(0.012))
         if (hasUpgrade('O', 13)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "Divide explosive & floor requirement by /" +format(player.SL.points.add(1).pow(0.47)) + `<br>` + "Divide Soul Requirement by /" + format(player.SL.points.add(1).pow(0.014))
+        if (inChallenge('D', 11)) dis = "which is boosting floor gain by "+format(tmp.SL.effect)+`x<br>` + "Divide explosive & floor requirement by /" +format(player.SL.points.add(1).pow(0.0001)) + `<br>` + "Divide Soul Requirement by /" + format(player.SL.points.add(1).pow(0.0001))
         return dis
     },
     effectBase() {
