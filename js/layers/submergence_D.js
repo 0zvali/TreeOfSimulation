@@ -393,7 +393,7 @@ addLayer("D", {
                 let title = "Distorted Humans"
                 return title
             },
-            description: "1e1750x Humans & 1.1x 1.1x 1.1x 1.1x 1.1x....",
+            description: "1e19000x Humans & 1.1x 1.1x 1.1x 1.1x 1.1x....",
             cost: new Decimal(1.42e75),
             unlocked(){
                 return  player.O.points.gte("1e12000")
