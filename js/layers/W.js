@@ -41,6 +41,7 @@ addLayer("W", {
         if (hasUpgrade('O', 14)) eff4 = eff4.pow(1.1)
         if (hasUpgrade('O', 21)) eff4 = eff4.times(1e5)
         if (inChallenge('D', 11)) eff4 = eff4.pow(0.001)
+        if (player.mW.unlocked) eff4 = eff4.pow(tmp.mW.effect)
         eff4 = eff4.times(tmp.W.effectBase)
         return eff4
     },
