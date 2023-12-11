@@ -29,7 +29,7 @@ addLayer("mC", {
         return expo
     },
     effect() {
-        let eff4 = player.mC.points.add(1).pow(0.0003)
+        let eff4 = player.mC.points.add(1).pow(0.03)
         eff4 = eff4.times(tmp.mC.effectBase)
         return eff4
     },

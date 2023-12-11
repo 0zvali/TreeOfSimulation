@@ -499,6 +499,8 @@ var displayThings = [
 		return "You are currently in: 'Soul Shield' (Infects /500 & EX /200)"
 		if (hasMilestone('O', 11))
 		return "You are currently in: Submergence Timeline"
+		if (hasMilestone('D', 13))
+		return "This damn mod creator CAN'T MAKING STUFF AND NOT STICKING TO IT. GOD DAMN IT *slams desk*"
 		else
 		return "You are currently in: Normal Timeline"
 	  },
