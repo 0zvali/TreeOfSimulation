@@ -75,6 +75,7 @@ addLayer("F", {
         let value1 = new Decimal(0);
         if (hasMilestone('W', 14)) value1 = value1.add(1)
         if (hasMilestone('D', 11)) value1 = new Decimal(1e50)
+        if (inChallenge('D', 11)) value1 = new Decimal(0)
         return value1;
     },
     row: 3, // Row the layer is in on the tree (0 is the first row)
