@@ -54,7 +54,7 @@ addLayer("W", {
         return dis
     },
     passiveGeneration() {
-        return (hasUpgrade('D', 24)) && player.W.points.lte("1e9900") ? 0.25: (hasUpgrade('D', 24)) && player.W.points.lte("1e9975") ? 0.1: (hasUpgrade('D', 24)) && player.W.points.lte("1e10000") ? 0.001: 0
+        return (hasUpgrade('D', 24)) && player.W.points.lte("1e9900") ? 0.25: (hasUpgrade('D', 24)) && player.W.points.lte("1e9975") ? 0.1: (hasUpgrade('D', 24)) && player.W.points.lte("1e10000") ? 0.0001: 0
     },
     row: 4, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
