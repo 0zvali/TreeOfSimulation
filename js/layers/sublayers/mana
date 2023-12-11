@@ -11,7 +11,7 @@ addLayer('mana', {
     tabFormat: [
         ["display-text", () => `You have ${layerText("mana", format(player.mana.points))} mana`],
         "blank",
-        ["display-text", () => `You are gaining ${layerText("mana", format(player.a.gain))} mana per second`],
+        ["display-text", () => `You are gaining ${layerText("mana", format(player.mana.gain))} mana per second`],
         "blank",
         "milestones",
         "upgrades"
