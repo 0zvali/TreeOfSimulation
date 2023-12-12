@@ -42,6 +42,7 @@ addLayer("W", {
         if (hasUpgrade('O', 21)) eff4 = eff4.times(1e5)
         if (inChallenge('D', 11)) eff4 = eff4.pow(0.001)
         eff4 = eff4.times(tmp.W.effectBase)
+        if (player.W.points.gte("1e10000")) eff4 = new Decimal("1e7625")
         return eff4
     },
     effectBase() {
@@ -50,6 +51,7 @@ addLayer("W", {
     },
     effectDescription() {
         dis = "which boosts all previous layers (Except Rooms) by "+ format(tmp.W.effect) +"x"
+        if (player.W.points.gte("1e10000")) dis = "which boosts all previous layers (Except Rooms) by" +format(tmp.W.effect) +"x (Hardcapped)"
         return dis
     },
     passiveGeneration() {
