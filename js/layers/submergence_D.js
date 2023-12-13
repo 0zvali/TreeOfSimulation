@@ -97,13 +97,19 @@ addLayer("D", {
                 "blank",
                 ["bar", "bigBar"],
                 ["bar", "big1Bar"],
-                "blank",
-                ["upgrades", [2, 3]],
-                ["display-text", 
-                    function() {if (hasUpgrade('D', 35)) return "'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e7,625 -> e12,500'},
-                    {}],
-                "blank",
                 ["bar", "big2Bar"],
+                "blank",
+                ["display-text",
+                function() {if (player.O.points.gte("1e1500")) return "Row 2 Upgrades"},
+                {}],
+                ["upgrades", [2, 3]],
+                ["display-text",
+                    function() {if (player.SL.points.gte("1e7000000")) return "Row 3 Upgrades"},
+                {}],
+                ["upgrades", [4]],
+                ["display-text", 
+                    function() {if (hasUpgrade('D', 35)) return "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e7,625 -> e12,500'},
+                    {}],
             ]
         },
         "Distortion Challenges": {
@@ -175,13 +181,13 @@ addLayer("D", {
             fillStyle: { 'background-color': "#107a2c" },
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
-                let prog = player.SL.points.div("1e6666666")
-                if (player.SL.best.gte("1e6666666")) prog = 1
+                let prog = player.SL.points.div("1e7000000")
+                if (player.SL.best.gte("1e7000000")) prog = 1
                 return prog
             },
             display() {
-                if (player.O.best.lte("9.99e6666665"))
-                    return format(player.SL.points) + "/1e6,666,666 Souls"
+                if (player.O.best.lte("9.99e6999999"))
+                    return format(player.SL.points) + "/1e7,000,000 Souls"
                 else
                     return "Unlock Row 3 Designated Distortion Upgrades"
             },
