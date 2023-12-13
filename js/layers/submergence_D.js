@@ -99,6 +99,7 @@ addLayer("D", {
                 ["bar", "big1Bar"],
                 "blank",
                 ["upgrades", [2, 3]],
+                ["display-text", function() {if (hasUpgrade('D', 35)) return "'Distorted Room' Upgrade Effect: " + formatWhole((player.O.points.max(1).add(1).log10(2).pow(0.2).div(2)).max(1).min("1e85000")) +'x Obfuscation Effect'},{}],
                 "blank",
                 ["bar", "big2Bar"],
             ]
@@ -436,8 +437,8 @@ addLayer("D", {
                 let title = "Distorted Rooms"
                 return title
             },
-            description: "^1.002 Infects, ^1.05 Room Gain, ^1.02 Human Gain, ^1.03 Fusion Gain",
-            cost: new Decimal("4.9e350"),
+            description: "^1.002 Infects, ^1.05 Room Gain, ^1.02 Human Gain, ^1.03 Fusion Gain, also add an Distortion Effect",
+            cost: new Decimal(2.2e156),
             unlocked(){
                 return  player.O.points.gte("1e12000")
             },
