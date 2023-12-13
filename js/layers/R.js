@@ -199,10 +199,13 @@ upgrades: {
                 return cost
             },
             effect() {
-                return (player.points.max(1).add(1.1).pow(1.5)).max(1).min("e1e50");
+                let ef = (player.points.max(1).add(1.1).pow(1.5)).max(1).min("e1e50");
+                if (hasUpgrade('D', 35)) ef = (player.points.max(1).add(1).pow(0.02)).max(1).min("e1e10")
+                return ef
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte("e1e50") ? "(hardcapped)" : "";
+                if (hasUpgrade('D', 35)) capped = upgradeEffect(this.layer, this.id).gte("e1e10") ? "(hardcapped)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
