@@ -104,7 +104,7 @@ addLayer("D", {
                 {}],
                 ["upgrades", [2]],
                 ["display-text",
-                    function() {if (player.SL.points.gte("1e7000000")) return "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br>Row 3 Upgrades<br>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"},
+                    function() {if (player.SL.points.gte("1e7000000") || hasUpgrade('D', 41))  return "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br>Row 3 Upgrades<br>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"},
                 {}],
                 ["upgrades", [3, 4]],
                 "blank",
@@ -191,6 +191,8 @@ addLayer("D", {
             display() {
                 if (player.SL.best.lte("9.99e6999999"))
                     return format(player.SL.points) + "/1e7,000,000 Souls"
+                if (hasUpgrade('D', 41))
+                    return "Unlock 2nd Row 3 Designated Distortion Upgrades"
                 else
                     return "Unlock 2nd Row 3 Designated Distortion Upgrades"
             },
