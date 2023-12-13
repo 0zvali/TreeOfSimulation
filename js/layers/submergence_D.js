@@ -421,7 +421,7 @@ addLayer("D", {
                 return title
             },
             description: "Humans boosts Room Effect (Cap is ^1.35). ^1.04 Human Gain",
-            cost: new Decimal("4.9e350"),
+            cost: new Decimal(4.3e144),
             effect() {
                 let effect1 = (player.H.points.max(1).add(1).log10(3).pow(0.0053)).max(1).min(1.35);
                 return effect1
