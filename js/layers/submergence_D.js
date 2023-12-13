@@ -469,7 +469,7 @@ addLayer("D", {
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x"},
             unlocked(){
-                return  player.SL.points.gte("1e7000000")
+                return  player.SL.points.gte("1e7000000") || hasUpgrade('D', 41)
             },
         },
         42: {
@@ -485,7 +485,7 @@ addLayer("D", {
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x"},
             unlocked(){
-                return  player.SL.points.gte("1e7000000")
+                return  player.SL.points.gte("1e7000000") || hasUpgrade('D', 41)
             },
         },
     },
