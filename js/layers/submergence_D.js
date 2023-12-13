@@ -99,7 +99,9 @@ addLayer("D", {
                 ["bar", "big1Bar"],
                 "blank",
                 ["upgrades", [2, 3]],
-                ["display-text", function() {if (hasUpgrade('D', 35)) return "'Distorted Room' Upgrade Effect: " + formatWhole((player.O.points.max(1).add(1).log10(2).pow(0.2).div(2)).max(1).min("1e85000")) +'x Obfuscation Effect'},{}],
+                ["display-text", 
+                    function() {if (hasUpgrade('D', 35)) return "'Distorted Room' Upgrade Effect: " + formatWhole((player.O.points.max(1).add(1).log10(2).pow(0.2).div(2)).max(1).min("1e85000")) +'x Obfuscation Effect'},
+                    {}],
                 "blank",
                 ["bar", "big2Bar"],
             ]
