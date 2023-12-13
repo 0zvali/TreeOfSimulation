@@ -405,7 +405,7 @@ addLayer("D", {
                 return title
             },
             description: "Fusions boosts Human Effect (Cap is ^1.2); ^1.03 Fusion Effect",
-            cost: new Decimal(4.7e90),
+            cost: new Decimal(2.3e90),
             effect() {
                 let effect1 = (player.F.points.max(1).add(1).log10(3).pow(0.007)).max(1).min(1.2);
                 return effect1
