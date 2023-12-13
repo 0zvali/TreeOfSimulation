@@ -234,7 +234,7 @@ addLayer("D", {
                 des = `Distortion is boosted by Weapons (`+ format(player.W.points.add(1).pow(0.0029))+`x)<br> Unlock the first Distortion Challenge`
                 return des
             },
-            done() { return player.O.points.gte("1e2462") && hasUpgrade('D', 25)},
+            done() { return player.O.points.gte("1e2460") && hasUpgrade('D', 25)},
             unlocked() { return hasUpgrade('D', 25)}
         },
         13: {
