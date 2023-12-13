@@ -40,6 +40,7 @@ addLayer("F", {
         if (hasUpgrade('W', 15) && hasUpgrade('c', 35)) mult = mult.times(upgradeEffect('c', 35))
         if (hasUpgrade('D', 13)) mult = mult.times("1e600")
         if (hasUpgrade('D', 31)) mult = mult.times("1e490")
+        if (hasUpgrade('D', 35)) mult = mult.pow(1.03)
         
         return mult
     },
@@ -59,6 +60,7 @@ addLayer("F", {
         if (inChallenge('D', 11)) eff1 = eff1.pow(0.001)
         if (hasUpgrade('D', 31)) eff1 = eff1.times("1e3250")
         if (hasUpgrade('D', 33)) eff1 = eff1.pow(1.03)
+        
         eff1 = eff1.times(tmp.F.effectBase)
         return eff1
     },
