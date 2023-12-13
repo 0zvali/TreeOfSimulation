@@ -147,7 +147,7 @@ addLayer("D", {
                 if (player.O.best.lte("9.99e1499"))
                     return format(player.O.points) + "/1e1500 Obfuscation"
                 else
-                    return "Unlock 1st Row 2 Designated Distortion"
+                    return "Unlock Row 2 Designated Distortion Upgrades"
             },
             unlocked(){
                 return hasUpgrade('D', 12)
@@ -168,7 +168,7 @@ addLayer("D", {
                 if (player.O.best.lte("9.99e11999"))
                     return format(player.O.points) + "/1e12,000 Obfuscation"
                 else
-                    return "Unlock 2nd Row 2 Designated Distortion"
+                    return "Unlock 1st Row 3 Designated Distortion Upgrades"
             },
             unlocked(){
                 return hasUpgrade('D', 25)
@@ -183,13 +183,14 @@ addLayer("D", {
             progress() {
                 let prog = player.SL.points.div("1e7000000")
                 if (player.SL.best.gte("1e7000000")) prog = 1
+                if (hasUpgrade('D', 41)) prog = 1
                 return prog
             },
             display() {
-                if (player.O.best.lte("9.99e6999999"))
+                if (player.SL.best.lte("9.99e6999999"))
                     return format(player.SL.points) + "/1e7,000,000 Souls"
                 else
-                    return "Unlock Row 3 Designated Distortion Upgrades"
+                    return "Unlock 2nd Row 3 Designated Distortion Upgrades"
             },
             unlocked(){
                 return hasUpgrade('D', 15)
@@ -449,6 +450,38 @@ addLayer("D", {
             cost: new Decimal(2.2e156),
             unlocked(){
                 return  player.O.points.gte("1e12000")
+            },
+        },
+        41: {
+            title(){ 
+                let title = "Distorted Rooms II"
+                return title
+            },
+            description: "Rooms boosts Room Effect (Cap is 1e175,000x), x1500 Distortion Gain",
+            cost: new Decimal("1.2e356"),
+            effect() {
+                let effect1 = (player.R.points.max(1).add(1).pow(0.012)).max(1).min("1e175000");
+                return effect1
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x"},
+            unlocked(){
+                return  player.SL.points.gte("1e7000000")
+            },
+        },
+        42: {
+            title(){ 
+                let title = "Distorted Fusions III"
+                return title
+            },
+            description: "Fusions boosts itself (Cap is 1e940,000x), x1e2,500 Obfuscation Gain",
+            cost: new Decimal("4.3e732"),
+            effect() {
+                let effect1 = (player.F.points.max(1).add(1).log10(3).pow(0.0053)).max(1).min(1.35);
+                return effect1
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x"},
+            unlocked(){
+                return  player.SL.points.gte("1e7000000")
             },
         },
     },
