@@ -113,7 +113,8 @@ addLayer("D", {
                     function() {
                         if (hasUpgrade('D', 35)) let display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e7,625 -> e12,500'
                         if (hasUpgrade('D', 41)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e7,625 -> e12,500<br> "R3alIz@ti0n" effect is now 1.2x higher'
-                        return display},
+                        return display
+                        },
                     {}],
                 "blank",
             ]
