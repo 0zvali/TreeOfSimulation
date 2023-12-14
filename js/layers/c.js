@@ -124,6 +124,7 @@ addLayer("c", {
         // Mid-Late Game Keeping
         if (hasUpgrade('D', 12)) player.SL.milestones.push("11", "12", "13")
         if (hasUpgrade('D', 12)) player.c.milestones.push("11")
+        if (hasUpgrade('D', 42)) player.R.upgrades.push("16")
     },
     passiveGeneration() {
         let value1 = new Decimal(0);

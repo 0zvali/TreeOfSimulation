@@ -114,6 +114,7 @@ addLayer("D", {
                         let display = " "
                         if (hasUpgrade('D', 35)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e7,625 -> e12,500'
                         if (hasUpgrade('D', 41)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e7,625 -> e12,500<br> "R3alIz@ti0n" effect is now 1.2x higher'
+                        if (hasUpgrade('D', 42)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e7,625 -> e12,500<br> "R3alIz@ti0n" effect is now 1.2x higher<br> Distortion boosts Obfuscation by ' + format((player.D.points.max(1).add(1).pow(0.34)).max(1).min("1e33000")) + 'x'
                         return display
                         },
                     {}],
@@ -485,8 +486,8 @@ addLayer("D", {
                 let title = "Distorted Fusions III"
                 return title
             },
-            description: "Fusions boosts itself (Cap is 1e940,000x), x1e2500 Obfuscation Gain",
-            cost: new Decimal("4.3e732"),
+            description: "Fusions boosts itself (Cap is 1e940,000x), x1e2500 Obfuscation Gain, Keep 'Hallway C'",
+            cost: new Decimal("1e400"),
             effect() {
                 let effect1 = ((player.F.points.max(1).add(1).pow(0.022)).max(1).min("1e940000"));
                 return effect1
