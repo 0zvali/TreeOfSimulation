@@ -41,6 +41,7 @@ addLayer("SL", {
         if (hasUpgrade('SL', 23)) exp = exp.add(.013)
         if (hasUpgrade('SL', 24)) exp = exp.add(0.13)
         if (hasChallenge('D', 11)) exp = exp.add(.3)
+        if (hasUpgrade('D', 41)) exp = exp.add(.26)
         return exp
     },
     doReset(resettingLayer) {

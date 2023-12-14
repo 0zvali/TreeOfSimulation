@@ -110,7 +110,10 @@ addLayer("D", {
                 ["upgrades", [3, 4]],
                 "blank",
                 ["display-text", 
-                    function() {if (hasUpgrade('D', 35)) return "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e7,625 -> e12,500'},
+                    function() {
+                        if (hasUpgrade('D', 35)) let display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e7,625 -> e12,500'
+                        if (hasUpgrade('D', 41)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e7,625 -> e12,500<br> "R3alIz@ti0n" effect is now 1.2x higher'
+                        return display},
                     {}],
                 "blank",
             ]
@@ -209,7 +212,11 @@ addLayer("D", {
             Infects are now ^0.01<br>`,
             canComplete: function() {return player.R.points.gte(1e44)},
             goalDescription: "1e44 Rooms",
-            rewardDescription: "^1.3 Obfuscation Gain",
+            rewardDescription() { 
+                let reward = "^1.3 Soul Gain"
+                if (hasUpgrade('D', 41)) reward = "^1.56 Soul Gain"
+                return reward
+            },
             unlocked(){
                 return hasMilestone('D', 12) || inChallenge('D', 11) || hasChallenge('D', 11)
             },
@@ -460,7 +467,7 @@ addLayer("D", {
                 let title = "Distorted Rooms II"
                 return title
             },
-            description: "Rooms boosts Room Effect (Cap is 1e175,000x), x1.5e9 Distortion Gain",
+            description: "Rooms boosts Room Effect (Cap is 1e175,000x), x1.5e9 Distortion Gain. After this upgrade, add an distortion effect for every Distortion Upgrade you earn!",
             cost: new Decimal("1.2e356"),
             effect() {
                 let effect1 = ((player.R.points.max(1).add(1).pow(0.0155)).max(1).min("1e175000"));
