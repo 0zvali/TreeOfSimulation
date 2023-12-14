@@ -243,7 +243,7 @@ addLayer("D", {
                 return reward
             },
             unlocked(){
-                return hasUpgrade('D', 34) || inChallenge('D', 11) || hasChallenge('D', 11)
+                return hasUpgrade('D', 44) || inChallenge('D', 11) || hasChallenge('D', 11)
             },
        },
     },
