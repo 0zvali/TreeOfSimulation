@@ -465,7 +465,7 @@ addLayer("D", {
             description: "Rooms boosts Room Effect (Cap is 1e175,000x), x1.5e9 Distortion Gain",
             cost: new Decimal("1.2e356"),
             effect() {
-                let effect1 = ((player.R.points.max(1).add(1).pow(0.0145)).max(1).min("1e175000"));
+                let effect1 = ((player.R.points.max(1).add(1).pow(0.0155)).max(1).min("1e175000"));
                 return effect1
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x"},
@@ -481,7 +481,7 @@ addLayer("D", {
             description: "Fusions boosts itself (Cap is 1e940,000x), x1e2500 Obfuscation Gain",
             cost: new Decimal("4.3e732"),
             effect() {
-                let effect1 = ((player.F.points.max(1).add(1).pow(0.016)).max(1).min("1e940000"));
+                let effect1 = ((player.F.points.max(1).add(1).pow(0.022)).max(1).min("1e940000"));
                 return effect1
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x"},
