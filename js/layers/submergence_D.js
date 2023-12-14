@@ -26,6 +26,7 @@ addLayer("D", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (hasMilestone('D', 12)) mult = mult.times(player.W.points.add(1).pow(0.0029))
+        if (hasUpgrade('D', 41)) mult = mult.times(1.5e9)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -461,10 +462,10 @@ addLayer("D", {
                 let title = "Distorted Rooms II"
                 return title
             },
-            description: "Rooms boosts Room Effect (Cap is 1e175,000x), x1500 Distortion Gain",
+            description: "Rooms boosts Room Effect (Cap is 1e175,000x), x1.5e9 Distortion Gain",
             cost: new Decimal("1.2e356"),
             effect() {
-                let effect1 = (player.R.points.max(1).add(1).pow(0.012)).max(1).min("1e175000");
+                let effect1 = ((player.R.points.max(1).add(1).pow(0.0145)).max(1).min("1e175000"));
                 return effect1
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x"},
@@ -477,10 +478,10 @@ addLayer("D", {
                 let title = "Distorted Fusions III"
                 return title
             },
-            description: "Fusions boosts itself (Cap is 1e940,000x), x1e2,500 Obfuscation Gain",
+            description: "Fusions boosts itself (Cap is 1e940,000x), x1e2500 Obfuscation Gain",
             cost: new Decimal("4.3e732"),
             effect() {
-                let effect1 = (player.F.points.max(1).add(1).log10(3).pow(0.0053)).max(1).min(1.35);
+                let effect1 = ((player.F.points.max(1).add(1).pow(0.016)).max(1).min("1e940000"));
                 return effect1
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x"},

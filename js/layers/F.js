@@ -41,6 +41,7 @@ addLayer("F", {
         if (hasUpgrade('D', 13)) mult = mult.times("1e600")
         if (hasUpgrade('D', 31)) mult = mult.times("1e490")
         if (hasUpgrade('D', 35)) mult = mult.pow(1.03)
+        if (hasUpgrade('D', 42)) mult = mult.times(upgradeEffect('D',42))
         
         return mult
     },

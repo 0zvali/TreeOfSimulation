@@ -29,6 +29,7 @@ addLayer("O", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (hasUpgrade('O', 15)) mult = mult.times(1e30)
+        if (hasUpgrade('D', 42)) mult = mult.times("1e2500")
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

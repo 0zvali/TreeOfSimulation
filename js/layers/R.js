@@ -46,6 +46,7 @@ addLayer("R", {
         if (inChallenge('D', 11)) eff3 = eff3.pow(0.001)
         eff3 = eff3.times(tmp.R.effectBase)
         if (hasUpgrade('D', 34)) eff3 = eff3.pow(upgradeEffect('D', 34))
+        if (hasUpgrade('D', 41)) eff3 = eff3.pow(upgradeEffect('D', 41))
         return eff3
     },
     effectBase() {
