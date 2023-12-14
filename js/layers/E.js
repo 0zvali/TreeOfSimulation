@@ -76,6 +76,7 @@ addLayer("E", {
         if (hasUpgrade('O', 22)) eff = eff.times(1e130)
         if (hasUpgrade('D',24)) eff = eff.pow(upgradeEffect('D',24))
         if (inChallenge('D', 11)) eff = eff.pow(0.001)
+        if (inChallenge('D', 12)) eff = new Decimal(1)
         eff = eff.times(tmp.E.effectBase)
         return eff
     },
@@ -110,6 +111,7 @@ addLayer("E", {
         if (hasMilestone('H', 12)) value1 = value1.add(9.5)
         if (hasMilestone('D', 11)) value1 = new Decimal(1e50)
         if (inChallenge('D', 11)) value1 = new Decimal(0)
+        if (inChallenge('D', 12)) value1 = new Decimal(0)
         return value1
     },
     layerShown(){return true},

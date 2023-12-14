@@ -52,6 +52,7 @@ addLayer("SL", {
         if (hasUpgrade('O', 13)) eff = eff.pow(1.2)
         if (hasUpgrade('D', 22)) eff = eff.times(1e150)
         if (inChallenge('D', 11)) eff = eff.pow(0.001)
+        if (inChallenge('D', 12)) eff = new Decimal(1)
         eff = eff.times(tmp.SL.effectBase)
         return eff
     },
@@ -74,6 +75,7 @@ addLayer("SL", {
         if (hasMilestone('W', 14)) value1 = value1.add(1)
         if (hasMilestone('D', 11)) value1 = new Decimal(1e50)
         if (inChallenge('D', 11)) value1 = new Decimal(0)
+        if (inChallenge('D', 12)) value1 = new Decimal(0)
         return value1
     },
     row: 2, // Row the layer is in on the tree (0 is the first row)

@@ -45,6 +45,7 @@ addLayer("W", {
         if (player.W.points.gte("1e10000")) eff4 = new Decimal("1e7625")
         if (hasUpgrade('D', 35)) eff4 = new Decimal("1e12500")
         if (hasUpgrade('D', 43)) eff4 = new Decimal("1e37500")
+        if (inChallenge('D', 12)) eff4 = new Decimal(1)
         return eff4
     },
     effectBase() {

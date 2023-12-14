@@ -45,6 +45,7 @@ addLayer("O", {
         if (inChallenge('D', 11)) eff = eff.pow(0.001)
         if (hasUpgrade('D', 35)) eff = eff.times((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000"))
         if (hasUpgrade('D', 42)) eff = eff.times((player.D.points.max(1).add(1).pow(0.34)).max(1).min("1e33000"))
+        if (inChallenge('D', 12)) eff = new Decimal(1)
         eff = eff.times(tmp.O.effectBase)
         return eff
     },

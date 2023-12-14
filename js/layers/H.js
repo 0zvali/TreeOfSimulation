@@ -51,6 +51,7 @@ addLayer("H", {
         if (hasUpgrade('O', 13)) eff2 = eff2.pow(1.2)
         if (inChallenge('D', 11)) eff2 = eff2.pow(0.001)
         if (hasUpgrade('D', 33)) eff2 = eff2.pow(upgradeEffect('D', 33))
+        if (inChallenge('D', 12)) eff2 = new Decimal(1)
         eff2 = eff2.times(tmp.H.effectBase)
         return eff2
     },
@@ -69,6 +70,7 @@ addLayer("H", {
         if (hasMilestone('W', 14)) value1 = value1.add(1)
         if (hasMilestone('D', 11)) value1 = new Decimal(1e50)
         if (inChallenge('D', 11)) value1 = new Decimal(0)
+        if (inChallenge('D', 12)) value1 = new Decimal(0)
         return value1;
     },
     row: 3, // Row the layer is in on the tree (0 is the first row)

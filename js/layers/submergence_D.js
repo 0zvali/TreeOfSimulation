@@ -41,6 +41,7 @@ addLayer("D", {
         if (hasUpgrade('O', 23)) eff = eff.times(9.4)
         if (hasUpgrade('D', 21)) eff = eff.pow(2.2)
         if (hasUpgrade('D', 43)) eff = eff.pow(1.17)
+        if (inChallenge('D', 12)) eff = new Decimal(1)
         eff = eff.times(tmp.D.effectBase)
         return eff
     },
@@ -224,6 +225,23 @@ addLayer("D", {
             },
             unlocked(){
                 return hasMilestone('D', 12) || inChallenge('D', 11) || hasChallenge('D', 11)
+            },
+       },
+        12: {
+            name: "Distorted Distortion",
+            challengeDescription: 
+            `Keep Distortion Effects within this challenge<br>
+            All Effects are now set to 1<br>
+            Infects are now ^0.001<br>`,
+            canComplete: function() {return player.R.points.gte(1e100)},
+            goalDescription: "1e100 Rooms",
+            rewardDescription() { 
+                let reward = "^1.05 Obfuscation Gain"
+
+                return reward
+            },
+            unlocked(){
+                return hasUpgrade('D', 34) || inChallenge('D', 11) || hasChallenge('D', 11)
             },
        },
     },
@@ -511,6 +529,17 @@ addLayer("D", {
                 return effect1
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x"},
+            unlocked(){
+                return  player.SL.points.gte("1e7000000") || hasUpgrade('D', 41)
+            },
+        },
+        44: {
+            title(){ 
+                let title = "Distorted Rows II"
+                return title
+            },
+            description: "Distortion doesn't reset anything now!! Best QoL frfr. Anyway here's another challenge because why not!",
+            cost: new Decimal("1.11e44"),
             unlocked(){
                 return  player.SL.points.gte("1e7000000") || hasUpgrade('D', 41)
             },

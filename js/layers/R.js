@@ -47,6 +47,7 @@ addLayer("R", {
         eff3 = eff3.times(tmp.R.effectBase)
         if (hasUpgrade('D', 34)) eff3 = eff3.pow(upgradeEffect('D', 34))
         if (hasUpgrade('D', 41)) eff3 = eff3.times(upgradeEffect('D', 41))
+        if (inChallenge('D', 12)) eff3 = new Decimal(1)
         return eff3
     },
     effectBase() {
@@ -62,6 +63,7 @@ addLayer("R", {
         if (hasMilestone('W', 14)) value1 = value1.add(1)
         if (hasMilestone('D', 11)) value1 = new Decimal(1e50)
         if (inChallenge('D', 11)) value1 = new Decimal(0)
+        if (inChallenge('D', 12)) value1 = new Decimal(0)
         return value1;
     },
     row: 3, // Row the layer is in on the tree (0 is the first row)
