@@ -44,6 +44,7 @@ addLayer("W", {
         eff4 = eff4.times(tmp.W.effectBase)
         if (player.W.points.gte("1e10000")) eff4 = new Decimal("1e7625")
         if (hasUpgrade('D', 35)) eff4 = new Decimal("1e12500")
+        if (hasUpgrade('D', 43)) eff4 = new Decimal("1e37500")
         return eff4
     },
     effectBase() {
@@ -56,7 +57,7 @@ addLayer("W", {
         return dis
     },
     passiveGeneration() {
-        return (hasUpgrade('D', 24)) && player.W.points.lte("1e9900") ? 0.25: (hasUpgrade('D', 24)) && player.W.points.lte("1e9975") ? 0.1: (hasUpgrade('D', 24)) && player.W.points.lte("1e10000") ? 0.0001: 0
+        return (hasUpgrade('D', 24)) && player.W.points.lte("1e9800") ? 0.25: (hasUpgrade('D', 24)) && player.W.points.lte("1e9975") ? 0.1: (hasUpgrade('D', 24)) && player.W.points.lte("1e10000") ? 0.0001: 0
     },
     row: 4, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [

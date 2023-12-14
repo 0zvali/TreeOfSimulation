@@ -115,6 +115,7 @@ addLayer("D", {
                         if (hasUpgrade('D', 35)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e7,625 -> e12,500'
                         if (hasUpgrade('D', 41)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e7,625 -> e12,500<br> "R3alIz@ti0n" effect is now 1.2x higher'
                         if (hasUpgrade('D', 42)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e7,625 -> e12,500<br> "R3alIz@ti0n" effect is now 1.2x higher<br> Distortion boosts Obfuscation by ' + format((player.D.points.max(1).add(1).pow(0.34)).max(1).min("1e33000")) + 'x'
+                        if (hasUpgrade('D', 43)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e12,500 -> e37,500<br> "R3alIz@ti0n" effect is now 1.2x higher<br> Distortion boosts Obfuscation by ' + format((player.D.points.max(1).add(1).pow(0.34)).max(1).min("1e33000")) + 'x<br> All Effects are now ^' + format((player.points.max(1).add(1).log10(50).pow(0.2).div(3)).max(1).min(15))
                         return display
                         },
                     {}],
@@ -486,10 +487,26 @@ addLayer("D", {
                 let title = "Distorted Fusions III"
                 return title
             },
-            description: "Fusions boosts itself (Cap is 1e940,000x), x1e2500 Obfuscation Gain, Keep 'Hallway C'",
+            description: "Fusions gain boosts itself (Cap is 1e940,000x), x1e2500 Obfuscation Gain, Keep 'Hallway C'",
             cost: new Decimal("1e400"),
             effect() {
                 let effect1 = ((player.F.points.max(1).add(1).pow(0.022)).max(1).min("1e940000"));
+                return effect1
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x"},
+            unlocked(){
+                return  player.SL.points.gte("1e7000000") || hasUpgrade('D', 41)
+            },
+        },
+        43: {
+            title(){ 
+                let title = "Distorted Humans III"
+                return title
+            },
+            description: "Humans gain boosts itself (Cap is 1e350,000x), Triple the 2nd Distortion Effect",
+            cost: new Decimal("3.14e406"),
+            effect() {
+                let effect1 = ((player.H.points.max(1).add(1).pow(0.012)).max(1).min("1e350000"));
                 return effect1
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x"},
