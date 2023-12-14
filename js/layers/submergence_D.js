@@ -104,7 +104,7 @@ addLayer("D", {
                 {}],
                 ["upgrades", [2]],
                 ["display-text",
-                    function() {if (player.SL.points.gte("1e7000000") || hasUpgrade('D', 41))  return "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br>Row 3 Upgrades<br>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"},
+                    function() {if (player.O.points.gte("1e12000") || hasUpgrade('D', 41))  return "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br>Row 3 Upgrades<br>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"},
                 {}],
                 ["upgrades", [3, 4]],
                 "blank",
