@@ -136,6 +136,8 @@ addLayer("D", {
     bars: {
         bigBar: {
             direction: RIGHT,
+            width: 250,
+            height: 40,
             fillStyle: { 'background-color': "#107a2c" },
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
@@ -155,6 +157,8 @@ addLayer("D", {
         },
         big1Bar: {
             direction: RIGHT,
+            width: 250,
+            height: 40,
             fillStyle: { 'background-color': "#107a2c" },
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
@@ -174,6 +178,8 @@ addLayer("D", {
         },
         big2Bar: {
             direction: RIGHT,
+            width: 250,
+            height: 40,
             fillStyle: { 'background-color': "#107a2c" },
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
