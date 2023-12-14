@@ -192,8 +192,6 @@ addLayer("D", {
             display() {
                 if (player.SL.best.lte("9.99e6999999"))
                     return format(player.SL.points) + "/1e7,000,000 Souls"
-                if (hasUpgrade('D', 41))
-                    return "Unlock 2nd Row 3 Designated Distortion Upgrades"
                 else
                     return "Unlock 2nd Row 3 Designated Distortion Upgrades"
             },
