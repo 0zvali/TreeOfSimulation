@@ -18,6 +18,7 @@ addLayer("D", {
         let requirement = new Decimal("4e2000");
         return requirement
     },
+    resetsNothing() {return hasUpgrade('D', 44)},
     resource: "Distortion", // Name R prestige currency
     baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
@@ -118,6 +119,7 @@ addLayer("D", {
                         if (hasUpgrade('D', 41)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e7,625 -> e12,500<br> "R3alIz@ti0n" effect is now 1.2x higher'
                         if (hasUpgrade('D', 42)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e7,625 -> e12,500<br> "R3alIz@ti0n" effect is now 1.2x higher<br> Distortion boosts Obfuscation by ' + format((player.D.points.max(1).add(1).pow(0.34)).max(1).min("1e33000")) + 'x'
                         if (hasUpgrade('D', 43)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e12,500 -> e37,500<br> "R3alIz@ti0n" effect is now 1.2x higher<br> Distortion boosts Obfuscation by ' + format((player.D.points.max(1).add(1).pow(0.34)).max(1).min("1e33000")) + 'x<br> Distortion Effect is now ^1.17 higher'
+                        if (hasUpgrade('D', 44)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e37,500 -> e100,000<br> "R3alIz@ti0n" effect is now 1.2x higher<br> Distortion boosts Obfuscation by ' + format((player.D.points.max(1).add(1).pow(0.34)).max(1).min("1e33000")) + 'x<br> Distortion Effect is now ^1.17 higher<br>Weapon Effect is even better.'
                         return display
                         },
                     {}],
@@ -231,7 +233,7 @@ addLayer("D", {
             name: "Distorted Distortion",
             challengeDescription: 
             `Keep Distortion Effects within this challenge<br>
-            All Effects are now set to 1<br>
+            All Effects are now set to 1 (Even Weapons...)<br>
             Infects are now ^0.001<br>`,
             canComplete: function() {return player.R.points.gte(1e100)},
             goalDescription: "1e100 Rooms",
@@ -539,7 +541,7 @@ addLayer("D", {
                 return title
             },
             description: "Distortion doesn't reset anything now!! Best QoL frfr. Anyway here's another challenge because why not!",
-            cost: new Decimal("1.11e44"),
+            cost: new Decimal("2.22e473"),
             unlocked(){
                 return  player.SL.points.gte("1e7000000") || hasUpgrade('D', 41)
             },
