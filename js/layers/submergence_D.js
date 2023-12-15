@@ -236,6 +236,7 @@ addLayer("D", {
             All Effects are now set to 1 (Even Weapons...)<br>
             Infects are now ^0.001<br>`,
             canComplete: function() {return player.R.points.gte(1e100)},
+            onEnter(){return resetsNothing = false},
             goalDescription: "1e100 Rooms",
             rewardDescription() { 
                 let reward = "^1.05 Obfuscation Gain"
