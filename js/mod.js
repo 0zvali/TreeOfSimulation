@@ -478,6 +478,7 @@ function getPointGen() {
 	// ~~~~~~~~~~~~~~~~Chapter 3 - The Future~~~~~~~~~~~~~~~~~~~~~~~~
 	if (hasUpgrade('D', 23)) gain = gain.times("1e666")
 	if (hasUpgrade('D', 35)) gain = gain.pow(1.002)
+ if (hasChallenge('D', 12)) gain = gain.pow(1.02)
 	return gain
 }
 
