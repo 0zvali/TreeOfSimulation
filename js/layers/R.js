@@ -30,6 +30,7 @@ addLayer("R", {
         if (hasUpgrade('D', 15)) mult = mult.times("1e354")
         if (inChallenge('D', 11)) mult = mult.div("5e398")
         if (hasUpgrade('D', 35)) mult = mult.pow(1.05)
+        if (hasUpgrade('D', 45)) mult = mult.times(tmp.W.effect)
         return mult
     },
     gainExp(){
