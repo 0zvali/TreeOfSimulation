@@ -557,7 +557,7 @@ addLayer("D", {
                 return title
             },
             description: "Corrrupted Timeline are now visible again...",
-            cost: new Decimal("1e693"),
+            cost: new Decimal("1e694"),
             unlocked(){
                 return hasChallenge('D', 12)
             },
