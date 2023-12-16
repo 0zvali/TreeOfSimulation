@@ -49,6 +49,7 @@ addLayer("mE", {
     layerShown() {
         let value = false
         if (hasMilestone("D", 13)) value = true
+        if (hasUpgrade("D", 45)) value = false
         return value
     },
 })
