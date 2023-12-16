@@ -231,16 +231,19 @@ addLayer("D", {
        },
         12: {
             name: "Distorted Distortion",
-            challengeDescription: 
-            `Keep Distortion Effects within this challenge<br>
+            challengeDescription() {
+            let desc = `Keep Distortion Effects within this challenge<br>
             All Effects are now set to 1 (Even Weapons...)<br>
-            Infects are now ^0.001<br>`,
+            Infects are now ^0.001<br>`
+            if hasChallenge('D', 12) desc = `This isn't even a challenge...enjoy the boost with a bonus challenge effect.`
+            return desc
+},
             canComplete: function() {return player.R.points.gte(1e100)},
             onEnter(){return resetsNothing = false},
             goalDescription: "1e100 Rooms",
             rewardDescription() { 
-                let reward = "^1.05 Obfuscation Gain"
-
+                let reward = "^1.07 Obfuscation Gain"
+                if hasChallenge('D', 12) reward = "^1.07 Obfuscation Gain & ^1.02 Infects"
                 return reward
             },
             unlocked(){
