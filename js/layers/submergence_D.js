@@ -278,6 +278,7 @@ addLayer("D", {
             effectDescription(){ 
                 let des
                 des = `Meta-ing Up!`
+                if (hasUpgrade('D', 45)) des = `We aren't metaing just yet...`
                 return des
             },
             done() { return player.W.points.gte("1e10000") && hasUpgrade('D', 25)},
