@@ -120,6 +120,7 @@ addLayer("D", {
                         if (hasUpgrade('D', 42)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e7,625 -> e12,500<br> "R3alIz@ti0n" effect is now 1.2x higher<br> Distortion boosts Obfuscation by ' + format((player.D.points.max(1).add(1).pow(0.34)).max(1).min("1e33000")) + 'x'
                         if (hasUpgrade('D', 43)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e12,500 -> e37,500<br> "R3alIz@ti0n" effect is now 1.2x higher<br> Distortion boosts Obfuscation by ' + format((player.D.points.max(1).add(1).pow(0.34)).max(1).min("1e33000")) + 'x<br> Distortion Effect is now ^1.17 higher'
                         if (hasUpgrade('D', 44)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e37,500 -> e100,000<br> "R3alIz@ti0n" effect is now 1.2x higher<br> Distortion boosts Obfuscation by ' + format((player.D.points.max(1).add(1).pow(0.34)).max(1).min("1e33000")) + 'x<br> Distortion Effect is now ^1.17 higher<br>Weapon Effect is even better.'
+                       if (hasUpgrade('D', 45)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e37,500 -> e100,000<br> "R3alIz@ti0n" effect is now 1.2x higher<br> Distortion boosts Obfuscation by ' + format((player.D.points.max(1).add(1).pow(0.34)).max(1).min("1e33000")) + 'x<br> Distortion Effect is now ^1.17 higher<br>Weapon Effect is even better.<br> Weapon Effect now boosts Rooms.'
                         return display
                         },
                     {}],
@@ -548,6 +549,17 @@ addLayer("D", {
             cost: new Decimal("2.22e473"),
             unlocked(){
                 return  player.SL.points.gte("1e7000000") || hasUpgrade('D', 41)
+            },
+        },
+       45: {
+           title(){ 
+                let title = "Distort the Timeline"
+                return title
+            },
+            description: "Corrrupted Timeline are now visible again...",
+            cost: new Decimal("1e693"),
+            unlocked(){
+                return hasChallenge('D', 12)
             },
         },
     },
