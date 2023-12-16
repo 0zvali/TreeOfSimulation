@@ -56,6 +56,7 @@ addLayer("W", {
     effectDescription() {
         dis = "which boosts all previous layers (Except Rooms) by "+ format(tmp.W.effect) +"x"
         if (player.W.points.gte("1e10000")) dis = "which boosts all previous layers (Except Rooms) by " + formatWhole(tmp.W.effect) +"x (Hardcapped)"
+        if (hasUpgrade('D', 45) dis = "which boosts all previous layers by " + formatWhole(tmp.W.effect)+"x (Hardcapped)"
         return dis
     },
     passiveGeneration() {
