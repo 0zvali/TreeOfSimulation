@@ -50,6 +50,7 @@ addLayer("CT", {
         let value = false
         if (player.points.gte(1e9999) || player.CT.unlocked) value = true
         if (hasMilestone('O', 11)) value = false
+        if (hasUpgrade('D', 45) || player.CT.gte(2)) value = true
         return value
     },
 milestones: {
