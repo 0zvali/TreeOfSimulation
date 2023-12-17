@@ -502,7 +502,7 @@ var displayThings = [
 		if (hasMilestone('O', 11))
 		return "You are currently in: Submergence Timeline"
   if player.CT.points.gte(2)
-  return "You are currently in: Meta Timeline
+  return "You are currently in: Meta Timeline"
 		else
 		return "You are currently in: Normal Timeline"
 	  },
