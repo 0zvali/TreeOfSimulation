@@ -18,7 +18,8 @@ addLayer("mC", {
     baseResource(){ 
       let res = "crystals"
       if (player.CT.points.gte(2)) res = "infects"
-      return res},
+      return res
+},
     baseAmount() {
     let base = player.c.points
     if (player.CT.points.gte(2)) base = player.points
