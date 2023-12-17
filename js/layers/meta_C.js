@@ -49,10 +49,7 @@ addLayer("mC", {
         if (player.CT.points.gte(2) dis = "which boosts infect gain by " + format(tmp.mC.effect) + "x"
         return dis
     },
-    row(){
-    let value = 5
-    if (player.CT.points.gte(2)) value = 1
-    return value
+    row: 1
 }, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "C", description: "shift+C: reset for Meta-Crystals", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
