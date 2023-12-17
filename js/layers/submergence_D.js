@@ -28,6 +28,7 @@ addLayer("D", {
         mult = new Decimal(1)
         if (hasMilestone('D', 12)) mult = mult.times(player.W.points.add(1).pow(0.0029))
         if (hasUpgrade('D', 41)) mult = mult.times(1.5e9)
+        if (hasMilestone('D', 12)) mult = mult.times(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -277,8 +278,8 @@ addLayer("D", {
             requirementDescription: "1e10000 Weapons",
             effectDescription(){ 
                 let des
-                des = `Meta-ing Up!`
-                if (hasUpgrade('D', 45)) des = `We aren't metaing just yet...`
+                des = `Double Distortion Gain`
+                if (hasUpgrade('D', 45)) des = `Goodbye...`
                 return des
             },
             done() { return player.W.points.gte("1e10000") && hasUpgrade('D', 25)},
