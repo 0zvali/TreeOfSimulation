@@ -41,7 +41,11 @@ addLayer("mC", {
         dis = "which boosts experiment effect by ^"+format(tmp.mC.effect)
         return dis
     },
-    row: 5, // Row the layer is in on the tree (0 is the first row)
+    row(){
+    let value = 5
+    if (player.CT.points.gte(2)) value = 1
+    return value
+}, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "C", description: "shift+C: reset for Meta-Crystals", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
