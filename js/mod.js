@@ -501,6 +501,8 @@ var displayThings = [
 		return "You are currently in: 'Soul Shield' (Infects /500 & EX /200)"
 		if (hasMilestone('O', 11))
 		return "You are currently in: Submergence Timeline"
+  if player.CT.points.gte(2)
+  return "You are currently in: Meta Timeline
 		else
 		return "You are currently in: Normal Timeline"
 	  },
