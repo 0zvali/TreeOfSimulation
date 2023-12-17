@@ -19,7 +19,6 @@ addLayer("mE", {
     baseAmount() {return player.mC.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.04, // Prestige currency exponent
-    resetsNothing() {return hasUpgrade('D', 23)},
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
         return mult
@@ -38,7 +37,7 @@ addLayer("mE", {
         return base
     },
     effectDescription() {
-        dis = "which boosts experiment & 1st soul effect by ^"+format(tmp.mE.effect)
+        let dis = "which boosts experiment & 1st soul effect by ^"+format(tmp.mE.effect)
         return dis
     },
     row: 2, // Row the layer is in on the tree (0 is the first row)
