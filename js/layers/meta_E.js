@@ -1,7 +1,7 @@
 addLayer("mE", {
     name: "Meta Experiments", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "mE", // This appears on the layer's node. Default is the id with the first letter capitalized
-    position: 2, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    position: 4, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: false,
         points: new Decimal(0),
@@ -15,8 +15,8 @@ addLayer("mE", {
         
     }, // Can be a function that takes requirement increases into account
     resource: "Meta Experiments", // Name of prestige currency
-    baseResource: "experiments", // Name of resource prestige is based on
-    baseAmount() {return player.E.points}, // Get the current amount of baseResource
+    baseResource: "Meta Crystals", // Name of resource prestige is based on
+    baseAmount() {return player.mC.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.04, // Prestige currency exponent
     resetsNothing() {return hasUpgrade('D', 23)},
@@ -41,15 +41,13 @@ addLayer("mE", {
         dis = "which boosts experiment & 1st soul effect by ^"+format(tmp.mE.effect)
         return dis
     },
-    row: 5, // Row the layer is in on the tree (0 is the first row)
+    row: 2, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "E", description: "shift+E: reset for Meta-Experiments", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown() {return true},
     layerShown() {
         let value = false
-        if (hasMilestone("D", 13)) value = true
-        if (hasUpgrade("D", 45)) value = false
         return value
     },
 })
