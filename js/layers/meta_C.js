@@ -37,7 +37,7 @@ addLayer("mC", {
         return base
     },
     effectDescription() {
-        let dis = (player.CT.points.gte(2)) dis = "which boosts infect gain by " + format(tmp.mC.effect) + "x"
+        let dis = "which boosts infect gain by " + format(tmp.mC.effect) + "x"
         return dis
     },
     row: 1,
