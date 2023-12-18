@@ -15,16 +15,8 @@ addLayer("mC", {
         
     }, // Can be a function that takes requirement increases into account
     resource: "Meta Crystals", // Name of prestige currency
-    baseResource(){ 
-      let res = "crystals"
-      if (player.CT.points.gte(2)) res = "infects"
-      return res
-},
-    baseAmount() {
-    let base = player.c.points
-    if (player.CT.points.gte(2)) base = player.points
-    return base
-}, 
+    baseResource: "infects"
+    baseAmount() {return player.points}, 
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.72, // Prestige currency exponent 
     gainMult() { // Calculate the multiplier for main currency from bonuses
@@ -45,8 +37,7 @@ addLayer("mC", {
         return base
     },
     effectDescription() {
-        dis = "which boosts experiment effect by ^"+format(tmp.mC.effect)
-        if (player.CT.points.gte(2) dis = "which boosts infect gain by " + format(tmp.mC.effect) + "x"
+        let dis = (player.CT.points.gte(2)) dis = "which boosts infect gain by " + format(tmp.mC.effect) + "x"
         return dis
     },
     row: 1,
