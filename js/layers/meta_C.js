@@ -15,7 +15,7 @@ addLayer("mC", {
         
     }, // Can be a function that takes requirement increases into account
     resource: "Meta Crystals", // Name of prestige currency
-    baseResource: "infects"
+    baseResource: "infects",
     baseAmount() {return player.points}, 
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.72, // Prestige currency exponent 
