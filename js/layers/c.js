@@ -139,6 +139,7 @@ addLayer("c", {
     let value = true;
     if (hasUpgrade('R', 16) || player.CT.unlocked) value = false
     if (hasMilestone('O', 11)) value = true
+    if (player.CT.points.gte(2)) value = false
     return value
     },
 	infoboxes: {
