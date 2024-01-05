@@ -28,7 +28,7 @@ addLayer("mE", {
         return expo
     },
     effect() {
-        let eff4 = player.mE.points.add(1).pow(0.004)
+        let eff4 = player.mE.points.add(1).pow(0.08)
         eff4 = eff4.times(tmp.mE.effectBase)
         return eff4
     },
@@ -37,7 +37,7 @@ addLayer("mE", {
         return base
     },
     effectDescription() {
-        let dis = "which boosts experiment & 1st soul effect by ^"+format(tmp.mE.effect)
+        let dis = "which boosts 'Mc Upgrade 4' by "+ format(tmp.mE.effect) + "x"
         return dis
     },
     row: 2, // Row the layer is in on the tree (0 is the first row)
