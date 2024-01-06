@@ -66,6 +66,7 @@ addLayer("D", {
     layerShown() {
         let value = false
         if (hasUpgrade('O', 15)) value = true
+        if (player.CT.points.gte(2)) value = false
         return value
     },
     tabFormat: {
