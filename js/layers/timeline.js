@@ -90,7 +90,7 @@ challenges: {
             rewardDescription: "Triple Floor Gain",
             onEnter(){if (player.SL.unlocked) player.SL.keep = true},
             unlocked(){
-                let unlock =  hasMilestone('EX', 11) || inChallenge('CT', 11) || hasChallenge('CT', 11)
+                let unlock = (hasMilestone('EX', 11) || inChallenge('CT', 11) || hasChallenge('CT', 11))
                 if (player.CT.points.gte(2)) unlock = false
                 return unlock
             },
