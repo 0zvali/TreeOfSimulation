@@ -77,6 +77,7 @@ addLayer("EX", {
     layerShown() {
         let value = false
         if (hasUpgrade('FL', 14) || inChallenge('CT', 11)) value = true
+        if (player.CT.points.gte(2)) value = false
         return value
     },
 milestones: {
