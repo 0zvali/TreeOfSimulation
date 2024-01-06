@@ -120,9 +120,8 @@ addLayer("D", {
                         if (hasUpgrade('D', 35)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e7,625 -> e12,500'
                         if (hasUpgrade('D', 41)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e7,625 -> e12,500<br> "R3alIz@ti0n" effect is now 1.2x higher'
                         if (hasUpgrade('D', 42)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e7,625 -> e12,500<br> "R3alIz@ti0n" effect is now 1.2x higher<br> Distortion boosts Obfuscation by ' + format((player.D.points.max(1).add(1).pow(0.34)).max(1).min("1e33000")) + 'x'
-                        if (hasUpgrade('D', 43)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e12,500 -> e37,500<br> "R3alIz@ti0n" effect is now 1.2x higher<br> Distortion boosts Obfuscation by ' + format((player.D.points.max(1).add(1).pow(0.34)).max(1).min("1e33000")) + 'x<br> Distortion Effect is now ^1.17 higher'
-                        if (hasUpgrade('D', 44)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e37,500 -> e100,000<br> "R3alIz@ti0n" effect is now 1.2x higher<br> Distortion boosts Obfuscation by ' + format((player.D.points.max(1).add(1).pow(0.34)).max(1).min("1e33000")) + 'x<br> Distortion Effect is now ^1.17 higher<br>Weapon Effect is even better.'
-                       if (hasUpgrade('D', 45)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e37,500 -> e100,000<br> "R3alIz@ti0n" effect is now 1.2x higher<br> Distortion boosts Obfuscation by ' + format((player.D.points.max(1).add(1).pow(0.34)).max(1).min("1e33000")) + 'x<br> Distortion Effect is now ^1.17 higher<br>Weapon Effect is even better.<br> Weapon Effect now boosts Rooms.'
+                        if (hasUpgrade('D', 43)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e12,500 -> e37,500<br> "R3alIz@ti0n" effect is now 1.2x higher<br> Distortion boosts Obfuscation by ' + format((player.D.points.max(1).add(1).pow(0.34)).max(1).min("1e33000")) + 'x<br> Main Distortion Effect is now ^1.17 higher'
+                        if (hasUpgrade('D', 44)) display = "Distortion Effects:<br>'Distorted Room' Upgrade Effect: " + format((player.O.points.max(1).add(1).pow(0.03)).max(1).min("1e85000")) +'x Obfuscation Effect<br> Increase the Weapon Effect from e37,500 -> e100,000<br> "R3alIz@ti0n" effect is now 1.2x higher<br> Distortion boosts Obfuscation by ' + format((player.D.points.max(1).add(1).pow(0.34)).max(1).min("1e33000")) + 'x<br> Main Distortion Effect is now ^1.17 higher<br>Weapon Effect is even better.'
                         return display
                         },
                     {}],
@@ -559,7 +558,7 @@ addLayer("D", {
                 let title = "Distort the Timeline"
                 return title
             },
-            description: "Corrrupted Timeline are now visible again...",
+            description: "Lets go back to the present, shall we?",
             cost: new Decimal("1e694"),
             unlocked(){
                 return hasChallenge('D', 12)
