@@ -40,6 +40,7 @@ addLayer("CT", {
     effectDescription() {
         dis = "You are currently in Timeline 1"
         if (player.CT.points.gte(1)) dis = "You are currently in Timeline 2 which is much different then Timeline 1"
+        if (player.CT.points.gte(2)) dis = "You are currently in Timeline 3 which is much different from the previous timelines...lets go meta."
         return dis
     },
     row: 5, // Row the layer is in on the tree (0 is the first row)
@@ -64,7 +65,18 @@ milestones: {
             },
             done() { return player.CT.points.gte(1)},
         },
+        12: {
+            requirementDescription: "2 Collapsed Timelines (Meta Time!)",
+            effectDescription(){ 
+                let des
+                des = `Meta Everything, but with different functions`
+                return des
+            },
+            done() { return player.CT.points.gte(2)},
+            unlocked() { return player.CT.points.gte(2)},
+        },
     },
+
 challenges: {
         11: {
             name: "Explosive Floors",
@@ -78,7 +90,9 @@ challenges: {
             rewardDescription: "Triple Floor Gain",
             onEnter(){if (player.SL.unlocked) player.SL.keep = true},
             unlocked(){
-                return hasMilestone('EX', 11) || inChallenge('CT', 11) || hasChallenge('CT', 11)
+                let unlock =  hasMilestone('EX', 11) || inChallenge('CT', 11) || hasChallenge('CT', 11)
+                if (player.CT.points.gte(2)) unlock = false
+                return unlock
             },
         },
         12: {
