@@ -206,6 +206,7 @@ upgrades: {
             effect() {
                 let ef = (player.points.max(1).add(1.1).pow(1.5)).max(1).min("e1e50");
                 if (hasUpgrade('D', 35)) ef = (player.points.max(1).add(1).pow(0.02)).max(1).min("e1e10")
+                if (hasUpgrade('D', 45)) ef = (player.points.max(1).add(1).pow(1.5)).max(1).min("e1e50")
                 return ef
             },
             effectDisplay() {
