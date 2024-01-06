@@ -95,6 +95,7 @@ addLayer("FL", {
     layerShown() {
         let value = false
         if (player.CT.unlocked) value = true
+        if (player.CT.points.gte(2)) value = false
         return value
     },
     milestones: {
