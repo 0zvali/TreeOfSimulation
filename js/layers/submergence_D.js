@@ -555,7 +555,7 @@ addLayer("D", {
         },
        45: {
            title(){ 
-                let title = "Distort the Timeline"
+                let title = "Experimental Regime"
                 return title
             },
             description: "Lets go back to the present, shall we?",
