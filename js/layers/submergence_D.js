@@ -16,6 +16,7 @@ addLayer("D", {
     }},
     requires(){ 
         let requirement = new Decimal("4e2000");
+        if (hasUpgrade('D',45)) requirement = new Decimal("e1e69")
         return requirement
     },
     resetsNothing() {return hasUpgrade('D', 44)},
