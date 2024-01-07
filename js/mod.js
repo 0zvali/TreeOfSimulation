@@ -485,6 +485,7 @@ if (hasUpgrade('mC', 11)) gain = gain.times(upgradeEffect('mC', 11))
 if (hasUpgrade('mC', 12)) gain = gain.times(upgradeEffect('mC', 12))
 if (hasUpgrade('mC', 13)) gain = gain.times(upgradeEffect('mC', 13).div(2))
 	if (player.CT.points.gte(2) && player.points.gte(1e10)) gain = gain.div(player.points.minus(1e10).add(1).pow(0.082))
+if (hasUpgrade('mC', 23)) gain = gain.times(6.2)
 	return gain
 }
 
