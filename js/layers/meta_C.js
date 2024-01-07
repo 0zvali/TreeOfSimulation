@@ -91,7 +91,7 @@ upgrades: {
             description: "Meta Crystals boosts itself whilst boosting infects by halved the effect.",
             cost: new Decimal(34),
             effect() {
-                return (player.mC.points.max(1).add(1).pow(0.11)).max(1).min(1753.22);
+                return (player.mC.points.max(1).add(2).pow(0.09)).max(1).min(1753.22);
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(1753.22) ? "(Capped)" : "";
