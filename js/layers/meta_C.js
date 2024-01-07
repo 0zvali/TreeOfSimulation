@@ -59,7 +59,9 @@ upgrades: {
             description: "Infects boosts itself (simplicity?)",
             cost: new Decimal(3),
             effect() {
-                return (player.points.max(1).add(1).pow(0.07)).max(1).min(150);
+                let eff = (player.points.max(1).add(1).pow(0.07)).max(1).min(150);
+                if (hasUpgrade('mC', 14) eff = (player.points.max(1).add(1).pow(0.07).times(4)).max(1).min(150);
+            return eff
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(150) ? "(Capped)" : "";
@@ -96,6 +98,22 @@ upgrades: {
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(1753.22) ? "(Capped)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} (x${format(upgradeEffect(this.layer, this.id).div(2))}) ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('mC', 12)
+            },
+        },
+        14: {
+            title: "Meta-Reformation",
+            description: "Quadtruple 'Meta-Feelings' and infects boosts Meta-Crystals",
+            cost: new Decimal(85),
+            effect() {
+                return (player.points.max(1).add(1.5).pow(0.089)).max(1).gte(773.66);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(773.66) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
             unlocked(){
