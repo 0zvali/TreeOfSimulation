@@ -82,7 +82,8 @@ upgrades: {
             description: "Meta Crystals boosts infects",
             cost: new Decimal(12),
             effect() {
-                return (player.mC.points.max(1).add(1).pow(0.085)).max(1).min(999);
+                let eff = (player.mC.points.max(1).add(1).pow(0.085)).max(1).min(999);
+                if (hasUpgrade('mC', 16)) eff = (player.mC.points.max(1).add(1).pow(0.085).times(upgradeEffect('mC', 16)).max(1).min(999);
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(999) ? "(Capped)" : "";
@@ -98,7 +99,9 @@ upgrades: {
             description: "Meta Crystals boosts itself whilst boosting infects by halved the effect.",
             cost: new Decimal(34),
             effect() {
-                return (player.mC.points.max(1).add(2).pow(0.09)).max(1).min(1753.22);
+                let eff =  (player.mC.points.max(1).add(2).pow(0.09)).max(1).min(1753.22);
+                if (hasUpgrade('mC',16)) eff = (player.mC.points.max(1).add(2).pow(0.11).times(1.3)).max(1).min(1753.22);
+                return eff
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(1753.22) ? "(Capped)" : "";
@@ -112,7 +115,7 @@ upgrades: {
         14: {
             title: "Meta-Reformation",
             description: "Quadtruple 'Meta-Feelings' and infects boosts Meta-Crystals",
-            cost: new Decimal(85),
+            cost: new Decimal(120),
             effect() {
                 return (player.points.max(1).add(1.5).pow(0.089)).max(1).min(773.66);
             },
@@ -128,9 +131,25 @@ upgrades: {
         15: {
             title: "Meta-Reformation",
             description: "Meta-Crystal Exponent is better (^0.39 > ^0.43)",
-            cost: new Decimal(130),
+            cost: new Decimal(500),
             unlocked(){
                 return hasUpgrade('mC', 14)
+            },
+        },
+        16: {
+            title: "Meta-Reformation",
+            description: "'Wot2ndG' is now slightly better and Meta-Crystals boost 'Meta-Submergence'.
+            cost: new Decimal(1200),
+            effect() {
+                return (player.mC.points.max(1).add(1.8).pow(0.13)).max(1).min(666.66);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(666.66) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('mC', 15)
             },
         },
     },
