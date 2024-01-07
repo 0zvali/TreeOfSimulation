@@ -176,7 +176,7 @@ upgrades: {
         },
         22: {
             title: "Meta the Meta?",
-            description: "'Wot2ndG' has a higher effect, but in return; decrease MS effect slightly...",
+            description: "'Wot2ndG' has a higher effect, but in return; decrease MC effect slightly...",
             cost: new Decimal(1200000),
             unlocked(){
                 return hasUpgrade('mC', 21)
