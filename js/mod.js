@@ -529,7 +529,7 @@ var displayThings = [
 	  },
  function() {
 		if (player.CT.points.gte(2) && player.points.gte(1e10)) return "Infect gain is nerfed by /" + format(player.points.minus(1e10).add(1).pow(0.112))
- if (player.CT.points.gte(2) && player.points.gte(1e15)) return "Infect gain is nerfed by /" + format(player.points.minus(1e10).add(1).pow(0.112).times(5))
+ if (player.CT.points.gte(2) && player.points.gte(1e15)) return "Infect gain is nerfed by /" + format(player.points.minus(1e10).add(1).pow(0.112).times(6.2))
 	  },
 ]
 
