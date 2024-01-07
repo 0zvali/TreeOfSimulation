@@ -40,7 +40,7 @@ addLayer("CT", {
     effectDescription() {
         dis = "You are currently in Timeline 1"
         if (player.CT.points.gte(1)) dis = "You are currently in Timeline 2 which is much different then Timeline 1"
-        if (player.CT.points.gte(2)) dis = "You are currently in Timeline 3 which is much different from the previous timelines...lets go meta."
+        if (player.CT.points.gte(2)) dis = "You are currently in Timeline 3 which is much different from the previous timelines...lets go meta. Also, Keep CT Challenges but they're hidden to prevent stuff from breaking severely!"
         return dis
     },
     row: 5, // Row the layer is in on the tree (0 is the first row)
