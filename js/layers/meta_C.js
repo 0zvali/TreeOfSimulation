@@ -29,6 +29,7 @@ addLayer("mC", {
         let mult = new Decimal(1)
         if (hasUpgrade('mC', 14)) mult = mult.times(upgradeEffect('mC', 14))
         if (hasUpgrade('mC', 21)) mult = mult.times(2.3)
+        if (hasUpgrade('mC', 24)) mult = mult.times(upgradeEffect('mC', 24).div(2))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -40,7 +41,6 @@ addLayer("mC", {
         eff4 = eff4.times(tmp.mC.effectBase)
         if (hasUpgrade('mC', 21)) eff4 = eff4.times(upgradeEffect('mC', 21))
         if (hasUpgrade('mC', 22)) eff4 = eff4.div(1.4)
-        if (hasUpgrade('mC', 24)) eff4 = eff4.times(upgradeEffect('mC', 24).div(2)
         return eff4
     },
     effectBase() {
