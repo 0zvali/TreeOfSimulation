@@ -394,6 +394,7 @@ function getPointGen() {
 		return new Decimal(1)
 
 	let gain = new Decimal(1)
+ let nerf = player.points.minus(1e10).add(1).pow(0.082)
 	// C Upgrades
 	if (hasUpgrade('c', 11)) gain = gain.times(upgradeEffect('c', 11))
     if (hasUpgrade('c', 12)) gain = gain.times(upgradeEffect('c', 12))
@@ -484,8 +485,8 @@ function getPointGen() {
 if (hasUpgrade('mC', 11)) gain = gain.times(upgradeEffect('mC', 11))
 if (hasUpgrade('mC', 12)) gain = gain.times(upgradeEffect('mC', 12))
 if (hasUpgrade('mC', 13)) gain = gain.times(upgradeEffect('mC', 13).div(2))
-	if (player.CT.points.gte(2) && player.points.gte(1e10)) gain = gain.div(player.points.minus(1e10).add(1).pow(0.082))
-	if (player.CT.points.gte(2) && player.points.gte(1e15)) gain = gain.div(player.points.minus(5e9).add(1).pow(0.104).times(8.5))
+	if (player.CT.points.gte(2) && player.points.gte(1e10)) gain = gain.div(nerf)
+	if (player.CT.points.gte(2) && player.points.gte(1e15)) nerf = nerf.times(5)
 if (hasUpgrade('mC', 23)) gain = gain.times(6.2)
 if (hasUpgrade('mC', 24)) gain = gain.times(upgradeEffect('mC', 24))
 	return gain
