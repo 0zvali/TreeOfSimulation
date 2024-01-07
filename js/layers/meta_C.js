@@ -178,7 +178,7 @@ upgrades: {
             description: "'Wot2ndG' has a higher effect, but in return; decrease MS effect slightly...",
             cost: new Decimal(1200000),
             unlocked(){
-                return hasUpgrade('mC', 22)
+                return hasUpgrade('mC', 21)
             },
         },
     },
