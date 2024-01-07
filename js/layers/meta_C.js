@@ -37,7 +37,7 @@ addLayer("mC", {
     effect() {
         let eff4 = player.mC.points.add(1).pow(0.383)
         eff4 = eff4.times(tmp.mC.effectBase)
-        if (hasUpgrade('mC', 21)) eff = eff.times(upgradeEffect('mC', 21))
+        if (hasUpgrade('mC', 21)) eff4 = eff4.times(upgradeEffect('mC', 21))
         return eff4
     },
     effectBase() {
