@@ -194,7 +194,7 @@ upgrades: {
         24: {
             title: "Beelusioning Illusion",
             description: "Flip the effects from 'Wot2ndG' as this one...but better!",
-            cost: new Decimal(11660000),
+            cost: new Decimal(66666666),
             effect() {
                 let eff =  (player.points.max(1).add(2).pow(0.022).times(2.8)).max(1).min(1963.44);
                 return eff
