@@ -524,7 +524,7 @@ var displayThings = [
 		return "You are in Timeline " + formatWhole(player.CT.points.plus(1)) + "<br><br><br>"
 	  },
  function() {
-		if (player.CT.points.gte(2) && player.points.gte(1e10)) return "Point gain is nerfed by /" + format(player.points.minus(1e10).add(1).pow(0.07))
+		if (player.CT.points.gte(2) && player.points.gte(1e10)) return "Infect gain is nerfed by /" + format(player.points.minus(1e10).add(1).pow(0.07))
 	  },
 ]
 
