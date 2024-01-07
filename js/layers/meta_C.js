@@ -38,6 +38,7 @@ addLayer("mC", {
         let eff4 = player.mC.points.add(1).pow(0.383)
         eff4 = eff4.times(tmp.mC.effectBase)
         if (hasUpgrade('mC', 21)) eff4 = eff4.times(upgradeEffect('mC', 21))
+        if (hasUpgrade('mC', 22)) eff4 = eff4.div(1.4)
         return eff4
     },
     effectBase() {
@@ -104,6 +105,7 @@ upgrades: {
             effect() {
                 let eff =  (player.mC.points.max(1).add(2).pow(0.09)).max(1).min(1753.22);
                 if (hasUpgrade('mC',16)) eff = (player.mC.points.max(1).add(2).pow(0.11).times(1.3)).max(1).min(1753.22);
+                if (hasUpgrade('mC',22)) eff = (player.mC.points.max(1).add(2).pow(0.125).times(1.3).times(1.8)).max(1).min(1753.22);
                 return eff
             },
             effectDisplay() {
@@ -169,6 +171,14 @@ upgrades: {
             },
             unlocked(){
                 return hasUpgrade('mC', 16)
+            },
+        },
+        22: {
+            title: "Meta the Meta?",
+            description: "'Wot2ndG' has a higher effect, but in return; decrease MS effect slightly...",
+            cost: new Decimal(1200000),
+            unlocked(){
+                return hasUpgrade('mC', 22)
             },
         },
     },
