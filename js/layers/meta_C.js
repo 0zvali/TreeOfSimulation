@@ -22,6 +22,7 @@ addLayer("mC", {
     exponent(){ 
               let expo = 0.39
               if (hasUpgrade('mC', 15)) expo = 0.43 
+              if (hasUpgrade('mC', 23)) expo = 0.475 
               return expo
 }, // Prestige currency exponent (can be changed/adjusted)
     gainMult() { // Calculate the multiplier for main currency from bonuses
@@ -179,6 +180,14 @@ upgrades: {
             cost: new Decimal(1200000),
             unlocked(){
                 return hasUpgrade('mC', 21)
+            },
+        },
+        23: {
+            title: "True Permacold",
+            description: "Increase the Meta-Crystal Exponent to be slightly better! 6.2x Infects (^0.43 -> ^0.475)",
+            cost: new Decimal(2750000),
+            unlocked(){
+                return hasUpgrade('mC', 22)
             },
         },
     },
