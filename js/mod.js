@@ -480,6 +480,9 @@ function getPointGen() {
 	if (hasUpgrade('D', 35)) gain = gain.pow(1.002)
  if (hasChallenge('D', 12)) gain = gain.pow(1.02)
  if (player.mC.unlocked) gain = gain.times(tmp.mC.effect)
+
+if (hasUpgrade('mC', 11)) gain = gain.times(upgradeEffect('mC', 11))
+if (hasUpgrade('mC', 12)) gain = gain.times(upgradeEffect('mC', 12))
 	return gain
 }
 
