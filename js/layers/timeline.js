@@ -91,7 +91,7 @@ challenges: {
             onEnter(){if (player.SL.unlocked) player.SL.keep = true},
             unlocked(){
                 let unlock = (hasMilestone('EX', 11) || inChallenge('CT', 11) || hasChallenge('CT', 11))
-                if (player.CT.points.gte(2)) unlock = false
+                if (hasUpgrade('D', 45) || player.CT.points.gte(2)) unlock = false
                 return unlock
             },
         },
@@ -107,7 +107,9 @@ challenges: {
             rewardDescription() { return "Infects boosts EX (" + format(player.points.add(1).pow(0.05)) + "x)"},
             onEnter(){if (player.SL.unlocked) player.SL.keep = true},
             unlocked(){
-                return hasMilestone('FL', 11) || inChallenge('CT', 12) || hasChallenge('CT', 12)
+                let unlock = (hasMilestone('FL', 11) || inChallenge('CT', 12) || hasChallenge('CT', 12))
+                if (hasUpgrade('D', 45) || player.CT.points.gte(2)) unlock = false
+                return unlock
             },
         },
         21: {
@@ -124,7 +126,9 @@ challenges: {
             onEnter(){if (player.SL.unlocked) player.SL.keep = true},
             onExit(){if (player.SL.unlocked) player.SL.keep = false},
             unlocked(){
-                return hasUpgrade('EX', 22) || inChallenge('CT', 21) || hasChallenge('CT', 21)
+                let unlock = (hasUpgrade('EX', 22) || inChallenge('CT', 21) || hasChallenge('CT', 21))
+                if (hasUpgrade('D', 45) || player.CT.points.gte(2)) unlock = false
+                return unlock
             },
         },
         22: {
@@ -140,7 +144,9 @@ challenges: {
             rewardDescription() { return "Souls boosts itself (" + (format(player.SL.points.add(1).pow(0.06)) + "x)") + `<br> Keep Floors & Explosive Upgrades.`},
             onEnter(){ return player.SL.upgrades.push('11', '12', '13', '14', '15', '21')},
             unlocked(){
-                return hasUpgrade('SL', 21) || inChallenge('CT', 22) || hasChallenge('CT', 22)
+                let unlock =  (hasUpgrade('SL', 21) || inChallenge('CT', 22) || hasChallenge('CT', 22))
+                if (hasUpgrade('D', 45) || player.CT.points.gte(2)) unlock = false
+                return unlock
             },
         },
     },
