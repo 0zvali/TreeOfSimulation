@@ -69,5 +69,21 @@ upgrades: {
                 return player.mC.points.gte(0)
             },
         },
+        12: {
+            title: "Meta-Submergence",
+            description: "Meta Crystals boosts infects",
+            cost: new Decimal(12),
+            effect() {
+                return (player.mC.points.max(1).add(1).pow(0.085)).max(1).min(999);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(999) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('mC', 11)
+            },
+        },
     },
 })
