@@ -84,6 +84,7 @@ upgrades: {
             effect() {
                 let eff = (player.mC.points.max(1).add(1).pow(0.085)).max(1).min(999);
                 if (hasUpgrade('mC', 16)) eff = (player.mC.points.max(1).add(1).pow(0.085).times(upgradeEffect('mC', 16)).max(1).min(999);
+                return eff
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(999) ? "(Capped)" : "";
