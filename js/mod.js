@@ -537,7 +537,7 @@ var displayThings = [
 
 
 // Determines when the game "ends"
-function isEndgameif (player.CT.points.gte(2) && player.points.gte(1e10)) return "Infect gain is nerfed by /" + format(player.points.minus(1e10).add(1).pow(0.112))() {
+function isEndgame {
 	return player.points.gte("1e115600")
 }
 
