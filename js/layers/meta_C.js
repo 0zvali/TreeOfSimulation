@@ -113,7 +113,7 @@ upgrades: {
             description: "Quadtruple 'Meta-Feelings' and infects boosts Meta-Crystals",
             cost: new Decimal(85),
             effect() {
-                return (player.points.max(1).add(1.5).pow(0.089)).max(1).gte(773.66);
+                return (player.points.max(1).add(1.5).pow(0.089)).max(1).min(773.66);
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(773.66) ? "(Capped)" : "";
