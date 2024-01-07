@@ -129,7 +129,7 @@ upgrades: {
             },
         },
         15: {
-            title: "Meta-Reformation",
+            title: "Meta-Crystalization",
             description: "Meta-Crystal Exponent is better (^0.39 > ^0.43)",
             cost: new Decimal(500),
             unlocked(){
@@ -137,7 +137,7 @@ upgrades: {
             },
         },
         16: {
-            title: "Meta-Reformation",
+            title: "Meta-Strength",
             description: "'Wot2ndG' is now slightly better and Meta-Crystals boost 'Meta-Submergence'.
             cost: new Decimal(1200),
             effect() {
