@@ -160,7 +160,7 @@ upgrades: {
             description: "Meta-Crystal Effect is slightly better based on formula, also increase MC gain by the multicative of 2.3",
             cost: new Decimal(17000),
             effect() {
-                return (player.points.max(0.9).add(1).pow(0.09).div(1.2)).max(0.9).min(70.70);
+                return (player.points.max(0.9).add(1).pow(0.07).div(1.2)).max(0.9).min(70.70);
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(70.70) ? "(Capped)" : "";
