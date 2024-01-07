@@ -11,6 +11,7 @@ addLayer("mC", {
     color: "#75d7ed",
     requires(){ 
         let requirement = new Decimal("4500")
+        if (hasUpgrade('mC', 13)) requirement = requirement.div(upgradeEffect('mC', 13))
         return requirement
         
     }, // Can be a function that takes requirement increases into account
@@ -83,6 +84,22 @@ upgrades: {
             },
             unlocked(){
                 return hasUpgrade('mC', 11)
+            },
+        },
+        13: {
+            title: "Welcome to the 2nd Generation",
+            description: "Meta Crystals boosts itself whilst boosting infects by halved the effect.",
+            cost: new Decimal(34),
+            effect() {
+                return (player.mC.points.max(1).add(1).pow(0.11)).max(1).min(1753.22);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(1753.22) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('mC', 12)
             },
         },
     },
