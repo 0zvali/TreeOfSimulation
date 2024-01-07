@@ -139,7 +139,7 @@ upgrades: {
         },
         16: {
             title: "Meta-Strength",
-            description: "'Wot2ndG' is now slightly better and Meta-Crystals boost 'Meta-Submergence'."
+            description: "'Wot2ndG' is now slightly better and Meta-Crystals boost 'Meta-Submergence'.",
             cost: new Decimal(1200),
             effect() {
                 return (player.mC.points.max(1).add(1.8).pow(0.13)).max(1).min(666.66);
