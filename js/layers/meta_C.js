@@ -18,7 +18,7 @@ addLayer("mC", {
     baseResource: "infects",
     baseAmount() {return player.points}, 
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.72, // Prestige currency exponent 
+    exponent: 0.39, // Prestige currency exponent 
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
         return mult
