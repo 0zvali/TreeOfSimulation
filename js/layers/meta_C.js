@@ -192,7 +192,7 @@ upgrades: {
             },
         },
         24: {
-            title: "Beelusioning Illusion"
+            title: "Beelusioning Illusion",
             description: "Flip the effects from 'Wot2ndG' as this one...but better!",
             cost: new Decimal(11660000),
             effect() {
