@@ -54,7 +54,7 @@ upgrades: {
         rows: 6,
         cols: 6,
         11: {
-            title: "Meta",
+            title: "Meta-Feelings",
             description: "Infects boosts itself (simplicity?)",
             cost: new Decimal(3),
             effect() {
