@@ -485,6 +485,7 @@ if (hasUpgrade('mC', 11)) gain = gain.times(upgradeEffect('mC', 11))
 if (hasUpgrade('mC', 12)) gain = gain.times(upgradeEffect('mC', 12))
 if (hasUpgrade('mC', 13)) gain = gain.times(upgradeEffect('mC', 13).div(2))
 	if (player.CT.points.gte(2) && player.points.gte(1e10)) gain = gain.div(player.points.minus(1e10).add(1).pow(0.082))
+	if (player.CT.points.gte(2) && player.points.gte(1e15)) gain = gain.div(player.points.minus(5e9).add(1).pow(0.104))
 if (hasUpgrade('mC', 23)) gain = gain.times(6.2)
 if (hasUpgrade('mC', 24)) gain = gain.times(upgradeEffect('mC', 24))
 	return gain
@@ -528,6 +529,7 @@ var displayThings = [
 	  },
  function() {
 		if (player.CT.points.gte(2) && player.points.gte(1e10)) return "Infect gain is nerfed by /" + format(player.points.minus(1e10).add(1).pow(0.082))
+  if (player.CT.points.gte(2) && player.points.gte(1e15)) return "Infect gain is nerfed by /" + format(player.points.minus(5e9).add(1).pow(0.104))
 	  },
 ]
 
