@@ -27,6 +27,7 @@ addLayer("mC", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
         if (hasUpgrade('mC', 14)) mult = mult.times(upgradeEffect('mC', 14))
+        if (hasUpgrade('mC', 21)) mult = mult.times(2.3)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -36,6 +37,7 @@ addLayer("mC", {
     effect() {
         let eff4 = player.mC.points.add(1).pow(0.383)
         eff4 = eff4.times(tmp.mC.effectBase)
+        if (hasUpgrade('mC', 21)) eff = eff.times(upgradeEffect('mC', 21))
         return eff4
     },
     effectBase() {
@@ -151,6 +153,22 @@ upgrades: {
             },
             unlocked(){
                 return hasUpgrade('mC', 15)
+            },
+        },
+        21: {
+            title: "Infectious Society",
+            description: "Meta-Crystal Effect is slightly better based on formula, also increase MC gain by the multicative of 2.3",
+            cost: new Decimal(17000),
+            effect() {
+                return (player.points.max(0.9).add(1).pow(0.09).div(1.2)).max(0.9).min(70.70);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(70.70) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('mC', 16)
             },
         },
     },
