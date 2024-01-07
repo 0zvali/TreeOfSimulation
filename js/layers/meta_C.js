@@ -47,6 +47,7 @@ addLayer("mC", {
     layerShown() {return true},
     layerShown() {
         let value = false
+        if (player.CT.points.gte(2)) value = true
         return value
     },
 })
