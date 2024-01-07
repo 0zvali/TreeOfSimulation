@@ -40,6 +40,7 @@ addLayer("mC", {
         eff4 = eff4.times(tmp.mC.effectBase)
         if (hasUpgrade('mC', 21)) eff4 = eff4.times(upgradeEffect('mC', 21))
         if (hasUpgrade('mC', 22)) eff4 = eff4.div(1.4)
+        if (hasUpgrade('mC', 24)) eff4 = eff4.times(upgradeEffect('mC', 24).div(2)
         return eff4
     },
     effectBase() {
@@ -188,6 +189,23 @@ upgrades: {
             cost: new Decimal(2750000),
             unlocked(){
                 return hasUpgrade('mC', 22)
+            },
+        },
+        24: {
+            title: "Beelusioning Illusion"
+            description: "Flip the effects from 'Wot2ndG' as this one...but better!",
+            cost: new Decimal(11660000),
+            effect() {
+                let eff =  (player.points.max(1).add(2).pow(0.022)).max(1).min(1963.44);
+                return eff
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(1963.44) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} (x${format(upgradeEffect(this.layer, this.id).div(2))}) ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('mC', 23)
             },
         },
     },
