@@ -22,8 +22,8 @@ addLayer("mC", {
     exponent(){ 
               let expo = 0.39
               if (hasUpgrade('mC', 15)) expo = 0.43 
- },
-              return expo // Prestige currency exponent (can be changed/adjusted)
+              return expo
+}, // Prestige currency exponent (can be changed/adjusted)
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
         if (hasUpgrade('mC', 14)) mult = mult.times(upgradeEffect('mC', 14))
