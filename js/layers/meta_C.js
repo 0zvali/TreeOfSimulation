@@ -58,7 +58,7 @@ upgrades: {
             description: "Infects boosts itself (simplicity?)",
             cost: new Decimal(3),
             effect() {
-                return (player.points.max(1).add(1).pow(1.2)).max(1).min(150);
+                return (player.points.max(1).add(1).pow(0.07)).max(1).min(150);
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(150) ? "(Capped)" : "";
