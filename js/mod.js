@@ -537,7 +537,7 @@ var displayThings = [
 
 
 // Determines when the game "ends"
-function isEndgame {
+function isEndgame() {
 	return player.points.gte("1e115600")
 }
 
