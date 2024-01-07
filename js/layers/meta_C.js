@@ -95,7 +95,7 @@ upgrades: {
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(1753.22) ? "(Capped)" : "";
-                let text = `x${format(upgradeEffect(this.layer, this.id))+"(" format(upgradeEffect(this.layer, this.id).div(2))+")"} ${capped}`;
+                let text = `x${format(upgradeEffect(this.layer, this.id))+" (" format(upgradeEffect(this.layer, this.id).div(2))+")"} ${capped}`;
                 return text;
             },
             unlocked(){
