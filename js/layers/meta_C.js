@@ -19,7 +19,10 @@ addLayer("mC", {
     baseResource: "infects",
     baseAmount() {return player.points}, 
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.39, // Prestige currency exponent 
+    exponent(){ 
+              let expo = 0.39
+              if (hasUpgrade('mC', 15)) expo = 0.43 
+              return expo // Prestige currency exponent (can be changed/adjusted)
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
         return mult
@@ -118,6 +121,14 @@ upgrades: {
             },
             unlocked(){
                 return hasUpgrade('mC', 13)
+            },
+        },
+        15: {
+            title: "Meta-Reformation",
+            description: "Meta-Crystal Exponent is better (^0.39 > ^0.43)",
+            cost: new Decimal(130),
+            unlocked(){
+                return hasUpgrade('mC', 14)
             },
         },
     },
