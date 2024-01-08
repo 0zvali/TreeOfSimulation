@@ -190,7 +190,7 @@ upgrades: {
                 if (hasUpgrade('mC', 25)) des = "Increase the Meta-Crystal Exponent to be slightly better! " + format(upgradeEffect('mC', 25).times(6.2)) + "x Infects (^0.43 -> ^0.475)"
                 return des
             },
-            cost: new Decimal(2750000),
+            cost: new Decimal(1100000),
             unlocked(){
                 return hasUpgrade('mC', 22)
             },
