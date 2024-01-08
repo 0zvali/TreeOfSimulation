@@ -162,7 +162,7 @@ upgrades: {
         21: {
             title: "Infectious Society",
             description: "Meta-Crystal Effect is slightly better based on formula, also increase MC gain by the multicative of 2.3",
-            cost: new Decimal(17000),
+            cost: new Decimal(2000),
             effect() {
                 return (player.points.max(0.9).add(1).pow(0.07).div(1.2)).max(0.9).min(70.70);
             },
@@ -178,7 +178,7 @@ upgrades: {
         22: {
             title: "Meta the Meta?",
             description: "'Wot2ndG' has a higher effect, but in return; decrease MC effect slightly...",
-            cost: new Decimal(1200000),
+            cost: new Decimal(500000),
             unlocked(){
                 return hasUpgrade('mC', 21)
             },
