@@ -124,7 +124,9 @@ upgrades: {
             description: "Quadtruple 'Meta-Feelings' and infects boosts Meta-Crystals",
             cost: new Decimal(60),
             effect() {
-                return (player.points.max(1).add(1.5).pow(0.089)).max(1).min(773.66);
+                let eff = (player.points.max(1).add(1.5).pow(0.089)).max(1).min(773.66);
+                if (hasUpgrade('mC', 26)) eff = (player.points.max(1).add(1.5).pow(0.089).times(upgradeEffect('mC', 26))).max(1).min(773.66);
+                return eff
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(773.66) ? "(Capped)" : "";
@@ -201,6 +203,7 @@ upgrades: {
             cost: new Decimal(22334455),
             effect() {
                 let eff =  (player.points.max(1).add(2).pow(0.022).times(4)).max(1).min(1963.44);
+                if (hasUpgrade('mC', 26)) eff = (player.points.max(1).add(2).pow(0.022).times(4).times(upgradeEffect('mC', 26))).max(1).min(1963.44);
                 return eff
             },
             effectDisplay() {
@@ -227,6 +230,23 @@ upgrades: {
             },
             unlocked(){
                 return hasUpgrade('mC', 24)
+            },
+        },
+        26: {
+            title: "Lets repeat some stuff",
+            description: "'Beelusioning Illusion' & 'Meta-Reformation' is slightly stronger. Experiments now?",
+            cost: new Decimal(2.02e10),
+            effect() {
+                let eff = (player.points.max(1).add(1).pow(0.0122)).max(1).min(60);
+                return eff
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(60) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('mC', 25)
             },
         },
     },

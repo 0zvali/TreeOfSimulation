@@ -1,5 +1,5 @@
 addLayer("mE", {
-    name: "Meta Experiments", // This is optional, only used in a few places, If absent it just uses the layer id.
+    name: "Meta-Experiments", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "mE", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 4, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
@@ -14,11 +14,11 @@ addLayer("mE", {
         return requirement
         
     }, // Can be a function that takes requirement increases into account
-    resource: "Meta Experiments", // Name of prestige currency
+    resource: "Meta-Experiments", // Name of prestige currency
     baseResource: "Meta-Crystals", // Name of resource prestige is based on
     baseAmount() {return player.mC.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.04, // Prestige currency exponent
+    exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
         return mult
@@ -37,7 +37,7 @@ addLayer("mE", {
         return base
     },
     effectDescription() {
-        let dis = "which boosts 'Mc Upgrade 4' by "+ format(tmp.mE.effect) + "x"
+        let dis = "which boosts 'MC Upgrade 3' by "+ format(tmp.mE.effect) + "x"
         return dis
     },
     row: 2, // Row the layer is in on the tree (0 is the first row)
@@ -47,6 +47,7 @@ addLayer("mE", {
     layerShown() {return true},
     layerShown() {
         let value = false
+        if (hasUpgrade('mC', 26) || player.mE.unlocked) value = true
         return value
     },
 })
