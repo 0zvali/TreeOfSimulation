@@ -177,7 +177,7 @@ addLayer("D", {
             fillStyle: { 'background-color': "#107a2c" },
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
-                let prog = 0.5
+                let prog = player.SL.points.div("1e12000")
                 if (player.O.best.gte("1e12000")) prog = 1
                 return prog
             },
