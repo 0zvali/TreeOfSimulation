@@ -215,7 +215,7 @@ upgrades: {
         25: {
             title: "Meta-Frosticality",
             description: "'True Permacold' Infect Boost is boosted by this upgrade's effect formula!",
-            cost: new Decimal(1e10),
+            cost: new Decimal(1.22e8),
             effect() {
                 let eff =  (player.mC.points.max(1).add(1).pow(0.028)).max(1).min(188.44);
                 return eff
