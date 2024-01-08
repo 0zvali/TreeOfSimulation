@@ -24,24 +24,24 @@ let changelog = `<h1>Changelog:</h1><br>
 		a = bug/mechanic fixes<br><br>
 
 		<h2>v2.3: Distorted Reality</h2><br>
-		- Added a new Layer<br>
-		- Fixed 'Soul Shield' Challenge again<br>
-		- Added more than 25 things<br>
-		- Fixed Weapons going to e1,000,000 before the 5th Distortion Upgrade<br>
-		- Fixed Explosives now having a purpose again & removing Milestones popups later<br>
-		- Weapons now cap at 1e10,000 to prevent inflation of all layers<br>
-		- 'Hallway C' cost is now ^3000 higher<br>
-		- Nerf'd Weapon effect slightlyyyy<br>
-		- Balanced & Adjustments up to Endgame<br>
-		- Added Bar Requirements to unlock more content<br>
-		- Planned Distortion Challenges<br>
-		- Hidden CT for later purposes after Obsfucation<br>
-		- Added Submergance Timeline<br>
-		- Fixed UI<br>
-		- Fixed Several CSS Errors<br>
-		- Lower'd 5th Obsfucation Upgrade Cost Significantly<br>
-		- Endgame is at an area where you can't go past it but Mod Creator can<br>
-		- Endgame: 1e115,600 Infects<br><br>
+			- Added a new Layer<br>
+			- Fixed 'Soul Shield' Challenge again<br>
+			- Added more than 25 things<br>
+			- Fixed Weapons going to e1,000,000 before the 5th Distortion Upgrade<br>
+			- Fixed Explosives now having a purpose again & removing Milestones popups later<br>
+			- Weapons now cap at 1e10,000 to prevent inflation of all layers<br>
+			- 'Hallway C' cost is now ^3000 higher<br>
+			- Nerf'd Weapon effect slightlyyyy<br>
+			- Balanced & Adjustments up to Endgame<br>
+			- Added Bar Requirements to unlock more content<br>
+			- Planned Distortion Challenges<br>
+			- Hidden CT for later purposes after Obsfucation<br>
+			- Added Submergance Timeline<br>
+			- Fixed UI<br>
+			- Fixed Several CSS Errors<br>
+			- Lower'd 5th Obsfucation Upgrade Cost Significantly<br>
+			- Endgame is at an area where you can't go past it but Mod Creator can<br>
+			- Endgame: 1e115,600 Infects<br><br>
 
 
 		<h2>v2.1: Obfuscating Souls</h2><br>
