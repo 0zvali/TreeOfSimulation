@@ -122,7 +122,7 @@ upgrades: {
         14: {
             title: "Meta-Reformation",
             description: "Quadtruple 'Meta-Feelings' and infects boosts Meta-Crystals",
-            cost: new Decimal(120),
+            cost: new Decimal(60),
             effect() {
                 return (player.points.max(1).add(1.5).pow(0.089)).max(1).min(773.66);
             },
@@ -138,7 +138,7 @@ upgrades: {
         15: {
             title: "Meta-Crystalization",
             description: "Meta-Crystal Exponent is better (^0.39 > ^0.43)",
-            cost: new Decimal(500),
+            cost: new Decimal(200),
             unlocked(){
                 return hasUpgrade('mC', 14)
             },
@@ -146,7 +146,7 @@ upgrades: {
         16: {
             title: "Meta-Strength",
             description: "'Wot2ndG' is now slightly better and Meta-Crystals boost 'Meta-Submergence'.",
-            cost: new Decimal(1200),
+            cost: new Decimal(600),
             effect() {
                 return (player.mC.points.max(1).add(1.8).pow(0.13)).max(1).min(666.66);
             },
