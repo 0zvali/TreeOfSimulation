@@ -488,6 +488,7 @@ function getPointGen() {
 	if (player.CT.points.gte(2) && player.points.gte(1e15)) gain = gain.div(7.5)
 	if (hasUpgrade('mC', 23)) gain = gain.times(6.2)
 	if (hasUpgrade('mC', 24)) gain = gain.times(upgradeEffect('mC', 24))
+	if (hasUpgrade('mC', 25)) gain = gain.times(upgradeEffect('mC', 25))
 	return gain
 }
 
