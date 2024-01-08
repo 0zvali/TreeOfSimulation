@@ -478,16 +478,16 @@ function getPointGen() {
 	// ~~~~~~~~~~~~~~~~Chapter 3 - The Future~~~~~~~~~~~~~~~~~~~~~~~~
 	if (hasUpgrade('D', 23)) gain = gain.times("1e666")
 	if (hasUpgrade('D', 35)) gain = gain.pow(1.002)
- if (hasChallenge('D', 12)) gain = gain.pow(1.02)
- if (player.mC.unlocked) gain = gain.times(tmp.mC.effect)
+	if (hasChallenge('D', 12)) gain = gain.pow(1.02)
+	if (player.mC.unlocked) gain = gain.times(tmp.mC.effect)
 
-if (hasUpgrade('mC', 11)) gain = gain.times(upgradeEffect('mC', 11))
-if (hasUpgrade('mC', 12)) gain = gain.times(upgradeEffect('mC', 12))
-if (hasUpgrade('mC', 13)) gain = gain.times(upgradeEffect('mC', 13).div(2))
+	if (hasUpgrade('mC', 11)) gain = gain.times(upgradeEffect('mC', 11))
+	if (hasUpgrade('mC', 12)) gain = gain.times(upgradeEffect('mC', 12))
+	if (hasUpgrade('mC', 13)) gain = gain.times(upgradeEffect('mC', 13).div(2))
 	if (player.CT.points.gte(2) && player.points.gte(1e10)) gain = gain.div(player.points.minus(1e10).add(1).pow(0.112))
-if (player.CT.points.gte(2) && player.points.gte(1e15)) gain = gain.div(7.5)
-if (hasUpgrade('mC', 23)) gain = gain.times(6.2)
-if (hasUpgrade('mC', 24)) gain = gain.times(upgradeEffect('mC', 24))
+	if (player.CT.points.gte(2) && player.points.gte(1e15)) gain = gain.div(7.5)
+	if (hasUpgrade('mC', 23)) gain = gain.times(6.2)
+	if (hasUpgrade('mC', 24)) gain = gain.times(upgradeEffect('mC', 24))
 	return gain
 }
 
@@ -531,7 +531,7 @@ var displayThings = [
 		if (player.CT.points.gte(2) && player.points.gte(1e10)) return "Infect gain is nerfed by /" + format(player.points.minus(1e10).add(1).pow(0.112))
 },
  function(){
- if (player.CT.points.gte(2) && player.points.gte(1e15)) return "Infect gain is once again, nerfed by /7.2..."
+		if (player.CT.points.gte(2) && player.points.gte(1e15)) return "Infect gain is once again, nerfed by /7.2..."
  
 	  },
 ]
