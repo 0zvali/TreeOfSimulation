@@ -185,7 +185,11 @@ upgrades: {
         },
         23: {
             title: "True Permacold",
-            description: "Increase the Meta-Crystal Exponent to be slightly better! 6.2x Infects (^0.43 -> ^0.475)",
+            description(){ 
+                let des = "Increase the Meta-Crystal Exponent to be slightly better! 6.2x Infects (^0.43 -> ^0.475)"
+                if (hasUpgrade('mC', 25)) des = "Increase the Meta-Crystal Exponent to be slightly better! " + format(upgradeEffect('mC', 25).times(6.2)) + "x Infects (^0.43 -> ^0.475)"
+                return des
+            },
             cost: new Decimal(2750000),
             unlocked(){
                 return hasUpgrade('mC', 22)
@@ -202,6 +206,23 @@ upgrades: {
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(1963.44) ? "(Capped)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} (x${format(upgradeEffect(this.layer, this.id).div(2))}) ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('mC', 23)
+            },
+        },
+        25: {
+            title: "Meta-Frosticality",
+            description: "'True Permacold' Infect Boost is boosted by this upgrade's effect formula!",
+            cost: new Decimal(1e10),
+            effect() {
+                let eff =  (player.mC.points.max(1).add(1).pow(0.028)).max(1).min(188.44);
+                return eff
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(188.44) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
             unlocked(){
