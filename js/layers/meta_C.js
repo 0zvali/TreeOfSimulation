@@ -178,7 +178,7 @@ upgrades: {
         22: {
             title: "Meta the Meta?",
             description: "'Wot2ndG' has a higher effect, but in return; decrease MC effect slightly...",
-            cost: new Decimal(500000),
+            cost: new Decimal(200000),
             unlocked(){
                 return hasUpgrade('mC', 21)
             },
