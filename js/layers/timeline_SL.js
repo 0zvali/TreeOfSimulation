@@ -85,7 +85,7 @@ addLayer("SL", {
     layerShown() {
         let value = false
         if (hasChallenge('CT', 21)) value = true
-        if (player.CT.points.gte(2)) value = false
+        if (player.CT.points.gte(2) || hasUpgrade('D', 45)) value = false
         return value
     },
 milestones: {
