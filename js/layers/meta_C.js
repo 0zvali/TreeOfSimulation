@@ -12,7 +12,7 @@ addLayer("mC", {
     requires(){ 
         let requirement = new Decimal("4500")
         if (hasUpgrade('mC', 13)) requirement = requirement.div(upgradeEffect('mC', 13))
-        if (hasMilesone('mE', 11)) requirement = requirement.div(2.5)
+        if (hasMilestone('mE', 11)) requirement = requirement.div(2.5)
         return requirement
         
     }, // Can be a function that takes requirement increases into account
