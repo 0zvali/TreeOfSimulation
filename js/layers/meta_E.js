@@ -50,4 +50,11 @@ addLayer("mE", {
         if (hasUpgrade('mC', 26) || player.mE.unlocked) value = true
         return value
     },
+milestones: {
+        11: {
+            requirementDescription: "1 Meta-Experiments",
+            effectDescription: `2.5x Meta-Crystals & 1.2x Infects`,
+            done() { return player.mE.points.gte(1) },
+        },
+    },
 })
