@@ -78,8 +78,8 @@ milestones: {
             },
             effect(x) {
                 let base1 = new Decimal(2)
-                let base2 = new Decimal(1)
-                let expo = new Decimal(1.05)
+                let base2 = x
+                let expo = new Decimal(1.005)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
             },
