@@ -18,7 +18,7 @@ addLayer("mE", {
     baseResource: "Meta-Crystals", // Name of resource prestige is based on
     baseAmount() {return player.mC.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.45, // Prestige currency exponent
+    exponent: 0.25, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
         return mult
@@ -63,7 +63,7 @@ milestones: {
             unlocked() { return hasUpgrade("mE", 11) },
             cost(x) {
                 let exp2 = 1.1005
-                return new Decimal(2).mul(Decimal.pow(1.25, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
+                return new Decimal(2).mul(Decimal.pow(1.2, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
                 return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Experiments" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Meta-Crystal(s) gain by x" + format(buyableEffect(this.layer, this.id)) + " (1.46*x^1.012)"
