@@ -53,8 +53,29 @@ addLayer("mE", {
 milestones: {
         11: {
             requirementDescription: "1 Meta-Experiments",
-            effectDescription: `2.5x Meta-Crystals & 1.2x Infects`,
+            effectDescription: `MC Req. /2.5 & 1.2x Infects`,
             done() { return player.mE.points.gte(1) },
+        },
+    },
+upgrades: {
+    rows: 3,
+    cols: 3,
+        11: {
+            title: "Meta-Nyko",
+            description: "Quadtruple Infect gain with another smaller boost based on infects, while boosting MC effect base by defomed formula balanced by a limited rate. Meta-Crystals are slightly boosed by a smaller rate of the original formula [xInf (xMC, +MCe)]",
+            cost: new Decimal(2),
+            effect() {
+                let eff = (player.points.max(1).add(2).pow(0.013).times(4)).max(1).min(4000);
+                return eff
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(1963.44) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} (x${format(upgradeEffect(this.layer, this.id).div(2.4))}, +${format(upgradeEffect(this.layer, this.id).div(6.2))}) ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return player.mE.unlocked || hasUpgrade('mE', 11)
+            },
         },
     },
 })

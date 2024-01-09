@@ -479,16 +479,18 @@ function getPointGen() {
 	if (hasUpgrade('D', 23)) gain = gain.times("1e666")
 	if (hasUpgrade('D', 35)) gain = gain.pow(1.002)
 	if (hasChallenge('D', 12)) gain = gain.pow(1.02)
+	// ~~~~~~~~~~~~~~~~Chapter 4 - Meta~~~~~~~~~~~~~~~~~~~~~~~~
 	if (player.mC.unlocked) gain = gain.times(tmp.mC.effect)
-
 	if (hasUpgrade('mC', 11)) gain = gain.times(upgradeEffect('mC', 11))
 	if (hasUpgrade('mC', 12)) gain = gain.times(upgradeEffect('mC', 12))
 	if (hasUpgrade('mC', 13)) gain = gain.times(upgradeEffect('mC', 13).div(2))
 	if (player.CT.points.gte(2) && player.points.gte(1e10)) gain = gain.div(player.points.minus(1e10).add(1).pow(0.112))
-	if (player.CT.points.gte(2) && player.points.gte(1e15)) gain = gain.div(7.5)
+	if (player.CT.points.gte(2) && player.points.gte(1e15)) gain = gain.div(7.2)
 	if (hasUpgrade('mC', 23)) gain = gain.times(6.2)
 	if (hasUpgrade('mC', 24)) gain = gain.times(upgradeEffect('mC', 24))
 	if (hasUpgrade('mC', 25)) gain = gain.times(upgradeEffect('mC', 25))
+	if (hasMilestone('mE', 11)) gain = gain.times(1.2)
+	if (hasUpgrade('mE', 11)) gain = gain.upgradeEffect('mE', 11)
 	return gain
 }
 

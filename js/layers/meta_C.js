@@ -12,6 +12,7 @@ addLayer("mC", {
     requires(){ 
         let requirement = new Decimal("4500")
         if (hasUpgrade('mC', 13)) requirement = requirement.div(upgradeEffect('mC', 13))
+        if (hasMilesone('mE', 11)) requirement = requirement.div(2.5)
         return requirement
         
     }, // Can be a function that takes requirement increases into account
@@ -30,6 +31,7 @@ addLayer("mC", {
         if (hasUpgrade('mC', 14)) mult = mult.times(upgradeEffect('mC', 14))
         if (hasUpgrade('mC', 21)) mult = mult.times(2.3)
         if (hasUpgrade('mC', 24)) mult = mult.times(upgradeEffect('mC', 24).div(2))
+        if (hasUpgrade('mE', 11)) mult = mult.times(upgradeEffect('mE', 11).div(2.4))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -45,6 +47,7 @@ addLayer("mC", {
     },
     effectBase() {
         let base = new Decimal(1) 
+        if (hasUpgrade('mE', 11)) base = base.add(upgradeEffect('mE', 11).div(6.2))
         return base
     },
     effectDescription() {
@@ -108,6 +111,8 @@ upgrades: {
                 let eff =  (player.mC.points.max(1).add(2).pow(0.09)).max(1).min(1753.22);
                 if (hasUpgrade('mC',16)) eff = (player.mC.points.max(1).add(2).pow(0.11).times(1.3)).max(1).min(1753.22);
                 if (hasUpgrade('mC',22)) eff = (player.mC.points.max(1).add(2).pow(0.125).times(1.3).times(1.8)).max(1).min(1753.22);
+                if (player.mE.unlocked) eff = (player.mC.points.max(1).add(2).pow(0.125).times(1.3).times(tmp.mE.effect)).max(1).min(1753.22);
+                if (player.mE.unlocked && hasUpgrade('mC', 22)) eff = (player.mC.points.max(1).add(2).pow(0.125).times(1.3).times(1.8).times(tmp.mE.effect)).max(1).min(1753.22);
                 return eff
             },
             effectDisplay() {
