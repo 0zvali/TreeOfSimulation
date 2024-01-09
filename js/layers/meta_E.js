@@ -62,14 +62,14 @@ upgrades: {
     cols: 3,
         11: {
             title: "Meta-Nyko",
-            description: "Quadtruple Infect gain with another smaller boost based on infects, while boosting MC effect base by defomed formula balanced by a limited rate. Meta-Crystals are slightly boosed by a smaller rate of the original formula [xInf (xMC, +MCe)]",
+            description: "Quadtruple Infect gain with another smaller boost based on infects, while boosting MC effect base by deformed formula balanced by a limited rate. Meta-Crystals are slightly boosted by a smaller rate of the original formula [xInf (xMC, +MCe)]",
             cost: new Decimal(2),
             effect() {
-                let eff = (player.points.max(1).add(2).pow(0.013).times(4)).max(1).min(4000);
+                let eff = (player.points.max(1).add(2).pow(0.016).times(4)).max(1).min(4000);
                 return eff
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(1963.44) ? "(Capped)" : "";
+                let capped = upgradeEffect(this.layer, this.id).gte(4000) ? "(Capped)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} (x${format(upgradeEffect(this.layer, this.id).div(2.4))}, +${format(upgradeEffect(this.layer, this.id).div(6.2))}) ${capped}`;
                 return text;
             },
