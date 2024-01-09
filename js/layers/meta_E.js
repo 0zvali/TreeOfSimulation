@@ -57,6 +57,34 @@ milestones: {
             done() { return player.mE.points.gte(1) },
         },
     },
+    buyables: {
+        11: {
+            title: "Experiment Regime I",
+            unlocked() { return hasUpgrade("mE", 11) },
+            cost(x) {
+                let exp2 = 1.1005
+                return new Decimal(2).mul(Decimal.pow(1.25, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
+            },
+            display() {
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Experiments" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Meta-Crystal(s) gain by x" + format(buyableEffect(this.layer, this.id))
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal (1)
+                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(2)
+                let base2 = new Decimal(1)
+                let expo = new Decimal(1.05)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                return eff
+            },
+        },
+    },
 upgrades: {
     rows: 3,
     cols: 3,
