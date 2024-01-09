@@ -79,7 +79,8 @@ milestones: {
             effect(x) {
                 let base1 = new Decimal(2)
                 let base2 = x
-                let expo = new Decimal(1.005)
+                let expo = new Decimal(1.012)
+                if (hasUpgrade('mE', 12)) base1 = base1.add(0.3)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
             },
@@ -102,7 +103,15 @@ upgrades: {
                 return text;
             },
             unlocked(){
-                return player.mE.unlocked || hasUpgrade('mE', 11)
+                return player.mE.unlocked
+            },
+        },
+        12: {
+            title: "Meta-Abys",
+            description: "Have 'Experimental Regime I' get a slightly better effect than normal!",
+            cost: new Decimal(50),
+            unlocked(){
+                return hasUpgrade('mE', 11)
             },
         },
     },
