@@ -240,7 +240,7 @@ upgrades: {
         26: {
             title: "Lets repeat some stuff",
             description: "'Beelusioning Illusion' & 'Meta-Reformation' is slightly stronger. Experiments now?",
-            cost: new Decimal(2.02e10),
+            cost: new Decimal(1.13e10),
             effect() {
                 let eff = (player.points.max(1).add(1).pow(0.0122)).max(1).min(60);
                 return eff
