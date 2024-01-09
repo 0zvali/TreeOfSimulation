@@ -486,6 +486,7 @@ function getPointGen() {
 	if (hasUpgrade('mC', 13)) gain = gain.times(upgradeEffect('mC', 13).div(2))
 	if (player.CT.points.gte(2) && player.points.gte(1e10)) gain = gain.div(player.points.minus(1e10).add(1).pow(0.112))
 	if (player.CT.points.gte(2) && player.points.gte(1e15)) gain = gain.div(7.2)
+	if (player.CT.points.gte(2) && player.points.gte(1e25)) gain = gain.div(35)
 	if (hasUpgrade('mC', 23)) gain = gain.times(6.2)
 	if (hasUpgrade('mC', 24)) gain = gain.times(upgradeEffect('mC', 24))
 	if (hasUpgrade('mC', 25)) gain = gain.times(upgradeEffect('mC', 25))
@@ -533,7 +534,8 @@ var displayThings = [
  function() {
 		let nerf = "<br>"
 		if (player.CT.points.gte(2) && player.points.gte(1e10)) nerf = "Infect gain is nerfed by /" + format(player.points.minus(1e10).add(1).pow(0.112)) + " (Level 1 Nerf)"
-		if (player.CT.points.gte(2) && player.points.gte(1e15)) nerf = "Infect gain is nerfed by /" + format(player.points.minus(1e10).add(1).pow(0.112).times(7.2)) + "( Level 2 Nerf)"
+		if (player.CT.points.gte(2) && player.points.gte(1e15)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2)) + " (Level 2 Nerf)"
+		if (player.CT.points.gte(2) && player.points.gte(1e25)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35)) + " (Level 3 Nerf)"
 		return nerf
 },
 ]
