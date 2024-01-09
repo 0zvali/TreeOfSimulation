@@ -532,8 +532,8 @@ var displayThings = [
 	  },
  function() {
 		let nerf = "<br>"
-		if (player.CT.points.gte(2) && player.points.gte(1e10)) nerf = "Infect gain is nerfed by /" + format(player.points.minus(1e10).add(1).pow(0.112)) + "(Level 1 Nerf)"
-		if (player.CT.points.gte(2) && player.points.gte(1e15)) nerf = "Infect gain is nerfed by /" + format(player.points.minus(1e10).add(1).pow(0.112).times(7.2)) + "(Level 2 Nerf)"
+		if (player.CT.points.gte(2) && player.points.gte(1e10)) nerf = "Infect gain is nerfed by /" + format(player.points.minus(1e10).add(1).pow(0.112)) + " (Level 1 Nerf)"
+		if (player.CT.points.gte(2) && player.points.gte(1e15)) nerf = "Infect gain is nerfed by /" + format(player.points.minus(1e10).add(1).pow(0.112).times(7.2)) + "( Level 2 Nerf)"
 		return nerf
 },
 ]
