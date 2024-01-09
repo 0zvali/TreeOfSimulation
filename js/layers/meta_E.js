@@ -10,7 +10,7 @@ addLayer("mE", {
 
     color: "#9aa3cd",
     requires(){ 
-        let requirement = new Decimal("e1e10")
+        let requirement = new Decimal("1.25e11")
         return requirement
         
     }, // Can be a function that takes requirement increases into account
@@ -18,7 +18,7 @@ addLayer("mE", {
     baseResource: "Meta-Crystals", // Name of resource prestige is based on
     baseAmount() {return player.mC.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.5, // Prestige currency exponent
+    exponent: 0.45, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
         return mult
@@ -28,7 +28,7 @@ addLayer("mE", {
         return expo
     },
     effect() {
-        let eff4 = player.mE.points.add(1).pow(0.08)
+        let eff4 = player.mE.points.add(1).pow(0.35)
         eff4 = eff4.times(tmp.mE.effectBase)
         return eff4
     },
