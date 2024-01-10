@@ -126,6 +126,7 @@ upgrades: {
             cost: new Decimal(2),
             effect() {
                 let eff = (player.points.max(1).add(2).pow(0.016).times(4)).max(1).min(4000);
+                if (hasUpgrade("mE", 16)) eff = (player.points.max(1).add(2).pow(0.0185).times(4.5)).max(1).min(4000);
                 return eff
             },
             effectDisplay() {
