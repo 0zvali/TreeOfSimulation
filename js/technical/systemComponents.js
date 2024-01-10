@@ -137,11 +137,11 @@ var systemComponents = {
         <br>
         The Prestige Tree made by Jacorb and Aarex
  <br><br>
-Greatful Crediters:
+<h3>Greatful Crediters:</h3><br>
 CSS Code (from 'The Camellia Tree') from <a>Flustix</a><br>
 Savebank Code (from 'The Plant Tree') from <a>Thenonymous</a><br>
-Buyable Code Fixture (from 'The Point Tree')<br>
-Inspired By: The Camellia Tree, The Plant Tree, The Fame Tree, and Vorona (CT Reference?), The Point Tree
+Buyable Code Fixture (from 'The Point Tree')<br><br>
+<h3>Inspired By:</h3><br> The Camellia Tree, The Plant Tree, The Fame Tree, and Vorona (CT Reference?), The Point Tree
 		<br><br>
 		<div class="link" onclick="showTab('changelog-tab')">Changelog</div><br>
         <span v-if="modInfo.discordLink"><a class="link" v-bind:href="modInfo.discordLink" target="_blank">{{modInfo.discordName}}</a><br></span>
