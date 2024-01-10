@@ -540,7 +540,7 @@ var displayThings = [
 		if (player.CT.points.gte(2) && player.points.gte(1e10)) nerf = "Infect gain is nerfed by /" + format(player.points.minus(1e10).add(1).pow(0.112)) + " (Level 1 Nerf)"
 		if (player.CT.points.gte(2) && player.points.gte(1e15)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2)) + " (Level 2 Nerf)"
 		if (player.CT.points.gte(2) && player.points.gte(1e25)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35)) + " (Level 3 Nerf)"
-		if (player.CT.points.gte(2) && player.points.gte(1e10) && hasUpgrade("mE", 14)) nerf = "Infect gain is nerfed by /" + format(player.points.minus(1e10).add(1).pow(0.112)).div(9.2) + " (Level 1 Nerf)"
+		if (player.CT.points.gte(2) && player.points.gte(1e10) && hasUpgrade("mE", 14)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).div(9.2)) + " (Level 1 Nerf)"
 		if (player.CT.points.gte(2) && player.points.gte(1e15) && hasUpgrade("mE", 14)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2).div(9.2)) + " (Level 2 Nerf)"
 		if (player.CT.points.gte(2) && player.points.gte(1e25) && hasUpgrade("mE", 14)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35).div(9.2)) + " (Level 3 Nerf)"
 		return nerf
