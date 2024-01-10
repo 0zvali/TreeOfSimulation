@@ -126,7 +126,7 @@ var systemComponents = {
         template: `
         <div>
         <h2>{{modInfo.name}}</h2>
-        <br>
+        <br><br<
         <h3>{{VERSION.withName}}</h3>
         <span v-if="modInfo.author">
             <br>
