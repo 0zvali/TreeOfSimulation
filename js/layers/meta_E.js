@@ -116,7 +116,7 @@ milestones: {
     },
 upgrades: {
     rows: 6,
-    cols: 3,
+    cols: 6,
         11: {
             title: "Meta-Nyko",
             description: "Quadtruple Infect gain with another smaller boost based on infects, while boosting MC effect base by deformed formula balanced by a limited rate. Meta-Crystals are slightly boosted by a smaller rate of the original formula [xInf (xMC, +MCe)]",
