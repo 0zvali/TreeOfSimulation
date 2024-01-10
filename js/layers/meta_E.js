@@ -184,7 +184,7 @@ upgrades: {
                 return text;
             },
             unlocked(){
-                return hasUpgrade('mC', 15)
+                return hasUpgrade('mE', 15)
             },
         },
     },
