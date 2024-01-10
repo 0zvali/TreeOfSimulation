@@ -83,7 +83,7 @@ milestones: {
                 let base2 = x
                 let expo = new Decimal(1.012)
                 if (hasUpgrade('mE', 12)) base1 = base1.add(0.12)
-                if (hasUpgrade('mE', 15)) base1 = base1.add(0.25)
+                if (hasUpgrade('mE', 14)) base1 = base1.add(0.15)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
             },
