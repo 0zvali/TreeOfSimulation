@@ -23,6 +23,8 @@ let changelog = `<h1>Changelog:</h1><br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
 
+<div class="link" onclick="showTab('info-tab')">Settings</div><br><br>
+
 		<h2>v2.3: Distorted Reality</h2><br>
 			- Added a new Layer<br>
 			- Fixed 'Soul Shield' Challenge again<br>
