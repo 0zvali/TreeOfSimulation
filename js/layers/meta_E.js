@@ -115,7 +115,7 @@ milestones: {
         },
     },
 upgrades: {
-    rows: 3,
+    rows: 6,
     cols: 3,
         11: {
             title: "Meta-Nyko",
