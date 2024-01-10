@@ -62,9 +62,10 @@ milestones: {
             title: "Experiment Regime I",
             unlocked() { return hasUpgrade("mE", 11) },
             cost(x) {
+                let exp1 = 1.2
                 let exp2 = 1.1005
-                if (hasUpgrade('mE', 13)) exp2 = exp2.minus(0.025) // hell yea!
-                return new Decimal(2).mul(Decimal.pow(1.2, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
+                if (hasUpgrade('mE', 13)) exp1 = 1.15 // hell yea!
+                return new Decimal(2).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
                 return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Experiments" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Meta-Crystal(s) gain by x" + format(buyableEffect(this.layer, this.id)) + " (1.46*x^1.012)"
