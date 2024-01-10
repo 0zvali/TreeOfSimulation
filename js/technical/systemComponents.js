@@ -137,7 +137,7 @@ var systemComponents = {
         <br>
         The Prestige Tree made by Jacorb and Aarex
  <br><br>
-<h3>Greatful Crediters:</h3><br>
+<h3>Crediting:</h3><br>
 CSS Code (from 'The Camellia Tree') from <a>Flustix</a><br>
 Savebank Code (from 'The Plant Tree') from <a>Thenonymous</a><br>
 Buyable Code Fixture (from 'The Point Tree')<br><br>
