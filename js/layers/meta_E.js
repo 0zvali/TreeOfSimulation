@@ -151,7 +151,7 @@ upgrades: {
             },
         },
         14: {
-            title: "Meta-Cyberruin",
+            title: "Meta-Lovebeast",
             description: "Reduce the Infect Nerf (Level 1 -> 3 Nerf) by 60%",
             cost: new Decimal(600),
             unlocked(){
