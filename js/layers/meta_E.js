@@ -83,6 +83,7 @@ milestones: {
                 let base2 = x
                 let expo = new Decimal(1.012)
                 if (hasUpgrade('mE', 12)) base1 = base1.add(0.12)
+                if (hasUpgrade('mE', 15)) base1 = base1.add(0.25)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
             },
@@ -152,10 +153,18 @@ upgrades: {
         },
         14: {
             title: "Meta-Lovebeast",
-            description: "Reduce the Infect Nerf (Level 1 -> 3 Nerf) by 60%",
+            description: "Reduce the Infect Nerf (Level 1 -> 3 Nerf) by 60%, also boost 'Experimental Regime I' effect slightly.",
             cost: new Decimal(600),
             unlocked(){
                 return hasUpgrade('mE', 13)
+            },
+        },
+        15: {
+            title: "Cap Breaker I",
+            description: "Break 'MC Upgrade 3' Cap for the first time.",
+            cost: new Decimal(800),
+            unlocked(){
+                return hasUpgrade('mE', 14)
             },
         },
     },
