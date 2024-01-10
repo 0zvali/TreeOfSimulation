@@ -153,7 +153,7 @@ upgrades: {
         },
         14: {
             title: "Meta-Lovebeast",
-            description: "Reduce the Infect Nerf (Level 1 -> 3 Nerf) by 60%, also boost 'Experimental Regime I' effect slightly.",
+            description: "Reduce the Infect Nerf (Level 1 -> 3 Nerf) by /9.2, also boost 'Experimental Regime I' effect slightly.",
             cost: new Decimal(600),
             unlocked(){
                 return hasUpgrade('mE', 13)
