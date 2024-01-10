@@ -32,6 +32,7 @@ addLayer("mC", {
         if (hasUpgrade('mC', 21)) mult = mult.times(2.3)
         if (hasUpgrade('mC', 24)) mult = mult.times(upgradeEffect('mC', 24).div(2))
         if (hasUpgrade('mE', 11)) mult = mult.times(upgradeEffect('mE', 11).div(2.4))
+        if (hasMilestone('mC', 13)) mult = mult.times(tmp.mC.effect.pow(0.06))
         mult = mult.times(buyableEffect('mE', 11))
         return mult
     },
@@ -53,17 +54,60 @@ addLayer("mC", {
     },
     effectDescription() {
         let dis = "which boosts infect gain by " + format(tmp.mC.effect) + "x"
+        if (hasMilestone("mC", 13)) dis = "which boosts infect gain by " + format(tmp.mC.effect) + "x; also boost Meta-Crystals by " + format(tmp.mC.effect.pow(0.06))
         return dis
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "C", description: "shift+C: reset for Meta-Crystals", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+    doReset(resettingLayer) {
+        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
+        if ((hasMilestone('mC', 11)) && resettingLayer == "mE") player.mC.milestones.push('11')
+        if ((hasMilestone('mC', 12)) && resettingLayer == "mE") player.mC.milestones.push('12')
+        if ((hasMilestone('mC', 13)) && resettingLayer == "mE") player.mC.milestones.push('13')
+    },
+
     layerShown() {return true},
     layerShown() {
         let value = false
         if (player.CT.points.gte(2)) value = true
         return value
+    },
+milestones: {
+        11: {
+            requirementDescription: "1e21 Meta-Crystals",
+            effectDescription() {
+                let text = "Boost 'Experiment Regime II' by a sly ammount";
+                return text;
+              },
+            unlocked(){
+                return hasUpgrade('mE', 16)
+              },
+            done() { return player.mC.points.gte(1e21) },
+        },
+        12: {
+            requirementDescription: "1e30 Meta-Crystals",
+            effectDescription() {
+                let text = "Meta-Experiments gets another effect!";
+                return text;
+              },
+            unlocked(){
+                return hasMilestone('mC', 11)
+            },
+            done() { return player.mC.points.gte(1e30) },
+        },
+        13: {
+            requirementDescription: "1e40 Meta-Crystals",
+            effectDescription(){
+                let text = "Meta-Crystal(s) effect now boosts Meta-Crystals by a downgraded rate";
+                return text;
+            },
+            unlocked(){
+                return hasMilestone('mC', 12)
+            },
+            done(){ return player.mC.points.gte(1e40) },
+        },
     },
 upgrades: {
         rows: 6,
@@ -246,6 +290,7 @@ upgrades: {
             cost: new Decimal(1.13e10),
             effect() {
                 let eff = (player.points.max(1).add(1).pow(0.0122)).max(1).min(60);
+                if (hasMilestone('mC', 12)) eff = ((player.points.max(1).add(1).pow(0.0122)).times(tmp.mE.effect.pow(0.15))).max(1).min(60);
                 return eff
             },
             effectDisplay() {

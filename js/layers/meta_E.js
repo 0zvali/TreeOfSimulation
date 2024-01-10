@@ -38,6 +38,7 @@ addLayer("mE", {
     },
     effectDescription() {
         let dis = "which boosts 'MC Upgrade 3' by "+ format(tmp.mE.effect) + "x"
+        if (hasMilestone('mC', 12)) dis = "which boosts 'MC Upgrade 3' & 'MC Upgrade 12' by "+ format(tmp.mE.effect) + "x ("+format(tmp.mE.effect.pow(0.15))+"x)<br> [MC-U3x (MC-U12x)]"
         return dis
     },
     row: 2, // Row the layer is in on the tree (0 is the first row)
@@ -110,6 +111,7 @@ milestones: {
                 let base1 = new Decimal(1.5)
                 let base2 = x
                 let expo = new Decimal(1.05)
+                if (hasMilestone('mC', 11)) base1 = base1.add(0.33)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
             },
@@ -165,6 +167,23 @@ upgrades: {
             cost: new Decimal(800),
             unlocked(){
                 return hasUpgrade('mE', 14)
+            },
+        },
+        16: {
+            title: "Meta-Kryptox",
+            description: "'Meta-Nyko' effect is even better, unlock 3 Meta-Crystal(s) Milestones that are kept on Meta-Experiment(s) Reset, also get an Meta-Experiment boost based on itself",
+            cost: new Decimal(1200),
+            effect() {
+                let eff = (player.mE.points.max(1).add(1.5).pow(0.13)).max(1).min(150);
+                return eff
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(150) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('mC', 15)
             },
         },
     },
