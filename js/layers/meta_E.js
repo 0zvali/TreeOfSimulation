@@ -164,7 +164,7 @@ upgrades: {
         },
         15: {
             title: "Cap Breaker I",
-            description: "Break 'MC Upgrade 3' Cap for the first time.",
+            description: "Break 3 MC Upgrade Caps for the first time.",
             cost: new Decimal(800),
             unlocked(){
                 return hasUpgrade('mE', 14)
