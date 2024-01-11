@@ -198,7 +198,7 @@ upgrades: {
             description: "Lower Meta-Crystal(s) requirement; increase Meta-Experiment Base Exponenet by 0.05; Increase 'Experiment Regime II' effect based on formula",
             cost: new Decimal(15000),
             effect() {
-                let eff = (player.mE.points.max(0.01).add(0.01).pow(0.05)).max(0.01).min(2);
+                let eff = (player.mE.points.max(0.01).add(0.01).pow(0.02).div(3.3)).max(0.01).min(2);
                 return eff
             },
             effectDisplay() {
