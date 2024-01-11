@@ -61,9 +61,6 @@ addLayer("mC", {
     hotkeys: [
         {key: "C", description: "shift+C: reset for Meta-Crystals", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    doReset(resettingLayer) {
-        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
-       },
     layerShown() {return true},
     layerShown() {
         let value = false
