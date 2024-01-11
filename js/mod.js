@@ -493,8 +493,7 @@ function getPointGen() {
 	if (player.CT.points.gte(2) && player.points.gte(1e10)) gain = gain.div(player.points.minus(1e10).add(1).pow(0.112))
 	if (player.CT.points.gte(2) && player.points.gte(1e15)) gain = gain.div(7.2)
 	if (player.CT.points.gte(2) && player.points.gte(1e25)) gain = gain.div(35)
-	if (player.CT.points.gte(2) && player.points.gte(1e35)) gain = gain.div(3500)
-	if (player.CT.points.gte(2) && player.points.gte(1e35)) gain = gain.div(3500)
+	if (player.CT.points.gte(2) && player.points.gte(1e35)) gain = gain.div(12250000)
 	if (player.CT.points.gte(2) && player.points.gte(1e50)) gain = gain.div(2.5e9)
 
 
