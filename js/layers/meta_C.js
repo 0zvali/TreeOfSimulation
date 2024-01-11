@@ -119,10 +119,12 @@ upgrades: {
             effect() {
                 let eff = (player.points.max(1).add(1).pow(0.07)).max(1).min(150);
                 if (hasUpgrade('mC', 14)) eff = (player.points.max(1).add(1).pow(0.07).times(4)).max(1).min(150);
+                if (hasUpgrade('mE', 15)) eff = (player.points.max(1).add(1).pow(0.07).times(4)).max(1).min(650000);
             return eff
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(150) ? "(Capped)" : "";
+                if (hasUpgrade('mE', 15)) capped = upgradeEffect(this.layer, this.id).gte(650000) ? "(2nd Cap)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
@@ -137,10 +139,12 @@ upgrades: {
             effect() {
                 let eff = (player.mC.points.max(1).add(1).pow(0.085)).max(1).min(999);
                 if (hasUpgrade('mC', 16)) eff = (player.mC.points.max(1).add(1).pow(0.085).times(upgradeEffect('mC', 16))).max(1).min(999);
+                if (hasUpgrade('mE', 15)) eff = (player.mC.points.max(1).add(1).pow(0.085).times(upgradeEffect('mC', 16))).max(1).min(9.99e9);
                 return eff
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(999) ? "(Capped)" : "";
+                if (hasUpgrade('mE', 15)) capped = upgradeEffect(this.layer, this.id).gte(9.99e9) ? "(2nd Cap)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
@@ -218,10 +222,13 @@ upgrades: {
             description: "Meta-Crystal Effect is slightly better based on formula, also increase MC gain by the multicative of 2.3",
             cost: new Decimal(2000),
             effect() {
-                return (player.points.max(0.9).add(1).pow(0.07).div(1.2)).max(0.9).min(70.70);
+                let eff = (player.points.max(0.9).add(1).pow(0.07).div(1.2)).max(0.9).min(70.70);
+                if (hasUpgrade('mE', 15)) eff = (player.points.max(0.9).add(1).pow(0.07).div(1.2)).max(0.9).min(1717);
+                return eff
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(70.70) ? "(Capped)" : "";
+                if (hasUpgrade('mE', 15)) capped = upgradeEffect(this.layer, this.id).gte(1717) ? "(2nd Cap)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
