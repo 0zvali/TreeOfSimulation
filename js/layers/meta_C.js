@@ -34,6 +34,7 @@ addLayer("mC", {
         if (hasUpgrade('mC', 24)) mult = mult.times(upgradeEffect('mC', 24).div(2))
         if (hasUpgrade('mE', 11)) mult = mult.times(upgradeEffect('mE', 11).div(2.4))
         if (hasMilestone('mC', 13)) mult = mult.times(tmp.mC.effect.pow(0.06))
+        if (hasUpgrade('mE', 23)) mult = mult.times(upgradeEffect('mE', 23))
         mult = mult.times(buyableEffect('mE', 11))
         return mult
     },
