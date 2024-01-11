@@ -221,7 +221,7 @@ upgrades: {
             },
         },
         23: {
-            title: "Meta-Snapper",
+            title: "Meta-Honeycomb",
             description: "Meta-Crystal(s) Gain is increased based on how many Meta-Experiments Upgrades you have",
             cost: new Decimal(3.45e8),
             effect() {
