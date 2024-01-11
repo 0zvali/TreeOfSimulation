@@ -225,7 +225,7 @@ upgrades: {
             description: "Meta-Crystal(s) Gain is increased based on how many Meta-Experiments Upgrades you have",
             cost: new Decimal(1.45e9),
             effect() {
-                let eff = (new Decimal(1.6, player.mE.upgrades.length).times(1.8).max(1)).max(1).min(1e15);
+                let eff = (new Decimal(1.6, player.mE.upgrades.length).max(1)).max(1).min(1e15);
                 return eff
             },
             effectDisplay() {
