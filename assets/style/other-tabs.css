@@ -1,8 +1,7 @@
 .hoverBox {
 	position: fixed;
-	top: 100vh;
+	bottom: 15px;
 	left: 10px;
-	transform: translateY(calc(-100% - 10px));
 	padding: 5px;
 	background: rgba(0, 0, 0, 0.6);
 	border-radius: 5px;
@@ -47,7 +46,7 @@
 
 #version {
 	position: fixed;
-	bottom: 55px;
+	bottom: 60px;
 	left: 10px;
 	text-align: center;
 	color: #2ccaff;
