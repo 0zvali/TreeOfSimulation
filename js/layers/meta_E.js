@@ -71,6 +71,7 @@ milestones: {
                 let exp1 = 1.2
                 let exp2 = 1.1005
                 if (hasUpgrade('mE', 13)) exp1 = 1.15 // hell yea!
+                if (getBuyableAmount(this.layer, this.id).gte(20)) exp2 = 1.125
                 return new Decimal(2).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
@@ -99,6 +100,7 @@ milestones: {
             unlocked() { return hasUpgrade("mE", 13) },
             cost(x) {
                 let exp2 = 1.2
+                if (getBuyableAmount(this.layer, this.id).gte(15)) exp2 = 1.25
                 return new Decimal(50).mul(Decimal.pow(1.2, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
@@ -210,5 +212,30 @@ upgrades: {
                 return hasUpgrade('mE', 16)
             },
         },
+        22: {
+            title: "Cap Breaker II",
+            description: "Break 'Meta-Reformation' & 'Meta-Strength' Cap for the first time. Whilst breaking both caps; 'Meta-Frostically' has a higher effect: with the higher effect it now has, it boosts 'Beelusioning Illusion' with a decreased effect.",
+            cost: new Decimal(17500000),
+            unlocked(){
+                return hasUpgrade('mE', 21)
+            },
+        },
+        23: {
+            title: "Meta-Snapper",
+            description: "Meta-Crystal(s) Gain is increased based on how many Meta-Experiments Upgrades you have",
+            cost: new Decimal(1.45e9),
+            effect() {
+                let eff = (new Decimal(1.1, player.mE.upgrades.length).times(1.5).max(1)).max(1).min(1e15);
+                return eff
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(1e15) ? "(Experiment Cap)" : "";
+                let text = `+${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('mE', 22)
+            },
+        }
     },
 })
