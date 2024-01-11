@@ -63,11 +63,7 @@ addLayer("mC", {
     ],
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
-        if ((hasMilestone('mC', 11)) && resettingLayer == "mE") player.mC.milestones.push('11')
-        if ((hasMilestone('mC', 12)) && resettingLayer == "mE") player.mC.milestones.push('12')
-        if ((hasMilestone('mC', 13)) && resettingLayer == "mE") player.mC.milestones.push('13')
-    },
-
+       },
     layerShown() {return true},
     layerShown() {
         let value = false
@@ -76,7 +72,7 @@ addLayer("mC", {
     },
 milestones: {
         11: {
-            requirementDescription: "1e21 Meta-Crystals",
+            requirementDescription: "1e30 Meta-Crystals",
             effectDescription() {
                 let text = "Boost 'Experiment Regime II' by a sly ammount";
                 return text;
@@ -84,10 +80,10 @@ milestones: {
             unlocked(){
                 return hasUpgrade('mE', 16)
               },
-            done() { return player.mC.points.gte(1e21) },
+            done() { return player.mC.points.gte(1e30) },
         },
         12: {
-            requirementDescription: "1e30 Meta-Crystals",
+            requirementDescription: "1e39 Meta-Crystals",
             effectDescription() {
                 let text = "Meta-Experiments gets another effect!";
                 return text;
@@ -95,10 +91,10 @@ milestones: {
             unlocked(){
                 return hasMilestone('mC', 11)
             },
-            done() { return player.mC.points.gte(1e30) },
+            done() { return player.mC.points.gte(1e39) },
         },
         13: {
-            requirementDescription: "1e40 Meta-Crystals",
+            requirementDescription: "1e52 Meta-Crystals",
             effectDescription(){
                 let text = "Meta-Crystal(s) effect now boosts Meta-Crystals by a downgraded rate";
                 return text;
@@ -106,7 +102,7 @@ milestones: {
             unlocked(){
                 return hasMilestone('mC', 12)
             },
-            done(){ return player.mC.points.gte(1e40) },
+            done(){ return player.mC.points.gte(1e52) },
         },
     },
 upgrades: {
