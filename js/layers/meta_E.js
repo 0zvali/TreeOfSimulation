@@ -225,12 +225,12 @@ upgrades: {
             description: "Meta-Crystal(s) Gain is increased based on how many Meta-Experiments Upgrades you have",
             cost: new Decimal(1.45e9),
             effect() {
-                let eff = (new Decimal(1.1, player.mE.upgrades.length).times(1.5).max(1)).max(1).min(1e15);
+                let eff = (new Decimal(1.25, player.mE.upgrades.length).times(1.8).max(1)).max(1).min(1e15);
                 return eff
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(1e15) ? "(Experiment Cap)" : "";
-                let text = `+${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
             unlocked(){
