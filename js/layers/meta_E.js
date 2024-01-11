@@ -18,9 +18,14 @@ addLayer("mE", {
     baseResource: "Meta-Crystals", // Name of resource prestige is based on
     baseAmount() {return player.mC.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.25, // Prestige currency exponent
+    exponent(){ 
+        let expo1 = 0.25
+        if (hasUpgrade('mE', 21)) expo1 = expo1.add(0.05)
+        return expo1
+     }, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
+        if (hasUpgrade('mE', 16)) mult = mult.times(upgradeEffect('mE', 16))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -112,6 +117,7 @@ milestones: {
                 let base2 = x
                 let expo = new Decimal(1.05)
                 if (hasMilestone('mC', 11)) base1 = base1.add(0.33)
+                if (hasUpgrade('mE', 21)) base1 = base1.add(upgradeEffect('mE', 21))
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
             },
@@ -185,6 +191,23 @@ upgrades: {
             },
             unlocked(){
                 return hasUpgrade('mE', 15)
+            },
+        },
+        21: {
+            title: "Meta-Snapper",
+            description: "Lower Meta-Crystal(s) requirement; increase Meta-Experiment Base Exponenet by 0.05; Increase 'Experiment Regime II' effect based on formula",
+            cost: new Decimal(15000),
+            effect() {
+                let eff = (player.mE.points.max(0.01).add(0.01).pow(0.05)).max(0.01).min(2);
+                return eff
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(2) ? "(Capped)" : "";
+                let text = `+${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('mE', 16)
             },
         },
     },
