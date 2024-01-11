@@ -266,7 +266,7 @@ upgrades: {
             effect() {
                 let eff =  (player.points.max(1).add(2).pow(0.026).times(4)).max(1).min(1963.44);
                 if (hasUpgrade('mC', 26)) eff = (player.points.max(1).add(2).pow(0.022).times(4).times(upgradeEffect('mC', 26))).max(1).min(1963.44);
-                if (hasUpgrade('mE', 22)) eff = eff.times(upgradeEffect('mC', 25).div(3.8))
+                if (hasUpgrade('mE', 22)) eff = (player.points.max(1).add(2).pow(0.022).times(4).times(upgradeEffect('mC', 26)).times(upgradeEffect('mC', 25).div(3.8))).max(1).min(1963.44);
                 return eff
             },
             effectDisplay() {
