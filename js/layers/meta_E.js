@@ -223,7 +223,7 @@ upgrades: {
         23: {
             title: "Meta-Snapper",
             description: "Meta-Crystal(s) Gain is increased based on how many Meta-Experiments Upgrades you have",
-            cost: new Decimal(1.45e9),
+            cost: new Decimal(3.45e8),
             effect() {
                 let eff = (new Decimal.pow(1.35, player.mE.upgrades.length).max(1)).max(1).min(1e15);
                 return eff
