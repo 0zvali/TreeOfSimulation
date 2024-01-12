@@ -69,7 +69,7 @@ milestones: {
         12: {
             requirementDescription: "10 'Experimental Regime III' Bought",
             effectDescription: `'Experimental Regime III' Effect is stronger, Keep Meta-Crystal(s) Upgrades, Milestones 11 & 12, and passively gain 30% Meta-Crystals.`,
-            done() { return getBuyableAmount('mE', 13).gte(10) },
+            done() { return (getBuyableAmount('mE', 13).gte(10)) },
         },
     },
 buyables: {
