@@ -27,6 +27,8 @@ addLayer("mE", {
         let mult = new Decimal(1)
         if (hasUpgrade('mE', 16)) mult = mult.times(upgradeEffect('mE', 16))
         if (hasUpgrade('mE', 24)) mult = mult.times(64)
+        mult = mult.times(buyableEffect('mE', 13).div(1.5))
+        if (hasUpgrade('mE', 25)) mult = mult.times(upgradeEffect('mE', 25))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -73,7 +75,7 @@ milestones: {
                 let exp2 = 1.1005
                 if (hasUpgrade('mE', 13)) exp1 = 1.15 // hell yea!
                 if (getBuyableAmount(this.layer, this.id).gte(20)) exp2 = 1.125
-                return new Decimal(2).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
+                return new Decimal(2).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).div(buyableEffect("mE", 13)).floor()
             },
             display() {
                 return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Experiments" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Meta-Crystal(s) gain by x" + format(buyableEffect(this.layer, this.id))
@@ -102,7 +104,7 @@ milestones: {
             cost(x) {
                 let exp2 = 1.2
                 if (getBuyableAmount(this.layer, this.id).gte(15)) exp2 = 1.25
-                return new Decimal(50).mul(Decimal.pow(1.2, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
+                return new Decimal(50).mul(Decimal.pow(1.2, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).div(buyableEffect("mE", 13)).floor()
             },
             display() {
                 return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Experiments" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost infect gain by x" + format(buyableEffect(this.layer, this.id))
@@ -123,6 +125,33 @@ milestones: {
                 if (hasUpgrade('mE', 21)) base1 = base1.add(upgradeEffect('mE', 21))
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (hasUpgrade('mE', 24)) eff = base1.pow(Decimal.pow(base2, expo)).times(4)
+                return eff
+            },
+        },
+        13: {
+            title: "Experiment Regime III",
+            unlocked() { return hasUpgrade("mE", 25) },
+            cost(x) {
+                let exp2 = 1.1
+                if (getBuyableAmount(this.layer, this.id).gte(15)) exp2 = 1.15
+                return new Decimal(1.5e8).mul(Decimal.pow(1.125, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
+            },
+            display() {
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Experiments" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: 'Experimental Regime I' & 'Experimental Regime II' cost is /" + format(buyableEffect(this.layer, this.id)) + "cheaper; and increase Meta-Experiment gain by x" + format(buyableEffect(this.layer, this.id).div(1.5)) 
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal (1)
+                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(1.75)
+                let base2 = x
+                let expo = new Decimal(1.05)
+                let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
             },
         },
@@ -245,6 +274,23 @@ upgrades: {
             cost: new Decimal(5e9),
             unlocked(){
                 return hasUpgrade('mE', 23)
+            },
+        },
+        25: {
+            title: "Meta-Experimental Surge",
+            description: "Meta-Experiments boosts itself, also unlock 'Experimental Surge III'",
+            cost: new Decimal(3.45e13),
+            effect() {
+                let eff = (player.mE.points.max(1).add(1).pow(0.027)).max(1).min(1.2e8);
+                return eff
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(1.2e8) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('mE', 24)
             },
         },
     },
