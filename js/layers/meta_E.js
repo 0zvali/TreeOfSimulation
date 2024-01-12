@@ -155,7 +155,7 @@ buyables: {
             },
             effect(x) {
                 let base1 = new Decimal(1.75)
-                if (hasMilestone('mE', 12)) base1 = base1.add(0.12)
+                if (hasMilestone('mE', 12)) base1 = base1.add(0.35)
                 let base2 = x
                 let expo = new Decimal(1.05)
                 let eff = base1.pow(Decimal.pow(base2, expo))
