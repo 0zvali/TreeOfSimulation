@@ -22,9 +22,10 @@ addLayer("mC", {
     baseAmount() {return player.points}, 
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent(){ 
-              let expo = 0.39
-              if (hasUpgrade('mC', 15)) expo = 0.43 
-              if (hasUpgrade('mC', 23)) expo = 0.475 
+              let expo = new Decimal(0.39)
+              if (hasUpgrade('mC', 15)) expo = expo.add(0.04) 
+              if (hasUpgrade('mC', 23)) expo = expo.add(0.035) 
+              if (hasUpgrade('mE', 26)) expo = expo.add(0.075)
               return expo
 }, // Prestige currency exponent (can be changed/adjusted)
     gainMult() { // Calculate the multiplier for main currency from bonuses
@@ -63,6 +64,16 @@ addLayer("mC", {
     hotkeys: [
         {key: "C", description: "shift+C: reset for Meta-Crystals", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+    doReset(resettingLayer) {
+        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
+        if (hasMilestone('mE', 12)) player.mC.upgrades.push("11", "12", "13", "14", "15" ,"16", "21", "22", "23", "24", "25", "26")
+        if (hasMilestone('mE', 12)) player.mC.milestones.push("11", "12")
+    },
+    passiveGeneration() {
+        let value1 = new Decimal(0);
+        if (hasMilestone('mE', 12)) value1 = value1.add(0.3)
+        return value1
+    },
     layerShown() {return true},
     layerShown() {
         let value = false

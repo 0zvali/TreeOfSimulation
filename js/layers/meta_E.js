@@ -42,6 +42,7 @@ addLayer("mE", {
     },
     effectBase() {
         let base = new Decimal(1) 
+        if (hasUpgrade('mE', 26)) base = base.times(4)
         return base
     },
     effectDescription() {
@@ -65,8 +66,13 @@ milestones: {
             effectDescription: `MC Req. /2.5 & 1.2x Infects`,
             done() { return player.mE.points.gte(1) },
         },
+        12: {
+            requirementDescription: "10 'Experimental Regime III' Bought",
+            effectDescription: `'Experimental Regime III' Effect is stronger, Keep Meta-Crystal(s) Upgrades, Milestones 11 & 12, and passively gain 30% Meta-Crystals.`,
+            done() { return getBuyableAmount('mE', 13).gte(10) },
+        },
     },
-    buyables: {
+buyables: {
         11: {
             title: "Experiment Regime I",
             unlocked() { return hasUpgrade("mE", 11) },
@@ -149,6 +155,7 @@ milestones: {
             },
             effect(x) {
                 let base1 = new Decimal(1.75)
+                if (hasMilestone('mE', 12)) base1 = base1.add(0.12)
                 let base2 = x
                 let expo = new Decimal(1.05)
                 let eff = base1.pow(Decimal.pow(base2, expo))
@@ -291,6 +298,14 @@ upgrades: {
             },
             unlocked(){
                 return hasUpgrade('mE', 24)
+            },
+        },
+        26: {
+            title: "Meta-Frostical",
+            description: "Increase Meta-Crystal(s) Exponent by 0.075 & Qintruple Meta-Experiment(s) Effect",
+            cost: new Decimal(1e20),
+            unlocked(){
+                return hasUpgrade('mE', 25)
             },
         },
     },
