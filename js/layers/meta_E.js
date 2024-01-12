@@ -26,6 +26,7 @@ addLayer("mE", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
         if (hasUpgrade('mE', 16)) mult = mult.times(upgradeEffect('mE', 16))
+        if (hasUpgrade('mE', 24)) mult = mult.times(64)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -121,6 +122,7 @@ milestones: {
                 if (hasMilestone('mC', 11)) base1 = base1.add(0.33)
                 if (hasUpgrade('mE', 21)) base1 = base1.add(upgradeEffect('mE', 21))
                 let eff = base1.pow(Decimal.pow(base2, expo))
+                if (hasUpgrade('mE', 24)) eff = base1.pow(Decimal.pow(base2, expo)).times(4)
                 return eff
             },
         },
@@ -236,6 +238,14 @@ upgrades: {
             unlocked(){
                 return hasUpgrade('mE', 22)
             },
-        }
+        },
+        24: {
+            title: "Meta-Azure",
+            description: "wait didn't azure have the ability to duplicate up to 4 times...? 64x Meta-Experiments & 4x 'Experimental Regime II' Effect",
+            cost: new Decimal(5e9),
+            unlocked(){
+                return hasUpgrade('mE', 23)
+            },
+        },
     },
 })
