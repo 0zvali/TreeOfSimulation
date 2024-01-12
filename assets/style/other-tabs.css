@@ -16,7 +16,7 @@
 }
 
 #optionWheel:hover {
-	transform: rotate(1turn);
+	transform: rotate(2turn);
 }
 
 #info {
@@ -30,7 +30,7 @@
 }
 
 #info:hover {
-	scale: 1.1;
+	scale: 1.075;
 }
 
 #discord {
@@ -41,7 +41,8 @@
 }
 
 #discord:hover {
-	scale: 1.1;
+	scale: 1.075;
+	transform: rotate(1turn);
 }
 
 #version {
