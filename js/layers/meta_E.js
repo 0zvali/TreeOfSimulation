@@ -132,7 +132,7 @@ milestones: {
             title: "Experiment Regime III",
             unlocked() { return hasUpgrade("mE", 25) },
             cost(x) {
-                let exp2 = 1.1
+                let exp2 = 1.22
                 if (getBuyableAmount(this.layer, this.id).gte(15)) exp2 = 1.15
                 return new Decimal(1.5e8).mul(Decimal.pow(1.125, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
