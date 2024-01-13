@@ -77,7 +77,7 @@ milestones: {
             requirementDescription: "1.34e22 Meta-Experiments",
             effectDescription: `'Experiment Regime II' has a higher effect, also boost Meta-Experiments by 40% `,
             done() { return player.mE.points.gte(1.34e22) },
-            unlocked() { return hasMilestone('mE', 12},
+            unlocked() { return hasMilestone('mE', 12)},
         },
     },
 buyables: {
