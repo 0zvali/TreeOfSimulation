@@ -86,6 +86,12 @@ milestones: {
             done() { return player.mE.points.gte(3.14e22) },
             unlocked() { return hasMilestone('mE', 13)},
         },
+        15: {
+            requirementDescription: "3.14e25 Meta-Experiments",
+            effectDescription: `'Remove Infect Nerf entirely.`,
+            done() { return player.mE.points.gte(3.14e25) },
+            unlocked() { return hasMilestone('mE', 14)},
+        },
     },
 buyables: {
         11: {
