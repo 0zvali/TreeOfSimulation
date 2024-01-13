@@ -30,6 +30,7 @@ addLayer("mE", {
         mult = mult.times(buyableEffect('mE', 13).div(1.5))
         if (hasUpgrade('mE', 25)) mult = mult.times(upgradeEffect('mE', 25))
         if (hasMilestone('mE', 13)) mult = mult.times(1.4)
+        if (hasMilestone('mE', 14)) mult = mult.times(2.8)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -79,6 +80,12 @@ milestones: {
             done() { return player.mE.points.gte(1.34e22) },
             unlocked() { return hasMilestone('mE', 12)},
         },
+        14: {
+            requirementDescription: "3.14e22 Meta-Experiments",
+            effectDescription: `'Experiment Regime I' has a higher effect, also boost Meta-Experiments by 180% `,
+            done() { return player.mE.points.gte(3.14e22) },
+            unlocked() { return hasMilestone('mE', 13)},
+        },
     },
 buyables: {
         11: {
@@ -108,6 +115,7 @@ buyables: {
                 let expo = new Decimal(1.012)
                 if (hasUpgrade('mE', 12)) base1 = base1.add(0.12)
                 if (hasUpgrade('mE', 14)) base1 = base1.add(0.15)
+                if (hasMilestone('mE', 14)) base1 = base1.add(0.1)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
             },
