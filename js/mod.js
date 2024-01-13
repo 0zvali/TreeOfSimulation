@@ -517,7 +517,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"<a>Endgame: 5th Distortion Upgrade (Row 3 Upgrades) - Timeline 2</a>",
+	"<a>Endgame: 5th Distortion Upgrade (Row 3 Upgrades) - Submergance Timeline</a>",
 	function() {
 		if (inChallenge('CT', 11))
 		return "You are currently in: 'Explosive Floors' (Infects /2.5)"
@@ -540,7 +540,7 @@ var displayThings = [
 	  },
 	function() {
 		if (hasMilestone('O', 11))
-		return "<br><br><br>"
+		return "<br><br>"
 		if (player.CT.points.gte(2))
 		return "You are in Timeline " + formatWhole(player.CT.points.plus(1)) + "<br><br><br>"
 		else
