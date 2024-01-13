@@ -29,6 +29,7 @@ addLayer("mE", {
         if (hasUpgrade('mE', 24)) mult = mult.times(64)
         mult = mult.times(buyableEffect('mE', 13).div(1.5))
         if (hasUpgrade('mE', 25)) mult = mult.times(upgradeEffect('mE', 25))
+        if (hasMilestone('mE', 13)) mult = mult.times(1.4)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -70,6 +71,13 @@ milestones: {
             requirementDescription: "10 'Experimental Regime III' Bought",
             effectDescription: `'Experimental Regime III' Effect is stronger, Keep Meta-Crystal(s) Upgrades, Milestones 11 & 12, and passively gain 30% Meta-Crystals.`,
             done() { return (getBuyableAmount('mE', 13).gte(10)) },
+            unlocked(){ return (hasUpgrade('mE', 25) && hasMilestone('mE', 11))},
+        },
+        13: {
+            requirementDescription: "1.34e22 Meta-Experiments",
+            effectDescription: `'Experiment Regime II' has a higher effect, also boost Meta-Experiments by 40% `,
+            done() { return player.mE.points.gte(1.34e22) },
+            unlocked() { return hasMilestone('mE', 12},
         },
     },
 buyables: {
@@ -129,6 +137,7 @@ buyables: {
                 let expo = new Decimal(1.05)
                 if (hasMilestone('mC', 11)) base1 = base1.add(0.33)
                 if (hasUpgrade('mE', 21)) base1 = base1.add(upgradeEffect('mE', 21))
+                if (hasMilestone('mE', 13)) base1 = base1.add(0.25)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (hasUpgrade('mE', 24)) eff = base1.pow(Decimal.pow(base2, expo)).times(4)
                 return eff
