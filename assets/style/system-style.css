@@ -210,7 +210,7 @@ ul {
 	pointer-events:auto;
 	position: absolute;
 	right: 55px;
-	top: 65px;
+	bottom: 65px;
 	background-color: transparent;
 }
 
