@@ -82,7 +82,7 @@ milestones: {
         },
         14: {
             requirementDescription: "3.14e22 Meta-Experiments",
-            effectDescription: `'Experiment Regime I' has a higher effect, also boost Meta-Experiments by 180% `,
+            effectDescription: `'Experiment Regime I' has a higher effect, boost Meta-Experiments by 180%, and decrease 'Experiment Regime II' cost significantly.`,
             done() { return player.mE.points.gte(3.14e22) },
             unlocked() { return hasMilestone('mE', 13)},
         },
@@ -124,9 +124,10 @@ buyables: {
             title: "Experiment Regime II",
             unlocked() { return hasUpgrade("mE", 13) },
             cost(x) {
-                let exp2 = 1.2
-                if (getBuyableAmount(this.layer, this.id).gte(15)) exp2 = 1.25
-                return new Decimal(50).mul(Decimal.pow(1.2, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).div(buyableEffect("mE", 13)).floor()
+                let exp2 = new Decimal(1.2)
+                if (getBuyableAmount(this.layer, this.id).gte(15)) exp2 = exp2.add(0.05)
+                if (hasMilestone('mE',
+                return new exp2 = exp2.minus(0.075) Decimal(50).mul(Decimal.pow(1.2, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).div(buyableEffect("mE", 13)).floor()
             },
             display() {
                 return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Experiments" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost infect gain by x" + format(buyableEffect(this.layer, this.id))
