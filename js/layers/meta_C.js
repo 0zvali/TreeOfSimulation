@@ -69,6 +69,8 @@ addLayer("mC", {
         if (hasMilestone('mE', 12)) player.mC.upgrades.push("11", "12", "13", "14", "15" ,"16", "21", "22", "23", "24", "25", "26")
         if (hasMilestone('mE', 12)) player.mC.milestones.push("11", "12")
     },
+       if (hasMilestone('mE', 16)) player.mC.milestones.push("13")
+    },
     passiveGeneration() {
         let value1 = new Decimal(0);
         if (hasMilestone('mE', 12)) value1 = value1.add(0.3)
