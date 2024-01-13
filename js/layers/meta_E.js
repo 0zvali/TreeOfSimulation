@@ -107,7 +107,7 @@ buyables: {
                 let exp1 = new Decimal(1.2)
                 let exp2 = new Decimal (1.1005)
                 if (hasUpgrade('mE', 13)) exp1 = exp1.minus(0.05) // hell yea!
-                if (hasUpgrade('mE', 16)) exp1 = exp1.minus(0.02) // hell yea!
+                if (hasMilestone('mE', 16)) exp1 = exp1.minus(0.04) // hell yea!
                 if (getBuyableAmount(this.layer, this.id).gte(20)) exp2 = exp2.add(0.0245)
                 return new Decimal(2).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).div(buyableEffect("mE", 13)).floor()
             },
