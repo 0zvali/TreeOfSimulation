@@ -517,7 +517,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"<a>Endgame: 5th Distortion Upgrade (Row 3 Upgrades) - Submergance Timeline</a>",
+	"<a>Endgame: 4th Distortion Upgrade (Row 2 Upgrades) - Submergance Timeline</a>",
 	function() {
 		if (inChallenge('CT', 11))
 		return "You are currently in: 'Explosive Floors' (Infects /2.5)"
@@ -569,7 +569,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return hasUpgrade('D', 25)
+	return hasUpgrade('D', 24)
 }
 
 
