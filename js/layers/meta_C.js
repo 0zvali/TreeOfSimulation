@@ -57,7 +57,7 @@ addLayer("mC", {
     },
     effectDescription() {
         let dis = "which boosts infect gain by " + format(tmp.mC.effect) + "x"
-        if (hasMilestone("mC", 13)) dis = "which boosts infect gain by " + format(tmp.mC.effect) + "x; also boost Meta-Crystals by " + format(tmp.mC.effect.pow(0.06))
+        if (hasMilestone("mC", 13)) dis = "which boosts infect gain by " + format(tmp.mC.effect) + "x; also boost Meta-Crystals by " + format(tmp.mC.effect.pow(0.06)) + "x."
         return dis
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
