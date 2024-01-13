@@ -2,7 +2,6 @@ addLayer("a", {
         startData() { return {
             unlocked: true,
         }},
-        },
         tabFormat: {
             "Achievements": {
                 content: [
