@@ -517,7 +517,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"<a>Endgame: 1e115,700 Infects</a>",
+	"<a>Endgame: 6th Distortion Upgrade (Row 3 Upgrades) - Timeline 2</a>",
 	function() {
 		if (inChallenge('CT', 11))
 		return "You are currently in: 'Explosive Floors' (Infects /2.5)"
@@ -569,7 +569,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte("1e115600")
+	return hasUpgrade('D', 36)
 }
 
 
