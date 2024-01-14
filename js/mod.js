@@ -509,6 +509,7 @@ if (hasMilestone('mE', 15)) gain = gain.times(player.points.minus(1e10).add(1).p
 	gain = gain.times(buyableEffect('mE', 12))
 if (hasMilestone('mE', 16)) gain = gain.times(150)
 if (hasUpgrade('mE', 33)) gain = gain.times(120)
+if (hasUpgrade('mE', 34)) gain = gain.times(1e12)
 	return gain
 }
 
