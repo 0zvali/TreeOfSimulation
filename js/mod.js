@@ -507,6 +507,7 @@ function getPointGen() {
 	if (hasUpgrade('mE', 14)) gain = gain.times(9.2)
 if (hasMilestone('mE', 15)) gain = gain.times(player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35).times(12250000).times(2.5e9)
 	gain = gain.times(buyableEffect('mE', 12))
+if (hasMilestone('mE', 16)) gain = gain.times(150)
 	return gain
 }
 
