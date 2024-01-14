@@ -14,6 +14,7 @@ addLayer("mC", {
         if (hasUpgrade('mC', 13)) requirement = requirement.div(upgradeEffect('mC', 13))
         if (hasMilestone('mE', 11)) requirement = requirement.div(2.5)
         if (hasUpgrade('mE', 16)) requirement = requirement.div(9.5)
+        requirement = requirement.div(buyableEffect('mE', 14))
         return requirement
         
     }, // Can be a function that takes requirement increases into account
