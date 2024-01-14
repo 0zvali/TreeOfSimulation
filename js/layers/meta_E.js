@@ -339,5 +339,15 @@ upgrades: {
                 return hasUpgrade('mE', 25)
             },
         },
+        27: {
+            title: "Meta-Frostical",
+            description: "Increase Meta-Crystal(s) Exponent by 0.075 & Qintruple Meta-Experiment(s) Effect",
+            cost: new Decimal(1e100),
+            currencyDisplayName: "infects",
+            currencyInternalName: "points",
+            unlocked(){
+                return hasUpgrade('mE', 26) && hasMilestone('mE', 16)
+            },
+        },
     },
 })
