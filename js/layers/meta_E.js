@@ -94,7 +94,7 @@ milestones: {
         },
         16: {
             requirementDescription: "3.14e35 Meta-Experiments",
-            effectDescription: `Keep the 3rd Crystal Milestone; decrease the price of 'Experimental Regime I' slightly; and unlock another row of Meta-Experiment Upgrades`,
+            effectDescription: `Keep the 3rd Crystal Milestone; decrease the price of 'Experimental Regime I' slightly; unlock another row of Meta-Experiment Upgrades; and 150x infect gain.`,
             done() { return player.mE.points.gte(3.14e35) },
             unlocked() { return hasMilestone('mE', 15)},
         },
