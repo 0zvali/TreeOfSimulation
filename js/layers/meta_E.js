@@ -29,6 +29,7 @@ addLayer("mE", {
         if (hasUpgrade('mE', 24)) mult = mult.times(64)
         mult = mult.times(buyableEffect('mE', 13).div(1.5))
         if (hasUpgrade('mE', 25)) mult = mult.times(upgradeEffect('mE', 25))
+        if (hasUpgrade('mE', 32)) mult = mult.times(upgradeEffect('mE', 32))
         if (hasMilestone('mE', 13)) mult = mult.times(1.4)
         if (hasMilestone('mE', 14)) mult = mult.times(2.8)
         return mult
@@ -128,6 +129,7 @@ buyables: {
                 let expo = new Decimal(1.012)
                 if (hasUpgrade('mE', 12)) base1 = base1.add(0.12)
                 if (hasUpgrade('mE', 14)) base1 = base1.add(0.15)
+                if (hasUpgrade('mE', 32)) base1 = base1.add(0.35)
                 if (hasMilestone('mE', 14)) base1 = base1.add(0.1)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
@@ -347,6 +349,23 @@ upgrades: {
             currencyInternalName: "points",
             unlocked(){
                 return hasUpgrade('mE', 26) && hasMilestone('mE', 16)
+            },
+        },
+        32: {
+            title: "Meta-Experimental Surge II",
+            description: "Meta-Experiments boosts itself again, buff 'Experimental Regime I' significantly.",
+            cost: new Decimal(1.33e48),
+            effect() {
+                let eff = (player.mE.points.max(1).add(1).pow(0.036)).max(1).min(1.2e15);
+                return eff
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(1.2e15) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('mE', 31)
             },
         },
     },
