@@ -205,7 +205,7 @@ buyables: {
                 return new Decimal(1e52).mul(Decimal.pow(1.125, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Experiments" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Decrease Meta-Crystals & Meta-Experiments requirement by /" + format(buyableEffect(this.layer, this.id)) + " and boost all three other buyables by " + format(buyableEffect(this.layer, this.id).pow(0.2))
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Experiments" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Decrease Meta-Crystals & Meta-Experiments requirement by /" + format(buyableEffect(this.layer, this.id)) + " and boost all three other buyables by " + format(buyableEffect(this.layer, this.id).pow(0.2)) + "x"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
