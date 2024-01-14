@@ -88,13 +88,13 @@ milestones: {
         },
         15: {
             requirementDescription: "3.14e25 Meta-Experiments",
-            effectDescription: `'Remove Infect Nerf entirely.`,
+            effectDescription: `Remove Infect Nerf entirely.`,
             done() { return player.mE.points.gte(3.14e25) },
             unlocked() { return hasMilestone('mE', 14)},
         },
         16: {
             requirementDescription: "3.14e35 Meta-Experiments",
-            effectDescription: `Keep the 3rd Crystal Milestone; decrease the price of 'Experimental Regime I' slightly; unlock another row of Meta-Experiment Upgrades; and 150x infect gain.`,
+            effectDescription: `Keep the 3rd Meta-Crystal(s) Milestone; decrease the price of 'Experimental Regime I'; unlock another row of Meta-Experiment(s) Upgrades; and 150x infect gain.`,
             done() { return player.mE.points.gte(3.14e35) },
             unlocked() { return hasMilestone('mE', 15)},
         },
