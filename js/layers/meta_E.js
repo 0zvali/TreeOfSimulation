@@ -341,7 +341,7 @@ upgrades: {
         },
         31: {
             title: "Cap Breaker III",
-            description: "Power the Current Cap of all Meta-Crystal Upgrades",
+            description: "^2 all mC Upgrades on the first Row",
             cost: new Decimal(1e100),
             currencyDisplayName: "infects",
             currencyInternalName: "points",
