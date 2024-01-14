@@ -340,8 +340,8 @@ upgrades: {
             },
         },
         31: {
-            title: "Meta-Frostical",
-            description: "Increase Meta-Crystal(s) Exponent by 0.075 & Qintruple Meta-Experiment(s) Effect",
+            title: "Cap Breaker III",
+            description: "Power the Current Cap of all Meta-Crystal Upgrades",
             cost: new Decimal(1e100),
             currencyDisplayName: "infects",
             currencyInternalName: "points",
