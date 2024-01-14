@@ -38,6 +38,7 @@ addLayer("mC", {
         if (hasMilestone('mC', 13)) mult = mult.times(tmp.mC.effect.pow(0.06))
         if (hasUpgrade('mE', 23)) mult = mult.times(upgradeEffect('mE', 23))
         mult = mult.times(buyableEffect('mE', 11))
+        if (hasUpgrade('mE', 33)) mult = mult.times(28)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
