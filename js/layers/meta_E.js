@@ -11,6 +11,7 @@ addLayer("mE", {
     color: "#9aa3cd",
     requires(){ 
         let requirement = new Decimal("5e10")
+        requirement = requirement.div(buyableEffect('mE', 14))
         return requirement
         
     }, // Can be a function that takes requirement increases into account
@@ -131,7 +132,7 @@ buyables: {
                 if (hasUpgrade('mE', 14)) base1 = base1.add(0.15)
                 if (hasUpgrade('mE', 32)) base1 = base1.add(0.35)
                 if (hasMilestone('mE', 14)) base1 = base1.add(0.1)
-                let eff = base1.pow(Decimal.pow(base2, expo))
+                let eff = base1.pow(Decimal.pow(base2, expo)).times(buyableEffect('mE', 14).pow(0.2))
                 return eff
             },
         },
@@ -163,7 +164,7 @@ buyables: {
                 if (hasUpgrade('mE', 21)) base1 = base1.add(upgradeEffect('mE', 21))
                 if (hasMilestone('mE', 13)) base1 = base1.add(0.25)
                 let eff = base1.pow(Decimal.pow(base2, expo))
-                if (hasUpgrade('mE', 24)) eff = base1.pow(Decimal.pow(base2, expo)).times(4)
+                if (hasUpgrade('mE', 24)) eff = base1.pow(Decimal.pow(base2, expo)).times(4).times(buyableEffect('mE', 14).pow(0.2))
                 return eff
             },
         },
@@ -191,6 +192,32 @@ buyables: {
                 if (hasMilestone('mE', 12)) base1 = base1.add(0.35)
                 let base2 = x
                 let expo = new Decimal(1.05)
+                let eff = base1.pow(Decimal.pow(base2, expo)).times(buyableEffect('mE', 14).pow(0.2))
+                return eff
+            },
+        },
+        14: {
+            title: "Experiment Regime IV",
+            unlocked() { return hasUpgrade("mE", 33) },
+            cost(x) {
+                let exp2 = 2.5
+                return new Decimal(1e52).mul(Decimal.pow(1.125, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
+            },
+            display() {
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Experiments" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Decrease Meta-Crystals & Meta-Experiments requirement by /" + format(buyableEffect(this.layer, this.id)) + " and boost all three other buyables by " + format(buyableEffect(this.layer, this.id).pow(0.2))
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal (1)
+                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(5.5)
+                let base2 = x
+                let expo = new Decimal(1.1)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
             },
@@ -366,6 +393,14 @@ upgrades: {
             },
             unlocked(){
                 return hasUpgrade('mE', 31)
+            },
+        },
+        33: {
+            title: "Meta-Somby"
+            description: "120x Infects, 28x Meta-Crystals, 7x Meta-Experiments, and unlock 'Experimental Regime IV'",
+            cost: new Decimal(1.33e53),
+            unlocked(){
+                return hasUpgrade('mE', 32)
             },
         },
     },
