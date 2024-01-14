@@ -397,7 +397,7 @@ upgrades: {
             },
         },
         33: {
-            title: "Meta-Somby"
+            title: "Meta-Somby",
             description: "120x Infects, 28x Meta-Crystals, 7x Meta-Experiments, and unlock 'Experimental Regime IV'",
             cost: new Decimal(1.33e53),
             unlocked(){
