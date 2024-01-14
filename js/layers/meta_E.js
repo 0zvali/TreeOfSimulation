@@ -341,7 +341,7 @@ upgrades: {
         },
         31: {
             title: "Cap Breaker III",
-            description: "^2 all mC Upgrades on the first Row",
+            description: "Power the cap by 2 on the first row of mC Upgrades.",
             cost: new Decimal(1e100),
             currencyDisplayName: "infects",
             currencyInternalName: "points",
