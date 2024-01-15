@@ -229,7 +229,7 @@ milestones: {
     },
     22: {
         title: "Lovegen",
-        description: "Quadtruple the Experiment Effect",
+        description: "Quadruple the Experiment Effect",
         cost: new Decimal(45),
         unlocked(){
             return hasUpgrade('F',21)
