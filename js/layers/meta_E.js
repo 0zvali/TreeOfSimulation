@@ -135,6 +135,7 @@ buyables: {
                 if (hasUpgrade('mE', 32)) base1 = base1.add(0.35)
                 if (hasMilestone('mE', 14)) base1 = base1.add(0.1)
                 let eff = base1.pow(Decimal.pow(base2, expo)).times(buyableEffect('mE', 14).pow(0.2))
+                if (hasUpgrade('mE', 35)) eff = base1.pow(Decimal.pow(base2, expo)).times(buyableEffect('mE', 14).pow(0.2)).times(25)
                 return eff
             },
         },
@@ -195,6 +196,7 @@ buyables: {
                 let base2 = x
                 let expo = new Decimal(1.05)
                 let eff = base1.pow(Decimal.pow(base2, expo)).times(buyableEffect('mE', 14).pow(0.2))
+                if (hasUpgrade('mE', 35)) eff = base1.pow(Decimal.pow(base2, expo)).times(buyableEffect('mE', 14).pow(0.2)).times(6.4) 
                 return eff
             },
         },
@@ -411,6 +413,14 @@ upgrades: {
             cost: new Decimal(3.5e58),
             unlocked(){
                 return hasUpgrade('mE', 33)
+            },
+        },
+        35: {
+            title: "Meta-Experimental Boost II",
+            description: "25x 'Experiment Regime I' Effect & 6.4x 'Experiment III' Effect",
+            cost: new Decimal(1.3e87),
+            unlocked(){
+                return hasUpgrade('mE', 34)
             },
         },
     },
