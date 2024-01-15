@@ -25,6 +25,40 @@ let changelog = `<h1>Changelog:</h1><br>
 
 <div class="link" onclick="showTab('info-tab')">Settings</div><br><br>
 
+		<h1>v3.0: Distorted Reality</h1><br>
+- Added 2 More Layers<br>
+- Added more Distortion Content<br>
+- Refixed 2 Distortion Upgrade Bugs<br>
+- Refixed 2 Obfuscation Bugs<br>
+- Refixed 3 Weapon Bugs<br>
+- Refixed Distortion Text<br>
+- Readjusted 'Distortion Rows 2 & 3' Catagory<br>
+- Refixed 'R3alIz@ti0n' Challenge slightly.<br>
+- Refixed Distortion causing inflation<br>
+- Refixed 'Hallway C' Cost & Effect<br>
+- Readjusted Positions for Bars in 'Distortion Rows 2 & 3'<br>
+- Moved Achievements to another area; I.e Hoverbox (Achievement Icon)<br>
+- Fixed 3 Achievements<br>
+- Refixed 2 Milestones<br>
+- Added 'Crediting'<br>
+- Added 'Inspired By'<br>
+- Refixed CSS slightly<br>
+- Refined Pre-Timeline 3 Gameplay<br>
+- Fixed Endgame Bug<br>
+- Readjusted Mobile Mode<br>
+- Made Mobile Mode easier to navigate.<br>
+- Fixed Obfuscation Bug in an CT Challenge.<br>
+- Fixed 19 other bugs or issues causing disruption or either game resetting.<br>
+- Fixed devSpeed at later parts of the game. <a>:)</a><br>
+- Added Settings Link in Changelog for bug purposes/ Mobile Mode<br>
+- Refixed 4th Distortion Upgrade<br>
+- Fixed 1 Random Upgrade Effect causing higher balancing.<br>
+- Fixed 2 Bugs Concluding Mobile Mode<br>
+- Readjusted Text for Mobile & Desktop Mode<br>
+- Introduction to Buyables & Cap Breakers<br>
+- <a>Endgame: 7th Meta-Experiment Milestone (Timeline 3)</a>
+
+
 		<h2>v2.3: Distorted Reality</h2><br>
 			- Added a new Layer<br>
 			- Fixed 'Soul Shield' Challenge again<br>
@@ -521,7 +555,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"<a>Endgame: 4th Distortion Upgrade (Row 2 Upgrades) - Submergance Timeline</a>",
+	"<a>Endgame: 7th Meta-Experiment Milestone (Timeline 3)</a>",
 	function() {
 		if (inChallenge('CT', 11))
 		return "You are currently in: 'Explosive Floors' (Infects /2.5)"
@@ -573,7 +607,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return hasUpgrade('D', 24)
+	return hasMilestone('mE', 17)
 }
 
 
