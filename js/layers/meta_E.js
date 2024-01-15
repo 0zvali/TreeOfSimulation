@@ -35,6 +35,7 @@ addLayer("mE", {
         if (hasMilestone('mE', 14)) mult = mult.times(2.8)
         if (hasUpgrade('mE', 33)) mult = mult.times(7)
         if (hasUpgrade('mE', 34)) mult = mult.times(1e15)
+        if (hasUpgrade('mE', 36)) mult = mult.times(1e9)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -421,6 +422,14 @@ upgrades: {
             cost: new Decimal(1.3e87),
             unlocked(){
                 return hasUpgrade('mE', 34)
+            },
+        },
+        36: {
+            title: "Meta-Experimental Boost III",
+            description: "1e9x Meta-Experiments & 5.5x Infects",
+            cost: new Decimal(5e88),
+            unlocked(){
+                return hasUpgrade('mE', 35)
             },
         },
     },
