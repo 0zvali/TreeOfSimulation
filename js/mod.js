@@ -12,8 +12,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "2.3",
-	name: "Distorted Reality",
+	num: "3.0",
+	name: "Metaful Lane",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -25,7 +25,7 @@ let changelog = `<h1>Changelog:</h1><br>
 
 <div class="link" onclick="showTab('info-tab')">Settings</div><br><br>
 
-		<h1>v3.0: Distorted Reality</h1><br>
+		<h1>v3.0: Metaful Lane</h1><br>
 - Added 2 More Layers<br>
 - Added more Distortion Content<br>
 - Refixed 2 Distortion Upgrade Bugs<br>
