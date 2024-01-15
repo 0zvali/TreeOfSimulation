@@ -56,7 +56,7 @@ let changelog = `<h1>Changelog:</h1><br>
 - Fixed 2 Bugs Concluding Mobile Mode<br>
 - Readjusted Text for Mobile & Desktop Mode<br>
 - Introduction to Buyables & Cap Breakers<br>
-- <a>Endgame: 7th Meta-Experiment Milestone (Timeline 3)</a>
+- <a>Endgame: 7th Meta-Experiment Milestone (Timeline 3)</a><br><br>
 
 
 		<h2>v2.3: Distorted Reality</h2><br>
