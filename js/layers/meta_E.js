@@ -103,11 +103,11 @@ milestones: {
             done() { return player.mE.points.gte(3.14e35) },
             unlocked() { return hasMilestone('mE', 15)},
         },
-        16: {
+        17: {
             requirementDescription: "1e99 Meta-Experiments (Current Endgame)",
             effectDescription: `Unlock Meta-Humans (This will NOT unlock)`,
             done() { return player.mE.points.gte(3.14e110) },
-            unlocked() { return hasUpgrade('mE', 36) && hasMilestone('mE' 15)},
+            unlocked() { return hasUpgrade('mE', 36) && hasMilestone('mE' 16)},
         },
     },
 buyables: {
