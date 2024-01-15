@@ -510,6 +510,7 @@ if (hasMilestone('mE', 15)) gain = gain.times(player.points.minus(1e10).add(1).p
 if (hasMilestone('mE', 16)) gain = gain.times(150)
 if (hasUpgrade('mE', 33)) gain = gain.times(120)
 if (hasUpgrade('mE', 34)) gain = gain.times(1e12)
+if (hasUpgrade('mE', 36)) gain = gain.times(5.5)
 	return gain
 }
 
