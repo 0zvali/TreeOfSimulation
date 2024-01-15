@@ -420,7 +420,7 @@ addLayer("D", {
                 return title
             },
             description: "1e390x Souls & Souls boosts Explosives significantly (Cap is 1e394500x), unlock 2 Distortion Milestones",
-            cost: new Decimal(2.9e35),
+            cost: new Decimal(2.9e12),
             effect() {
                 let effect1 = (player.SL.points.max(1).add(1).pow(0.032)).max(1).min("1e394500");
                 return effect1
