@@ -11,7 +11,7 @@ addLayer("mE", {
     color: "#9aa3cd",
     requires(){ 
         let requirement = new Decimal("5e10")
-        requirement = requirement.div(buyableEffect('mE', 14))
+        if (getBuyableAmount('mE', 14).gte(1)) requirement = requirement.div(buyableEffect('mE', 14))
         return requirement
         
     }, // Can be a function that takes requirement increases into account
@@ -28,7 +28,7 @@ addLayer("mE", {
         let mult = new Decimal(1)
         if (hasUpgrade('mE', 16)) mult = mult.times(upgradeEffect('mE', 16))
         if (hasUpgrade('mE', 24)) mult = mult.times(64)
-        mult = mult.times(buyableEffect('mE', 13).div(1.5))
+        if (getBuyableAmount('mE', 13).gte(1)) mult = mult.times(buyableEffect('mE', 13).div(1.5))
         if (hasUpgrade('mE', 25)) mult = mult.times(upgradeEffect('mE', 25))
         if (hasUpgrade('mE', 32)) mult = mult.times(upgradeEffect('mE', 32))
         if (hasMilestone('mE', 13)) mult = mult.times(1.4)
