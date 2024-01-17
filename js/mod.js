@@ -12,7 +12,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "3.0",
+	num: "3.0.0a",
 	name: "Metaful Lane",
 }
 
@@ -24,6 +24,11 @@ let changelog = `<h1>Changelog:</h1><br>
 		a = bug/mechanic fixes<br><br>
 
 <div class="link" onclick="showTab('info-tab')">Settings</div><br><br>
+
+	<h3>v3.0.0a: Metaful Lane</h3><br>
+- Fixed Meta-Experiments having a higher price than it's suppost to.
+- Meta-Crystals having a lower effect has been fixed.
+- Meta-Crystals price being significantly lower due to mE Buyables has been fixed.
 
 		<h1>v3.0: Metaful Lane</h1><br>
 - Added 2 More Layers<br>
