@@ -26,9 +26,9 @@ let changelog = `<h1>Changelog:</h1><br>
 <div class="link" onclick="showTab('info-tab')">Settings</div><br><br>
 
 	<h3>v3.0.0a: Metaful Lane</h3><br>
-- Fixed Meta-Experiments having a higher price than it's suppost to.
-- Meta-Crystals having a lower effect has been fixed.
-- Meta-Crystals price being significantly lower due to mE Buyables has been fixed.
+- Fixed Meta-Experiments having a higher price than it's suppost to.<br>
+- Meta-Crystals having a lower effect has been fixed.<br>
+- Meta-Crystals price being significantly lower due to mE Buyables has been fixed.<br><br>
 
 		<h1>v3.0: Metaful Lane</h1><br>
 - Added 2 More Layers<br>
