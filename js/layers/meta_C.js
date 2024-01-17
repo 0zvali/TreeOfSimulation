@@ -14,7 +14,7 @@ addLayer("mC", {
         if (hasUpgrade('mC', 13)) requirement = requirement.div(upgradeEffect('mC', 13))
         if (hasMilestone('mE', 11)) requirement = requirement.div(2.5)
         if (hasUpgrade('mE', 16)) requirement = requirement.div(9.5)
-        requirement = requirement.div(buyableEffect('mE', 14))
+        if (getBuyableAmount('mE', 14).gte(1)) requirement = requirement.div(buyableEffect('mE', 14))
         return requirement
         
     }, // Can be a function that takes requirement increases into account
@@ -37,7 +37,7 @@ addLayer("mC", {
         if (hasUpgrade('mE', 11)) mult = mult.times(upgradeEffect('mE', 11).div(2.4))
         if (hasMilestone('mC', 13)) mult = mult.times(tmp.mC.effect.pow(0.06))
         if (hasUpgrade('mE', 23)) mult = mult.times(upgradeEffect('mE', 23))
-        mult = mult.times(buyableEffect('mE', 11))
+        if (getBuyableAmount('mE', 11).gte(1)) mult = mult.times(buyableEffect('mE', 11))
         if (hasUpgrade('mE', 33)) mult = mult.times(28)
         if (hasUpgrade('mE', 34)) mult = mult.times(1e10)
         return mult
