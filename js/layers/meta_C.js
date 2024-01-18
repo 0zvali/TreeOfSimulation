@@ -42,6 +42,7 @@ addLayer("mC", {
         if (hasUpgrade('mE', 34)) mult = mult.times(1e10)
         if (player.mH.unlocked) mult = mult.times(tmp.mH.effect)
         if (hasUpgrade('mH', 12)) mult = mult.times(4)
+        if (hasUpgrade('mH', 14)) mult = mult.times(1e9)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

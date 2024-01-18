@@ -544,14 +544,15 @@ function getPointGen() {
 	if (hasMilestone('mE', 11)) gain = gain.times(1.2)
 	if (hasUpgrade('mE', 11)) gain = gain.times(upgradeEffect('mE', 11))
 	if (hasUpgrade('mE', 14)) gain = gain.times(9.2)
-if (hasMilestone('mE', 15)) gain = gain.times(player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35).times(12250000).times(2.5e9)
+	if (hasMilestone('mE', 15)) gain = gain.times(player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35).times(12250000).times(2.5e9)
 	gain = gain.times(buyableEffect('mE', 12))
-if (hasMilestone('mE', 16)) gain = gain.times(150)
-if (hasUpgrade('mE', 33)) gain = gain.times(120)
-if (hasUpgrade('mE', 34)) gain = gain.times(1e12)
-if (hasUpgrade('mE', 36)) gain = gain.times(5.5)
-if (hasUpgrade('mH', 11)) gain = gain.times(100)
-if (hasUpgrade('mH', 12)) gain = gain.times(1500)
+	if (hasMilestone('mE', 16)) gain = gain.times(150)
+	if (hasUpgrade('mE', 33)) gain = gain.times(120)
+	if (hasUpgrade('mE', 34)) gain = gain.times(1e12)
+	if (hasUpgrade('mE', 36)) gain = gain.times(5.5)
+	if (hasUpgrade('mH', 11)) gain = gain.times(100)
+	if (hasUpgrade('mH', 12)) gain = gain.times(1500)
+	if (hasUpgrade('mH', 14)) gain = gain.times(1e15)
 	return gain
 }
 
