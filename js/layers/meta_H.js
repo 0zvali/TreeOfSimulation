@@ -60,6 +60,36 @@ milestones: {
             done() { return player.mH.points.gte(1) },
         },
     },
+    buyables: {
+        11: {
+            title: "Human Metas",
+            unlocked() { return hasUpgrade("mH", 13) },
+            cost(x) {
+                let exp1 = new Decimal(1.6)
+                let exp2 = new Decimal (1.1005)
+                if (getBuyableAmount(this.layer, this.id).gte(20)) exp2 = exp2.add(0.05)
+                return new Decimal(250).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).div(buyableEffect("mE", 13)).floor()
+            },
+            display() {
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Experiments" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Meta-Experiments gain by x" + format(buyableEffect(this.layer, this.id))
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal (1)
+                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(3.5)
+                let base2 = x
+                let expo = new Decimal(1.04)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                return eff
+            },
+        },
+    },
 upgrades: {
     rows: 4,
     cols: 3,
@@ -80,11 +110,19 @@ upgrades: {
             },
         },
         13: {
-            title: "Meta-Cyberruin",
+            title: "Superization",
             description: "Unlock 'Human Metas' Buyable as another shift into meta.",
             cost: new Decimal(45),
             unlocked(){
                 return hasUpgrade('mH', 12)
+            },
+        },
+        14: {
+            title: "Algutate",
+            description: "1e15x Infects & 1e9x Meta-Crystals",
+            cost: new Decimal(1e7),
+            unlocked(){
+                return hasUpgrade('mH', 13)
             },
         },
     },
