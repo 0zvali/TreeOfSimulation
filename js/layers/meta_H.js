@@ -59,6 +59,11 @@ milestones: {
             effectDescription: `Keep the current Meta-Crystals Milestones & Upgrades`,
             done() { return player.mH.points.gte(1) },
         },
+        12: {
+            requirementDescription: "1e35 Meta-Humans",
+            effectDescription: `Keep the current Meta-Experiment Milestones & Upgrades`,
+            done() { return player.mH.points.gte(1e35) },
+        },
     },
     buyables: {
         11: {
@@ -68,6 +73,7 @@ milestones: {
                 let exp1 = new Decimal(1.6)
                 let exp2 = new Decimal (1.1005)
                 if (getBuyableAmount(this.layer, this.id).gte(20)) exp2 = exp2.add(0.05)
+                if (getBuyableAmount(this.layer, this.id).gte(50)) exp2 = exp2.add(0.1)
                 return new Decimal(250).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
