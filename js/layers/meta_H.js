@@ -122,7 +122,7 @@ upgrades: {
             description: "1e15x Infects & 1e9x Meta-Crystals, also automate mE Buyables",
             cost: new Decimal(1e15),
             unlocked(){
-                return getBuyableAmount('mH', 11).gte(10)
+                return getBuyableAmount('mH', 11).gte(10) && hasUpgrade('mH', 13)
             },
         },
     },
