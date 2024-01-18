@@ -36,6 +36,8 @@ addLayer("mE", {
         if (hasUpgrade('mE', 33)) mult = mult.times(7)
         if (hasUpgrade('mE', 34)) mult = mult.times(1e15)
         if (hasUpgrade('mE', 36)) mult = mult.times(1e9)
+        if (player.mH.unlocked) mult = mult.times(tmp.mH.effect)
+        if (hasUpgrade('mH', 11)) mult = mult.times(20)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -106,7 +108,7 @@ milestones: {
         17: {
             requirementDescription: "1e99 Meta-Experiments (Current Endgame)",
             effectDescription: `Unlock Meta-Humans (This will NOT unlock)`,
-            done() { return player.mE.points.gte(3.14e110) },
+            done() { return player.mE.points.gte(1e99) },
             unlocked() { return hasUpgrade('mE', 36) && hasMilestone('mE', 16)},
         },
     },
