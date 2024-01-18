@@ -70,6 +70,28 @@ addLayer("mE", {
         if (hasUpgrade('mC', 26) || player.mE.unlocked) value = true
         return value
     },
+    automate() {
+		if (hasUpgrade('mH', 14)) {
+			if (layers.mE.buyables[11].canAfford()) {
+				layers.mE.buyables[11].buy();
+			};
+		};
+        if (hasUpgrade('mH', 14)) {
+			if (layers.mE.buyables[12].canAfford()) {
+				layers.mE.buyables[12].buy();
+			};
+		};
+        if (hasUpgrade('mH', 14)) {
+			if (layers.mE.buyables[13].canAfford()) {
+				layers.mE.buyables[13].buy();
+			};
+		};
+        if (hasUpgrade('mH', 14)) {
+			if (layers.mE.buyables[14].canAfford()) {
+				layers.mE.buyables[14].buy();
+			};
+		};
+	},
 milestones: {
         11: {
             requirementDescription: "1 Meta-Experiments",

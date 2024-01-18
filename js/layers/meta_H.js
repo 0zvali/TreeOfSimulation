@@ -119,10 +119,10 @@ upgrades: {
         },
         14: {
             title: "Algutate",
-            description: "1e15x Infects & 1e9x Meta-Crystals",
+            description: "1e15x Infects & 1e9x Meta-Crystals, also automate mE Buyables",
             cost: new Decimal(1e7),
             unlocked(){
-                return hasUpgrade('mH', 13)
+                return 
             },
         },
     },
