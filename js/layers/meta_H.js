@@ -131,5 +131,13 @@ upgrades: {
                 return getBuyableAmount('mH', 11).gte(10) && hasUpgrade('mH', 13)
             },
         },
+        21: {
+            title: "Bloomative",
+            description: "Break mC-U3 Cap to be severely BROKEN",
+            cost: new Decimal(1e60),
+            unlocked(){
+                return hasMilestone('mH', 12)
+            },
+        },
     },
 })
