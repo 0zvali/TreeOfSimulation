@@ -32,7 +32,7 @@ addLayer("mH", {
     },
     effect() {
         let eff4 = player.mH.points.add(1).pow(0.62)
-        eff4 = eff4.times(tmp.mE.effectBase)
+        eff4 = eff4.times(tmp.mH.effectBase.add(tmp.mE.effectBase))
         return eff4
     },
     effectBase() {
