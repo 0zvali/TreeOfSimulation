@@ -84,7 +84,7 @@ upgrades: {
             description: "Unlock 'Human Metas' Buyable as another shift into meta.",
             cost: new Decimal(45),
             unlocked(){
-                return hasUpgrade('mE', 12)
+                return hasUpgrade('mH', 12)
             },
         },
     },
