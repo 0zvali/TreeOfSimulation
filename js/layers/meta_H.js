@@ -92,7 +92,7 @@ milestones: {
     },
 upgrades: {
     rows: 4,
-    cols: 3,
+    cols: 4,
         11: {
             title: "Humanizating Meta",
             description: "100x Infects & 20x Meta-Experiments",
@@ -122,7 +122,7 @@ upgrades: {
             description: "1e15x Infects & 1e9x Meta-Crystals, also automate mE Buyables",
             cost: new Decimal(1e7),
             unlocked(){
-                return getBuyableAmount('mH', 11).gte(5)
+                return getBuyableAmount('mH', 11).gte(10)
             },
         },
     },
