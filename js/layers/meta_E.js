@@ -75,7 +75,7 @@ milestones: {
         },
         12: {
             requirementDescription: "10 'Experimental Regime III' Bought",
-            effectDescription: `'Experimental Regime III' Effect is stronger, Keep Meta-Crystal(s) Upgrades, Milestones 11 & 12, and passively gain 30% Meta-Crystals.`,
+            effectDescription: `'Experimental Regime III' Effect is stronger and passively gain 30% of Meta-Crystals`,
             done() { return (getBuyableAmount('mE', 13).gte(10)) },
             unlocked(){ return (hasUpgrade('mE', 25) && hasMilestone('mE', 11))},
         },
@@ -323,7 +323,7 @@ upgrades: {
         },
         22: {
             title: "Cap Breaker II",
-            description: "Break 'Meta-Reformation' & 'Meta-Strength' Cap for the first time. Whilst breaking both caps; 'Meta-Frostically' has a higher effect: with the higher effect it now has, it boosts 'Beelusioning Illusion' with a decreased effect.",
+            description: "Break 'Meta-Reformation' & 'Meta-Strength' Cap for the first time. Whilst breaking both caps; 'Meta-Frostically' has a higher effect: with the higher effect it now has, it boosts 'Beelusioning Illusion' with a decreased effect. Also keep Meta-Crystal(s) Upgrades & Milestones 11 & 12",
             cost: new Decimal(17500000),
             unlocked(){
                 return hasUpgrade('mE', 21)
