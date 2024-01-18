@@ -433,7 +433,7 @@ upgrades: {
         36: {
             title: "Meta-Experimental Boost III",
             description: "1e9x Meta-Experiments & 5.5x Infects",
-            cost: new Decimal(5e88),
+            cost: new Decimal(2.3e88),
             unlocked(){
                 return hasUpgrade('mE', 35)
             },
