@@ -1,35 +1,29 @@
-addLayer("rb", {
-    name: "rebirths",
-    symbol: "RB",
+
+addLayer("L", {
+    name: "Lore",
+    symbol: "L",
     position: 0,
-    startData() { return {
+    startData() {return {
         unlocked: true,
-        points: new Decimal("0"),
     }},
-    color: "4A8FFF",
-    requires: new Decimal(1),
-    resource: "rebirth",
-    baseResource: "multiplier",
-    baseAmount() { return player.p.points },
-    type: "normal",
-    exponent: 0.3,
-    gainMult() {
-        mult = new Decimal(1)
-    },
-    gainExp() {
-        return new Decimal(1)
-    },
-    row: 1,
-    hotkeys: [
-        {key: "r", description: "R: Reset for Rebirths", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
-    ],
-    layerShown(){return true},
-    effect(){
-        let eff = player.rb.points.times("1").add("1")
-        return eff
+    color: "blue",
+    tooltip() {return false},
+    row: "side",
+    infoboxes: {
+        lore: {
+            title: "Log I",
+            body() {return "It's you? So Listen I don't have a lot of time I need to explain this to you fast! "
+                    + "So you are the adventurer. Your job is to get Powerful to destroy the Celestials. Evil ones! "
+                    + "My name is Jacorb. I am here to help you. You have to reach the ?????? layer. With that layer "
+                    + "you'll be able to get powerful than before these layers are just the beggining. After you get"
+                    + " that layer, I will send you with my reinforcements somewhere."},
         },
-        effectDescription(){
-        let des = "which is boosting multiplier by x" + format(tmp.rb.effect)
-        return des
+        lore2: {
+            title: "Log II",
+            body() {return "Aarex doesn't want to talk with us anymore. After what happened to Acamada... I really wished"
+                    + " she told us about her plan. It's too late."},
+            unlocked() {return true}
         },
+    },
+    layerShown() {return true}
 })
