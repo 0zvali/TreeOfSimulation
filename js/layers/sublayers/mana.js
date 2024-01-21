@@ -18,11 +18,10 @@ addLayer("L", {
                     + "you'll be able to get powerful than before these layers are just the beggining. After you get"
                     + " that layer, I will send you with my reinforcements somewhere."},
         },
-        lore2: {
+        lared: {
             title: "Log II",
             body() {return "Aarex doesn't want to talk with us anymore. After what happened to Acamada... I really wished"
                     + " she told us about her plan. It's too late."},
-            unlocked() {return true}
         },
     },
     layerShown() {return true},
