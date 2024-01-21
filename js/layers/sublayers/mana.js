@@ -25,5 +25,5 @@ addLayer("L", {
             unlocked() {return true}
         },
     },
-    layerShown() {return true}
+    layerShown() {return true},
 })
