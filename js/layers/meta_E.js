@@ -146,7 +146,7 @@ buyables: {
                 return new Decimal(2).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).div(buyableEffect("mE", 13)).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Experiments" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Meta-Crystal(s) gain by x" + format(buyableEffect(this.layer, this.id))
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Experiments" + "<br>Bought: " + getBuyableAmount(this.layer, this.id)+ (data.freeLevels.gt(0)?(" + "+formatWhole(data.freeLevels)):"") + "<br>Effect: Boost Meta-Crystal(s) gain by x" + format(buyableEffect(this.layer, this.id))
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -156,6 +156,11 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
+            freeLevels(){
+                let levels = new Decimal(0);
+                if (hasUpgrade("mH", 24)) levels = levels.plus(player.mE.buyables[14]);
+                return levels;
+            },
             effect(x) {
                 let base1 = new Decimal(1.46)
                 let base2 = x
@@ -164,7 +169,7 @@ buyables: {
                 if (hasUpgrade('mE', 14)) base1 = base1.add(0.15)
                 if (hasUpgrade('mE', 32)) base1 = base1.add(0.35)
                 if (hasMilestone('mE', 14)) base1 = base1.add(0.1)
-                let eff = base1.pow(Decimal.pow(base2, expo)).times(buyableEffect('mE', 14).pow(0.2))
+                let eff = base1.pow(Decimal.pow(base2.plus(tmp.mH.buyables[this.layer].freeLevels), expo)).times(buyableEffect('mE', 14).pow(0.2))
                 if (hasUpgrade('mE', 35)) eff = base1.pow(Decimal.pow(base2, expo)).times(buyableEffect('mE', 14).pow(0.2)).times(25)
                 return eff
             },
@@ -252,11 +257,15 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
+            freeLevels(){
+                let levels = new Decimal(0);
+                return levels;
+            },
             effect(x) {
                 let base1 = new Decimal(5.5)
                 let base2 = x
                 let expo = new Decimal(1.1)
-                let eff = base1.pow(Decimal.pow(base2, expo))
+                let eff = base1.pow(Decimal.pow(base2.plus(tmp.mH.buyables[this.layer].freeLevels), expo))
                 if (hasUpgrade('mH', 13)) eff = eff.times(15)
                 return eff
             },
