@@ -103,7 +103,7 @@ buyables: {
                 let base1 = new Decimal(194.3)
                 let base2 = x
                 let expo = new Decimal(1.06)
-                let eff = base1.pow(Decimal.pow(base2, expo)).times(buyableEffect('mE', 14).pow(0.2))
+                let eff = base1.pow(Decimal.pow(base2, expo)).pow(0.2)
                 return eff
             },
         },
