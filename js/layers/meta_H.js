@@ -48,7 +48,7 @@ addLayer("mH", {
         if (hasMilestone('mE', 17) || player.mH.unlocked) value = true
         return value
     },
-    autoPrestige(){
+    canBuyMax(){
         let prestige = false
         if (hasMilestone('mH', 14)) prestige = true
         return prestige
@@ -73,7 +73,7 @@ milestones: {
         },
         14: {
             requirementDescription: "35 Meta-Humans",
-            effectDescription: `Automate Meta-Human Prestige. With that, unlock a Meta-Human Buyable`,
+            effectDescription: `Can buy max amount of Meta-Humans. With that, unlock a Meta-Human Buyable`,
             done() { return player.mH.points.gte(35) },
             unlocked(){ return hasMilestone('mH', 13) }, 
         },
@@ -84,9 +84,11 @@ buyables: {
             title: "Human Regime",
             unlocked() { return hasMilestone("mH", 14) },
             cost(x) {
-                let exp2 = new Decimal(2)
+                let exp1 = new Decimal(2)
+                if (getBuyableAmount(this.layer, this.id).gte(5)) exp1 = exp1.times(4)
+                if (getBuyableAmount(this.layer, this.id).gte(15)) costdef = costdef.times(3)
                 let costdef = new Decimal(4)
-                return new Decimal(costdef).mul(Decimal.pow(2, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
+                return new Decimal(costdef).mul(exp1, x).floor()
             },
             display() {
                 return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Humans" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Meta-Experiment gain by x" + format(buyableEffect(this.layer, this.id))
