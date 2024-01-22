@@ -84,9 +84,9 @@ buyables: {
             title: "Human Regime",
             unlocked() { return hasMilestone("mH", 14) },
             cost(x) {
-                let exp1 = new Decimal(2)
+                let exp2 = new Decimal(2)
                 let costdef = new Decimal(4)
-                return new Decimal(costdef).mul(exp1, x).floor()
+                return new Decimal(costdef).mul(Decimal.pow(2, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
                 return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Humans" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Meta-Experiment gain by x" + format(buyableEffect(this.layer, this.id))
