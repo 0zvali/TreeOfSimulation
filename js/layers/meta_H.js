@@ -19,9 +19,14 @@ addLayer("mH", {
     baseAmount() {return player.mE.points}, // Get the current amount of baseResource
     type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent(){ 
-        let expo1 = 3.1
+        let expo1 = new Decimal(3.1)
+        if (player.mH.points.gte(25)) expo1 = expo1.add(2)
         return expo1
      }, // Prestige currency exponent
+
+    effectDescription(){
+        let def = "Meta-Humans cost increases after 25"
+    },
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
         return mult
@@ -150,11 +155,11 @@ upgrades: {
             description: "Meta-Humans boost Meta-Crystal effect significantly",
             cost: new Decimal(6),
             effect() {
-                let eff = ((player.mH.points.div(45)).add(1).max(0)).max(1).min(3);
+                let eff = ((player.mH.points.div(45)).add(1).max(0)).max(1).min(1.75);
                 return eff
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(3) ? "(Capped)" : "";
+                let capped = upgradeEffect(this.layer, this.id).gte(1.75) ? "(Capped)" : "";
                 let text = `^${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
@@ -175,11 +180,11 @@ upgrades: {
             description: "Infect gain is boosted by Meta-Humans",
             cost: new Decimal(6),
             effect() {
-                let eff = ((player.mH.points.div(27)).add(1).max(0)).max(1).min(3.5);
+                let eff = ((player.mH.points.div(27)).add(1).max(0)).max(1).min(2);
                 return eff
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(3.5) ? "(Capped)" : "";
+                let capped = upgradeEffect(this.layer, this.id).gte(2) ? "(Capped)" : "";
                 let text = `^${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
