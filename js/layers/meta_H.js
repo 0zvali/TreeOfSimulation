@@ -51,6 +51,12 @@ milestones: {
             effectDescription: `Keep the current Meta-Experiment Milestones & Upgrades`,
             done() { return player.mH.points.gte(3) },
         },
+        13: {
+            requirementDescription: "15 Meta-Humans",
+            effectDescription: `Passively Gain 5% Meta-Experiments`,
+            done() { return player.mH.points.gte(15) },
+            unlocked(){ return hasMilestone('mH', 12) }, 
+        },
     },
 upgrades: {
     rows: 4,
@@ -143,6 +149,14 @@ upgrades: {
             cost: new Decimal(8),
             unlocked(){
                 return hasUpgrade('mH', 24)
+            },
+        },
+        32: {
+            title: "Cap^Cap Breaker I",
+            description: "Holy Crap that inflation all of a sudden, sorry! ^0.666 the cost of mE Buyables",
+            cost: new Decimal(8),
+            unlocked(){
+                return hasUpgrade('mH', 31)
             },
         },
     },
