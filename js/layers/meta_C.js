@@ -99,7 +99,7 @@ milestones: {
                 return text;
               },
             unlocked(){
-                return hasUpgrade('mE', 16)
+                return hasUpgrade('mE', 16) || hasMilestone('mC', 11)
               },
             done() { return player.mC.points.gte(1e30) },
         },
