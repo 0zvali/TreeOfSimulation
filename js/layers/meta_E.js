@@ -257,10 +257,6 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
-            freeLevels(){
-                let levels = new Decimal(0);
-                return levels;
-            },
             effect(x) {
                 let base1 = new Decimal(5.5)
                 let base2 = x
