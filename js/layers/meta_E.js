@@ -236,8 +236,10 @@ buyables: {
             unlocked() { return hasUpgrade("mE", 33) },
             cost(x) {
                 let exp2 = new Decimal(2.5)
-                if (hasUpgrade('mH', 23)) exp2 = exp2.minus(0.6)
-                return new Decimal(1e52).mul(Decimal.pow(1.125, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
+                let costdef = new Decimal(1e52)
+                if (hasUpgrade('mH', 23)) exp2 = exp2.minus(0.9)
+                if (hasUpgrade('mH', 23)) costdef = costdef.pow(0.8)
+                return new Decimal(costdef).mul(Decimal.pow(1.125, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
                 return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Experiments" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Decrease Meta-Crystals & Meta-Experiments requirement by /" + format(buyableEffect(this.layer, this.id)) + " and boost all three other buyables by " + format(buyableEffect(this.layer, this.id).pow(0.2)) + "x"
