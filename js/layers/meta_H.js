@@ -122,8 +122,17 @@ upgrades: {
         },
         24: {
             title: "Regimes",
-            description: "Get Free 'Experiment Regime I' Levels from 'Experiment Regime IV' Levels",
+            description: "Infect gain is boosted by Meta-Humans",
             cost: new Decimal(6),
+            effect() {
+                let eff = ((player.mH.points.div(27)).add(1).max(0)).max(1).min(3.5);
+                return eff
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(3.5) ? "(Capped)" : "";
+                let text = `^${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
             unlocked(){
                 return hasUpgrade('mH', 23)
             },
