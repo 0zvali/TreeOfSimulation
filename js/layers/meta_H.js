@@ -120,5 +120,13 @@ upgrades: {
                 return hasUpgrade('mH', 22)
             },
         },
+        24: {
+            title: "Regimes",
+            description: "Get Free 'Experiment Regime I' Levels from 'Experiment Regime IV' Levels",
+            cost: new Decimal(6),
+            unlocked(){
+                return hasUpgrade('mH', 23)
+            },
+        },
     },
 })

@@ -158,7 +158,7 @@ buyables: {
             },
             freeLevels(){
                 let levels = new Decimal(0);
-                if (hasUpgrade("mH", 24)) levels = levels.plus(player.mE.buyables[14]);
+                if (hasUpgrade("mH", 23)) levels = levels.plus(player.mE.buyables[14]);
                 return levels;
             },
             effect(x) {
@@ -265,7 +265,7 @@ buyables: {
                 let base1 = new Decimal(5.5)
                 let base2 = x
                 let expo = new Decimal(1.1)
-                let eff = base1.pow(Decimal.pow(base2.plus(tmp.mH.buyables[this.layer].freeLevels), expo))
+                let eff = base1.pow(Decimal.pow(base2, expo))
                 if (hasUpgrade('mH', 13)) eff = eff.times(15)
                 return eff
             },
