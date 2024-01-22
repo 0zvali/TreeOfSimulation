@@ -48,10 +48,15 @@ addLayer("mH", {
         if (hasMilestone('mE', 17) || player.mH.unlocked) value = true
         return value
     },
-    canBuyMax(){
+    autoPrestige(){
         let prestige = false
         if (hasMilestone('mH', 14)) prestige = true
         return prestige
+    },
+    resetsNothing(){
+        let nothing = false
+        if (hasMilestone('mH', 15)) nothing = true
+        return nothing
     },
 
 milestones: {
@@ -73,7 +78,13 @@ milestones: {
         },
         14: {
             requirementDescription: "35 Meta-Humans",
-            effectDescription: `Can buy max amount of Meta-Humans. With that, unlock a Meta-Human Buyable`,
+            effectDescription: `Automate Meta-Humans. With that, unlock a Meta-Human Buyable`,
+            done() { return player.mH.points.gte(35) },
+            unlocked(){ return hasMilestone('mH', 13) }, 
+        },
+        15: {
+            requirementDescription: "42 Meta-Humans",
+            effectDescription: `Meta-Humans doesn't reset the previous layers anymore`,
             done() { return player.mH.points.gte(35) },
             unlocked(){ return hasMilestone('mH', 13) }, 
         },
