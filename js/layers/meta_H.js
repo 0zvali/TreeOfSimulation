@@ -26,6 +26,7 @@ addLayer("mH", {
 
     effectDescription(){
         let def = "Meta-Humans cost increases after 25"
+        return def
     },
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
