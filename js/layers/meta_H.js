@@ -112,5 +112,13 @@ upgrades: {
                 return hasUpgrade('mH', 21)
             },
         },
+        23: {
+            title: "Insulative",
+            description: "Drop 'Experiment Regime IV' cost significantly",
+            cost: new Decimal(6),
+            unlocked(){
+                return hasUpgrade('mH', 22)
+            },
+        },
     },
 })

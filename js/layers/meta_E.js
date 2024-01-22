@@ -235,7 +235,8 @@ buyables: {
             title: "Experiment Regime IV",
             unlocked() { return hasUpgrade("mE", 33) },
             cost(x) {
-                let exp2 = 2.5
+                let exp2 = new Decimal(2.5)
+                if (hasUpgrade('mH', 23)) exp2 = exp2.minus(0.6)
                 return new Decimal(1e52).mul(Decimal.pow(1.125, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
