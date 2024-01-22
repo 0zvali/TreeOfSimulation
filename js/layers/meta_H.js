@@ -73,8 +73,8 @@ upgrades: {
         },
         13: {
             title: "Superization",
-            description: "Unlock 'Human Metas' Buyable as another shift into meta.",
-            cost: new Decimal(1),
+            description: "15x 'Experiment Regime IV' & 'Experiment Regime II'.",
+            cost: new Decimal(2),
             unlocked(){
                 return hasUpgrade('mH', 12)
             },
@@ -82,7 +82,7 @@ upgrades: {
         14: {
             title: "Algutate",
             description: "1e15x Infects & 1e9x Meta-Crystals, also automate mE Buyables",
-            cost: new Decimal(2),
+            cost: new Decimal(3),
             unlocked(){
                 return hasUpgrade('mH', 13)
             },
@@ -90,7 +90,7 @@ upgrades: {
         21: {
             title: "Bloomative",
             description: "Break mC-U3 Cap to be severely BROKEN",
-            cost: new Decimal(2),
+            cost: new Decimal(3),
             unlocked(){
                 return hasMilestone('mH', 12)
             },
