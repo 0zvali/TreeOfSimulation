@@ -36,7 +36,6 @@ addLayer("mE", {
         if (hasUpgrade('mE', 33)) mult = mult.times(7)
         if (hasUpgrade('mE', 34)) mult = mult.times(1e15)
         if (hasUpgrade('mE', 36)) mult = mult.times(1e9)
-        if (player.mH.unlocked) mult = mult.times(tmp.mH.effect)
         if (hasUpgrade('mH', 11)) mult = mult.times(20)
         return mult
     },

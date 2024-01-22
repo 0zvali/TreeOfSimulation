@@ -40,7 +40,6 @@ addLayer("mC", {
         if (getBuyableAmount('mE', 11).gte(1)) mult = mult.times(buyableEffect('mE', 11))
         if (hasUpgrade('mE', 33)) mult = mult.times(28)
         if (hasUpgrade('mE', 34)) mult = mult.times(1e10)
-        if (player.mH.unlocked) mult = mult.times(tmp.mH.effect)
         if (hasUpgrade('mH', 12)) mult = mult.times(4)
         if (hasUpgrade('mH', 14)) mult = mult.times(1e9)
         return mult
