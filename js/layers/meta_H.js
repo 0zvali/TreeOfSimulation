@@ -98,7 +98,7 @@ buyables: {
                 let exp1 = new Decimal(2)
                 if (getBuyableAmount(this.layer, this.id).gte(5)) exp1 = exp1.times(4)
                 let costdef = new Decimal(4)
-                if (getBuyableAmount(this.layer, this.id).gte(15)) costdef = costdef.times(3)
+                if (getBuyableAmount(this.layer, this.id).gte(15)) exp1 = exp1.times(2)
                 return new Decimal(costdef).mul(exp1, x).floor()
             },
             display() {
