@@ -208,7 +208,7 @@ upgrades: {
         32: {
             title: "Refix?",
             description: "Holy Crap that inflation all of a sudden, sorry! ^0.666 the cost of mE Buyables",
-            cost: new Decimal(40),
+            cost: new Decimal(42),
             unlocked(){
                 return hasUpgrade('mH', 31)
             },
