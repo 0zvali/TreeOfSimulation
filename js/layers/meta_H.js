@@ -73,7 +73,7 @@ upgrades: {
         },
         13: {
             title: "Superization",
-            description: "15x 'Experiment Regime IV' & 'Experiment Regime II'.",
+            description: "15x 'Experiment Regime IV' & 'Experiment Regime II'. 4e9x Meta-Experiments",
             cost: new Decimal(2),
             unlocked(){
                 return hasUpgrade('mH', 12)
@@ -89,10 +89,27 @@ upgrades: {
         },
         21: {
             title: "Bloomative",
-            description: "Break mC-U3 Cap to be severely BROKEN",
+            description: "Break mC-U3 Cap not have a cap for a while!",
             cost: new Decimal(3),
             unlocked(){
                 return hasMilestone('mH', 12)
+            },
+        },
+        22: {
+            title: "Desolative",
+            description: "Meta-Humans boost Meta-Crystal effect significantly",
+            cost: new Decimal(3),
+            effect() {
+                let eff = ((player.mH.points.div(12.5)).add(1).max(0)).max(1).min(3);
+                return eff
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(3) ? "(Capped)" : "";
+                let text = `+^${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('mH', 21)
             },
         },
     },

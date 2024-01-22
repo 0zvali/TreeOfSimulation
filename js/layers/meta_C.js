@@ -53,6 +53,7 @@ addLayer("mC", {
         eff4 = eff4.times(tmp.mC.effectBase)
         if (hasUpgrade('mC', 21)) eff4 = eff4.times(upgradeEffect('mC', 21))
         if (hasUpgrade('mC', 22)) eff4 = eff4.div(1.4)
+        if (hasUpgrade('mH', 22)) eff4 = eff4.pow(upgradeEffect('mH', 22))
         return eff4
     },
     effectBase() {
