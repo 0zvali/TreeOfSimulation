@@ -113,7 +113,7 @@ buyables: {
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
             effect(x) {
-                let base1 = new Decimal(194.3)
+                let base1 = new Decimal(1e650)
                 let base2 = x
                 let expo = new Decimal(1.06)
                 let eff = base1.pow(Decimal.pow(base2, expo)).pow(0.2)
