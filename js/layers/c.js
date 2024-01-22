@@ -152,7 +152,7 @@ addLayer("c", {
         11: {
             requirementDescription: "Distortion Upgrade II",
             effectDescription: `x1e20 Weapons & x1e100 Floors`,
-            done() { return player.points.gte("1e50000") },
+            done() { return hasUpgrade('D', 12) },
             unlocked(){return hasUpgrade('O', 14)},
         },
     },
