@@ -21,11 +21,13 @@ addLayer("mH", {
     exponent(){ 
         let expo1 = new Decimal(3.1)
         if (player.mH.points.gte(25)) expo1 = expo1.add(1.35)
+        if (player.mH.points.gte(50)) expo1 = expo1.add(0.55)
         return expo1
      }, // Prestige currency exponent
 
     effectDescription(){
-        let def = "Meta-Humans cost increases after 25"
+        let def = "Meta-Humans expo cost increases to ^4.45 after 25<br>"
+        if (player.mH.points.gte(50)) def = "Meta-Humans expo cost increases to ^4.45 after 25<br> 50 Meta-Humans: Expo increased to ^5"
         return def
     },
     gainMult() { // Calculate the multiplier for main currency from bonuses
