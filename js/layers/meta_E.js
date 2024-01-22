@@ -169,7 +169,7 @@ buyables: {
                 if (hasUpgrade('mE', 14)) base1 = base1.add(0.15)
                 if (hasUpgrade('mE', 32)) base1 = base1.add(0.35)
                 if (hasMilestone('mE', 14)) base1 = base1.add(0.1)
-                let eff = base1.pow(Decimal.pow(base2.plus(tmp.mH.buyables[this.layer].freeLevels), expo)).times(buyableEffect('mE', 14).pow(0.2))
+                let eff = base1.pow(Decimal.pow(base2.plus(tmp.mE.buyables[this.layer].freeLevels), expo)).times(buyableEffect('mE', 14).pow(0.2))
                 if (hasUpgrade('mE', 35)) eff = base1.pow(Decimal.pow(base2, expo)).times(buyableEffect('mE', 14).pow(0.2)).times(25)
                 return eff
             },
