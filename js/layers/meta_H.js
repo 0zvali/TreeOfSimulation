@@ -40,6 +40,12 @@ addLayer("mH", {
         if (hasMilestone('mE', 17) || player.mH.unlocked) value = true
         return value
     },
+    autoPrestige(){
+        let prestige = false
+        if (hasMilestone('mH', 14)) prestige = true
+        return prestige
+    },
+
 milestones: {
         11: {
             requirementDescription: "1 Meta-Humans",
@@ -57,7 +63,45 @@ milestones: {
             done() { return player.mH.points.gte(15) },
             unlocked(){ return hasMilestone('mH', 12) }, 
         },
+        14: {
+            requirementDescription: "35 Meta-Humans",
+            effectDescription: `Automate Meta-Human Prestige. With that, unlock a Meta-Human Buyable`,
+            done() { return player.mH.points.gte(35) },
+            unlocked(){ return hasMilestone('mH', 13) }, 
+        },
     },
+
+buyables: {
+        11: {
+            title: "Human Regime",
+            unlocked() { return hasMilestone("mH", 14) },
+            cost(x) {
+                let exp1 = new Decimal(2)
+                let costdef = new Decimal(4)
+                return new Decimal(costdef).mul(exp1, x).floor()
+            },
+            display() {
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Humans" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Meta-Experiment gain by x" + format(buyableEffect(this.layer, this.id))
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal (1)
+                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(194.3)
+                let base2 = x
+                let expo = new Decimal(1.06)
+                let eff = base1.pow(Decimal.pow(base2, expo)).times(buyableEffect('mE', 14).pow(0.2))
+                return eff
+            },
+        },
+},
+
+
 upgrades: {
     rows: 4,
     cols: 4,
