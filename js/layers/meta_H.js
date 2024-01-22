@@ -20,7 +20,7 @@ addLayer("mH", {
     type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent(){ 
         let expo1 = new Decimal(3.1)
-        if (player.mH.points.gte(25)) expo1 = expo1.add(1.2)
+        if (player.mH.points.gte(25)) expo1 = expo1.add(1.35)
         return expo1
      }, // Prestige currency exponent
 
