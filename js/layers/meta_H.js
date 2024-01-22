@@ -201,9 +201,9 @@ upgrades: {
             },
         },
         32: {
-            title: "Cap^Cap Breaker I",
+            title: "Refix?",
             description: "Holy Crap that inflation all of a sudden, sorry! ^0.666 the cost of mE Buyables",
-            cost: new Decimal(8),
+            cost: new Decimal(40),
             unlocked(){
                 return hasUpgrade('mH', 31)
             },
