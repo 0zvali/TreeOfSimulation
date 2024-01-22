@@ -90,7 +90,7 @@ upgrades: {
         21: {
             title: "Bloomative",
             description: "Break mC-U3 Cap not have a cap for a while!",
-            cost: new Decimal(3),
+            cost: new Decimal(4),
             unlocked(){
                 return hasMilestone('mH', 12)
             },
@@ -98,14 +98,14 @@ upgrades: {
         22: {
             title: "Desolative",
             description: "Meta-Humans boost Meta-Crystal effect significantly",
-            cost: new Decimal(3),
+            cost: new Decimal(6),
             effect() {
-                let eff = ((player.mH.points.div(12.5)).add(1).max(0)).max(1).min(3);
+                let eff = ((player.mH.points.div(45)).add(1).max(0)).max(1).min(3);
                 return eff
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(3) ? "(Capped)" : "";
-                let text = `+^${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                let text = `^${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
             unlocked(){
