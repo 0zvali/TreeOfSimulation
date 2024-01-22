@@ -262,13 +262,17 @@ upgrades: {
             description: "Meta-Crystal Effect is slightly better based on formula, also increase MC gain by the multicative of 2.3",
             cost: new Decimal(2000),
             effect() {
-                let eff = (player.points.max(0.9).add(1).pow(0.07).div(1.2)).max(0.9).min(70.70);
-                if (hasUpgrade('mE', 15)) eff = (player.points.max(0.9).add(1).pow(0.07).div(1.2)).max(0.9).min(1717);
+                let cap = new Decimal(70.70)
+                if (hasUpgrade('mE', 15)) cap = new Decimal(1717)
+                if (hasUpgrade('mH', 31)) cap = cap.times(1e440)
+                let eff = (player.points.max(0.9).add(1).pow(0.07).div(1.2)).max(0.9).min(cap);
                 return eff
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(70.70) ? "(Capped)" : "";
-                if (hasUpgrade('mE', 15)) capped = upgradeEffect(this.layer, this.id).gte(1717) ? "(2nd Cap)" : "";
+                let cap = new Decimal(70.70)
+                if (hasUpgrade('mE', 15)) cap = new Decimal(1717)
+                if (hasUpgrade('mH', 31)) cap = cap.times(1e440)
+                let capped = upgradeEffect(this.layer, this.id).gte(cap) ? "(Capped)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
@@ -301,13 +305,17 @@ upgrades: {
             description: "Flip the effects from 'Wot2ndG' as this one...but better!",
             cost: new Decimal(22334455),
             effect() {
-                let eff =  (player.points.max(1).add(2).pow(0.026).times(4)).max(1).min(1963.44);
-                if (hasUpgrade('mC', 26)) eff = (player.points.max(1).add(2).pow(0.022).times(4).times(upgradeEffect('mC', 26))).max(1).min(1963.44);
-                if (hasUpgrade('mE', 22)) eff = (player.points.max(1).add(2).pow(0.022).times(4).times(upgradeEffect('mC', 26)).times(upgradeEffect('mC', 25).div(3.8))).max(1).min(1963.44);
+                let cap = new Decimal(1963.44)
+                if (hasUpgrade('mH', 31)) cap = cap.times(6.6e666)
+                let eff =  (player.points.max(1).add(2).pow(0.026).times(4)).max(1).min(cap);
+                if (hasUpgrade('mC', 26)) eff = (player.points.max(1).add(2).pow(0.022).times(4).times(upgradeEffect('mC', 26))).max(1).min(cap);
+                if (hasUpgrade('mE', 22)) eff = (player.points.max(1).add(2).pow(0.022).times(4).times(upgradeEffect('mC', 26)).times(upgradeEffect('mC', 25).div(3.8))).max(1).min(cap);
                 return eff
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(1963.44) ? "(Capped)" : "";
+                let cap = new Decimal(1963.44)
+                if (hasUpgrade('mH', 31)) cap = cap.times(6.6e666)
+                let capped = upgradeEffect(this.layer, this.id).gte(cap) ? "(Capped)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} (x${format(upgradeEffect(this.layer, this.id).div(2))}) ${capped}`;
                 return text;
             },
@@ -320,12 +328,16 @@ upgrades: {
             description: "'True Permacold' Infect Boost is boosted by this upgrade's effect formula!",
             cost: new Decimal(1.22e8),
             effect() {
-                let eff =  (player.mC.points.max(1).add(1).pow(0.028)).max(1).min(188.44);
+                let cap = new Decimal(188.44)
+                if (hasUpgrade('mH', 31)) cap = cap.times(1e320)
+                let eff =  (player.mC.points.max(1).add(1).pow(0.028)).max(1).min(cap);
                 if (hasUpgrade("mE", 22)) eff = eff.times(1.8)
                 return eff
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(188.44) ? "(Capped)" : "";
+                let cap = new Decimal(188.44)
+                if (hasUpgrade('mH', 31)) cap = cap.times(1e320)
+                let capped = upgradeEffect(this.layer, this.id).gte(cap) ? "(Capped)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 if (hasUpgrade("mE", 22)) text = `x${format(upgradeEffect(this.layer, this.id))} (x${format(upgradeEffect(this.layer, this.id).div(3.8))}) ${capped}`;
                 return text;
@@ -340,12 +352,15 @@ upgrades: {
             cost: new Decimal(1.13e10),
             effect() {
                 let cap = new Decimal(60)
+                if (hasUpgrade('mH', 31)) cap = cap.times(1e250)
                 let eff = (player.points.max(1).add(1).pow(0.0122)).max(1).min(cap);
                 if (hasMilestone('mC', 12)) eff = ((player.points.max(1).add(1).pow(0.0122)).times(tmp.mE.effect.pow(0.15))).max(1).min(cap);
                 return eff
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(60) ? "(Capped)" : "";
+                let cap = new Decimal(60)
+                if (hasUpgrade('mH', 31)) cap = cap.times(1e250)
+                let capped = upgradeEffect(this.layer, this.id).gte(cap) ? "(Capped)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },

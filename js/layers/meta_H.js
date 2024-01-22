@@ -137,5 +137,13 @@ upgrades: {
                 return hasUpgrade('mH', 23)
             },
         },
+        31: {
+            title: "Cap^Cap Breaker I",
+            description: "Bro are you telling me that mC-U12 was never really getting a boost in the first place? Increase the Cap for the 2nd row of Meta-Crystal(s) Upgrades",
+            cost: new Decimal(8),
+            unlocked(){
+                return hasUpgrade('mH', 24)
+            },
+        },
     },
 })
