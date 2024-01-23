@@ -177,6 +177,7 @@ buyables: {
                 if (hasUpgrade('mE', 35)) eff = eff.times(25)
                 return eff
             },
+            buyMax(){ return hasUpgrade('mH', 22) },
         },
         12: {
             title: "Experiment Regime II",
@@ -212,6 +213,7 @@ buyables: {
                 if (hasUpgrade('mH', 13)) eff = eff.times(15)
                 return eff
             },
+            buyMax(){ return hasUpgrade('mH', 22) },
         },
         13: {
             title: "Experiment Regime III",
@@ -243,6 +245,7 @@ buyables: {
                 if (hasUpgrade('mE', 35)) eff = base1.pow(Decimal.pow(base2, expo)).times(buyableEffect('mE', 14).pow(0.2)).times(6.4) 
                 return eff
             },
+            buyMax(){ return hasUpgrade('mH', 22) },
         },
         14: {
             title: "Experiment Regime IV",
@@ -274,6 +277,7 @@ buyables: {
                 if (hasUpgrade('mH', 13)) eff = eff.times(15)
                 return eff
             },
+            buyMax(){ return hasUpgrade('mH', 22) },
         },
     },
 upgrades: {
