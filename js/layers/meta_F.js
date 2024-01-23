@@ -18,7 +18,7 @@ addLayer("mF", {
     baseAmount() {return player.mH.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent(){ 
-        let expo1 = new Decimal(1.5)
+        let expo1 = new Decimal(0.1)
         return expo1
      }, // Prestige currency exponent
     effect() {
