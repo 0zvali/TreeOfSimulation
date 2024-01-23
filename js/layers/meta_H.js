@@ -165,7 +165,7 @@ upgrades: {
             description: "Break mC-U3 Cap not have a cap for a while!",
             cost: new Decimal(4),
             unlocked(){
-                return hasMilestone('mH', 14)
+                return hasUpgrade('mH', 14)
             },
         },
         22: {
