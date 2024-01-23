@@ -147,10 +147,10 @@ buyables: {
                 let exp1 = new Decimal(1.2)
                 let exp2 = new Decimal (1.1005)
                 let costdef = new Decimal(2)
-                if (hasUpgrade('mH', 32)) costdef = costdef.pow(0.666)
                 if (hasUpgrade('mE', 13)) exp1 = exp1.minus(0.05) // hell yea!
                 if (hasMilestone('mE', 16)) exp2 = exp2.minus(0.015) // hell yea!
                 if (getBuyableAmount(this.layer, this.id).gte(20)) exp2 = exp2.add(0.0245)
+                if (hasUpgrade('mH', 32)) exp2 = exp2.pow(0.666)
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).div(buyableEffect("mE", 13)).floor()
             },
             display() {
@@ -183,9 +183,9 @@ buyables: {
             cost(x) {
                 let exp2 = new Decimal(1.2)
                 let costdef = new Decimal(50)
-                if (hasUpgrade('mH', 32)) costdef = costdef.pow(0.666)
                 if (getBuyableAmount(this.layer, this.id).gte(15)) exp2 = exp2.add(0.05)
                 if (hasMilestone('mE',14)) exp2 = exp2.minus(0.075)
+                if (hasUpgrade('mH', 32)) exp2 = exp2.pow(0.666)
                 return new Decimal(costdef).mul(Decimal.pow(1.2, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).div(buyableEffect("mE", 13)).floor()
             },
             display() {
@@ -216,10 +216,10 @@ buyables: {
             title: "Experiment Regime III",
             unlocked() { return hasUpgrade("mE", 25) },
             cost(x) {
-                let exp2 = 1.22
+                let exp2 = new Decimal(1.22)
                 let costdef = new Decimal(1.5e8)
-                if (hasUpgrade('mH', 32)) costdef = costdef.pow(0.666)
-                if (getBuyableAmount(this.layer, this.id).gte(15)) exp2 = 1.15
+                if (getBuyableAmount(this.layer, this.id).gte(15)) exp2 = exp.minus(0.07)
+                if (hasUpgrade('mH', 32)) exp2 = exp2.pow(0.666)
                 return new Decimal(costdef).mul(Decimal.pow(1.125, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
@@ -249,7 +249,7 @@ buyables: {
             cost(x) {
                 let exp2 = new Decimal(2.5)
                 let costdef = new Decimal(1e52)
-                if (hasUpgrade('mH', 32)) costdef = costdef.pow(0.666)
+                if (hasUpgrade('mH', 32)) exp2 = exp2.pow(0.666)
                 if (hasUpgrade('mH', 23)) exp2 = exp2.minus(0.9)
                 if (hasUpgrade('mH', 23)) costdef = costdef.pow(0.8)
                 return new Decimal(costdef).mul(Decimal.pow(1.125, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
