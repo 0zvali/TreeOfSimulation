@@ -113,10 +113,10 @@ buyables: {
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
             effect(x) {
-                let base1 = new Decimal("5e658")
+                let base1 = new Decimal("5e1933")
                 let base2 = x
-                let expo = new Decimal(1.12)
-                let eff = base1.pow(Decimal.pow(base2, expo)).pow(0.2)
+                let expo = new Decimal(1.15)
+                let eff = base1.pow(Decimal.pow(base2, expo)).pow(1.04)
                 return eff
             },
         },
@@ -163,7 +163,7 @@ upgrades: {
             description: "Break mC-U3 Cap not have a cap for a while!",
             cost: new Decimal(4),
             unlocked(){
-                return hasMilestone('mH', 12)
+                return hasMilestone('mH', 14)
             },
         },
         22: {
@@ -222,6 +222,14 @@ upgrades: {
             cost: new Decimal(42),
             unlocked(){
                 return hasUpgrade('mH', 31)
+            },
+        },
+        33: {
+            title: "Moving Forward",
+            description: "^1.1 Infects & ^1.02 Meta-Experiments",
+            cost: new Decimal(42),
+            unlocked(){
+                return hasUpgrade('mH', 32)
             },
         },
     },

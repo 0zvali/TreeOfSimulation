@@ -554,6 +554,7 @@ function getPointGen() {
 	if (hasUpgrade('mH', 12)) gain = gain.times(1500)
 	if (hasUpgrade('mH', 14)) gain = gain.times(1e15)
 	if (hasUpgrade('mH', 24)) gain = gain.pow(upgradeEffect('mH', 24))
+	if (hasUpgrade('mH', 33)) gain = gain.pow(1.1)
 	return gain
 }
 

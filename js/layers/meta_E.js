@@ -42,6 +42,7 @@ if (getBuyableAmount('mH', 11).gte(1)) mult = mult.times(buyableEffect('mH', 11)
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         let expo = new Decimal(1)
+        if (hasUpgrade('mH', 33)) expo = expo.add(0.02)
         return expo
     },
     effect() {
