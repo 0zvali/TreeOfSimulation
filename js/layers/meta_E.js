@@ -100,6 +100,7 @@ addLayer("mE", {
     passiveGeneration() {
         let value1 = new Decimal(0);
         if (hasMilestone('mH', 13)) value1 = value1.add(0.01)
+        if (hasMilestone('mF', 13)) value1 = value1.add(0.15)
         return value1
     },
 milestones: {

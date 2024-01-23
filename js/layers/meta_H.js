@@ -57,7 +57,7 @@ addLayer("mH", {
     },
     resetsNothing(){
         let nothing = false
-        if (hasMilestone('mH', 15)) nothing = true
+        if (hasMilestone('mH', 15) || hasMilestone('mF', 13)) nothing = true
         return nothing
     },
 
