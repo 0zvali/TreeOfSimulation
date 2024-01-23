@@ -10,6 +10,10 @@ addLayer("mF", {
     color: "#cfba8a",
     requires(){ 
         let requirement = new Decimal(43)
+        if (hasMilestone('mF', 15)) requirement = requirement.minus(1)
+        if (hasMilestone('mF', 16)) requirement = requirement.minus(2)
+        if (hasMilestone('mF', 18)) requirement = requirement.minus(1)
+        if (hasMilestone('mF', 19)) requirement = requirement.minus(3)
         return requirement
         
     }, // Can be a function that takes requirement increases into account
@@ -36,6 +40,9 @@ addLayer("mF", {
     },
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
+        if (hasMilestone('mF', 14)) mult = mult.times(2)
+        if (hasMilestone('mF', 17)) mult = mult.times(3)
+        if (hasMilestone('mF', 19)) mult = mult.times(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
