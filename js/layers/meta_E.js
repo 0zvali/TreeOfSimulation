@@ -29,6 +29,7 @@ addLayer("mE", {
         if (hasUpgrade('mE', 16)) mult = mult.times(upgradeEffect('mE', 16))
         if (hasUpgrade('mE', 24)) mult = mult.times(64)
         if (getBuyableAmount('mE', 13).gte(1)) mult = mult.times(buyableEffect('mE', 13).div(1.5))
+if (getBuyableAmount('mH', 11).gte(1)) mult = mult.times(buyableEffect('mH', 11))
         if (hasUpgrade('mE', 25)) mult = mult.times(upgradeEffect('mE', 25))
         if (hasUpgrade('mE', 32)) mult = mult.times(upgradeEffect('mE', 32))
         if (hasMilestone('mE', 13)) mult = mult.times(1.4)
