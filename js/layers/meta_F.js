@@ -90,7 +90,7 @@ addLayer("mF", {
                 function () { return "Notice: Some of These are asking for '15 mF_B11' > Which means 15 Meta-Fusion Buyable 11's" },
                 {}],
                 ["display-text",
-                function () { return "Milestones will be a big play into this so PLEASE make sure you get them or it'll make it much much harder to progress." },
+                function () { return "Milestones will be a big play into this so PLEASE make sure you get them or it'll make it much much harder to progress.<br>You don't have to get these in order!" },
                 {}],
                 "blank",
                 "milestones",
@@ -105,6 +105,46 @@ milestones: {
             requirementDescription: "1 Meta-Fusions",
             effectDescription: `Keep the current Meta-Crystals Milestones & Upgrades`,
             done() { return player.mF.points.gte(1) },
+        },
+        12: {
+            requirementDescription: "5 Meta-Fusions",
+            effectDescription: `Keep the current Meta-Experiment Milestones & Upgrades`,
+            done() { return player.mF.points.gte(5) },
+        },
+        13: {
+            requirementDescription: "15 Meta-Fusions",
+            effectDescription: `Meta-Humans don't reset anything; also 15% mC & mE passively`,
+            done() { return player.mF.points.gte(15) },
+        },
+        14: {
+            requirementDescription: "3 mF_B1's",
+            effectDescription: `Double Meta-Fusion Gain`,
+            done() { return (getBuyableAmount("mF", 11).gte(3)) },
+        },
+        15: {
+            requirementDescription: "3 mF_B8's",
+            effectDescription: `Lower Meta-Fusion Requirement by 1`,
+            done() { return (getBuyableAmount("mF", 24).gte(3)) },
+        },
+        16: {
+            requirementDescription: "5 mF_B12's",
+            effectDescription: `Lower Meta-Fusion Requirement by 2`,
+            done() { return (getBuyableAmount("mF", 34).gte(5)) },
+        },
+        17: {
+            requirementDescription: "6 mF_B2's",
+            effectDescription: `Triple Meta-Fusion Gain`,
+            done() { return (getBuyableAmount("mF", 12).gte(6)) },
+        },
+        18: {
+            requirementDescription: "4 mF_B6's & 2 mF_B11",
+            effectDescription: `Lower Meta-Fusion Requirement by 1`,
+            done() { return ((getBuyableAmount("mF", 22)).gte(6) && (getBuyableAmount("mF", 33).gte(2))) },
+        },
+        19: {
+            requirementDescription: "4 mF_B4's & 4 mF_B8's & 4 mF_B12's",
+            effectDescription: `The big 4's; Lower Meta-Fusion Requirement by 3 & double Meta-Fusion Gain`,
+            done() { return ((getBuyableAmount("mF", 12)).gte(4) && (getBuyableAmount("mF", 24).gte(4)) && (getBuyableAmount("mF", 34).gte(4))) },
         },
     },
 
