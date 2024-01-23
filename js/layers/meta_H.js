@@ -85,8 +85,8 @@ milestones: {
         15: {
             requirementDescription: "42 Meta-Humans",
             effectDescription: `Meta-Humans doesn't reset the previous layers anymore`,
-            done() { return player.mH.points.gte(35) },
-            unlocked(){ return hasMilestone('mH', 13) }, 
+            done() { return player.mH.points.gte(42) },
+            unlocked(){ return hasMilestone('mH', 14) }, 
         },
     },
 
