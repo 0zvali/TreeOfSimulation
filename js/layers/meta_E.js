@@ -256,6 +256,7 @@ buyables: {
                 if (hasUpgrade('mH', 32)) exp2 = exp2.pow(0.666)
                 if (hasUpgrade('mH', 23)) exp2 = exp2.minus(0.9)
                 if (hasUpgrade('mH', 23)) costdef = costdef.pow(0.8)
+                if (getBuyableAmount(this.layer, this.id).gte(2500)) exp2 = exp2.add(1)
                 return new Decimal(costdef).mul(Decimal.pow(1.125, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
