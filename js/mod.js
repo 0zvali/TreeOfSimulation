@@ -3,7 +3,7 @@ let modInfo = {
 	id: "experiments",
 	author: "Ozvali",
 	pointsName: "infects",
-	modFiles:["layers/a.js", "layers/c.js", "layers/E.js", "layers/F.js", "layers/H.js", "layers/R.js", "layers/W.js", "layers/timeline.js", "layers/timeline_FL.js", "layers/timeline_EX.js", "layers/timeline_SL.js","layers/timeline_O.js","layers/submergence_D.js","layers/meta_C.js","layers/meta_E.js", "layers/meta_H.js", "tree.js"],
+	modFiles:["layers/a.js", "layers/c.js", "layers/E.js", "layers/F.js", "layers/H.js", "layers/R.js", "layers/W.js", "layers/timeline.js", "layers/timeline_FL.js", "layers/timeline_EX.js", "layers/timeline_SL.js","layers/timeline_O.js","layers/submergence_D.js","layers/meta_C.js","layers/meta_E.js", "layers/meta_H.js","layers/meta_F.js", "tree.js"],
 	discordName: "The Modding Tree Discord Server",
 	discordLink: "https://discord.com/invite/F3xveHV",
 	initialStartPoints: new Decimal (0), // Used for hard resets and new players
@@ -545,7 +545,10 @@ function getPointGen() {
 	if (hasUpgrade('mE', 11)) gain = gain.times(upgradeEffect('mE', 11))
 	if (hasUpgrade('mE', 14)) gain = gain.times(9.2)
 	if (hasMilestone('mE', 15)) gain = gain.times(player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35).times(12250000).times(2.5e9)
-	gain = gain.times(buyableEffect('mE', 12))
+	if (getBuyableAmount('mF', 11).gte(1)) gain = gain.times(buyableEffect('mF', 11))
+	if (getBuyableAmount('mF', 12).gte(1)) gain = gain.times(buyableEffect('mF', 12))
+	if (getBuyableAmount('mF', 13).gte(1)) gain = gain.times(buyableEffect('mF', 13))
+	if (getBuyableAmount('mF', 14).gte(1)) gain = gain.times(buyableEffect('mF', 14))
 	if (hasMilestone('mE', 16)) gain = gain.times(150)
 	if (hasUpgrade('mE', 33)) gain = gain.times(120)
 	if (hasUpgrade('mE', 34)) gain = gain.times(1e12)
@@ -555,6 +558,7 @@ function getPointGen() {
 	if (hasUpgrade('mH', 14)) gain = gain.times(1e15)
 	if (hasUpgrade('mH', 24)) gain = gain.pow(upgradeEffect('mH', 24))
 	if (hasUpgrade('mH', 33)) gain = gain.pow(1.1)
+	if (hasUpgrade('mH', 34)) gain = gain.pow(1.05)
 	return gain
 }
 

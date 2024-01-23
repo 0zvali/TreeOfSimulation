@@ -29,7 +29,7 @@ addLayer("mE", {
         if (hasUpgrade('mE', 16)) mult = mult.times(upgradeEffect('mE', 16))
         if (hasUpgrade('mE', 24)) mult = mult.times(64)
         if (getBuyableAmount('mE', 13).gte(1)) mult = mult.times(buyableEffect('mE', 13).div(1.5))
-if (getBuyableAmount('mH', 11).gte(1)) mult = mult.times(buyableEffect('mH', 11))
+        if (getBuyableAmount('mH', 11).gte(1)) mult = mult.times(buyableEffect('mH', 11))
         if (hasUpgrade('mE', 25)) mult = mult.times(upgradeEffect('mE', 25))
         if (hasUpgrade('mE', 32)) mult = mult.times(upgradeEffect('mE', 32))
         if (hasMilestone('mE', 13)) mult = mult.times(1.4)
@@ -38,6 +38,11 @@ if (getBuyableAmount('mH', 11).gte(1)) mult = mult.times(buyableEffect('mH', 11)
         if (hasUpgrade('mE', 34)) mult = mult.times(1e15)
         if (hasUpgrade('mE', 36)) mult = mult.times(1e9)
         if (hasUpgrade('mH', 11)) mult = mult.times(20)
+        if (getBuyableAmount('mF', 31).gte(1)) mult = mult.times(buyableEffect('mF', 31))
+        if (getBuyableAmount('mF', 32).gte(1)) mult = mult.times(buyableEffect('mF', 32))
+        if (getBuyableAmount('mF', 33).gte(1)) mult = mult.times(buyableEffect('mF', 33))
+        if (getBuyableAmount('mF', 34).gte(1)) mult = mult.times(buyableEffect('mF', 34))
+        if (player.mF.unlocked) mult = mult.times(tmp.mF.effect)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

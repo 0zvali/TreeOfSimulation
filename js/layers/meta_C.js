@@ -42,6 +42,11 @@ addLayer("mC", {
         if (hasUpgrade('mE', 34)) mult = mult.times(1e10)
         if (hasUpgrade('mH', 12)) mult = mult.times(4)
         if (hasUpgrade('mH', 14)) mult = mult.times(1e9)
+        if (getBuyableAmount('mF', 21).gte(1)) mult = mult.times(buyableEffect('mF', 21))
+        if (getBuyableAmount('mF', 22).gte(1)) mult = mult.times(buyableEffect('mF', 22))
+        if (getBuyableAmount('mF', 23).gte(1)) mult = mult.times(buyableEffect('mF', 23))
+        if (getBuyableAmount('mF', 24).gte(1)) mult = mult.times(buyableEffect('mF', 24))
+        if (player.mF.unlocked) mult = mult.times(tmp.mF.effect)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -81,6 +86,8 @@ addLayer("mC", {
         if (hasMilestone('mH', 12)) player.mE.milestones.push("11","12","13","14","15","16","17")
         if (hasMilestone('mH', 12)) player.mE.upgrades.push("11", "12", "13", "14", "15" ,"16", "21", "22", "23", "24", "25", "26", "31", "32", "33", "34", "35", "36")
         if (player.mH.unlocked) player.mE.milestones.push("17")
+        if (hasMilestone('mF', 11)) player.mC.milestones.push("11","12","13")
+        if (hasMilestone('mF', 11)) player.mC.upgrades.push("11", "12", "13", "14", "15" ,"16", "21", "22", "23", "24", "25", "26")
     },
     passiveGeneration() {
         let value1 = new Decimal(0);
