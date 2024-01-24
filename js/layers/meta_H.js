@@ -169,7 +169,7 @@ upgrades: {
             description: "Meta-Humans boost Meta-Crystal effect significantly",
             cost: new Decimal(6),
             effect() {
-                let eff = ((player.mH.points.div(45)).add(1).max(0)).max(1).min(1.75);
+                let eff = ((player.mH.points.div(45)).add(1).max(0)).max(1).min(1.4);
                 return eff
             },
             effectDisplay() {
@@ -194,7 +194,7 @@ upgrades: {
             description: "Infect gain is boosted by Meta-Humans",
             cost: new Decimal(7),
             effect() {
-                let eff = ((player.mH.points.div(27)).add(1).max(0)).max(1).min(2);
+                let eff = ((player.mH.points.div(27)).add(1).max(0)).max(1).min(1.35);
                 return eff
             },
             effectDisplay() {
@@ -224,7 +224,7 @@ upgrades: {
         },
         33: {
             title: "Economic Success",
-            description: "^1.15 Infects & ^1.05 Meta-Experiments",
+            description: "^1.03 Infects & ^1.01 Meta-Experiments",
             cost: new Decimal(11),
             unlocked(){
                 return hasUpgrade('mH', 32)
@@ -232,7 +232,7 @@ upgrades: {
         },
         34: {
             title: "We skipped a layer!",
-            description: "Unlock Meta-Fusions, ^1.07 Infect Gain",
+            description: "Unlock Meta-Fusions, ^1.03 Infect Gain",
             cost: new Decimal(12),
             unlocked(){
                 return hasUpgrade('mH', 33)
