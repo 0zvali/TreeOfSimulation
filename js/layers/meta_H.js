@@ -192,7 +192,7 @@ upgrades: {
         24: {
             title: "Regimes",
             description: "Infect gain is boosted by Meta-Humans",
-            cost: new Decimal(6),
+            cost: new Decimal(7),
             effect() {
                 let eff = ((player.mH.points.div(27)).add(1).max(0)).max(1).min(2);
                 return eff
