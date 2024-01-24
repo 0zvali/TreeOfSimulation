@@ -402,7 +402,7 @@ upgrades: {
         24: {
             title: "Meta-Azure",
             description: "wait didn't azure have the ability to duplicate up to 4 times...? 64x Meta-Experiments & 4x 'Experimental Regime II' Effect",
-            cost: new Decimal(5e9),
+            cost: new Decimal(2.3e9),
             unlocked(){
                 return hasUpgrade('mE', 23)
             },
