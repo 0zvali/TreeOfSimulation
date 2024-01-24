@@ -76,7 +76,7 @@ milestones: {
         },
         14: {
             requirementDescription: "35 Meta-Humans",
-            effectDescription: `Automate Meta-Humans. With that, unlock a Meta-Human Buyable`,
+            effectDescription: `Automate Meta-Humans, and if you want Buy Max amount of Meta-Humans. With that, unlock a Meta-Human Buyable`,
             done() { return player.mH.points.gte(35) },
             unlocked(){ return hasMilestone('mH', 13) }, 
         },

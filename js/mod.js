@@ -549,7 +549,7 @@ function getPointGen() {
 	if (getBuyableAmount('mF', 12).gte(1)) gain = gain.times(buyableEffect('mF', 12))
 	if (getBuyableAmount('mF', 13).gte(1)) gain = gain.times(buyableEffect('mF', 13))
 	if (getBuyableAmount('mF', 14).gte(1)) gain = gain.times(buyableEffect('mF', 14))
-	if (hasMilestone('mE', 16)) gain = gain.times(150)
+	if (hasMilestone('mE', 16)) gain = gain.times(1.4e9)
 	if (hasUpgrade('mE', 33)) gain = gain.times(120)
 	if (hasUpgrade('mE', 34)) gain = gain.times(1e12)
 	if (hasUpgrade('mE', 36)) gain = gain.times(5.5)
