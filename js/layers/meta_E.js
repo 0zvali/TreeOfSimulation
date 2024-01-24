@@ -158,7 +158,6 @@ buyables: {
                 if (hasUpgrade('mE', 13)) exp1 = exp1.minus(0.05) // hell yea!
                 if (hasMilestone('mE', 16)) exp2 = exp2.minus(0.015) // hell yea!
                 if (getBuyableAmount(this.layer, this.id).gte(20)) exp2 = exp2.add(0.0245)
-                if (hasUpgrade('mH', 32)) exp2 = exp2.pow(0.666)
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).div(buyableEffect("mE", 13)).floor()
             },
             display() {
@@ -194,7 +193,6 @@ buyables: {
                 let costdef = new Decimal(50)
                 if (getBuyableAmount(this.layer, this.id).gte(15)) exp2 = exp2.add(0.05)
                 if (hasMilestone('mE',14)) exp2 = exp2.minus(0.075)
-                if (hasUpgrade('mH', 32)) exp2 = exp2.pow(0.666)
                 return new Decimal(costdef).mul(Decimal.pow(1.2, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).div(buyableEffect("mE", 13)).floor()
             },
             display() {
@@ -218,6 +216,7 @@ buyables: {
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (hasUpgrade('mE', 24)) eff = base1.pow(Decimal.pow(base2, expo)).times(4).times(buyableEffect('mE', 14).pow(0.2))
                 if (hasUpgrade('mH', 13)) eff = eff.times(15)
+                if (hasUpgrade('mH', 32)) eff = eff.pow(1.4)
                 return eff
             },
             buyMax(){ return hasUpgrade('mH', 22) },
@@ -229,7 +228,6 @@ buyables: {
                 let exp2 = new Decimal(1.22)
                 let costdef = new Decimal(1.5e8)
                 if (getBuyableAmount(this.layer, this.id).gte(15)) exp2 = exp2.minus(0.07)
-                if (hasUpgrade('mH', 32)) exp2 = exp2.pow(0.666)
                 return new Decimal(costdef).mul(Decimal.pow(1.125, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
@@ -261,7 +259,6 @@ buyables: {
             cost(x) {
                 let exp2 = new Decimal(2.5)
                 let costdef = new Decimal(1e52)
-                if (hasUpgrade('mH', 32)) exp2 = exp2.pow(0.666)
                 if (hasUpgrade('mH', 23)) exp2 = exp2.minus(0.9)
                 if (hasUpgrade('mH', 23)) costdef = costdef.pow(0.8)
                 if (getBuyableAmount(this.layer, this.id).gte(2500)) exp2 = exp2.add(1)
@@ -282,6 +279,7 @@ buyables: {
                 let base1 = new Decimal(5.5)
                 let base2 = x
                 let expo = new Decimal(1.1)
+                if (hasUpgrade('mH', 32)) base1 = base1.add(2)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (hasUpgrade('mH', 13)) eff = eff.times(15)
                 return eff
