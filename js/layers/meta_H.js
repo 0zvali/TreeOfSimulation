@@ -215,7 +215,7 @@ upgrades: {
             },
         },
         32: {
-            title: "Another Personality",
+            title: "Personification",
             description: "Significantly improve 'Experimental Regime IV' Effect & ^1.4 'Experiment Regime II' Effect",
             cost: new Decimal(11),
             unlocked(){
@@ -223,7 +223,7 @@ upgrades: {
             },
         },
         33: {
-            title: "Moving Forward",
+            title: "Economic Success",
             description: "^1.15 Infects & ^1.05 Meta-Experiments",
             cost: new Decimal(14),
             unlocked(){
