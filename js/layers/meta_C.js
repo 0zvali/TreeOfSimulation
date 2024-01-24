@@ -195,16 +195,16 @@ upgrades: {
                 if (hasUpgrade('mC',22)) eff = (player.mC.points.max(1).add(2).pow(0.125).times(1.3).times(1.8)).max(1).min(1753.22);
                 if (player.mE.unlocked) eff = (player.mC.points.max(1).add(2).pow(0.125).times(1.3).times(tmp.mE.effect)).max(1).min(1753.22);
                 if (player.mE.unlocked && hasUpgrade('mC', 22)) eff = (player.mC.points.max(1).add(2).pow(0.125).times(1.3).times(1.8).times(tmp.mE.effect)).max(1).min(1753.22);
-                if (hasUpgrade('mE', 15)) eff = (player.mC.points.max(1).add(2).pow(0.125).times(1.3).times(1.8).times(tmp.mE.effect)).max(1).min(1.4e8);
-                if (hasUpgrade('mE', 31)) eff = (player.mC.points.max(1).add(2).pow(0.125).times(1.3).times(1.8).times(tmp.mE.effect)).max(1).min(1.96e16);
+                if (hasUpgrade('mE', 15)) eff = (player.mC.points.max(1).add(2).pow(0.125).times(1.3).times(1.8).times(tmp.mE.effect)).max(1).min(1.4e10);
+                if (hasUpgrade('mE', 31)) eff = (player.mC.points.max(1).add(2).pow(0.125).times(1.3).times(1.8).times(tmp.mE.effect)).max(1).min(1.96e17);
                 if (hasUpgrade('mH', 21)) eff = (player.mC.points.max(1).add(2).pow(0.125).times(1.3).times(1.8).times(tmp.mE.effect)).max(1).min("1e9999");
                 return eff
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(1753.22) ? "(Capped)" : "";
-                if (hasUpgrade('mE', 15)) capped = upgradeEffect(this.layer, this.id).gte(1.4e8) ? "(2nd Cap)": "";
-                if (hasUpgrade('mE', 31)) capped = upgradeEffect(this.layer, this.id).gte(1.96e16) ? "(3rd Cap)": "";
-                if (hasUpgrade('mH', 21)) capped = upgradeEffect(this.layer, this.id).gte("1e999") ? "(4th Cap)": "";
+                if (hasUpgrade('mE', 15)) capped = upgradeEffect(this.layer, this.id).gte(1.4e10) ? "(2nd Cap)": "";
+                if (hasUpgrade('mE', 31)) capped = upgradeEffect(this.layer, this.id).gte(1.96e17) ? "(3rd Cap)": "";
+                if (hasUpgrade('mH', 21)) capped = upgradeEffect(this.layer, this.id).gte("1e9999") ? "(4th Cap)": "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} (x${format(upgradeEffect(this.layer, this.id).div(2))}) ${capped}`;
                 return text;
             },
