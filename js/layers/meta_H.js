@@ -225,7 +225,7 @@ upgrades: {
         33: {
             title: "Economic Success",
             description: "^1.15 Infects & ^1.05 Meta-Experiments",
-            cost: new Decimal(14),
+            cost: new Decimal(11),
             unlocked(){
                 return hasUpgrade('mH', 32)
             },
@@ -233,7 +233,7 @@ upgrades: {
         34: {
             title: "We skipped a layer!",
             description: "Unlock Meta-Fusions, ^1.07 Infect Gain",
-            cost: new Decimal(18),
+            cost: new Decimal(12),
             unlocked(){
                 return hasUpgrade('mH', 33)
             },
