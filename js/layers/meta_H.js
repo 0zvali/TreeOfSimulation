@@ -20,18 +20,9 @@ addLayer("mH", {
     type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent(){ 
         let expo1 = new Decimal(3.1)
-        if (player.mH.points.gte(25)) expo1 = expo1.add(1.35)
-        if (player.mH.points.gte(50)) expo1 = expo1.add(0.55)
-        if (player.mF.unlocked) expo1 = expo1.minus(0.05)
         return expo1
      }, // Prestige currency exponent
 
-    effectDescription(){
-        let def = "Meta-Humans expo cost increases to ^4.45 after 25<br>"
-        if (player.mH.points.gte(50)) def = "Meta-Humans expo cost increases to ^4.45 after 25<br> 50 Meta-Humans: Expo increased to ^5"
-        if (player.mF.unlocked) def = "Meta-Humans expo cost increases to ^4.4 after 25<br>"
-        return def
-    },
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
         return mult
