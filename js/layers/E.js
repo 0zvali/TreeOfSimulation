@@ -486,7 +486,7 @@ milestones: {
         },
     },
     46: {
-        title: "Nichir",
+        title: "Deep",
         description: "Times All Resources by 1.5",
         cost: new Decimal(1e13),
         unlocked(){
