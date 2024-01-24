@@ -173,7 +173,7 @@ upgrades: {
                 return eff
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(1.75) ? "(Capped)" : "";
+                let capped = upgradeEffect(this.layer, this.id).gte(1.4) ? "(Capped)" : "";
                 let text = `^${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
@@ -194,11 +194,11 @@ upgrades: {
             description: "Infect gain is boosted by Meta-Humans",
             cost: new Decimal(7),
             effect() {
-                let eff = ((player.mH.points.div(27)).add(1).max(0)).max(1).min(1.35);
+                let eff = ((player.mH.points.div(27)).add(1).max(0)).max(1).min(1.45);
                 return eff
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(2) ? "(Capped)" : "";
+                let capped = upgradeEffect(this.layer, this.id).gte(1.45) ? "(Capped)" : "";
                 let text = `^${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
