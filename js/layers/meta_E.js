@@ -214,7 +214,7 @@ buyables: {
                 let expo = new Decimal(1.05)
                 if (hasMilestone('mC', 11)) base1 = base1.add(0.33)
                 if (hasUpgrade('mE', 21)) base1 = base1.add(upgradeEffect('mE', 21))
-                if (hasMilestone('mE', 13)) base1 = base1.add(0.25)
+                if (hasMilestone('mE', 13)) base1 = base1.add(0.45)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (hasUpgrade('mE', 24)) eff = base1.pow(Decimal.pow(base2, expo)).times(4).times(buyableEffect('mE', 14).pow(0.2))
                 if (hasUpgrade('mH', 13)) eff = eff.times(15)
@@ -246,6 +246,7 @@ buyables: {
             effect(x) {
                 let base1 = new Decimal(1.75)
                 if (hasMilestone('mE', 12)) base1 = base1.add(0.35)
+                if (hasUpgrade('mE', 26)) base1 = base1.add(0.25)
                 let base2 = x
                 let expo = new Decimal(1.05)
                 let eff = base1.pow(Decimal.pow(base2, expo)).times(buyableEffect('mE', 14).pow(0.2))
@@ -427,7 +428,7 @@ upgrades: {
         },
         26: {
             title: "Meta-Frostical",
-            description: "Increase Meta-Crystal(s) Exponent by 0.075 & Qintruple Meta-Experiment(s) Effect",
+            description: "Increase Meta-Crystal(s) Exponent by 0.075, Qintruple Meta-Experiment(s) Effect, and improve 'Experimental Regime III' effect",
             cost: new Decimal(1e20),
             unlocked(){
                 return hasUpgrade('mE', 25)
