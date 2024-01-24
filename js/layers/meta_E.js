@@ -411,9 +411,9 @@ upgrades: {
         25: {
             title: "Meta-Experimental Surge",
             description: "Meta-Experiments boosts itself, also unlock 'Experimental Surge III'",
-            cost: new Decimal(3.45e13),
+            cost: new Decimal(3.45e12),
             effect() {
-                let eff = (player.mE.points.max(1).add(1).pow(0.027)).max(1).min(1.2e8);
+                let eff = (player.mE.points.max(1).add(1).pow(0.07)).max(1).min(1.2e8);
                 return eff
             },
             effectDisplay() {
