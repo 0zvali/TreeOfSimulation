@@ -207,7 +207,7 @@ upgrades: {
             },
         },
         31: {
-            title: "Cap^Cap Breaker I",
+            title: "Cap^Cap Breaker",
             description: "Bro are you telling me that mC-U12 was never really getting a boost in the first place? Increase the Cap for the 2nd row of Meta-Crystal(s) Upgrades",
             cost: new Decimal(8),
             unlocked(){
@@ -215,25 +215,25 @@ upgrades: {
             },
         },
         32: {
-            title: "Refix?",
-            description: "Holy Crap that inflation all of a sudden, sorry! ^0.666 the cost of mE Buyables",
-            cost: new Decimal(42),
+            title: "Another Personality",
+            description: "Significantly improve 'Experimental Regime IV' Effect & ^1.4 'Experiment Regime II' Effect",
+            cost: new Decimal(11),
             unlocked(){
                 return hasUpgrade('mH', 31)
             },
         },
         33: {
             title: "Moving Forward",
-            description: "^1.1 Infects & ^1.02 Meta-Experiments",
-            cost: new Decimal(42),
+            description: "^1.15 Infects & ^1.05 Meta-Experiments",
+            cost: new Decimal(14),
             unlocked(){
                 return hasUpgrade('mH', 32)
             },
         },
         34: {
             title: "We skipped a layer!",
-            description: "Unlock Meta-Fusions, ^1.05 Infect Gain",
-            cost: new Decimal(43),
+            description: "Unlock Meta-Fusions, ^1.07 Infect Gain",
+            cost: new Decimal(18),
             unlocked(){
                 return hasUpgrade('mH', 33)
             },
