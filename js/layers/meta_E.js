@@ -20,7 +20,7 @@ addLayer("mE", {
     baseAmount() {return player.mC.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent(){ 
-        let expo1 = 0.25
+        let expo1 = 0.27
         if (hasUpgrade('mE', 21)) expo1 = 0.30
         return expo1
      }, // Prestige currency exponent
@@ -32,6 +32,7 @@ addLayer("mE", {
         if (getBuyableAmount('mH', 11).gte(1)) mult = mult.times(buyableEffect('mH', 11))
         if (hasUpgrade('mE', 25)) mult = mult.times(upgradeEffect('mE', 25))
         if (hasUpgrade('mE', 32)) mult = mult.times(upgradeEffect('mE', 32))
+        if (hasUpgrade('mE', 11)) mult = mult.times(3)
         if (hasMilestone('mE', 13)) mult = mult.times(1.4)
         if (hasMilestone('mE', 14)) mult = mult.times(2.8)
         if (hasUpgrade('mE', 33)) mult = mult.times(7)

@@ -532,10 +532,8 @@ function getPointGen() {
 	if (player.CT.points.gte(2) && player.points.gte(1e10)) gain = gain.div(player.points.minus(1e10).add(1).pow(0.112))
 	if (player.CT.points.gte(2) && player.points.gte(1e15)) gain = gain.div(7.2)
 	if (player.CT.points.gte(2) && player.points.gte(1e25)) gain = gain.div(35)
-	if (player.CT.points.gte(2) && player.points.gte(1e35)) gain = gain.div(1225000)
+	if (player.CT.points.gte(2) && player.points.gte(1e35)) gain = gain.div(12250000)
 	if (player.CT.points.gte(2) && player.points.gte(1e50)) gain = gain.div(2.5e9)
-
-
 
 
 	if (hasUpgrade('mC', 23)) gain = gain.times(6.2)
@@ -603,8 +601,8 @@ var displayThings = [
 		if (player.CT.points.gte(2) && player.points.gte(1e10)) nerf = "Infect gain is nerfed by /" + format(player.points.minus(1e10).add(1).pow(0.112)) + " (Level 1 Nerf)"
 		if (player.CT.points.gte(2) && player.points.gte(1e15)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2)) + " (Level 2 Nerf)"
 		if (player.CT.points.gte(2) && player.points.gte(1e25)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35)) + " (Level 3 Nerf)"
-		if (player.CT.points.gte(2) && player.points.gte(1e35)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35).times(1225000)) + " (Level 4 Nerf)"
-		if (player.CT.points.gte(2) && player.points.gte(1e50)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35).times(1225000).times(2.5e9)) + " (Level 5 Nerf)"
+		if (player.CT.points.gte(2) && player.points.gte(1e35)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35).times(12250000)) + " (Level 4 Nerf)"
+		if (player.CT.points.gte(2) && player.points.gte(1e50)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35).times(12250000).times(2.5e9)) + " (Level 5 Nerf)"
 
 
 
