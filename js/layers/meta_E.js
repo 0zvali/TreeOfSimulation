@@ -129,9 +129,9 @@ milestones: {
             unlocked() { return hasMilestone('mE', 13)},
         },
         15: {
-            requirementDescription: "3.14e25 Meta-Experiments",
+            requirementDescription: "6e24 Meta-Experiments",
             effectDescription: `Remove Infect Nerf entirely. (Hint: Passive doesn't help!)`,
-            done() { return player.mE.points.gte(3.14e25) },
+            done() { return player.mE.points.gte(6e24) },
             unlocked() { return hasMilestone('mE', 14)},
         },
         16: {
