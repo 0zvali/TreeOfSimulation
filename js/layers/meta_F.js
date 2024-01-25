@@ -198,7 +198,7 @@ buyables: {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Infect gain by x" + format(buyableEffect(this.layer, this.id))
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) +"/"+ formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit)  + "<br>Effect: ???????????? ??????????? ???????????????"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -230,7 +230,7 @@ buyables: {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Infect gain by x" + format(buyableEffect(this.layer, this.id))
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) +"/"+ formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit)  + "<br>Effect: ???????????? ??????????? ???????????????"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -262,7 +262,7 @@ buyables: {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Infect gain by x" + format(buyableEffect(this.layer, this.id))
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) +"/"+ formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit)  + "<br>Effect: ???????????? ??????????? ???????????????"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -294,7 +294,7 @@ buyables: {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Meta-Crystals gain by x" + format(buyableEffect(this.layer, this.id))
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) +"/"+ formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit)  + "<br>Effect: ???????????? ??????????? ???????????????"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -326,7 +326,7 @@ buyables: {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Meta-Crystals gain by x" + format(buyableEffect(this.layer, this.id))
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) +"/"+ formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit)  + "<br>Effect: ???????????? ??????????? ???????????????"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -358,7 +358,7 @@ buyables: {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Meta-Crystals gain by x" + format(buyableEffect(this.layer, this.id))
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) +"/"+ formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit)  + "<br>Effect: ???????????? ??????????? ???????????????"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -390,7 +390,7 @@ buyables: {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Meta-Crystals gain by x" + format(buyableEffect(this.layer, this.id))
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) +"/"+ formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit)  + "<br>Effect: ???????????? ??????????? ???????????????"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -422,7 +422,7 @@ buyables: {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Meta-Experiments gain by x" + format(buyableEffect(this.layer, this.id))
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) +"/"+ formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit)  + "<br>Effect: ???????????? ??????????? ???????????????"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -454,7 +454,7 @@ buyables: {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Meta-Experiments gain by x" + format(buyableEffect(this.layer, this.id))
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) +"/"+ formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit)  + "<br>Effect: ???????????? ??????????? ???????????????"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -486,7 +486,7 @@ buyables: {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Meta-Experiments gain by x" + format(buyableEffect(this.layer, this.id))
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) +"/"+ formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit)  + "<br>Effect: ???????????? ??????????? ???????????????"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -518,7 +518,7 @@ buyables: {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Meta-Experiments gain by x" + format(buyableEffect(this.layer, this.id))
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) +"/"+ formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit)  + "<br>Effect: ???????????? ??????????? ???????????????"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
