@@ -160,13 +160,13 @@ buyables: {
             title: "Fusionitive",
             unlocked() { return player.mF.unlocked },
             cost(x) {
-                let exp1 = new Decimal(1.3)
+                let exp1 = new Decimal(1.1)
                 let exp2 = new Decimal(1.05)
                 let costdef = new Decimal(1)
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Infect gain by x" + format(buyableEffect(this.layer, this.id))
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Meta-Experiment gain by x" + format(buyableEffect(this.layer, this.id))
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -176,19 +176,23 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
+            canClick(){
+                let click = true
+                return click
+            },
             effect(x) {
-                let base1 = new Decimal(1.4e6)
+                let base1 = new Decimal(1500)
                 let base2 = x
-                let expo = new Decimal(1.35)
+                let expo = new Decimal(1.2)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
             },
         },
         12: {
-            title: "Metativity",
+            title: "Metativity (Locked)",
             unlocked() { return player.mF.unlocked },
             cost(x) {
-                let exp1 = new Decimal(1.4)
+                let exp1 = new Decimal(2)
                 let exp2 = new Decimal(1.06)
                 let costdef = new Decimal(1)
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
@@ -198,6 +202,10 @@ buyables: {
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
+            },
+            canClick(){
+                let click = false  
+                return click
             },
             buy() {
                 let cost = new Decimal (1)
@@ -213,7 +221,7 @@ buyables: {
             },
         },
         13: {
-            title: "Longitivity",
+            title: "Longitivity (Locked)",
             unlocked() { return player.mF.unlocked },
             cost(x) {
                 let exp1 = new Decimal(1.55)
@@ -232,6 +240,10 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
+            canClick(){
+                let click = false  
+                return click
+            },
             effect(x) {
                 let base1 = new Decimal(2.2e13)
                 let base2 = x
@@ -241,7 +253,7 @@ buyables: {
             },
         },
         14: {
-            title: "Definity",
+            title: "Definity (Locked)",
             unlocked() { return player.mF.unlocked },
             cost(x) {
                 let exp1 = new Decimal(1.6)
@@ -260,6 +272,10 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
+            canClick(){
+                let click = false  
+                return click
+            },
             effect(x) {
                 let base1 = new Decimal(4.3e20)
                 let base2 = x
@@ -269,7 +285,7 @@ buyables: {
             },
         },
         21: {
-            title: "Crystalitivate",
+            title: "Crystalitivate (Locked)",
             unlocked() { return player.mF.unlocked },
             cost(x) {
                 let exp1 = new Decimal(1)
@@ -288,6 +304,10 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
+            canClick(){
+                let click = false  
+                return click
+            },
             effect(x) {
                 let base1 = new Decimal(66)
                 let base2 = x
@@ -297,7 +317,7 @@ buyables: {
             },
         },
         22: {
-            title: "Metativity II",
+            title: "Metativity II (Locked)",
             unlocked() { return player.mF.unlocked },
             cost(x) {
                 let exp1 = new Decimal(1.2)
@@ -316,6 +336,10 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
+            canClick(){
+                let click = false  
+                return click
+            },
             effect(x) {
                 let base1 = new Decimal(1300)
                 let base2 = x
@@ -325,7 +349,7 @@ buyables: {
             },
         },
         23: {
-            title: "Longitivity II",
+            title: "Longitivity II (Locked)",
             unlocked() { return player.mF.unlocked },
             cost(x) {
                 let exp1 = new Decimal(1.4)
@@ -344,6 +368,10 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
+            canClick(){
+                let click = false  
+                return click
+            },
             effect(x) {
                 let base1 = new Decimal(1959200)
                 let base2 = x
@@ -353,7 +381,7 @@ buyables: {
             },
         },
         24: {
-            title: "Infinivate",
+            title: "Infinivate (Locked)",
             unlocked() { return player.mF.unlocked },
             cost(x) {
                 let exp1 = new Decimal(2)
@@ -372,6 +400,10 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
+            canClick(){
+                let click = false  
+                return click
+            },
             effect(x) {
                 let base1 = new Decimal(1.8e11)
                 let base2 = x
@@ -381,7 +413,7 @@ buyables: {
             },
         },
         31: {
-            title: "Experimate",
+            title: "Experimate (Locked)",
             unlocked() { return player.mF.unlocked },
             cost(x) {
                 let exp1 = new Decimal(1)
@@ -400,6 +432,10 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
+            canClick(){
+                let click = false  
+                return click
+            },
             effect(x) {
                 let base1 = new Decimal(193)
                 let base2 = x
@@ -409,7 +445,7 @@ buyables: {
             },
         },
         32: {
-            title: "Metativity III",
+            title: "Metativity III (Locked)",
             unlocked() { return player.mF.unlocked },
             cost(x) {
                 let exp1 = new Decimal(1.2)
@@ -428,6 +464,10 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
+            canClick(){
+                let click = false  
+                return click
+            },
             effect(x) {
                 let base1 = new Decimal(6210)
                 let base2 = x
@@ -437,7 +477,7 @@ buyables: {
             },
         },
         33: {
-            title: "Longitivity III",
+            title: "Longitivity III (Locked)",
             unlocked() { return player.mF.unlocked },
             cost(x) {
                 let exp1 = new Decimal(1.5)
@@ -456,6 +496,10 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
+            canClick(){
+                let click = false  
+                return click
+            },
             effect(x) {
                 let base1 = new Decimal(1.8e7)
                 let base2 = x
@@ -465,7 +509,7 @@ buyables: {
             },
         },
         34: {
-            title: "Enterative",
+            title: "Enterative (Locked)",
             unlocked() { return player.mF.unlocked },
             cost(x) {
                 let exp1 = new Decimal(2)
@@ -483,6 +527,10 @@ buyables: {
                 let cost = new Decimal (1)
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            canClick(){
+                let click = false  
+                return click
             },
             effect(x) {
                 let base1 = new Decimal(5.2e11)
