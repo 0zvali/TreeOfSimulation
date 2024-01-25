@@ -70,7 +70,7 @@ addLayer("mF", {
                     function () { return 'Buyables are locked behind either Upgrades, Bars, or Milestones...or even challenges...' },
                     {}],
                 ["display-text",
-                    function () { return 'You can't see what effect the Lockef Buyable will give until you've unlocked it...' },
+                    function () { return "You can't see what effect the Locked Buyable will give until you've unlocked it..." },
                     {}],
                 "blank",
                 ["buyables",[1, 2, 3]],
