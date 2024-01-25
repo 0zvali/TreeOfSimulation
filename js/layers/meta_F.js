@@ -9,7 +9,7 @@ addLayer("mF", {
 
     color: "#cfba8a",
     requires(){ 
-        let requirement = new Decimal(43)
+        let requirement = new Decimal(12)
         if (hasMilestone('mF', 15)) requirement = requirement.minus(1)
         if (hasMilestone('mF', 16)) requirement = requirement.minus(2)
         if (hasMilestone('mF', 18)) requirement = requirement.minus(1)
@@ -22,7 +22,7 @@ addLayer("mF", {
     baseAmount() {return player.mH.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent(){ 
-        let expo1 = new Decimal(45)
+        let expo1 = new Decimal(12)
         return expo1
      }, // Prestige currency exponent
     effect() {
