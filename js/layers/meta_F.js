@@ -67,10 +67,10 @@ addLayer("mF", {
                 "prestige-button",
                 "blank",
                 ["display-text",
-                    function () { return 'Notice: Buyables are in sections - 4th, 8th, and 12th buyables have a higher effect but are more expensive; it goes like that through 1-4, 5-8, and 9-12' },
+                    function () { return 'Buyables are locked behind either Upgrades, Bars, or Milestones...or even challenges...' },
                     {}],
                 ["display-text",
-                    function () { return 'Example: 1st Buyable 13x Infect Gain, but price is signifcantly lower. 4th Buyable: 1e8x Infect Gain, but price is significantly higher' },
+                    function () { return 'You can't see what effect the Lockef Buyable will give until you've unlocked it...' },
                     {}],
                 "blank",
                 ["buyables",[1, 2, 3]],
@@ -85,6 +85,16 @@ addLayer("mF", {
                 "blank",
                 "blank",
                 "upgrades",
+            ]
+        },
+        "Challenges": {
+            content: [
+                "main-display",
+                "blank",
+                "prestige-button",
+                "blank",
+                "blank",
+                "challenges",
             ]
         },
         "Milestones": {
