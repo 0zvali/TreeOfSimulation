@@ -176,9 +176,9 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
-            canClick(){
-                let click = true
-                return click
+            purchaseLimit(){
+                let limit = 10
+                return limit
             },
             effect(x) {
                 let base1 = new Decimal(1500)
@@ -203,9 +203,9 @@ buyables: {
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
             },
-            canClick(){
-                let click = false  
-                return click
+            purchaseLimit(){
+                let limit = 0
+                return limit
             },
             buy() {
                 let cost = new Decimal (1)
@@ -240,9 +240,9 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
-            canClick(){
-                let click = false  
-                return click
+            purchaseLimit(){
+                let limit = 0
+                return limit
             },
             effect(x) {
                 let base1 = new Decimal(2.2e13)
@@ -272,9 +272,9 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
-            canClick(){
-                let click = false  
-                return click
+            purchaseLimit(){
+                let limit = 0
+                return limit
             },
             effect(x) {
                 let base1 = new Decimal(4.3e20)
@@ -304,9 +304,9 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
-            canClick(){
-                let click = false  
-                return click
+            purchaseLimit(){
+                let limit = 0
+                return limit
             },
             effect(x) {
                 let base1 = new Decimal(66)
@@ -336,9 +336,9 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
-            canClick(){
-                let click = false  
-                return click
+            purchaseLimit(){
+                let limit = 0
+                return limit
             },
             effect(x) {
                 let base1 = new Decimal(1300)
@@ -368,9 +368,9 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
-            canClick(){
-                let click = false  
-                return click
+            purchaseLimit(){
+                let limit = 0
+                return limit
             },
             effect(x) {
                 let base1 = new Decimal(1959200)
@@ -400,9 +400,9 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
-            canClick(){
-                let click = false  
-                return click
+            purchaseLimit(){
+                let limit = 0
+                return limit
             },
             effect(x) {
                 let base1 = new Decimal(1.8e11)
@@ -432,9 +432,9 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
-            canClick(){
-                let click = false  
-                return click
+            purchaseLimit(){
+                let limit = 0
+                return limit
             },
             effect(x) {
                 let base1 = new Decimal(193)
@@ -464,9 +464,9 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
-            canClick(){
-                let click = false  
-                return click
+            purchaseLimit(){
+                let limit = 0
+                return limit
             },
             effect(x) {
                 let base1 = new Decimal(6210)
@@ -496,9 +496,9 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
-            canClick(){
-                let click = false  
-                return click
+            purchaseLimit(){
+                let limit = 0
+                return limit
             },
             effect(x) {
                 let base1 = new Decimal(1.8e7)
@@ -528,9 +528,9 @@ buyables: {
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
-            canClick(){
-                let click = false  
-                return click
+            purchaseLimit(){
+                let limit = 0
+                return limit
             },
             effect(x) {
                 let base1 = new Decimal(5.2e11)
