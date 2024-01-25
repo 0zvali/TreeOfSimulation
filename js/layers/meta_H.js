@@ -224,7 +224,7 @@ upgrades: {
         },
         33: {
             title: "Economic Success",
-            description: "^1.03 Infects & ^1.015 Meta-Experiments",
+            description: "^1.03 Infects & ^1.022 Meta-Experiments",
             cost: new Decimal(11),
             unlocked(){
                 return hasUpgrade('mH', 32)
