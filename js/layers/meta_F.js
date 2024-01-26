@@ -617,7 +617,7 @@ buyables: {
             },
             42: {
                 title: "Relic III",
-                description: "^1.15 Infects & Improved 'Experiment Regime III' Effect",
+                description: "^1.15 Infects & Improved 'Experiment Regime III' Effect, unlock the 2nd buyable",
                 cost: new Decimal(4.2e9),
                 unlocked(){
                     return hasUpgrade('mF', 31) && hasUpgrade('mF', 32) && hasUpgrade('mF', 33)
@@ -625,8 +625,8 @@ buyables: {
             },
             43: {
                 title: "Ancient II",
-                description: "Meta-Fusions boosts Meta-Crystals; unlock 2nd buyable",
-                cost: new Decimal(1e25),
+                description: "Meta-Fusions boosts Meta-Crystals",
+                cost: new Decimal(1e16),
                 effect() {
                     let eff = ((player.mF.points.pow(0.02)).add(1).max(0)).max(1).min(1.2);
                     return eff
