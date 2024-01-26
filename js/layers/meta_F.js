@@ -39,6 +39,7 @@ addLayer("mF", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
         if (hasMilestone('mF', 14)) mult = mult.times(2)
+        if (hasUpgrade('mF', 44)) mult = mult.times(upgradeEffect('mF', 44))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -187,7 +188,11 @@ buyables: {
             },
         },
         12: {
-            title: "Metativity (Locked)",
+            title(){ 
+                let title ="Metativity (Locked)"
+                if (hasUpgrade('mF', 42)) title = "Metativity"
+                return title
+            },
             unlocked() { return player.mF.unlocked },
             cost(x) {
                 let exp1 = new Decimal(1.5)
@@ -645,7 +650,7 @@ buyables: {
                 },
                 effectDisplay() {
                     let capped = upgradeEffect(this.layer, this.id).gte(1e50) ? "(Capped)" : "";
-                    let text = `^${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                    let text = `${format(upgradeEffect(this.layer, this.id))}x ${capped}`;
                     return text;
                 },
                 unlocked(){

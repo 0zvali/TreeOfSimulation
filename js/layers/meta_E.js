@@ -244,9 +244,11 @@ buyables: {
                 let base1 = new Decimal(1.75)
                 if (hasMilestone('mE', 12)) base1 = base1.add(0.35)
                 if (hasUpgrade('mE', 26)) base1 = base1.add(0.25)
+                if (hasUpgrade('mF', 42)) base1 = base1.add(1.2)
                 let base2 = x
                 let expo = new Decimal(1.05)
                 let eff = base1.pow(Decimal.pow(base2, expo)).times(buyableEffect('mE', 14).pow(0.2))
+                
                 if (hasUpgrade('mE', 35)) eff = base1.pow(Decimal.pow(base2, expo)).times(buyableEffect('mE', 14).pow(0.2)).times(6.4) 
                 return eff
             },

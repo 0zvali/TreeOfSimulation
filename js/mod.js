@@ -560,6 +560,8 @@ function getPointGen() {
 	if (hasUpgrade('mF', 31)) gain = gain.times(1e17)
 	if (hasUpgrade('mF', 32)) gain = gain.pow(1.12)
 	if (hasUpgrade('mF', 33)) gain = gain.pow(upgradeEffect('mF', 33))
+	if (hasUpgrade('mF', 41)) gain = gain.times(1e31)
+	if (hasUpgrade('mF', 42)) gain = gain.pow(1.15)
 	return gain
 }
 
