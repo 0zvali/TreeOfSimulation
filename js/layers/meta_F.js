@@ -579,7 +579,7 @@ buyables: {
                 description: "^1.12 Infects & Improved 'Experiment Regime II' Effect",
                 cost: new Decimal(10),
                 unlocked(){
-                    return hasUpgrade('mF', 21) || hasUpgrade('mF', 22)
+                    return hasUpgrade('mF', 21) && hasUpgrade('mF', 22)
                 },
             },
             33: {
