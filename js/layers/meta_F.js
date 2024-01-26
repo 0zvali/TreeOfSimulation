@@ -121,7 +121,7 @@ milestones: {
         },
         12: {
             requirementDescription: "2 Total Meta-Fusions",
-            effectDescription: `Keep the current Meta-Experiment Milestones & Upgrades`,
+            effectDescription: `Keep the current Meta-Experiment Milestones & Upgrades & Buy max Meta-Humans`,
             done() { return player.mF.points.total.gte(2) },
         },
         13: {

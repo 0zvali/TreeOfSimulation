@@ -48,7 +48,7 @@ addLayer("mH", {
     },
     canBuyMax(){
         let prestige = false
-        if (hasMilestone('mH', 12)) prestige = true
+        if (hasMilestone('mH', 12) || hasMilestone('mF', 12)) prestige = true
         return prestige
     },
     resetsNothing(){
