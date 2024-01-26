@@ -190,19 +190,22 @@ buyables: {
             title: "Metativity (Locked)",
             unlocked() { return player.mF.unlocked },
             cost(x) {
-                let exp1 = new Decimal(2)
-                let exp2 = new Decimal(1.06)
-                let costdef = new Decimal(1)
+                let exp1 = new Decimal(1.5)
+                let exp2 = new Decimal(1.1)
+                let costdef = new Decimal(1e7)
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) +"/"+ formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit)  + "<br>Effect: ???????????? ??????????? ???????????????"
+                let dis = "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) +"/"+ formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit)  + "<br>Effect: ???????????? ??????????? ???????????????"
+                if (hasUpgrade('mF', 42)) dis = "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) +"/"+ formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit)  + "<br>Effect: Boosts infect gain by " + format(buyableEffect(this.layer, this.id))+"x"
+                return dis
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
             },
             purchaseLimit(){
                 let limit = 0
+                if (hasUpgrade('mF', 42)) limit = 10
                 return limit
             },
             buy() {
@@ -211,7 +214,7 @@ buyables: {
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
             effect(x) {
-                let base1 = new Decimal(7.2e8)
+                let base1 = new Decimal(1e15)
                 let base2 = x
                 let expo = new Decimal(1.37)
                 let eff = base1.pow(Decimal.pow(base2, expo))
@@ -597,6 +600,56 @@ buyables: {
                 },
                 unlocked(){
                     return hasUpgrade('mF', 22)
+                },
+            },
+            41: {
+                title: "Artifact IV",
+                description: "1e31x Infects & 1e23 Meta-Crystals & 850x Meta-Experiments",
+                cost: new Decimal(1200000),
+                unlocked(){
+                    return hasUpgrade('mF', 11)
+                },
+            },
+            42: {
+                title: "Relic III",
+                description: "^1.15 Infects & Improved 'Experiment Regime III' Effect",
+                cost: new Decimal(4.2e9),
+                unlocked(){
+                    return hasUpgrade('mF', 31) && hasUpgrade('mF', 32) && hasUpgrade('mF', 33)
+                },
+            },
+            43: {
+                title: "Ancient II",
+                description: "Meta-Fusions boosts Meta-Crystals; unlock 2nd buyable",
+                cost: new Decimal(1e25),
+                effect() {
+                    let eff = ((player.mF.points.pow(0.02)).add(1).max(0)).max(1).min(1.2);
+                    return eff
+                },
+                effectDisplay() {
+                    let capped = upgradeEffect(this.layer, this.id).gte(1.2) ? "(Capped)" : "";
+                    let text = `^${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                    return text;
+                },
+                unlocked(){
+                    return hasUpgrade('mF', 31) && hasUpgrade('mF', 32) && hasUpgrade('mF', 33)
+                },
+            },
+            44: {
+                title: "Meta I",
+                description: "Meta-Fusions boosts itself",
+                cost: new Decimal(1e40),
+                effect() {
+                    let eff = ((player.mF.points.pow(0.04)).add(1).max(0)).max(1).min(1e50);
+                    return eff
+                },
+                effectDisplay() {
+                    let capped = upgradeEffect(this.layer, this.id).gte(1e50) ? "(Capped)" : "";
+                    let text = `^${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                    return text;
+                },
+                unlocked(){
+                    return hasUpgrade('mF', 33)
                 },
             },
         },
