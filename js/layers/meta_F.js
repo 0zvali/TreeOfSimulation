@@ -625,14 +625,14 @@ buyables: {
             },
             43: {
                 title: "Ancient II",
-                description: "Meta-Fusions boosts Meta-Crystals",
+                description: "Meta-Fusions boosts Meta-Crystals & Meta-Experiments",
                 cost: new Decimal(1e16),
                 effect() {
-                    let eff = ((player.mF.points.pow(0.02)).add(1).max(0)).max(1).min(1.2);
+                    let eff = ((player.mF.points.pow(0.02)).add(1).max(0)).max(1).min(1.25);
                     return eff
                 },
                 effectDisplay() {
-                    let capped = upgradeEffect(this.layer, this.id).gte(1.2) ? "(Capped)" : "";
+                    let capped = upgradeEffect(this.layer, this.id).gte(1.25) ? "(Capped)" : "";
                     let text = `^${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                     return text;
                 },
