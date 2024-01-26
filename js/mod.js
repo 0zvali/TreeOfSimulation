@@ -553,6 +553,13 @@ function getPointGen() {
 	if (hasUpgrade('mH', 24)) gain = gain.pow(upgradeEffect('mH', 24))
 	if (hasUpgrade('mH', 33)) gain = gain.pow(1.03)
 	if (hasUpgrade('mH', 34)) gain = gain.pow(1.03)
+	// important
+	if (hasUpgrade('mF', 11)) gain = gain.times(1700)
+	if (hasUpgrade('mF', 21)) gain = gain.times(1800000)
+	if (hasUpgrade('mF', 22)) gain = gain.pow(1.1)
+	if (hasUpgrade('mF', 31)) gain = gain.times(1e17)
+	if (hasUpgrade('mF', 32)) gain = gain.pow(1.12)
+	if (hasUpgrade('mF', 33)) gain = gain.pow(upgradeEffect('mF', 33))
 	return gain
 }
 

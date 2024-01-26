@@ -5,15 +5,13 @@ addLayer("mF", {
     startData() { return {
         unlocked: false,
         points: new Decimal(0),
+        total: new Decimal(0),
     }},
 
     color: "#cfba8a",
     requires(){ 
         let requirement = new Decimal(12)
         if (hasMilestone('mF', 15)) requirement = requirement.minus(1)
-        if (hasMilestone('mF', 16)) requirement = requirement.minus(2)
-        if (hasMilestone('mF', 18)) requirement = requirement.minus(1)
-        if (hasMilestone('mF', 19)) requirement = requirement.minus(3)
         return requirement
         
     }, // Can be a function that takes requirement increases into account
@@ -41,8 +39,6 @@ addLayer("mF", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
         if (hasMilestone('mF', 14)) mult = mult.times(2)
-        if (hasMilestone('mF', 17)) mult = mult.times(3)
-        if (hasMilestone('mF', 19)) mult = mult.times(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -124,44 +120,24 @@ milestones: {
             done() { return player.mF.points.gte(1) },
         },
         12: {
-            requirementDescription: "5 Meta-Fusions",
+            requirementDescription: "2 Total Meta-Fusions",
             effectDescription: `Keep the current Meta-Experiment Milestones & Upgrades`,
-            done() { return player.mF.points.gte(5) },
+            done() { return player.mF.points.total.gte(2) },
         },
         13: {
-            requirementDescription: "15 Meta-Fusions",
+            requirementDescription: "10 Total Meta-Fusions",
             effectDescription: `Meta-Humans don't reset anything; also 15% mC & mE passively`,
-            done() { return player.mF.points.gte(15) },
+            done() { return player.mF.points.total.gte(10) },
         },
         14: {
-            requirementDescription: "3 mF_B1's",
+            requirementDescription: "2 mF_B1's",
             effectDescription: `Double Meta-Fusion Gain`,
-            done() { return (getBuyableAmount("mF", 11).gte(3)) },
+            done() { return (getBuyableAmount("mF", 11).gte(2)) },
         },
         15: {
-            requirementDescription: "3 mF_B8's",
+            requirementDescription: "1 mF_B2's",
             effectDescription: `Lower Meta-Fusion Requirement by 1`,
-            done() { return (getBuyableAmount("mF", 24).gte(3)) },
-        },
-        16: {
-            requirementDescription: "5 mF_B12's",
-            effectDescription: `Lower Meta-Fusion Requirement by 2`,
-            done() { return (getBuyableAmount("mF", 34).gte(5)) },
-        },
-        17: {
-            requirementDescription: "6 mF_B2's",
-            effectDescription: `Triple Meta-Fusion Gain`,
-            done() { return (getBuyableAmount("mF", 12).gte(6)) },
-        },
-        18: {
-            requirementDescription: "4 mF_B6's & 2 mF_B11",
-            effectDescription: `Lower Meta-Fusion Requirement by 1`,
-            done() { return ((getBuyableAmount("mF", 22)).gte(6) && (getBuyableAmount("mF", 33).gte(2))) },
-        },
-        19: {
-            requirementDescription: "4 mF_B4's & 4 mF_B8's & 4 mF_B12's",
-            effectDescription: `The big 4's; Lower Meta-Fusion Requirement by 3 & double Meta-Fusion Gain`,
-            done() { return ((getBuyableAmount("mF", 12)).gte(4) && (getBuyableAmount("mF", 24).gte(4)) && (getBuyableAmount("mF", 34).gte(4))) },
+            done() { return (getBuyableAmount("mF", 12).gte(1)) },
         },
     },
 
@@ -551,4 +527,65 @@ buyables: {
             },
         },
     }, 
+    upgrades: {
+        rows: 5,
+        cols: 5,
+            11: {
+                title: "Artifact I",
+                description: "1,700x Infects & 15x Meta-Crystals",
+                cost: new Decimal(1),
+                unlocked(){
+                    return player.mH.unlocked
+                },
+            },
+            21: {
+                title: "Artifact II",
+                description: "1,800,000x Infects & 190,000x Meta-Crystals",
+                cost: new Decimal(1),
+                unlocked(){
+                    return hasUpgrade('mF', 11)
+                },
+            },
+            22: {
+                title: "Relic I",
+                description: "^1.1 Infects & Improved 'Experiment Regime I' Effect",
+                cost: new Decimal(2),
+                unlocked(){
+                    return hasUpgrade('mF', 11)
+                },
+            },
+            31: {
+                title: "Artifact III",
+                description: "1e17x Infects, 1.4e12x Meta-Crystals, 5x Meta-Experiments",
+                cost: new Decimal(4),
+                unlocked(){
+                    return hasUpgrade('mF', 21)
+                },
+            },
+            32: {
+                title: "Relic II",
+                description: "^1.12 Infects & Improved 'Experiment Regime II' Effect",
+                cost: new Decimal(10),
+                unlocked(){
+                    return hasUpgrade('mF', 21) || hasUpgrade('mF', 22)
+                },
+            },
+            33: {
+                title: "Ancient I",
+                description: "Meta-Experiments boosts Infects",
+                cost: new Decimal(1700),
+                effect() {
+                    let eff = ((player.mE.points.pow(0.02)).add(1).max(0)).max(1).min(1.3);
+                    return eff
+                },
+                effectDisplay() {
+                    let capped = upgradeEffect(this.layer, this.id).gte(1.3) ? "(Capped)" : "";
+                    let text = `^${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                    return text;
+                },
+                unlocked(){
+                    return hasUpgrade('mF', 22)
+                },
+            },
+        },
 })

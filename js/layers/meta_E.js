@@ -176,6 +176,7 @@ buyables: {
                 if (hasUpgrade('mE', 14)) base1 = base1.add(0.15)
                 if (hasUpgrade('mE', 32)) base1 = base1.add(0.35)
                 if (hasMilestone('mE', 14)) base1 = base1.add(0.1)
+                if (hasUpgrade('mF', 22)) base1 = base1.add(0.8)
                 let eff = base1.pow(Decimal.pow(base2, expo)).times(buyableEffect('mE', 14).pow(0.2))
                 if (hasUpgrade('mE', 35)) eff = eff.times(25)
                 return eff
@@ -210,6 +211,7 @@ buyables: {
                 if (hasMilestone('mC', 11)) base1 = base1.add(0.33)
                 if (hasUpgrade('mE', 21)) base1 = base1.add(upgradeEffect('mE', 21))
                 if (hasMilestone('mE', 13)) base1 = base1.add(0.45)
+                if (hasUpgrade('mF', 32)) base1 = base1.add(0.73)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (hasUpgrade('mE', 24)) eff = base1.pow(Decimal.pow(base2, expo)).times(4).times(buyableEffect('mE', 14).pow(0.2))
                 if (hasUpgrade('mH', 13)) eff = eff.times(15)
