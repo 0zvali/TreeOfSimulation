@@ -3,10 +3,21 @@
 	--2: "#bfbfbf";
 	--3: "#7f7f7f";
 	--color: #c2acac;
-	--points: #4f81d1;
+	--points: #f36046;
 	--locked: #8a7f7f;
 	--background: #0f0f0f;
 	--background_tooltip: rgba(0, 0, 0, 0.75);
+}
+
+.theme-default.theme-E205_outside {
+	--1: "#ffffff";
+	--2: "#bfbfbf";
+	--3: "#7f7f7f";
+	--color: #eba6e5;
+	--points: #3baaf3;
+	--locked: #8a7f7f;
+	--background: #0f0f0f;
+	--background_tooltip: rgba(212, 40, 218, 0.75);
 }
 
 .theme-E205 {

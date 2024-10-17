@@ -4,16 +4,16 @@ let modInfo = {
 	author: "Ozvali",
 	pointsName: "infects",
 	modFiles:["layers/a.js", "layers/c.js", "layers/E.js", "layers/F.js", "layers/H.js", "layers/R.js", "layers/W.js", "layers/timeline.js", "layers/timeline_FL.js", "layers/timeline_EX.js", "layers/timeline_SL.js","layers/timeline_O.js","layers/submergence_D.js","layers/meta_C.js","layers/meta_E.js", "layers/meta_H.js","layers/meta_F.js", "tree.js"],
-	discordName: "The Modding Tree Discord Server",
-	discordLink: "https://discord.com/invite/F3xveHV",
+	discordName: "Solstice Studio Discord",
+	discordLink: "https://discord.gg/solsticestudios",
 	initialStartPoints: new Decimal (0), // Used for hard resets and new players
 	offlineLimit: 0.0001,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "3.0.0a",
-	name: "Metaful Lane",
+	num: "3.0.1",
+	name: "Scrapped Reality",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -25,7 +25,14 @@ let changelog = `<h1>Changelog:</h1><br>
 
 <div class="link" onclick="showTab('info-tab')">Settings</div><br><br>
 
-	<h3>v3.0.0a</h3><br>
+	<h2>v3.0.1: Scrapped Reality</h2><br>
+- Ported "The Experimental Tree 2020" to current version<br>
+- Updated Version & Background<br>
+- Rebalanced some things<br>
+- Added Special Credits<br>
+- Added "Purple Corruption" Theme<br><br>
+
+    <h3>v3.0.0a</h3><br>
 - Fixed Meta-Experiments having a higher price than it's suppost to.<br>
 - Meta-Crystals having a lower effect has been fixed.<br>
 - Meta-Crystals price being significantly lower due to mE Buyables has been fixed.<br><br>
@@ -570,9 +577,54 @@ function addedPlayerData() { return {
 	newsTotal: decimalZero,
 }}
 
+function convertToB16(n) {
+	let codes = {
+	  0: "0",
+	  1: "1",
+	  2: "2",
+	  3: "3",
+	  4: "4",
+	  5: "5",
+	  6: "6",
+	  7: "7",
+	  8: "8",
+	  9: "9",
+	  10: "A",
+	  11: "B",
+	  12: "C",
+	  13: "D",
+	  14: "E",
+	  15: "F",
+	}
+	let x = n % 16
+	return codes[(n - x) / 16] + codes[x]
+  }
+  function getUndulatingColor(period = Math.sqrt(760)) {
+	let t = new Date().getTime()
+	let a = Math.sin(t / 1e3 / period * 2 * Math.PI + 0)
+	let b = Math.sin(t / 1e3 / period * 2 * Math.PI + 2)
+	let c = Math.sin(t / 1e3 / period * 2 * Math.PI + 4)
+	a = convertToB16(Math.floor(a * 128) + 128)
+	b = convertToB16(Math.floor(b * 128) + 128)
+	c = convertToB16(Math.floor(c * 128) + 128)
+	return "#" + String(a) + String(b) + String(c)
+  }
+  
+  function getSinRat(period = Math.sqrt(488)) {
+	let t = new Date().getTime()
+	let a = Math.sin(t / 1e3 / period * 2 * Math.PI + 1) + 2
+	return a
+  
+  }
+
 // Display extra things at the top of the page
 var displayThings = [
-	"<a>Endgame: 7th Meta-Experiment Milestone (Timeline 3)</a>",
+	function() {
+	let x = getUndulatingColor()
+    let a = colorText("b", x, "Endgame: 7th Meta-Experiment Milestone (Timeline 3)")
+	let b = "<br><text style='color:red'>WARNING</text>: Unbalanced past Endgame"
+	return a + b
+	},
 	function() {
 		if (inChallenge('CT', 11))
 		return "You are currently in: 'Explosive Floors' (Infects /2.5)"
@@ -622,24 +674,43 @@ var displayThings = [
 ]
 
 
-// Determines when the game "ends"
-function isEndgame() {
-	return hasMilestone('mE', 17)
-}
 
-
-// Less important things beyond this point!
-function colored(layer, text, tag='h2') { return `<${tag} style='color:${temp[layer].color};text-shadow:${temp[layer].color} 0px 0px 10px;'>${text}</${tag}>` }
-// Style for the background, can be a function
-var backgroundStyle = {
-
-}
-// You can change this if you have things that can be messed up by long tick lengths
-function maxTickLength() {
-	return(3600) // Default is 1 hour which is just arbitrarily large
-}
-
-// Use this if you need to undo inflation from an older version. If the version is older than the version that fixed the issue,
-// you can cap their current resources with this.
-function fixOldSave(oldVersion){
-}
+  
+  
+  // Display extra things at the top of the page
+  
+  // Determines when the game "ends"
+  function isEndgame() {
+	return player.points.gte("eee100")
+  }
+  // Less important things beyond this point!
+  
+  // Style for the background, can be a function
+  var backgroundStyle = function () {
+	let backSty = { "background-image": "rgb(0, 0, 0)" }
+	if (getThemeName() == "default") backSty = {
+		'background': 'black',
+		'background-color': 'black',
+		"background-image": "repeating-linear-gradient(45deg, hsla(133, 89%, 27%, 0.4), hsla(133, 89%, 27%, 0.842) 15px, transparent 0, transparent 30px)", 
+		'background-size': '64px 128px',
+		"background-position": "100%" + " " + (player.timePlayed % 100) + "%" + " " + (player.timePlayed % 100) + "%"
+	}
+	if (getThemeName() == "Purple Corruption") backSty = {
+	  'background': 'black',
+	  'background-color': 'black',
+	  "background-image": "repeating-radial-gradient(circle at center, hsla(269, 89%, 27%, 0.4), hsla(269, 89%, 27%, 0.842) 15px, transparent 0, transparent 30px)", 
+	  'background-size': '64px 128px',
+	  "background-position": "100%" + " " + (player.timePlayed % 20) + "%" + " " + (player.timePlayed % 20) + "%"
+	}
+	return backSty
+  }
+  
+  function maxTickLength() {
+	return(3600)
+  }
+  
+  // Use this if you need to undo inflation from an older version. If the version is older than the version that fixed the issue,
+  // you can cap their current resources with this.
+  function fixOldSave(oldVersion) {
+  }
+  

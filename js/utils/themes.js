@@ -1,6 +1,6 @@
 // ************ Themes ************
 var themes = ["E205", "E205_outside"];
-let displayNames = ["Inside", "Corruption"];
+let displayNames = ["default", "Purple Corruption"];
 
 function changeTheme() {
 	document.body.classList = "theme-default " + "theme-" + options.theme;

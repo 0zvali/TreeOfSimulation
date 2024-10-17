@@ -132,21 +132,20 @@ var systemComponents = {
             <br>
             Made by {{modInfo.author}}
         </span>
-        <br>
-        The Modding Tree <a v-bind:href="'https://github.com/Acamaeda/The-Modding-Tree/blob/master/changelog.md'" target="_blank" class="link" v-bind:style = "{'font-size': '14px', 'display': 'inline'}" >{{TMT_VERSION.tmtNum}}</a> by Acamaeda
-        <br>
-        The Prestige Tree made by Jacorb and Aarex
- <br><br>
-<h3>Crediting:</h3><br>
-CSS Code (from 'The Camellia Tree') from <a>Flustix</a><br>
-Savebank Code (from 'The Plant Tree') from <a>Thenonymous</a><br>
-Buyable Code Fixture (from 'The Point Tree')<br><br>
-<h3>Inspired By:</h3><br> <a v-bind:href="'https://thecamelliatree.github.io/The-Camellia-Tree-Rewritten/'" target="_blank" class="link" v-bind:style = "{'font-size': '15px', 'display': 'inline'}" >The Camellia Tree</a><br> <a v-bind:href="'https://thenonymous.github.io/The-Random-Tree/'" target="_blank" class="link" v-bind:style = "{'font-size': '15px', 'display': 'inline'}" >The Plant Tree</a><br> <a v-bind:href="'https://raw.githack.com/jezzacozzie/The-Fame-Tree/master/index.html'" target="_blank" class="link" v-bind:style = "{'font-size': '15px', 'display': 'inline'}" >The Fame Tree</a><br> <a v-bind:href="'https://raw.githack.com/p-u/The-Point-Tree/master/index.html'" target="_blank" class="link" v-bind:style = "{'font-size': '15px', 'display': 'inline'}" >The Point Tree</a>
-		<br><br>~~~~~~~~~~~~~~~~~~~~~~<br><br>
-		<div class="link" onclick="showTab('changelog-tab')">Changelog</div><br>
-        <span v-if="modInfo.discordLink"><a class="link" v-bind:href="modInfo.discordLink" target="_blank">{{modInfo.discordName}}</a><br></span>
-		<br><br>
+        <br><br>
         Time Played: {{ formatTime(player.timePlayed) }}<br><br>
+		<h2>Credits:</h2><br>
+		- Several People in the Solstice Studio Community for Play Testing the 2020 Version<br>
+		- Plasma for giving me slight motiviation<br>
+		- Brian for listening & play testing towards my random chatter about the game<br>
+		- Help from some coders from the SS Community to help me with some scripts<br><br>
+		<h3>Special Credits/Notice:</h3><br>
+		- This took me a total of 600+ hours to code and learn JS, HTML, and CSS in basic formation<br>
+		- Thank you for even trying this out and play testing the older version of the fan game<br>
+		- This is very outdated as this started in 2020 and ended in 2021, which the newer one "Facility's Fate" is currently in development<br>
+		- Thank you... towards everyone for even being here.<br><br>
+		- This is my <a>final goodbye</a><br> ======================================
+		<br><br>
         <h3>Hotkeys</h3><br>
         <span v-for="key in hotkeys" v-if="player[key.layer].unlocked && tmp[key.layer].hotkeys[key.id].unlocked"><br>{{key.description}}</span></div>
     `
