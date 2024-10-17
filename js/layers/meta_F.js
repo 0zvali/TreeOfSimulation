@@ -12,7 +12,6 @@ addLayer("mF", {
     requires(){ 
         let requirement = new Decimal(12)
         if (hasMilestone('mF', 15)) requirement = requirement.minus(1)
-        if (hasMilestone('mF', 16)) requirement = requirement.minus(2)
         return requirement
         
     }, // Can be a function that takes requirement increases into account
@@ -152,11 +151,6 @@ milestones: {
             requirementDescription: "1 mF_B2's",
             effectDescription: `Lower Meta-Fusion Requirement by 1`,
             done() { return (getBuyableAmount("mF", 12).gte(1)) },
-        },
-        16: {
-            requirementDescription: "10 mF_B1 & mF_B2",
-            effectDescription: `Lower Meta-Fusion Requirement by 2`,
-            done() { return (getBuyableAmount("mF", 11).gte(10) && getBuyableAmount('mF', 12).gte(10))  },
         },
     },
 
