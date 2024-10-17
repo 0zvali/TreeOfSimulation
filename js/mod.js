@@ -691,16 +691,16 @@ var displayThings = [
 	if (getThemeName() == "default") backSty = {
 		'background': 'black',
 		'background-color': 'black',
-		"background-image": "repeating-linear-gradient(45deg, hsla(133, 89%, 27%, 0.4), hsla(133, 89%, 27%, 0.842) 15px, transparent 0, transparent 30px)", 
-		'background-size': '64px 128px',
-		"background-position": "100%" + " " + (player.timePlayed % 100) + "%" + " " + (player.timePlayed % 100) + "%"
+		"background-image": "repeating-linear-gradient(45deg, hsla(133, 89%, 27%, 0.4), hsla(133, 89%, 27%, 0.842), 15px, transparent 0, transparent 30px), repeating-linear-gradient(135deg, hsla(130, 80%, 26%, 1), hsla(130, 80%, 26%, 1), 15px, transparent 0, transparent 30px)", 
+		'background-size': '128px 128px',
+		"background-position": " " + ((player.timePlayed) % 100) + "%"
 	}
 	if (getThemeName() == "Purple Corruption") backSty = {
 	  'background': 'black',
 	  'background-color': 'black',
 	  "background-image": "repeating-radial-gradient(circle at center, hsla(269, 89%, 27%, 0.4), hsla(269, 89%, 27%, 0.842) 15px, transparent 0, transparent 30px)", 
-	  'background-size': '64px 128px',
-	  "background-position": "100%" + " " + (player.timePlayed % 20) + "%" + " " + (player.timePlayed % 20) + "%"
+	  'background-size': '128px 128px',
+	  "background-position": " " + (player.timePlayed % 100) + "%" + " " + (player.timePlayed % 100) + "%"
 	}
 	return backSty
   }
