@@ -156,7 +156,7 @@ addLayer("D", {
             fillStyle: { 'background-color': "#107a2c" },
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
-                let prog = player.O.points.div("1e1500")
+                let prog = (player.O.points.log10()).div(("1e1500").log10())
                 if (player.O.best.gte("1e1500")) prog = 1
                 return prog
             },
@@ -177,7 +177,8 @@ addLayer("D", {
             fillStyle: { 'background-color': "#107a2c" },
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
-                let prog = player.SL.points.div("1e12000")
+                let prog = player.O.points.div("1e12000")
+                
                 if (player.O.best.gte("1e12000")) prog = 1
                 return prog
             },
@@ -188,7 +189,7 @@ addLayer("D", {
                     return "Unlock 1st Row 3 Designated Distortion Upgrades"
             },
             unlocked(){
-                return hasUpgrade('D', 25)
+                return hasUpgrade('D', 15)
             },
         },
         big2Bar: {
@@ -210,7 +211,7 @@ addLayer("D", {
                     return "Unlock 2nd Row 3 Designated Distortion Upgrades"
             },
             unlocked(){
-                return hasUpgrade('D', 15)
+                return hasUpgrade('D', 25)
             },
         },
     },
