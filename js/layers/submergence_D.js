@@ -156,7 +156,7 @@ addLayer("D", {
             fillStyle: { 'background-color': "#107a2c" },
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
-                let prog = (player.O.points.log10()).div(("1e1500").log10())
+                let prog = (player.O.points.log10()).div(1500)
                 if (player.O.best.gte("1e1500")) prog = 1
                 return prog
             },
@@ -177,7 +177,7 @@ addLayer("D", {
             fillStyle: { 'background-color': "#107a2c" },
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
-                let prog = player.O.points.div("1e12000")
+                let prog = (player.O.points.log10()).div(12000)
                 
                 if (player.O.best.gte("1e12000")) prog = 1
                 return prog
@@ -199,7 +199,7 @@ addLayer("D", {
             fillStyle: { 'background-color': "#107a2c" },
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
-                let prog = player.SL.points.div("1e7000000")
+                let prog = (player.SL.points.log10()).div(7000000)
                 if (player.SL.best.gte("1e7000000")) prog = 1
                 if (hasUpgrade('D', 41)) prog = 1
                 return prog
