@@ -80,7 +80,7 @@ addLayer("a", {
 
     achievements: {
         rows: 6,
-        cols: 6,
+        cols: 9,
         11: {
             name: "The Outbreak",
             done() { return player.points.gte(15) },
