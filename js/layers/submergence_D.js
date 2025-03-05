@@ -42,7 +42,7 @@ addLayer("D", {
     effect() {
         let eff = player.D.points.add(1).pow(0.4)
         if (hasUpgrade('O', 23)) eff = eff.times(13.5)
-        if (hasUpgrade('D', 21)) eff = eff.pow(2.2)
+        if (hasUpgrade('D', 21)) eff = eff.pow(2.55)
         if (hasUpgrade('D', 43)) eff = eff.pow(1.17)
         if (inChallenge('D', 12)) eff = new Decimal(1)
         eff = eff.times(tmp.D.effectBase)
@@ -343,10 +343,10 @@ addLayer("D", {
                 let title = "Distorted Experiments"
                 return title
             },
-            description: "Experiments now boosts Explosives & Floors significantly (Cap is 1e16700x). ^2.2 Distortion Effect. Unlock an Distortion Milestone",
+            description: "Experiments now boosts Explosives & Floors significantly (Cap is 1e16700x). ^2.55 Distortion Effect. Unlock an Distortion Milestone",
             cost: new Decimal(120000000),
             effect() {
-                let effect1 = (player.E.points.max(1).add(1).pow(0.017)).max(1).min("1e16700");
+                let effect1 = (player.E.points.max(1).add(1).pow(0.0185)).max(1).min("1e16700");
                 return effect1
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
@@ -394,7 +394,7 @@ addLayer("D", {
         },
         25: {
             title(){ 
-                let title = "Distorted Souls II (Endgame Currently)"
+                let title = "Distorted Souls II"
                 return title
             },
             description: "1e390x Souls & Souls boosts Explosives significantly (Cap is 1e394500x), unlock 2 Distortion Milestones",
