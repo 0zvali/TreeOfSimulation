@@ -186,7 +186,7 @@ addLayer("O", {
                 let title = "Timeification"
                 return title
             },
-            description: "x1e30 O Effect, x1e50 Room Effect, x1e5 Weapon Effect",
+            description: "x1e30 O Effect, x1e50 Room Effect, x5e5 Weapon Effect",
             cost: new Decimal("3.14e332"),
             unlocked(){
                 return hasUpgrade("O", 15) && hasUpgrade('D', 12)
@@ -208,7 +208,7 @@ addLayer("O", {
                 let title = "Obusate Rooming"
                 return title
             },
-            description: "x9.4 Distortion Effect & x1e50 Rooms",
+            description: "x13.5 Distortion Effect & x1e50 Rooms",
             cost: new Decimal("5.8e583"),
             unlocked(){
                 return hasUpgrade("O", 22)

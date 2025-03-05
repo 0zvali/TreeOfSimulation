@@ -39,7 +39,7 @@ addLayer("W", {
         let eff4 = player.W.points.add(1).pow(0.575)
         if (hasUpgrade('O', 13)) eff4 = eff4.pow(1.2)
         if (hasUpgrade('O', 14)) eff4 = eff4.pow(1.1)
-        if (hasUpgrade('O', 21)) eff4 = eff4.times(1e5)
+        if (hasUpgrade('O', 21)) eff4 = eff4.times(5e5)
         if (inChallenge('D', 11)) eff4 = eff4.pow(0.001)
         eff4 = eff4.times(tmp.W.effectBase)
         if (player.W.points.gte("1e10000")) eff4 = new Decimal("1e7625")
