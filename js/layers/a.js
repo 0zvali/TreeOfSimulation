@@ -277,15 +277,15 @@ addLayer("a", {
                 `Get 1 Obfuscation!`
         },
         63: {
-            name: "Locked Souls",
-            done() { return player.O.points.gte(1) },
+            name: "Experimental Obsolete",
+            done() { return (player.O.unlocked == true) && player.E.points.gte(1) },
             unlocked() { return hasAchievement('a', 56) },
             tooltip:
-                `Get 1 Obfuscation!`
+                `Experiments are being shown?`
         },
         64: {
             name: "Merging Time",
-            done() { return player.O.points.gte(1) && player.H.points.gte(1) && player.F.points.gte(1) },
+            done() { return (player.O.unlocked == true) && player.H.points.gte(1) && player.F.points.gte(1) },
             unlocked() { return hasAchievement('a', 56) },
             tooltip:
                 `The timeline seems to be submerging with all of the previous layers...`
