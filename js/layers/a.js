@@ -361,11 +361,11 @@ addLayer("a", {
                 `Get "Beelusioning Illusion"`
         },
         83: {
-            name: "Nyko seems meta now...",
-            done() { return hasUpgrade("mE", 11) },
+            name: "Infection Nerf!",
+            done() { return (player.CT.points.gte(2) && player.points.gte(1e10)) },
             unlocked() { return hasAchievement('a', 76) },
             tooltip:
-                `Get "Meta-Nyko"`
+                `Get inflicted with Level 1 Infect Nerf`
         },
         84: {
             name: "Do you see the meta milestones?",
