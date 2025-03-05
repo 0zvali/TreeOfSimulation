@@ -346,6 +346,48 @@ addLayer("a", {
             tooltip:
                 `Another timeline lost... time to go... meta...`
         },
+        81: {
+            name: "Crystals are being metalike!",
+            done() { return player.mC.points.gte(150) },
+            unlocked() { return hasAchievement('a', 76) },
+            tooltip:
+                `Ooh! Shiny! Reach 100 Meta-Crystals`
+        },
+        82: {
+            name: "2nd Generation will live forever!",
+            done() { return hasUpgrade("mC", 24) },
+            unlocked() { return hasAchievement('a', 76) },
+            tooltip:
+                `Get "Beelusioning Illusion"`
+        },
+        83: {
+            name: "Nyko seems meta now...",
+            done() { return hasUpgrade("mE", 11) },
+            unlocked() { return hasAchievement('a', 76) },
+            tooltip:
+                `Get "Meta-Nyko"`
+        },
+        84: {
+            name: "Do you see the meta milestones?",
+            done() { return hasMilestone("mE", 12) },
+            unlocked() { return hasAchievement('a', 76) },
+            tooltip:
+                `Reach the stars! Get the 2nd Meta-Experiment Milestone`
+        },
+        85: {
+            name: "Almost the end.",
+            done() { return hasMilestone("mE", 14) },
+            unlocked() { return hasAchievement('a', 76) },
+            tooltip:
+                `The end is nigh! Get the 7th Meta-Experiment Milestone`
+        },
+        86: {
+            name: "Thanks for playing!",
+            done() { return hasMilestone("mE", 17) },
+            unlocked() { return hasAchievement('a', 76) },
+            tooltip:
+                `Get the 7th Meta-Experiment Milestone`
+        },
     },
 },
 )

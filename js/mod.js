@@ -3,17 +3,17 @@ let modInfo = {
 	id: "experiments",
 	author: "Ozvali",
 	pointsName: "infects",
-	modFiles:["layers/a.js", "layers/c.js", "layers/E.js", "layers/F.js", "layers/H.js", "layers/R.js", "layers/W.js", "layers/timeline.js", "layers/timeline_FL.js", "layers/timeline_EX.js", "layers/timeline_SL.js","layers/timeline_O.js","layers/submergence_D.js","layers/meta_C.js","layers/meta_E.js", "layers/meta_H.js","layers/meta_F.js", "tree.js"],
+	modFiles: ["layers/a.js", "layers/c.js", "layers/E.js", "layers/F.js", "layers/H.js", "layers/R.js", "layers/W.js", "layers/timeline.js", "layers/timeline_FL.js", "layers/timeline_EX.js", "layers/timeline_SL.js", "layers/timeline_O.js", "layers/submergence_D.js", "layers/meta_C.js", "layers/meta_E.js", "layers/meta_H.js", "layers/meta_F.js", "tree.js"],
 	discordName: "Solstice Studio Discord",
 	discordLink: "https://discord.gg/solsticestudios",
-	initialStartPoints: new Decimal (0), // Used for hard resets and new players
+	initialStartPoints: new Decimal(0), // Used for hard resets and new players
 	offlineLimit: 0.0001,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "3.0.1_1",
-	name: "Scrapped Reality",
+	num: "3.0.2",
+	name: "Meta-fication",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -24,6 +24,15 @@ let changelog = `<h1>Changelog:</h1><br>
 		a = bug/mechanic fixes<br><br>
 
 <div class="link" onclick="showTab('info-tab')">Settings</div><br><br>
+
+	<h2>v3.0.2: Meta-fication</h2><br>
+- Added 18 more Achievements<br>
+- Improved Balancing (Obfuscation -> Timeline 3) Section<br>
+- Improved Meta-Timeline Section<br>
+- Improved Timeline 1<br>
+- Removed "Distortion Rows 2-3" and moved all content to "Main Distortion"<br>
+- Do you got what it takes to finish the game sam?<br><br>
+
 
 	<h2>v3.0.1: Scrapped Reality</h2><br>
 - Ported "The Experimental Tree 2020" to current version<br>
@@ -427,61 +436,61 @@ let winText = `You've reached the end! Thanks for playtesting!`
 // (The ones here are examples, all official functions are already taken care of)
 var doNotCallTheseFunctionsEveryTick = ["blowUpEverything"]
 
-function getStartPoints(){
-    return new Decimal(modInfo.initialStartPoints)
+function getStartPoints() {
+	return new Decimal(modInfo.initialStartPoints)
 }
 
 // Determines if it should show points/sec
-function canGenPoints(){
+function canGenPoints() {
 	return true
 }
 
 // Calculate points/sec!
 function getPointGen() {
-	if(!canGenPoints())
+	if (!canGenPoints())
 		return new Decimal(1)
 
 	let gain = new Decimal(1)
 	// C Upgrades
 	if (hasUpgrade('c', 11)) gain = gain.times(upgradeEffect('c', 11))
-    if (hasUpgrade('c', 12)) gain = gain.times(upgradeEffect('c', 12))
+	if (hasUpgrade('c', 12)) gain = gain.times(upgradeEffect('c', 12))
 	if (hasUpgrade('c', 13)) gain = gain.times(upgradeEffect('c', 13))
 	if (hasUpgrade('c', 14)) gain = gain.times(3)
 	if (hasUpgrade('c', 15)) gain = gain.times(4.5)
 	if (hasUpgrade('c', 21)) gain = gain.times(3.5)
-	if (hasUpgrade('c', 22)) gain = gain.times(upgradeEffect('c',22))
-	if (hasUpgrade('c', 23)) gain = gain.times(upgradeEffect('c',23))
-	if (hasUpgrade('c', 24)) gain = gain.times(upgradeEffect('c',24))
+	if (hasUpgrade('c', 22)) gain = gain.times(upgradeEffect('c', 22))
+	if (hasUpgrade('c', 23)) gain = gain.times(upgradeEffect('c', 23))
+	if (hasUpgrade('c', 24)) gain = gain.times(upgradeEffect('c', 24))
 	if (hasUpgrade('c', 25)) gain = gain.times(4.2)
 	if (hasUpgrade('c', 31)) gain = gain.times(2.5)
-	if (hasUpgrade('c', 32)) gain = gain.times(upgradeEffect('c',32))
-	if (hasUpgrade('c', 33)) gain = gain.times(upgradeEffect('c',33))
-	if (hasUpgrade('c', 34)) gain = gain.times(upgradeEffect('c',34))
-	if (hasUpgrade('c', 35)) gain = gain.times(upgradeEffect('c',35))
-	if (hasUpgrade('c', 45)) gain = gain.times(upgradeEffect('c',45))
-	if (hasUpgrade('c', 51)) gain = gain.times(upgradeEffect('c',51))
-	if (hasUpgrade('c', 55)) gain = gain.times(upgradeEffect('c',55))
+	if (hasUpgrade('c', 32)) gain = gain.times(upgradeEffect('c', 32))
+	if (hasUpgrade('c', 33)) gain = gain.times(upgradeEffect('c', 33))
+	if (hasUpgrade('c', 34)) gain = gain.times(upgradeEffect('c', 34))
+	if (hasUpgrade('c', 35)) gain = gain.times(upgradeEffect('c', 35))
+	if (hasUpgrade('c', 45)) gain = gain.times(upgradeEffect('c', 45))
+	if (hasUpgrade('c', 51)) gain = gain.times(upgradeEffect('c', 51))
+	if (hasUpgrade('c', 55)) gain = gain.times(upgradeEffect('c', 55))
 	// E Upgrades
 	if (hasUpgrade('E', 11)) gain = gain.times(8.7)
 	if (hasUpgrade('E', 12)) gain = gain.times(10)
 	if (hasUpgrade('E', 14)) gain = gain.times(5)
 	if (hasUpgrade('E', 15)) gain = gain.times(Math.PI)
-	if (hasUpgrade('E', 16)) gain = gain.times(upgradeEffect('E',16))
-	if (hasUpgrade('E', 22)) gain = gain.times(upgradeEffect('E',22))
-	if (hasUpgrade('E', 24)) gain = gain.times(upgradeEffect('E',24))
-	if (hasUpgrade('E', 25)) gain = gain.times(upgradeEffect('E',25))
-	if (hasUpgrade('E', 31)) gain = gain.times(upgradeEffect('E',31))
-	if (hasUpgrade('E', 33)) gain = gain.times(upgradeEffect('E',33))
-	if (hasUpgrade('E', 35)) gain = gain.times(1.25)		
-	if (hasUpgrade('E', 42)) gain = gain.times(upgradeEffect('E',42))
-	if (hasUpgrade('E', 46)) gain = gain.times(1.5)	
+	if (hasUpgrade('E', 16)) gain = gain.times(upgradeEffect('E', 16))
+	if (hasUpgrade('E', 22)) gain = gain.times(upgradeEffect('E', 22))
+	if (hasUpgrade('E', 24)) gain = gain.times(upgradeEffect('E', 24))
+	if (hasUpgrade('E', 25)) gain = gain.times(upgradeEffect('E', 25))
+	if (hasUpgrade('E', 31)) gain = gain.times(upgradeEffect('E', 31))
+	if (hasUpgrade('E', 33)) gain = gain.times(upgradeEffect('E', 33))
+	if (hasUpgrade('E', 35)) gain = gain.times(1.25)
+	if (hasUpgrade('E', 42)) gain = gain.times(upgradeEffect('E', 42))
+	if (hasUpgrade('E', 46)) gain = gain.times(1.5)
 	// F Upgrades
 	if (hasUpgrade('F', 13)) gain = gain.times(60)
-	if (hasUpgrade('F', 25)) gain = gain.times(upgradeEffect('F',25))
+	if (hasUpgrade('F', 25)) gain = gain.times(upgradeEffect('F', 25))
 	// H Upgrades
-	if (hasUpgrade('H', 12)) gain = gain.times(upgradeEffect('H',12))
-	if (hasUpgrade('H', 13)) gain = gain.times(upgradeEffect('H',13))
-	if (hasUpgrade('H', 21)) gain = gain.times(upgradeEffect('H',21))
+	if (hasUpgrade('H', 12)) gain = gain.times(upgradeEffect('H', 12))
+	if (hasUpgrade('H', 13)) gain = gain.times(upgradeEffect('H', 13))
+	if (hasUpgrade('H', 21)) gain = gain.times(upgradeEffect('H', 21))
 	if (hasUpgrade('H', 35)) gain = gain.times(15)
 	// R Upgrades
 	if (hasUpgrade('R', 16)) gain = gain.times(upgradeEffect('R', 16))
@@ -573,33 +582,35 @@ function getPointGen() {
 }
 
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
-function addedPlayerData() { return {
-	newsTotal: decimalZero,
-}}
+function addedPlayerData() {
+	return {
+		newsTotal: decimalZero,
+	}
+}
 
 function convertToB16(n) {
 	let codes = {
-	  0: "0",
-	  1: "1",
-	  2: "2",
-	  3: "3",
-	  4: "4",
-	  5: "5",
-	  6: "6",
-	  7: "7",
-	  8: "8",
-	  9: "9",
-	  10: "A",
-	  11: "B",
-	  12: "C",
-	  13: "D",
-	  14: "E",
-	  15: "F",
+		0: "0",
+		1: "1",
+		2: "2",
+		3: "3",
+		4: "4",
+		5: "5",
+		6: "6",
+		7: "7",
+		8: "8",
+		9: "9",
+		10: "A",
+		11: "B",
+		12: "C",
+		13: "D",
+		14: "E",
+		15: "F",
 	}
 	let x = n % 16
 	return codes[(n - x) / 16] + codes[x]
-  }
-  function getUndulatingColor(period = Math.sqrt(760)) {
+}
+function getUndulatingColor(period = Math.sqrt(760)) {
 	let t = new Date().getTime()
 	let a = Math.sin(t / 1e3 / period * 2 * Math.PI + 0)
 	let b = Math.sin(t / 1e3 / period * 2 * Math.PI + 2)
@@ -608,52 +619,52 @@ function convertToB16(n) {
 	b = convertToB16(Math.floor(b * 128) + 128)
 	c = convertToB16(Math.floor(c * 128) + 128)
 	return "#" + String(a) + String(b) + String(c)
-  }
-  
-  function getSinRat(period = Math.sqrt(488)) {
+}
+
+function getSinRat(period = Math.sqrt(488)) {
 	let t = new Date().getTime()
 	let a = Math.sin(t / 1e3 / period * 2 * Math.PI + 1) + 2
 	return a
-  
-  }
+
+}
 
 // Display extra things at the top of the page
 var displayThings = [
-	function() {
-	let x = getUndulatingColor()
-    let a = colorText("b", x, "Endgame: 7th Meta-Experiment Milestone (Timeline 3)")
-	let b = "<br><text style='color:red'>WARNING</text>: Unbalanced past Endgame"
-	return a + b
+	function () {
+		let x = getUndulatingColor()
+		let a = colorText("b", x, "Endgame: 7th Meta-Experiment Milestone (Timeline 3)")
+		let b = "<br><text style='color:red'>WARNING</text>: Unbalanced past Endgame"
+		return a + b
 	},
-	function() {
+	function () {
 		if (inChallenge('CT', 11))
-		return "You are currently in: 'Explosive Floors' (Infects /2.5)"
+			return "You are currently in: 'Explosive Floors' (Infects /2.5)"
 		if (inChallenge('CT', 12))
-		return "You are currently in: 'Planetary Length' (Infects /4, EX /1.5, FL *3)"
+			return "You are currently in: 'Planetary Length' (Infects /4, EX /1.5, FL *3)"
 		if (inChallenge('CT', 21))
-		return "You are currently in: 'Universal Floors' (Infects /10, EX /2, FL *250)"
+			return "You are currently in: 'Universal Floors' (Infects /10, EX /2, FL *250)"
 		if (inChallenge('CT', 22))
-		return "You are currently in: 'Soul Shield' (Infects /500 & EX /200)"
+			return "You are currently in: 'Soul Shield' (Infects /500 & EX /200)"
 		if (hasMilestone('O', 11))
-		return "You are currently in: Submergence Timeline"
-  if (player.CT.points.gte(2))
-  return "You are currently in: Meta Timeline"
-		else
-		return "You are currently in: Normal Timeline"
-	  },
-	function() {
-		if (player.devSpeed > 1)
-		return `<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'>I will never let you change time in this reality</h4>`
-	  },
-	function() {
-		if (hasMilestone('O', 11))
-		return "<br><br>"
+			return "You are currently in: Submergence Timeline"
 		if (player.CT.points.gte(2))
-		return "You are in Timeline " + formatWhole(player.CT.points.plus(1)) + "<br><br><br>"
+			return "You are currently in: Meta Timeline"
 		else
-		return "You are in Timeline " + formatWhole(player.CT.points.plus(1)) + "<br><br><br>"
-	  },
- function() {
+			return "You are currently in: Normal Timeline"
+	},
+	function () {
+		if (player.devSpeed > 1)
+			return `<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'>I will never let you change time in this reality</h4>`
+	},
+	function () {
+		if (hasMilestone('O', 11))
+			return "<br><br>"
+		if (player.CT.points.gte(2))
+			return "You are in Timeline " + formatWhole(player.CT.points.plus(1)) + "<br><br><br>"
+		else
+			return "You are in Timeline " + formatWhole(player.CT.points.plus(1)) + "<br><br><br>"
+	},
+	function () {
 		let nerf = "<br>"
 		if (player.CT.points.gte(2) && player.points.gte(1e10)) nerf = "Infect gain is nerfed by /" + format(player.points.minus(1e10).add(1).pow(0.112)) + " (Level 1 Nerf)"
 		if (player.CT.points.gte(2) && player.points.gte(1e15)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2)) + " (Level 2 Nerf)"
@@ -668,49 +679,48 @@ var displayThings = [
 		if (player.CT.points.gte(2) && player.points.gte(1e25) && hasUpgrade("mE", 14)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35).div(9.2)) + " (Level 3 Nerf)"
 		if (player.CT.points.gte(2) && player.points.gte(1e35) && hasUpgrade("mE", 14)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35).div(9.2).times(1225000)) + " (Level 4 Nerf)"
 		if (player.CT.points.gte(2) && player.points.gte(1e50) && hasUpgrade("mE", 14)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35).div(9.2).times(12250000).times(2.5e9)) + " (Level 5 Nerf)"
- if (hasMilestone('mE', 15)) nerf = "<br>"
+		if (hasMilestone('mE', 15)) nerf = "<br>"
 		return nerf
-},
+	},
 ]
 
 
 
-  
-  
-  // Display extra things at the top of the page
-  
-  // Determines when the game "ends"
-  function isEndgame() {
+
+
+// Display extra things at the top of the page
+
+// Determines when the game "ends"
+function isEndgame() {
 	return player.points.gte("eee100")
-  }
-  // Less important things beyond this point!
-  
-  // Style for the background, can be a function
-  var backgroundStyle = function () {
+}
+// Less important things beyond this point!
+
+// Style for the background, can be a function
+var backgroundStyle = function () {
 	let backSty = { "background-image": "rgb(0, 0, 0)" }
 	if (getThemeName() == "default") backSty = {
 		'background': 'black',
 		'background-color': 'black',
-		"background-image": "repeating-linear-gradient(45deg, hsla(133, 89%, 27%, 0.4), hsla(133, 89%, 27%, 0.842), 15px, transparent 0, transparent 30px), repeating-linear-gradient(135deg, hsla(130, 80%, 26%, 1), hsla(130, 80%, 26%, 1), 15px, transparent 0, transparent 30px)", 
+		"background-image": "repeating-linear-gradient(45deg, hsla(133, 89%, 27%, 0.4), hsla(133, 89%, 27%, 0.842), 15px, transparent 0, transparent 30px), repeating-linear-gradient(135deg, hsla(130, 80%, 26%, 1), hsla(130, 80%, 26%, 1), 15px, transparent 0, transparent 30px)",
 		'background-size': '128px 128px',
 		"background-position": " " + ((player.timePlayed) % 100) + "%"
 	}
 	if (getThemeName() == "Purple Corruption") backSty = {
-	  'background': 'black',
-	  'background-color': 'black',
-	  "background-image": "repeating-radial-gradient(circle at center, hsla(269, 89%, 27%, 0.4), hsla(269, 89%, 27%, 0.842) 15px, transparent 0, transparent 30px)", 
-	  'background-size': '128px 128px',
-	  "background-position": " " + (player.timePlayed % 100) + "%" + " " + (player.timePlayed % 100) + "%"
+		'background': 'black',
+		'background-color': 'black',
+		"background-image": "repeating-radial-gradient(circle at center, hsla(269, 89%, 27%, 0.4), hsla(269, 89%, 27%, 0.842) 15px, transparent 0, transparent 30px)",
+		'background-size': '128px 128px',
+		"background-position": " " + (player.timePlayed % 100) + "%" + " " + (player.timePlayed % 100) + "%"
 	}
 	return backSty
-  }
-  
-  function maxTickLength() {
-	return(3600)
-  }
-  
-  // Use this if you need to undo inflation from an older version. If the version is older than the version that fixed the issue,
-  // you can cap their current resources with this.
-  function fixOldSave(oldVersion) {
-  }
-  
+}
+
+function maxTickLength() {
+	return (3600)
+}
+
+// Use this if you need to undo inflation from an older version. If the version is older than the version that fixed the issue,
+// you can cap their current resources with this.
+function fixOldSave(oldVersion) {
+}
