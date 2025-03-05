@@ -79,7 +79,7 @@ addLayer("a", {
     },
 
     achievements: {
-        rows: 6,
+        rows: 9,
         cols: 9,
         11: {
             name: "The Outbreak",
