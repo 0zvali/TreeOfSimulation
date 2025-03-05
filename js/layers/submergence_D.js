@@ -381,10 +381,10 @@ addLayer("D", {
                 let title = "Distorted Experiments II"
                 return title
             },
-            description: "Distortion boosts Experiment Effect (Cap is ^1.35). Passively Gain 25% Weapons until 1e10000",
+            description: "Distortion boosts Experiment Effect (Cap is ^1.4). Passively Gain 25% Weapons until 1e10000",
             cost: new Decimal(4.9e10),
             effect() {
-                let effect1 = (player.D.points.max(1).add(1).log10(3).pow(0.011)).max(1).min(1.35);
+                let effect1 = (player.D.points.max(1).add(1).log10(3).pow(0.012)).max(1).min(1.4);
                 return effect1
             },
             effectDisplay() { return "+^"+ format(upgradeEffect(this.layer, this.id))},
@@ -438,10 +438,10 @@ addLayer("D", {
             description: "Fusions boosts Human Effect (Cap is ^1.2); ^1.03 Fusion Effect",
             cost: new Decimal(2.3e90),
             effect() {
-                let effect1 = (player.F.points.max(1).add(1).log10(3).pow(0.007)).max(1).min(1.2);
+                let effect1 = (player.F.points.max(1).add(1).log10(3).pow(0.0075)).max(1).min(1.2);
                 return effect1
             },
-            effectDisplay() { return "+^"+ format(upgradeEffect(this.layer, this.id))},
+            effectDisplay() { return "^"+ format(upgradeEffect(this.layer, this.id))},
             unlocked(){
                 return  player.O.points.gte("1e12000")
             },
