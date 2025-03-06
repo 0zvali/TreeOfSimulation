@@ -264,122 +264,122 @@ addLayer("a", {
         },
         61: {
             name: "Challenged Timeline",
-            done() { return hasChallenge('CT', 22) },
+            done() { return hasChallenge('CT', 22)|| hasAchievement('a', 86) },
             unlocked() { return hasAchievement('a', 56) },
             tooltip:
                 `Complete the 1st Soul CT Challenge!`
         },
         62: {
             name: "Locked Souls",
-            done() { return hasMilestone('O', 11) },
+            done() { return hasMilestone('O', 11) || hasAchievement('a', 86)},
             unlocked() { return hasAchievement('a', 56) },
             tooltip:
                 `Get 1 Obfuscation!`
         },
         63: {
             name: "Experimental Obsolete",
-            done() { return (player.O.unlocked == true) && player.E.points.gte(1) },
+            done() { return ((player.O.unlocked == true) && player.E.points.gte(1)) || hasAchievement('a', 86) },
             unlocked() { return hasAchievement('a', 56) },
             tooltip:
                 `Experiments are being shown?`
         },
         64: {
             name: "Merging Time",
-            done() { return (player.O.unlocked == true) && player.H.points.gte(1) && player.F.points.gte(1) },
+            done() { return ((player.O.unlocked == true) && player.H.points.gte(1) && player.F.points.gte(1)) || hasAchievement('a', 86) },
             unlocked() { return hasAchievement('a', 56) },
             tooltip:
                 `The timeline seems to be submerging with all of the previous layers...`
         },
         65: {
             name: "Distorted Appearance",
-            done() { return player.D.points.gte(1) },
+            done() { return player.D.points.gte(1) || hasAchievement('a', 86) },
             unlocked() { return hasAchievement('a', 56) },
             tooltip:
                 `Distort the Obfuscation...`
         },
         66: {
             name: "Another Row?!",
-            done() { return player.O.points.gte("1e1500") },
+            done() { return player.O.points.gte("1e1500") || hasAchievement('a', 86) },
             unlocked() { return hasAchievement('a', 56) },
             tooltip:
                 `Finish the 1st Bar in Distortion`
         },
         71: {
             name: "Inflated Distortion",
-            done() { return player.O.points.gte("1e12000") },
+            done() { return player.O.points.gte("1e12000") || hasAchievement('a', 86) },
             unlocked() { return hasAchievement('a', 56) },
             tooltip:
                 `Finish the 2nd Bar in Distortion`
         },
         72: {
             name: "Once you've seen the Weapons, you've seen enough",
-            done() { return player.W.points.gte("1e10000") },
+            done() { return player.W.points.gte("1e10000") || hasAchievement('a', 86) },
             unlocked() { return hasAchievement('a', 56) },
             tooltip:
                 `Reach the Weapon hardcap`
         },
         73: {
             name: "Not enough Infects",
-            done() { return player.points.gte("1e1000000") && player.CT.points.gte(1) && player.D.points.gte(1) },
+            done() { return (player.points.gte("1e1000000") && player.CT.points.gte(1) && player.D.points.gte(1)) || hasAchievement('a', 86) },
             unlocked() { return hasAchievement('a', 56) },
             tooltip:
                 `Reach 1e1000000 Infects while in the Submergeance Timeline`
         },
         74: {
             name: "The actual end...",
-            done() { return hasUpgrade("D", 45) },
+            done() { return hasUpgrade("D", 45) || hasAchievement('a', 86) },
             unlocked() { return hasAchievement('a', 56) },
             tooltip:
                 `Get the final upgrade in Distortion`
         },
         75: {
             name: "I thought this was over?",
-            done() { return player.points.gte("1ee10") && hasUpgrade("D", 45) },
+            done() { return player.points.gte("1ee10") && hasUpgrade("D", 45) || hasAchievement('a', 86) },
             unlocked() { return hasAchievement('a', 74) },
             tooltip:
                 `The end is near...`
         },
         76: {
             name: "Time to go Meta!",
-            done() { return player.CT.points.gte(2) },
+            done() { return player.CT.points.gte(2) || hasAchievement('a', 86) },
             unlocked() { return hasAchievement('a', 75) },
             tooltip:
                 `Another timeline lost... time to go... meta...`
         },
         81: {
             name: "Crystals are being metalike!",
-            done() { return player.mC.points.gte(150) },
+            done() { return player.mC.points.gte(150) || hasAchievement('a', 86) },
             unlocked() { return hasAchievement('a', 76) },
             tooltip:
                 `Ooh! Shiny! Reach 100 Meta-Crystals`
         },
         82: {
             name: "2nd Generation will live forever!",
-            done() { return hasUpgrade("mC", 24) },
+            done() { return hasUpgrade("mC", 24)  || hasAchievement('a', 86)},
             unlocked() { return hasAchievement('a', 76) },
             tooltip:
                 `Get "Beelusioning Illusion"`
         },
         83: {
             name: "Infection Nerf!",
-            done() { return (player.CT.points.gte(2) && player.points.gte(1e10)) },
+            done() { return (player.CT.points.gte(2) && player.points.gte(1e10)) || hasAchievement('a', 86) },
             unlocked() { return hasAchievement('a', 76) },
             tooltip:
                 `Get inflicted with Level 1 Infect Nerf`
         },
         84: {
             name: "Do you see the meta milestones?",
-            done() { return hasMilestone("mE", 12) },
+            done() { return hasMilestone("mE", 12) || hasAchievement('a', 86) },
             unlocked() { return hasAchievement('a', 76) },
             tooltip:
                 `Reach the stars! Get the 2nd Meta-Experiment Milestone`
         },
         85: {
             name: "Almost the end.",
-            done() { return hasMilestone("mE", 14) },
+            done() { return hasMilestone("mE", 14) || hasAchievement('a', 86) },
             unlocked() { return hasAchievement('a', 76) },
             tooltip:
-                `The end is nigh! Get the 7th Meta-Experiment Milestone`
+                `The end is nigh! Get the 4th Meta-Experiment Milestone`
         },
         86: {
             name: "Thanks for playing!",
