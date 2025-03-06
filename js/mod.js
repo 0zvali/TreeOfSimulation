@@ -1,5 +1,5 @@
 let modInfo = {
-	name: "The Experimental Tree",
+	name: "The Experimental Tree v3.0.2",
 	id: "experiments",
 	author: "Ozvali",
 	pointsName: "infects",
@@ -12,7 +12,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "3.0.2",
+	num: "3.0.2_1",
 	name: "Meta-fication",
 }
 
