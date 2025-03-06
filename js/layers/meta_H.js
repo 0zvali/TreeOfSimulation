@@ -10,7 +10,7 @@ addLayer("mH", {
 
     color: "#5bd6cd",
     requires(){ 
-        let requirement = new Decimal("1e99")
+        let requirement = new Decimal("1e999")
         return requirement
         
     }, // Can be a function that takes requirement increases into account
