@@ -227,6 +227,7 @@ buyables: {
             cost(x) {
                 let exp2 = new Decimal(1.22)
                 let costdef = new Decimal(1.5e8)
+                if (hasUpgrade('mH', 32)) costdef = costdef.div(100)
                 if (getBuyableAmount(this.layer, this.id).gte(15)) exp2 = exp2.minus(0.07)
                 return new Decimal(costdef).mul(Decimal.pow(1.125, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },

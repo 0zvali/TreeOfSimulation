@@ -220,7 +220,7 @@ upgrades: {
         },
         32: {
             title: "Personification",
-            description: "Significantly improve 'Experimental Regime IV' Effect & ^1.4 'Experiment Regime II' Effect",
+            description: "Significantly improve 'Experimental Regime IV' Effect & ^1.4 'Experiment Regime II' Effect AND reduce 'Experiment Regime III' cost",
             cost: new Decimal("1e1700"),
             currencyDisplayName: "infects",
             currencyInternalName: "points",
