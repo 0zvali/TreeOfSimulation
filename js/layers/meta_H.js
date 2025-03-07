@@ -221,7 +221,9 @@ upgrades: {
         32: {
             title: "Personification",
             description: "Significantly improve 'Experimental Regime IV' Effect & ^1.4 'Experiment Regime II' Effect",
-            cost: new Decimal(11),
+            cost: new Decimal("1e1700"),
+            currencyDisplayName: "infects",
+            currencyInternalName: "points",
             unlocked(){
                 return hasUpgrade('mH', 31)
             },
