@@ -448,7 +448,7 @@ function canGenPoints() {
 function StatChecker() {
 	let num = (new Decimal(1).minus((player.points.log10().max(10)).div(100000)).max(0.01).min(1))
 	if (num == NaN) return 1
-	return num
+	else return num
 }
 
 // Calculate points/sec!
