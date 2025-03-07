@@ -445,6 +445,12 @@ function canGenPoints() {
 	return true
 }
 
+function StatChecker() {
+	let num = (new Decimal(1).minus((player.points.log10().max(10)).div(100000)).max(0.01).min(1))
+	if (num == NaN) return 1
+	return num
+}
+
 // Calculate points/sec!
 function getPointGen() {
 	if (!canGenPoints())
@@ -550,7 +556,7 @@ function getPointGen() {
 	if (player.CT.points.gte(2) && player.points.gte(1e25)) gain = gain.div(35)
 	if (player.CT.points.gte(2) && player.points.gte(1e35)) gain = gain.div(12250000)
 	if (player.CT.points.gte(2) && player.points.gte(1e50)) gain = gain.div(2.5e9)
-	if (player.CT.points.gte(2) && player.points.gte("1e1700") || hasUpgrade("mH", 32)) gain = gain.pow(new Decimal(1).minus((player.points.log10().max(10)).div(100000)).max(0.01).min(1))
+	if (player.CT.points.gte(2) && player.points.gte("1e1700") || hasUpgrade("mH", 32)) gain = gain.pow(StatChecker())
 
 	if (hasUpgrade('mC', 23)) gain = gain.times(6.2)
 	if (hasUpgrade('mC', 24)) gain = gain.times(upgradeEffect('mC', 24))
@@ -628,6 +634,7 @@ function getSinRat(period = Math.sqrt(488)) {
 
 }
 
+
 // Display extra things at the top of the page
 var displayThings = [
 	function () {
@@ -681,7 +688,7 @@ var displayThings = [
 		if (player.CT.points.gte(2) && player.points.gte(1e50) && hasUpgrade("mE", 14)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35).div(9.2).times(12250000).times(2.5e9)) + " (Level 5 Nerf)"
 
 		if (hasMilestone('mE', 15)) nerf = "<br>"
-		if (player.CT.points.gte(2) && player.points.gte("1e1700") || hasUpgrade("mH", 32)) nerf = "Infect gain is nerfed by ^" + format(new Decimal(1).minus((player.points.log10().max(10)).div(100000)).max(0.01).min(1)) + " (Level 1 Hardcap)"
+		if (player.CT.points.gte(2) && player.points.gte("1e1700") || hasUpgrade("mH", 32)) nerf = "Infect gain is nerfed by ^" + StatChecker() + " (Level 1 Hardcap)"
 		return nerf
 	},
 ]
