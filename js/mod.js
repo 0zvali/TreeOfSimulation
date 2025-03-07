@@ -688,7 +688,7 @@ var displayThings = [
 		if (player.CT.points.gte(2) && player.points.gte(1e50) && hasUpgrade("mE", 14)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35).div(9.2).times(12250000).times(2.5e9)) + " (Level 5 Nerf)"
 
 		if (hasMilestone('mE', 15)) nerf = "<br>"
-		if (player.CT.points.gte(2) && player.points.gte("1e1700") || hasUpgrade("mH", 32)) nerf = "Infect gain is nerfed by ^" + formatSmall(StatChecker(), 4) + " (Level 1 Hardcap)"
+		if (player.CT.points.gte(2) && player.points.gte("1e1700") || hasUpgrade("mH", 32)) nerf = "Infect gain is nerfed by ^" + formatSmall(StatChecker(), 5) + " (Level 1 Hardcap)"
 		return nerf
 	},
 ]

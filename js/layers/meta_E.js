@@ -215,7 +215,7 @@ buyables: {
                 if (hasUpgrade('mF', 32)) base1 = base1.add(0.73)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (hasUpgrade('mE', 24)) eff = base1.pow(Decimal.pow(base2, expo)).times(4).times(buyableEffect('mE', 14).pow(0.2))
-                if (hasUpgrade('mH', 13)) eff = eff.times(15)
+                if (hasUpgrade('mH', 13)) eff = eff.times(23)
                 if (hasUpgrade('mH', 32)) eff = eff.pow(1.4)
                 return eff
             },
@@ -283,7 +283,7 @@ buyables: {
                 let expo = new Decimal(1.1)
                 if (hasUpgrade('mH', 32)) base1 = base1.add(2)
                 let eff = base1.pow(Decimal.pow(base2, expo))
-                if (hasUpgrade('mH', 13)) eff = eff.times(15)
+                if (hasUpgrade('mH', 13)) eff = eff.times(23)
                 return eff
             },
             buyMax(){ return hasUpgrade('mH', 22) },

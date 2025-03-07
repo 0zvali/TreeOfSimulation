@@ -146,7 +146,7 @@ upgrades: {
         },
         13: {
             title: "Superization",
-            description: "15x 'Experiment Regime IV' & 'Experiment Regime II'.",
+            description: "23x 'Experiment Regime IV' & 'Experiment Regime II'.",
             cost: new Decimal(2),
             unlocked(){
                 return hasUpgrade('mH', 12)
