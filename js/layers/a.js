@@ -388,6 +388,20 @@ addLayer("a", {
             tooltip:
                 `Get the 7th Meta-Experiment Milestone`
         },
+        91: {
+            name: "Infectious Wall",
+            done() { return (player.CT.points.gte(2) && player.points.gte("1e1700")) || hasUpgrade("mH", 32)},
+            unlocked() { return hasAchievement('a', 76) },
+            tooltip:
+                `Reach the Infectious Wall...`
+        },
+        92: {
+            name: "Humanity's Cure",
+            done() { return player.CT.points.gte(2) && player.points.gte("1ee10")},
+            unlocked() { return hasAchievement('a', 76) },
+            tooltip:
+                `Unlock Experiment Cure`
+        },
     },
 },
 )

@@ -639,7 +639,7 @@ function getSinRat(period = Math.sqrt(488)) {
 var displayThings = [
 	function () {
 		let x = getUndulatingColor()
-		let a = colorText("b", x, "Endgame: 10 Meta-Humans (Timeline 3)")
+		let a = colorText("b", x, "Endgame: 12 Meta-Humans (Timeline 3)")
 		let b = "<br><text style='color:red'>WARNING</text>: Unbalanced past Endgame"
 		return a + b
 	},
@@ -688,7 +688,7 @@ var displayThings = [
 		if (player.CT.points.gte(2) && player.points.gte(1e50) && hasUpgrade("mE", 14)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35).div(9.2).times(12250000).times(2.5e9)) + " (Level 5 Nerf)"
 
 		if (hasMilestone('mE', 15)) nerf = "<br>"
-		if (player.CT.points.gte(2) && player.points.gte("1e1700") || hasUpgrade("mH", 32)) nerf = "Infect gain is nerfed by ^" + formatSmall(StatChecker(), 5) + " (Level 1 Hardcap)"
+		if (player.CT.points.gte(2) && player.points.gte("1e1700") || hasUpgrade("mH", 32)) nerf = "<metabox>Infect gain is nerfed by ^" + formatSmall(StatChecker(), 5) + "</metabox><br><fatigue>Meta starts to kick in...</fatigue> "
 		return nerf
 	},
 ]

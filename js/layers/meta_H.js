@@ -19,7 +19,7 @@ addLayer("mH", {
     baseAmount() {return player.mE.points}, // Get the current amount of baseResource
     type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent(){ 
-        let expo1 = new Decimal(3.1)
+        let expo1 = new Decimal(3.08)
         return expo1
      }, // Prestige currency exponent
 
@@ -230,7 +230,7 @@ upgrades: {
         },
         33: {
             title: "Economic Success",
-            description: "^1.03 Infects & ^1.022 Meta-Experiments",
+            description: "^1.03 Infects & ^1.03 Meta-Experiments",
             cost: new Decimal(11),
             unlocked(){
                 return hasUpgrade('mH', 32)

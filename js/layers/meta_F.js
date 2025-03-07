@@ -10,7 +10,7 @@ addLayer("mF", {
 
     color: "#cfba8a",
     requires(){ 
-        let requirement = new Decimal(12)
+        let requirement = new Decimal(13)
         if (hasMilestone('mF', 15)) requirement = requirement.minus(1)
         return requirement
         

@@ -50,3 +50,46 @@
 	z-index: 99999;
 	background-size:contain;
 }
+
+metabox {
+	color: rgb(255, 255, 255);
+	text-shadow: 5px 5px #d6861dde, -5px -5px #1d9bd6c5;
+	animation: linear 5s metamove infinite;
+}
+
+fatigue {
+	color: rgb(184, 183, 183);
+	text-shadow: 2px 2px #e7eb1cde, -2px -2px #f52f2fc5;
+	animation: ease-in-out 5s metamove2 infinite;
+	font-size: 13px;
+}
+
+@keyframes metamove {
+	0% {
+		text-shadow: 5px 5px #d6861dde, -5px -5px #1d9bd6c5;
+	}
+	25% {
+		text-shadow: 5px -5px #d6861dde, -5px 5px #1d9bd6c5;
+	}
+	50% {
+		text-shadow: -5px -5px #d6861dde, 5px 5px #1d9bd6c5;
+	}
+	75% {
+		text-shadow: -5px 5px #d6861dde, 5px -5px #1d9bd6c5;
+	}
+}
+
+@keyframes metamove2 {
+	0% {
+		text-shadow: 2px 2px #e7eb1cde, -2px -2px #f52f2fc5;
+	}
+	25% {
+		text-shadow: 2px -2px #f52f2fc5, -2px 2px #e7eb1cde;
+	}
+	50% {
+		text-shadow: -2px -2px #e7eb1cde, 2px 2px #f52f2fc5;
+	}
+	75% {
+		text-shadow: -2px 2px #f52f2fc5, 2px -2px #e7eb1cde;
+	}
+}
