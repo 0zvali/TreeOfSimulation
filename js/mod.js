@@ -632,7 +632,7 @@ function getSinRat(period = Math.sqrt(488)) {
 var displayThings = [
 	function () {
 		let x = getUndulatingColor()
-		let a = colorText("b", x, "Endgame: 7th Meta-Experiment Milestone (Timeline 3)")
+		let a = colorText("b", x, "Endgame: 10 Meta-Humans (Timeline 3)")
 		let b = "<br><text style='color:red'>WARNING</text>: Unbalanced past Endgame"
 		return a + b
 	},
