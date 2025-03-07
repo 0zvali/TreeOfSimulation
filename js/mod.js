@@ -639,15 +639,15 @@ var displayThings = [
 	function () {
 		if (inChallenge('CT', 11))
 			return "You are currently in: 'Explosive Floors' (Infects /2.5)"
-		if (inChallenge('CT', 12))
+		else if (inChallenge('CT', 12))
 			return "You are currently in: 'Planetary Length' (Infects /4, EX /1.5, FL *3)"
-		if (inChallenge('CT', 21))
+		else if (inChallenge('CT', 21))
 			return "You are currently in: 'Universal Floors' (Infects /10, EX /2, FL *250)"
-		if (inChallenge('CT', 22))
+		else if (inChallenge('CT', 22))
 			return "You are currently in: 'Soul Shield' (Infects /500 & EX /200)"
-		if (hasMilestone('O', 11))
+		else if (hasMilestone('O', 11))
 			return "You are currently in: Submergence Timeline"
-		if (player.CT.points.gte(2))
+		else if (player.CT.points.gte(2))
 			return "You are currently in: Meta Timeline"
 		else
 			return "You are currently in: Normal Timeline"
