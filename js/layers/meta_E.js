@@ -45,7 +45,7 @@ addLayer("mE", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         let expo = new Decimal(1)
-        if (hasUpgrade('mH', 33)) expo = expo.add(0.032)
+        if (hasUpgrade('mH', 33)) expo = expo.add(0.03)
         if (hasUpgrade('mF', 43)) expo = expo.add(upgradeEffect('mF', 43).minus(1))
         return expo
     },
