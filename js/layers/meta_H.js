@@ -238,7 +238,7 @@ upgrades: {
         },
         34: {
             title: "We skipped a layer!",
-            description: "Unlock Meta-Fusions, ^1.03 Infect Gain",
+            description: "Unlock Meta-Fusions, ^1.033 Infect Gain",
             cost: new Decimal(12),
             unlocked(){
                 return hasUpgrade('mH', 33)

@@ -446,7 +446,10 @@ function canGenPoints() {
 }
 
 function StatChecker() {
-	let num = (new Decimal(1).minus((player.points.log10().max(10)).div(100000)).max(0.01).min(1))
+	let nerf = new Decimal(100000)
+	let ooms = new Decimal(player.points.log10().max(10).div(10000)).max(0.00001).min(100)
+	if (inChallenge('mF', 11)) nerf = nerf.times(new Decimal(0.85).minus(ooms))
+	let num = (new Decimal(1).minus((player.points.log10().max(10)).div(nerf)).max(0.01).min(1))
 	if (isNaN(num)) return 1
 	else return num
 }
@@ -457,6 +460,7 @@ function getPointGen() {
 		return new Decimal(1)
 
 	let gain = new Decimal(1)
+
 	// C Upgrades
 	if (hasUpgrade('c', 11)) gain = gain.times(upgradeEffect('c', 11))
 	if (hasUpgrade('c', 12)) gain = gain.times(upgradeEffect('c', 12))
@@ -556,7 +560,7 @@ function getPointGen() {
 	if (player.CT.points.gte(2) && player.points.gte(1e25)) gain = gain.div(35)
 	if (player.CT.points.gte(2) && player.points.gte(1e35)) gain = gain.div(12250000)
 	if (player.CT.points.gte(2) && player.points.gte(1e50)) gain = gain.div(2.5e9)
-	if (player.CT.points.gte(2) && player.points.gte("1e1700") || hasUpgrade("mH", 32)) gain = gain.pow(StatChecker())
+	if (player.CT.points.gte(2) && player.points.gte("1e1700") || hasUpgrade("mH", 32) || inChallenge('mF', 11)) gain = gain.pow(StatChecker())
 
 	if (hasUpgrade('mC', 23)) gain = gain.times(6.2)
 	if (hasUpgrade('mC', 24)) gain = gain.times(upgradeEffect('mC', 24))
@@ -574,7 +578,7 @@ function getPointGen() {
 	if (hasUpgrade('mH', 14)) gain = gain.times(1e15)
 	if (hasUpgrade('mH', 24)) gain = gain.pow(upgradeEffect('mH', 24))
 	if (hasUpgrade('mH', 33)) gain = gain.pow(1.03)
-	if (hasUpgrade('mH', 34)) gain = gain.pow(1.03)
+	if (hasUpgrade('mH', 34)) gain = gain.pow(1.0315)
 	// important
 	if (hasUpgrade('mF', 11)) gain = gain.times(1700)
 	if (hasUpgrade('mF', 21)) gain = gain.times(1800000)
@@ -688,7 +692,7 @@ var displayThings = [
 		if (player.CT.points.gte(2) && player.points.gte(1e50) && hasUpgrade("mE", 14)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35).div(9.2).times(12250000).times(2.5e9)) + " (Level 5 Nerf)"
 
 		if (hasMilestone('mE', 15)) nerf = "<br>"
-		if (player.CT.points.gte(2) && player.points.gte("1e1700") || hasUpgrade("mH", 32)) nerf = "<metabox>Infect gain is nerfed by ^" + formatSmall(StatChecker(), 5) + "</metabox><br><fatigue>Meta starts to kick in...</fatigue> "
+		if (player.CT.points.gte(2) && player.points.gte("1e1700") || hasUpgrade("mH", 32) || inChallenge('mF', 11)) nerf = "<metabox>Infect gain is nerfed by ^" + formatSmall(StatChecker(), 5) + "</metabox><br><fatigue>Meta starts to kick in...</fatigue> "
 		return nerf
 	},
 ]
