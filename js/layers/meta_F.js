@@ -85,15 +85,14 @@ addLayer("mF", {
 
     challenges: {
         11: {
-            name: "Redemption Tower",
+            name() {return ("<chalbox>Facility's Redemptive Tower</chalbox>")},
             challengeDescription() {return (`<metabox>Infection Wall</metabox> nerf is <text style="color:cyan">15%</text> stronger<br>
-            Three of the Meta-Experiment Effects are now <text style="color:red">Hardcapped</text> at 1.5<br><br>
+            <text style="color:red">Meta-Nyko & Expermient Regime I-III does nothing</text><br>
             For every 100 OoMs,<br>Increase the <metabox>Infection Wall</metabox> nerf by <text style="color:cyan">1%</text>.<br>
-            Each time you climb, whereever your infects reached will be the highest you reached that round<br><br>
-            <text style="color:lime">Highest (Round) Infects Achieved</text>:<br><fatigue>`+formatWhole(player[this.layer].tower)+` (+ `+ formatWhole(player.points) +`)</fatigue><br>`)},
+            Each time you climb, whereever your infects reached will be the highest you reached that round<br>`)},
             canComplete: function() {return player.points.gte("1ee10")},
-            goalDescription: "Reach as high as possible",
-            rewardDescription: "Increase Infect Gain based on highest infects (on round) reached on Tower",
+            goalDescription: "Climb the Tower as high as possible!<br><text style='color:orange'>Unlock 'Facility of Meta' at 1e2000 Infects!</text>",
+            rewardDescription() {return (`Increase Infect Gain based on highest infects (on round) reached on Tower<br><br><text style="color:lime">Highest (Round) Infects Achieved</text>:<br><fatigue>`+formatWhole(player[this.layer].tower)+` (+ `+ formatWhole(player.points) +`)</fatigue><br>`)},
             rewardEffect() {
                 let tower = new Decimal(player[this.layer].tower.log10().times(679).pow(1.623).max(1))
                 if (isNaN(tower))
@@ -109,7 +108,12 @@ addLayer("mF", {
                 return unlock
             },
             style() {
-                return {"background" : "#636965"}
+                return {
+                    "background" : "#636965",
+                    "border-color" : "#a1170d",
+                    "color" : "#bdbbbb",
+                    "width": "380px"
+                }
             }
         },
     },
