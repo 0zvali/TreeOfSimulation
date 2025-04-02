@@ -705,7 +705,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return hasMilestone('mE', 17)
+	return player.mH.points.gte(12)
 }
 // Less important things beyond this point!
 
