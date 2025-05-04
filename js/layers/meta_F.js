@@ -66,7 +66,7 @@ addLayer("mF", {
 
 
     tabFormat: {
-        "Main": {
+        "Tower of Space": {
             content: [
                 "main-display",
                 "blank",
@@ -74,9 +74,13 @@ addLayer("mF", {
                 ["display-text",
                     function () { return 'You have a total of ' + formatWhole(player.mF.total) + ' Meta-Fusions' },
                     {}],
+                    ["display-text",
+                        function () { return "<metabox>Infection Wall</metabox> is a barrier between the <text style='color:red'>Experiments</text> and <text style='color:orange'>Humans</text>. After 1e1500 Infects or in<br><chalbox>Facility's Redemptive Tower</chalbox>, <metabox>Infection Wall</metabox> will be nerfing your infect gain... <text style='color:cyan'>Exponentially</text><br><br>" },
+                        {}],
                 ["display-text",
                     function () { return "Redemption Tower Effect: " + format(challengeEffect("mF", 11)) + "x boost to Infect Gain" },
                     {}],
+                    
                 "blank",
                 "challenges",
             ]
@@ -87,14 +91,14 @@ addLayer("mF", {
         11: {
             name() {return ("<chalbox>Facility's Redemptive Tower</chalbox>")},
             challengeDescription() {return (`<metabox>Infection Wall</metabox> nerf is <text style="color:cyan">15%</text> stronger<br>
-            <text style="color:red">Meta-Nyko & Expermient Regime I-III does nothing</text><br>
-            For every 100 OoMs,<br>Increase the <metabox>Infection Wall</metabox> nerf by <text style="color:cyan">1%</text>.<br>
+            <text style="color:red">Wot2ndG & Meta-Submergeance does nothing</text><br>
+            For every OoMs,<br>Increase the <metabox>Infection Wall</metabox> nerf by <text style="color:cyan">0.1%</text>.<br>
             Each time you climb, whereever your infects reached will be the highest you reached that round<br>`)},
             canComplete: function() {return player.points.gte("1ee10")},
             goalDescription: "Climb the Tower as high as possible!<br><text style='color:orange'>Unlock 'Facility of Meta' at 1e2000 Infects!</text>",
             rewardDescription() {return (`Increase Infect Gain based on highest infects (on round) reached on Tower<br><br><text style="color:lime">Highest (Round) Infects Achieved</text>:<br><fatigue>`+formatWhole(player[this.layer].tower)+` (+ `+ formatWhole(player.points) +`)</fatigue><br>`)},
             rewardEffect() {
-                let tower = new Decimal(player[this.layer].tower.log10().times(679).pow(1.33).max(1))
+                let tower = new Decimal(player[this.layer].tower.log10().times(50).pow(1.3).max(1))
                 if (isNaN(tower))
                     tower = new Decimal(1)
                 

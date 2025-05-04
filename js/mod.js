@@ -447,11 +447,19 @@ function canGenPoints() {
 
 function StatChecker() {
 	let nerf = new Decimal(100000)
-	let ooms = new Decimal(player.points.log10().max(10).div(10000)).max(0.00001).min(100)
+	let ooms = new Decimal(player.points.log10().div(10000)).max(0.00001).min(100)
 	if (inChallenge('mF', 11)) nerf = nerf.times(new Decimal(0.85).minus(ooms))
-	let num = (new Decimal(1).minus((player.points.log10().max(10)).div(nerf)).max(0.01).min(1))
+	let num = (new Decimal(1).minus((player.points.log10()).div(nerf)).max(0.01).min(1))
 	if (isNaN(num)) return 1
 	else return num
+}
+
+function OoMsCheck() {
+	let ooms = new Decimal(player.points.log10().div(100)).max(0.00001).min(100).times(10)
+	let num = new Decimal(15)
+	let check = ooms.add(num)
+	if (isNaN(ooms)) return 1
+	return check
 }
 
 // Calculate points/sec!
@@ -580,6 +588,7 @@ function getPointGen() {
 	if (hasUpgrade('mH', 33)) gain = gain.pow(1.03)
 	if (hasUpgrade('mH', 34)) gain = gain.pow(1.0315)
 	// important
+	if (challengeEffect('mF', 11) >= 1) gain = gain.times(challengeEffect("mF", 11))
 	if (hasUpgrade('mF', 11)) gain = gain.times(1700)
 	if (hasUpgrade('mF', 21)) gain = gain.times(1800000)
 	if (hasUpgrade('mF', 22)) gain = gain.pow(1.1)
@@ -692,7 +701,8 @@ var displayThings = [
 		if (player.CT.points.gte(2) && player.points.gte(1e50) && hasUpgrade("mE", 14)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35).div(9.2).times(12250000).times(2.5e9)) + " (Level 5 Nerf)"
 
 		if (hasMilestone('mE', 15)) nerf = "<br>"
-		if (player.CT.points.gte(2) && player.points.gte("1e1700") || hasUpgrade("mH", 32) || inChallenge('mF', 11)) nerf = "<metabox>Infect gain is nerfed by ^" + formatSmall(StatChecker(), 5) + "</metabox><br><fatigue>Meta starts to kick in...</fatigue> "
+		if (player.CT.points.gte(2) && player.points.gte("1e1700") || hasUpgrade("mH", 32) || inChallenge('mF', 11)) nerf = "<metabox>Infect gain is nerfed by ^" + formatSmall(StatChecker(), 5)
+		if (inChallenge("mF", 11)) nerf = "<metabox>Infect gain is nerfed by ^" + formatSmall(StatChecker(), 5) + "</metabox><br>(Nerf is +%<text style='color:cyan'>" + formatSmall(OoMsCheck(), 3) + "</text> stronger)"
 		return nerf
 	},
 ]
