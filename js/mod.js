@@ -447,7 +447,7 @@ function canGenPoints() {
 
 function StatChecker() {
 	let nerf = new Decimal(100000)
-	let ooms = new Decimal(player.points.log10().div(10000)).max(0.00001).min(100)
+	let ooms = new Decimal(player.points.log10().div(100)).max(0.00001).min(100)
 	if (inChallenge('mF', 11)) nerf = nerf.times(new Decimal(0.85).minus(ooms))
 	let num = (new Decimal(1).minus((player.points.log10()).div(nerf)).max(0.01).min(1))
 	if (isNaN(num)) return 1
