@@ -36,7 +36,7 @@ addLayer("mF", {
         return base
     },
     effectDescription() {
-        let dis = "which boosts all previous layers (Except Humans) by x" + format(tmp.mF.effect)
+        let dis = "which boosts all previous layers (Except Meta-Humans) by x" + format(tmp.mF.effect)
         return dis
     },
     gainMult() { // Calculate the multiplier for main currency from bonuses
@@ -78,7 +78,7 @@ addLayer("mF", {
                         function () { return "<metabox>Infection Wall</metabox> is a barrier between the <text style='color:red'>Experiments</text> and <text style='color:orange'>Humans</text>. After 1e1500 Infects or in<br><chalbox>Facility's Redemptive Tower</chalbox>, <metabox>Infection Wall</metabox> will be nerfing your infect gain... <text style='color:cyan'>Exponentially</text><br><br>" },
                         {}],
                 ["display-text",
-                    function () { return "Redemption Tower Effect: " + format(challengeEffect("mF", 11)) + "x boost to Infect Gain" },
+                    function () { return "Redemption Tower Effect: <text style='color:lime'>"+ format(challengeEffect("mF", 11)) + "</text>x boost to Infect Gain" },
                     {}],
                     
                 "blank",
@@ -104,8 +104,8 @@ addLayer("mF", {
             canComplete: function() {return player.points.gte("1ee10")},
             goalDescription: "Climb the Tower as high as possible!<br><text style='color:orange'>Unlock 'Facility of Meta' at 1e2000 Infects!</text>",
             rewardDescription() {
-                if (inChallenge("mF", 11)) return (`Increase Infect Gain based on highest infects (on round) reached on Tower<br><br><text style="color:lime">Highest (Round) Infects Achieved</text>:<br><fatigue>`+formatWhole(player[this.layer].tower)+` ( +`+ formatWhole(player.points) +` )</fatigue><br>`)
-                else return (`Increase Infect Gain based on highest infects (on round) reached on Tower<br><br><text style="color:lime">Highest (Round) Infects Achieved</text>:<br><fatigue>`+formatWhole(player[this.layer].tower)+` ( +0 )</fatigue><br>`)},
+                if (inChallenge("mF", 11)) return (`Increase Infect Gain based on highest infects (on round) reached on Tower<br><br><text style="color:lime">Highest (Round) Infects Achieved</text>:<br><fatigue>`+formatWhole(player[this.layer].tower)+`</fatigue> ( +`+ formatWhole(player.points) +` )<br>`)
+                else return (`Increase Infect Gain based on highest infects (on round) reached on Tower<br><br><text style="color:lime">Highest (Round) Infects Achieved</text>:<br><fatigue>`+formatWhole(player[this.layer].tower)+`</fatigue> ( +0 )<br>`)},
             rewardEffect() {
                 let tower = new Decimal(player[this.layer].tower.log10().times(50).pow(1.3).max(1))
                 if (isNaN(tower))
