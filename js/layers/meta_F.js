@@ -103,7 +103,9 @@ addLayer("mF", {
             Each time you climb, whereever your infects reached will be the highest you reached that round<br>`)},
             canComplete: function() {return player.points.gte("1ee10")},
             goalDescription: "Climb the Tower as high as possible!<br><text style='color:orange'>Unlock 'Facility of Meta' at 1e2000 Infects!</text>",
-            rewardDescription() {return (`Increase Infect Gain based on highest infects (on round) reached on Tower<br><br><text style="color:lime">Highest (Round) Infects Achieved</text>:<br><fatigue>`+formatWhole(player[this.layer].tower)+` (+ `+ formatWhole(player.points) +`)</fatigue><br>`)},
+            rewardDescription() {
+                if (inChallenge("mF", 11)) return (`Increase Infect Gain based on highest infects (on round) reached on Tower<br><br><text style="color:lime">Highest (Round) Infects Achieved</text>:<br><fatigue>`+formatWhole(player[this.layer].tower)+` ( +`+ formatWhole(player.points) +` )</fatigue><br>`)
+                else return (`Increase Infect Gain based on highest infects (on round) reached on Tower<br><br><text style="color:lime">Highest (Round) Infects Achieved</text>:<br><fatigue>`+formatWhole(player[this.layer].tower)+` ( +0 )</fatigue><br>`)},
             rewardEffect() {
                 let tower = new Decimal(player[this.layer].tower.log10().times(50).pow(1.3).max(1))
                 if (isNaN(tower))
