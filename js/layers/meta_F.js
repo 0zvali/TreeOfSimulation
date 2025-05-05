@@ -71,6 +71,7 @@ addLayer("mF", {
                 "main-display",
                 "blank",
                 "prestige-button",
+                ["milestones",[11]]
                 ["display-text",
                     function () { return 'You have a total of ' + formatWhole(player.mF.total) + ' Meta-Fusions' },
                     {}],
