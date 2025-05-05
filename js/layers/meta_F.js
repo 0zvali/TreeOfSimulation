@@ -550,7 +550,7 @@ addLayer("mF", {
         11: {
             title: "Artifact I",
             description: "1,700x Infects & 15x Meta-Crystals",
-            cost: new Decimal(1),
+            cost: new Decimal(999),
             unlocked() {
                 return player.mH.unlocked
             },
@@ -558,7 +558,7 @@ addLayer("mF", {
         21: {
             title: "Artifact II",
             description: "1,800,000x Infects & 190,000x Meta-Crystals",
-            cost: new Decimal(1),
+            cost: new Decimal(999),
             unlocked() {
                 return hasUpgrade('mF', 11)
             },
@@ -566,7 +566,7 @@ addLayer("mF", {
         22: {
             title: "Relic I",
             description: "^1.1 Infects & Improved 'Experiment Regime I' Effect",
-            cost: new Decimal(2),
+            cost: new Decimal(999),
             unlocked() {
                 return hasUpgrade('mF', 11)
             },
@@ -574,7 +574,7 @@ addLayer("mF", {
         31: {
             title: "Artifact III",
             description: "1e17x Infects, 1.4e12x Meta-Crystals, 5x Meta-Experiments",
-            cost: new Decimal(4),
+            cost: new Decimal(999),
             unlocked() {
                 return hasUpgrade('mF', 21)
             },
