@@ -23,11 +23,11 @@ addLayer("mF", {
     baseAmount() { return player.mH.points }, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent() {
-        let expo1 = new Decimal(12)
+        let expo1 = new Decimal(0.9)
         return expo1
     }, // Prestige currency exponent
     effect() {
-        let eff4 = player.mF.points.add(1).pow(1)
+        let eff4 = player.mF.points.add(1).pow(2.5)
         eff4 = eff4.times(tmp.mF.effectBase)
         return eff4
     },
@@ -138,14 +138,14 @@ addLayer("mF", {
             done() { return player.mF.points.gte(1) },
         },
         12: {
-            requirementDescription: "2 Total Meta-Fusions",
-            effectDescription: `Keep the current Meta-Experiment Milestones & Upgrades & Buy max Meta-Humans`,
-            done() { return player.mF.total.gte(2) },
+            requirementDescription: "2 Meta-Fusions",
+            effectDescription: `Keep the current Meta-Experiment Milestones, Upgrades, and Buy max Meta-Humans`,
+            done() { return player.mF.points.gte(2) },
         },
         13: {
-            requirementDescription: "10 Total Meta-Fusions",
+            requirementDescription: "4 Meta-Fusions",
             effectDescription: `Meta-Humans don't reset anything; also 15% mC & mE passively`,
-            done() { return player.mF.total.gte(10) },
+            done() { return player.mF.points.gte(4) },
         },
         14: {
             requirementDescription: "2 mF_B1's",
