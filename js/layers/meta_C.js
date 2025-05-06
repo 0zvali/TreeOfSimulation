@@ -174,7 +174,6 @@ upgrades: {
                 if (hasUpgrade('mC', 16)) eff = (player.mC.points.max(1).add(1).pow(0.085).times(upgradeEffect('mC', 16))).max(1).min(999);
                 if (hasUpgrade('mE', 15)) eff = (player.mC.points.max(1).add(1).pow(0.085).times(upgradeEffect('mC', 16))).max(1).min(9.99e9);
                 if (hasUpgrade('mE', 31)) eff = (player.mC.points.max(1).add(1).pow(0.085).times(upgradeEffect('mC', 16))).max(1).min(1e20);
-                if (inChallenge("mF", 11)) eff = new Decimal(1)
                 return eff
             },
             effectDisplay() {
@@ -201,7 +200,6 @@ upgrades: {
                 if (hasUpgrade('mE', 15)) eff = (player.mC.points.max(1).add(2).pow(0.125).times(1.3).times(1.8).times(tmp.mE.effect)).max(1).min(1.4e10);
                 if (hasUpgrade('mE', 31)) eff = (player.mC.points.max(1).add(2).pow(0.125).times(1.3).times(1.8).times(tmp.mE.effect)).max(1).min(1.96e17);
                 if (hasUpgrade('mH', 21)) eff = (player.mC.points.max(1).add(2).pow(0.125).times(1.3).times(1.8).times(tmp.mE.effect)).max(1).min("1e9999");
-                if (inChallenge("mF", 11)) eff = new Decimal(1)
                 return eff
             },
             effectDisplay() {

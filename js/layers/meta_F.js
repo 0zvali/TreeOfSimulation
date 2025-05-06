@@ -98,7 +98,7 @@ addLayer("mF", {
         11: {
             name() {return ("<chalbox>Facility's Redemptive Tower</chalbox>")},
             challengeDescription() {return (`<metabox>Infection Wall</metabox> nerf is <text style="color:cyan">15%</text> stronger<br>
-            <text style="color:red">Wot2ndG & Meta-Submergeance does nothing</text><br>
+            <text style="color:red">Disable Several Upgrades</text><br>
             For every OoMs,<br>Increase the <metabox>Infection Wall</metabox> nerf by <text style="color:cyan">0.1%</text>.<br>
             Each time you climb, whereever your infects reached will be the highest you reached that round<br>`)},
             canComplete: function() {return player.points.gte("1ee10")},
@@ -144,7 +144,7 @@ addLayer("mF", {
         },
         13: {
             requirementDescription: "4 Meta-Fusions",
-            effectDescription: `Meta-Humans don't reset anything; also 15% mC & mE passively`,
+            effectDescription: `You can see what upgrades are disabled in <chalbox>Facility's Redemptive Tower</chalbox>. Improve 3 Upgrades while in <chalbox>FRT</chalbox>`,
             done() { return player.mF.points.gte(4) },
         },
         14: {
