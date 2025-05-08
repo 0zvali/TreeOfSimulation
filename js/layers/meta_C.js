@@ -186,6 +186,9 @@ upgrades: {
             unlocked(){
                 return hasUpgrade('mC', 11)
             },
+            style(){
+                if (inChallenge("mF", 11)) return {"background-color":"#D70040"}
+            },
         },
         13: {
             title: "Welcome to the 2nd Generation",
