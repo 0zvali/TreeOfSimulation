@@ -8,7 +8,7 @@ addLayer("FL", {
         best: new Decimal(0),
     }},
     color(){ 
-        let color = `#9c422a`
+        let color = `#e0512b`
         return color
     },
     requires(){ 
