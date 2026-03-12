@@ -7,7 +7,10 @@ addLayer("a", {
     tabFormat: {
         "Achievements": {
             content: [
-
+                    ["display-text",
+                    function () { return 'You have  ' + formatWhole(player.a.achievements.length) + " total Achievements<br>Which boosts infect gain by <text style='color:orange'>" + format(tmp.a.effect) + 'x</text>' },
+                    {}],
+                
                 "blank",
                 "achievements",
                 "blank",
@@ -19,6 +22,12 @@ addLayer("a", {
             ],
         },
     },
+
+    effect() {
+        let x = (player.a.achievements.length)
+        return ((x/1.5 + 0.02)**0.2)
+    },
+
     clickables: {
         11: {
             title: "Crystals",

@@ -12,7 +12,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "3.0.2_1",
+	num: "3.0.3",
 	name: "Meta-fication",
 }
 
@@ -469,6 +469,7 @@ function getPointGen() {
 
 	let gain = new Decimal(1)
 
+	if (player.a.achievements.length >= 1) gain = gain.times(tmp.a.effect)
 	// C Upgrades
 	if (hasUpgrade('c', 11)) gain = gain.times(upgradeEffect('c', 11))
 	if (hasUpgrade('c', 12)) gain = gain.times(upgradeEffect('c', 12))
@@ -576,6 +577,7 @@ function getPointGen() {
 	if (hasMilestone('mE', 11)) gain = gain.times(1.2)
 	if (hasUpgrade('mE', 11)) gain = gain.times(upgradeEffect('mE', 11))
 	if (hasUpgrade('mE', 14)) gain = gain.times(9.2)
+	if (getBuyableAmount('mE', 12).gte(1)) gain = gain.times(buyableEffect('mE', 12))
 	if (hasMilestone('mE', 15)) gain = gain.times(player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35).times(12250000).times(2.5e9)
 	if (hasMilestone('mE', 16)) gain = gain.times(1.4e9)
 	if (hasUpgrade('mE', 33)) gain = gain.times(120)
@@ -725,14 +727,14 @@ var backgroundStyle = function () {
 	if (getThemeName() == "default") backSty = {
 		'background': 'black',
 		'background-color': 'black',
-		"background-image": "repeating-linear-gradient(45deg, hsla(133, 89%, 27%, 0.4), hsla(133, 89%, 27%, 0.842), 15px, transparent 0, transparent 30px), repeating-linear-gradient(135deg, hsla(130, 80%, 26%, 1), hsla(130, 80%, 26%, 1), 15px, transparent 0, transparent 30px)",
+		"background-image": "repeating-linear-gradient(45deg, hsla(133, 89%, 27%, 0.4), hsla(132, 54%, 25%, 0.84), 15px, transparent 0, transparent 30px), repeating-linear-gradient(135deg, rgb(39, 104, 49), rgb(12, 66, 21), 15px, transparent 0, transparent 30px)",
 		'background-size': '128px 128px',
 		"background-position": " " + ((player.timePlayed) % 100) + "%"
 	}
 	if (getThemeName() == "Purple Corruption") backSty = {
 		'background': 'black',
 		'background-color': 'black',
-		"background-image": "repeating-radial-gradient(circle at center, hsla(269, 89%, 27%, 0.4), hsla(269, 89%, 27%, 0.842) 15px, transparent 0, transparent 30px)",
+		"background-image": "repeating-radial-gradient(circle at center, hsla(270, 37%, 20%, 0.40), hsla(269, 85%, 35%, 0.84) 15px, transparent 0, transparent 30px)",
 		'background-size': '128px 128px',
 		"background-position": " " + (player.timePlayed % 100) + "%" + " " + (player.timePlayed % 100) + "%"
 	}

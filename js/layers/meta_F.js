@@ -88,9 +88,14 @@ addLayer("mF", {
         "Milestones (WIP)" : {
             content: [
                 "main-display",
+                ["display-text",
+                    function () { return `<br><br>You have been playing for <text style='color:orange;'>` + formatTime(player.timePlayed) + "</text>!" },
+                    {}],
                 "blank",
+                "h-line",
                 "milestones",
             ]
+            
         }
     },
 
@@ -148,13 +153,13 @@ addLayer("mF", {
             done() { return player.mF.points.gte(4) },
         },
         14: {
-            requirementDescription: "2 mF_B1's",
-            effectDescription: `Double Meta-Fusion Gain`,
+            requirementDescription: "??????????????",
+            effectDescription: `You haven't completed the <chalbox>Facility's Redemptive Tower</chalbox> Challenge!`,
             done() { return (getBuyableAmount("mF", 11).gte(2)) },
         },
         15: {
-            requirementDescription: "1 mF_B2's",
-            effectDescription: `Lower Meta-Fusion Requirement by 1`,
+            requirementDescription: "????????",
+            effectDescription: `You haven't completed the <b><text style='color:black; text-shadow:3px 3px rgba(231, 220, 65, 0.35)'>Sabotage Power Outage</text></b> Challenge!`,
             done() { return (getBuyableAmount("mF", 12).gte(1)) },
         },
     },

@@ -188,7 +188,7 @@ buyables: {
             title: "Experiment Regime II",
             unlocked() { return hasUpgrade("mE", 13) },
             cost(x) {
-                let exp2 = new Decimal(1.2)
+                let exp2 = new Decimal(1.235)
                 let costdef = new Decimal(50)
                 if (getBuyableAmount(this.layer, this.id).gte(15)) exp2 = exp2.add(0.05)
                 if (hasMilestone('mE',14)) exp2 = exp2.minus(0.075)
@@ -206,9 +206,9 @@ buyables: {
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
             effect(x) {
-                let base1 = new Decimal(1.5)
+                let base1 = new Decimal(1.115)
                 let base2 = x
-                let expo = new Decimal(1.05)
+                let expo = new Decimal(1.025)
                 if (hasMilestone('mC', 11)) base1 = base1.add(0.33)
                 if (hasUpgrade('mE', 21)) base1 = base1.add(upgradeEffect('mE', 21))
                 if (hasMilestone('mE', 13)) base1 = base1.add(0.45)

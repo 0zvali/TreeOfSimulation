@@ -58,7 +58,7 @@ metabox {
 }
 
 chalbox {
-	color: rgb(179, 160, 160);
+	color: rgb(61, 52, 52);
 	text-shadow: 4px 4px #78e646ee, -4px -4px #dc49fac5;
 	animation: ease-in-out 6s metamove3 infinite;
 }
