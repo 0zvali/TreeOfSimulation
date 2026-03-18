@@ -20,6 +20,15 @@ addLayer("CT", {
     baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+        style() {
+                    return {
+                        'background': 'transparent',
+                        'background-image': 'radial-gradient(ellipse at top, #bc42f5d8, transparent),radial-gradient(ellipse at bottom, #8b22d1, transparent)',
+                        'background-color': 'transparent',
+                        'background-size': '100% 100%',
+                        "background-position": "center"
+                    }
+                },
     exponent: 1, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
@@ -146,6 +155,21 @@ challenges: {
             unlocked(){
                 let unlock =  (hasUpgrade('SL', 21) || inChallenge('CT', 22) || hasChallenge('CT', 22))
                 if (hasUpgrade('D', 45) || player.CT.points.gte(2)) unlock = false
+                return unlock
+            },
+        },
+        31: {
+            name: "<glow-text>Unknown Fate</glow-text>",
+            challengeDescription: 
+            `<metabox>Infection Wall</metabox> has been mutated into <glow-text>Collapsed Wall</glow-text>.<br>
+            Be careful... as the wall is much stronger than before.<br>
+            <glow-text>Collapsed Wall</glow-text> starts much earlier.<br><br>`,
+            canComplete: function() {return getBuyableAmount('mF', 11).gte(2)},
+            goalDescription: "Reach 'Experiment Breaker' Lv2",
+            rewardDescription() { return "<metabox>Infection Wall</metabox> is much weaker outside of <glow-text>CT Challenges</glow-text>"},
+            onEnter(){ player.mF.upgrades.push('11', '12', '13', '14', '15', '21')},
+            unlocked(){
+                let unlock = (hasUpgrade('mF', 21) || inChallenge('CT', 31) || hasChallenge('CT', 31))
                 return unlock
             },
         },

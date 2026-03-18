@@ -1,5 +1,5 @@
 let modInfo = {
-	name: "The Experimental Tree v3.0.2",
+	name: "The Experimental Tree v3.0.4",
 	id: "experiments",
 	author: "Ozvali",
 	pointsName: "infects",
@@ -12,8 +12,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "3.0.3",
-	name: "Meta-fication",
+	num: "3.0.4",
+	name: "Collapsive Wall",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -24,6 +24,15 @@ let changelog = `<h1>Changelog:</h1><br>
 		a = bug/mechanic fixes<br><br>
 
 <div class="link" onclick="showTab('info-tab')">Settings</div><br><br>
+
+	<h2>v3.0.4: Collapsive Wall</h2><br>
+- Added 2 more Achievements<br>
+- Fixed some Post-Timeline 3 Balancing<br>
+- Added 1 new Challenge<br>
+- Added 7 new Upgrades<br>
+- Added 2 new Buyables<br>
+- Added 1 new Layer<br>
+- Changed Purple Corruption Background & CSS Changes<br><br>
 
 	<h2>v3.0.2: Meta-fication</h2><br>
 - Added 18 more Achievements<br>
@@ -447,6 +456,10 @@ function canGenPoints() {
 
 function StatChecker() {
 	let nerf = new Decimal(100000)
+	if (hasUpgrade('mF', 14)) nerf = nerf.times(1.25)
+	if (getBuyableAmount('mF', 12).gte(1)) nerf = nerf.times(buyableEffect('mF', 12).add(1))
+	if (hasChallenge('CT', 31)) nerf = nerf.times(1.4)
+	if (inChallenge('CT', 31)) nerf = nerf.times(0.15)
 	let ooms = new Decimal(player.points.log10().div(10000)).max(0.00001).min(100)
 	if (inChallenge('mF', 11)) nerf = nerf.times(new Decimal(0.85).minus(ooms))
 	let num = (new Decimal(1).minus((player.points.log10()).div(nerf)).max(0.001).min(1))
@@ -526,7 +539,7 @@ function getPointGen() {
 	if (hasAchievement('a', 32)) gain = gain.times(2.5)
 	if (hasAchievement('a', 36)) gain = gain.times(3)
 	// Prevents Devspeed changes
-	if (player.devSpeed > 1) gain = gain.div("e1e30")
+	//if (player.devSpeed > 1) gain = gain.div("e1e30")
 	if (inChallenge('D', 11)) gain = gain.pow(0.01)
 
 
@@ -569,7 +582,7 @@ function getPointGen() {
 	if (player.CT.points.gte(2) && player.points.gte(1e25)) gain = gain.div(35)
 	if (player.CT.points.gte(2) && player.points.gte(1e35)) gain = gain.div(12250000)
 	if (player.CT.points.gte(2) && player.points.gte(1e50)) gain = gain.div(2.5e9)
-	if (player.CT.points.gte(2) && player.points.gte("1e1700") || hasUpgrade("mH", 32) || inChallenge('mF', 11)) gain = gain.pow(StatChecker())
+	if (player.CT.points.gte(2) && player.points.gte(infectionWall()) || inChallenge('mF', 11)) gain = gain.pow(StatChecker())
 
 	if (hasUpgrade('mC', 23)) gain = gain.times(6.2)
 	if (hasUpgrade('mC', 24)) gain = gain.times(upgradeEffect('mC', 24))
@@ -649,14 +662,29 @@ function getSinRat(period = Math.sqrt(488)) {
 
 }
 
+function infectionWall() {
+	let baseinfectionWall = new Decimal("1e1700")
+	if (getBuyableAmount('mF', 11).gte(1)) baseinfectionWall = baseinfectionWall.times(buyableEffect('mF', 11))
+	if (inChallenge('CT', 31)) baseinfectionWall = new Decimal("1e100")
+	return baseinfectionWall
+}
+
+setInterval(() => {
+  document.getElementById("anim1").innerHTML = "Infect"
+  document.getElementById("anim2").innerHTML = "gain is"
+  document.getElementById("anim3").innerHTML = "nerfed by"
+  document.getElementById("anim4").innerHTML = "^" + formatSmall(StatChecker(), 5)
+  // 24 hour time
+
+}, 1);
+
 
 // Display extra things at the top of the page
 var displayThings = [
 	function () {
 		let x = getUndulatingColor()
-		let a = colorText("b", x, "Endgame: 12 Meta-Humans (Timeline 3)")
-		let b = "<br><text style='color:red'>WARNING</text>: Unbalanced past Endgame"
-		return a + b
+		let a = colorText("b", x, "Endgame: Meta-Fusion Upgrade 7 (Timeline 3)")
+		return a
 	},
 	function () {
 		if (inChallenge('CT', 11))
@@ -703,7 +731,12 @@ var displayThings = [
 		if (player.CT.points.gte(2) && player.points.gte(1e50) && hasUpgrade("mE", 14)) nerf = "Infect gain is nerfed by /" + format((player.points.minus(1e10).add(1).pow(0.112)).times(7.2).times(35).div(9.2).times(12250000).times(2.5e9)) + " (Level 5 Nerf)"
 
 		if (hasMilestone('mE', 15)) nerf = "<br>"
-		if (player.CT.points.gte(2) && player.points.gte("1e1700") || hasUpgrade("mH", 32) || inChallenge('mF', 11)) nerf = "<metabox>Infect gain is nerfed by ^" + formatSmall(StatChecker(), 5)
+		let a = "<anim1><div id='anim1'></div></anim1> "
+		let b = "<anim2><div id='anim2'></div></anim2> "
+		let c = "<anim3><div id='anim3'></div></anim3> "
+		let d = "<anim4><div id='anim4'></div></anim4> "
+		if (player.CT.points.gte(2) && player.points.gte(infectionWall()) && !inChallenge('CT', 31)) nerf = "<metabox>" + a + b + c + d + "</metabox>"
+		if (player.CT.points.gte(2) && player.points.gte(infectionWall()) && inChallenge('CT', 31)) nerf = "<glow-text>" + a + b + c + d + "</glow-text>"
 		if (inChallenge("mF", 11)) nerf = "<metabox>Infect gain is nerfed by ^" + formatSmall(StatChecker(), 5) + "</metabox><br>(Nerf is +%<text style='color:cyan'>" + formatSmall(OoMsCheck(), 3) + "</text> stronger)"
 		return nerf
 	},
@@ -717,7 +750,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.mH.points.gte(12)
+	return hasUpgrade('mF', 22)
 }
 // Less important things beyond this point!
 
@@ -734,9 +767,9 @@ var backgroundStyle = function () {
 	if (getThemeName() == "Purple Corruption") backSty = {
 		'background': 'black',
 		'background-color': 'black',
-		"background-image": "repeating-radial-gradient(circle at center, hsla(270, 37%, 20%, 0.40), hsla(269, 85%, 35%, 0.84) 15px, transparent 0, transparent 30px)",
-		'background-size': '128px 128px',
-		"background-position": " " + (player.timePlayed % 100) + "%" + " " + (player.timePlayed % 100) + "%"
+		'background-image': 'radial-gradient(ellipse at left, #68128ad8, transparent),radial-gradient(ellipse at left, #000000, transparent)',
+		'background-size': '100% 100%',
+		"background-position": "100% 0%",
 	}
 	return backSty
 }

@@ -11,21 +11,30 @@ addLayer("mF", {
         }
     },
 
-    color: "#cfba8a",
+    color: "#cc971d",
     requires() {
         let requirement = new Decimal(13)
-        if (hasMilestone('mF', 15)) requirement = requirement.minus(1)
         return requirement
 
     }, // Can be a function that takes requirement increases into account
     resource: "Meta-Fusions", // Name of prestige currency
     baseResource: "Meta-Humans", // Name of resource prestige is based on
     baseAmount() { return player.mH.points }, // Get the current amount of baseResource
-    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent() {
-        let expo1 = new Decimal(0.9)
+        let expo1 = new Decimal(0.8)
         return expo1
+
     }, // Prestige currency exponent
+    gainMult() { // Calculate the multiplier for main currency from bonuses
+        let mult = new Decimal(1)
+        return mult
+    },
+    gainExp() { // Calculate the exponent on main currency from bonuses
+        let expo = new Decimal(1)
+        return expo
+    },
+
     effect() {
         let eff4 = player.mF.points.add(1).pow(2.5)
         eff4 = eff4.times(tmp.mF.effectBase)
@@ -38,16 +47,6 @@ addLayer("mF", {
     effectDescription() {
         let dis = "which boosts all previous layers (Except Meta-Humans) by x" + format(tmp.mF.effect)
         return dis
-    },
-    gainMult() { // Calculate the multiplier for main currency from bonuses
-        let mult = new Decimal(1)
-        if (hasMilestone('mF', 14)) mult = mult.times(2)
-        if (hasUpgrade('mF', 44)) mult = mult.times(upgradeEffect('mF', 44))
-        return mult
-    },
-    gainExp() { // Calculate the exponent on main currency from bonuses
-        let expo = new Decimal(1)
-        return expo
     },
     row: 4, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
@@ -66,7 +65,7 @@ addLayer("mF", {
 
 
     tabFormat: {
-        "Tower of Space": {
+        "Fusionation I": {
             content: [
                 "main-display",
                 "blank",
@@ -75,28 +74,48 @@ addLayer("mF", {
                     function () { return 'You have a total of ' + formatWhole(player.mF.total) + ' Meta-Fusions' },
                     {}],
                     ["display-text",
-                        function () { return "<metabox>Infection Wall</metabox> is a barrier between the <text style='color:red'>Experiments</text> and <text style='color:orange'>Humans</text>. After 1e1500 Infects or in<br><chalbox>Facility's Redemptive Tower</chalbox>, <metabox>Infection Wall</metabox> will be nerfing your infect gain... <text style='color:cyan'>Exponentially</text><br><br>" },
+                        function () { return "<metabox>Infection Wall</metabox> is becoming a problem... there must be a way to push it back..." },
                         {}],
-                ["display-text",
-                    function () { return "Redemption Tower Effect: <text style='color:lime'>"+ format(challengeEffect("mF", 11)) + "</text>x boost to Infect Gain" },
-                    {}],
-                    
+                    ["display-text",
+                        function () { return "The wall is currently at <text style='color:cyan'>" + formatWhole(infectionWall()) + "</text> infects..."},
+                    ],
                 "blank",
-                "challenges",
-            ]
-        },
-        "Milestones (WIP)" : {
-            content: [
-                "main-display",
-                ["display-text",
-                    function () { return `<br><br>You have been playing for <text style='color:orange;'>` + formatTime(player.timePlayed) + "</text>!" },
-                    {}],
+                "buyables",
                 "blank",
                 "h-line",
-                "milestones",
-            ]
-            
-        }
+                "blank",
+                "upgrades"
+            ],
+            buttonStyle() { return { 'background': 'linear-gradient(to right,orange 33%, black 92%)', 'color': 'white', 'box-shadow': '2px 2px 2px orange' } },
+            style() {
+                    return {
+                        'background': 'transparent',
+                        'background-image': 'radial-gradient(ellipse at top, #9c6e09, transparent),radial-gradient(ellipse at bottom, #be3f3f, transparent)',
+                        'background-color': 'transparent',
+                        'background-size': '100% 100%',
+                        "background-position": "center"
+                    }
+                },
+        },
+        "Fusionation II": {
+            content: [
+                "main-display",
+                "blank",
+                "h-line",
+                "blank",
+                "milestones"
+            ],
+            buttonStyle() { return { 'background': 'linear-gradient(to left,orange 33%, black 92%)', 'color': 'white', 'box-shadow': '2px 2px 2px orange' } },
+            style() {
+                    return {
+                        'background': 'transparent',
+                        'background-image': 'radial-gradient(ellipse at top, #9c6e09, transparent),radial-gradient(ellipse at bottom, #be3f3f, transparent)',
+                        'background-color': 'transparent',
+                        'background-size': '100% 100%',
+                        "background-position": "center"
+                    }
+                },
+        },
     },
 
     challenges: {
@@ -137,308 +156,62 @@ addLayer("mF", {
     },
 
     milestones: {
-        11: {
-            requirementDescription: "1 Meta-Fusions",
-            effectDescription: `Keep the current Meta-Crystals Milestones & Upgrades`,
-            done() { return player.mF.points.gte(1) },
+       11: {
+            requirementDescription() {
+                let desc = "??????"
+                if (hasChallenge('CT', 31)) desc = "Complete <glow-text>CT Challenge 5</glow-text>"
+                return desc},
+            effectDescription: `Keep Meta-Crystals Milestones & Upgrades`,
+            done() { return hasChallenge('CT', 31) },
         },
         12: {
-            requirementDescription: "2 Meta-Fusions",
+            requirementDescription: "???",
             effectDescription: `Keep the current Meta-Experiment Milestones, Upgrades, and Buy max Meta-Humans`,
-            done() { return player.mF.points.gte(2) },
-        },
-        13: {
-            requirementDescription: "4 Meta-Fusions",
-            effectDescription: `You can see what upgrades are disabled in <chalbox>Facility's Redemptive Tower</chalbox>. Improve 3 Upgrades while in <chalbox>FRT</chalbox>`,
-            done() { return player.mF.points.gte(4) },
-        },
-        14: {
-            requirementDescription: "??????????????",
-            effectDescription: `You haven't completed the <chalbox>Facility's Redemptive Tower</chalbox> Challenge!`,
-            done() { return (getBuyableAmount("mF", 11).gte(2)) },
-        },
-        15: {
-            requirementDescription: "????????",
-            effectDescription: `You haven't completed the <b><text style='color:black; text-shadow:3px 3px rgba(231, 220, 65, 0.35)'>Sabotage Power Outage</text></b> Challenge!`,
-            done() { return (getBuyableAmount("mF", 12).gte(1)) },
+            done() { return player.mF.points.gte(999) },
         },
     },
 
     buyables: {
         11: {
-            title: "Fusionitive",
+            title: "Experiment Breaker",
+            unlocked() { return player.mF.unlocked },
+            cost(x) {
+                let exp1 = new Decimal(1)
+                let exp2 = new Decimal(1)
+                let costdef = new Decimal(1)
+                return new Decimal(costdef).mul(x).floor()
+            },
+            display() {
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br>Effect: Break through one of the walls<br> Raise the <metabox>Infection Wall</metabox> by <text style='color:cyan'>" + format(buyableEffect(this.layer, this.id))
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal(1)
+                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            purchaseLimit() {
+                let limit = new Decimal(3)
+                return limit
+            },
+            effect() {
+                let eff = new Decimal("1e400").pow(getBuyableAmount('mF', 11))
+                return eff
+            }
+        },
+        12: {
+            title: "Truth Striker",
             unlocked() { return player.mF.unlocked },
             cost(x) {
                 let exp1 = new Decimal(1.1)
-                let exp2 = new Decimal(1.05)
-                let costdef = new Decimal(1)
-                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
-            },
-            display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br>Effect: Boost Meta-Experiment gain by x" + format(buyableEffect(this.layer, this.id))
-            },
-            canAfford() {
-                return player[this.layer].points.gte(this.cost())
-            },
-            buy() {
-                let cost = new Decimal(1)
-                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
-                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
-            },
-            purchaseLimit() {
-                let limit = new Decimal(10)
-                return limit
-            },
-            effect(x) {
-                let base1 = new Decimal(1500)
-                let base2 = x
-                let expo = new Decimal(1.2)
-                let eff = base1.pow(Decimal.pow(base2, expo))
-                return eff
-            },
-        },
-        12: {
-            title() {
-                let title = "Metativity (Locked)"
-                if (hasUpgrade('mF', 42)) title = "Metativity"
-                return title
-            },
-            unlocked() { return player.mF.unlocked },
-            cost(x) {
-                let exp1 = new Decimal(1.5)
-                let exp2 = new Decimal(1.1)
-                let costdef = new Decimal(1e7)
-                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
-            },
-            display() {
-                let dis = "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br>Effect: ???????????? ??????????? ???????????????"
-                if (hasUpgrade('mF', 42)) dis = "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br>Effect: Boosts infect gain by " + format(buyableEffect(this.layer, this.id)) + "x"
-                return dis
-            },
-            canAfford() {
-                return player[this.layer].points.gte(this.cost())
-            },
-            purchaseLimit() {
-                let limit = 0
-                if (hasUpgrade('mF', 42)) limit = 10
-                return limit
-            },
-            buy() {
-                let cost = new Decimal(1)
-                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
-                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
-            },
-            effect(x) {
-                let base1 = new Decimal(1e15)
-                let base2 = x
-                let expo = new Decimal(1.37)
-                let eff = base1.pow(Decimal.pow(base2, expo))
-                return eff
-            },
-        },
-        13: {
-            title: "Longitivity (Locked)",
-            unlocked() { return player.mF.unlocked },
-            cost(x) {
-                let exp1 = new Decimal(1.55)
-                let exp2 = new Decimal(1.065)
-                let costdef = new Decimal(1)
-                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
-            },
-            display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br>Effect: ???????????? ??????????? ???????????????"
-            },
-            canAfford() {
-                return player[this.layer].points.gte(this.cost())
-            },
-            buy() {
-                let cost = new Decimal(1)
-                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
-                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
-            },
-            purchaseLimit() {
-                let limit = 0
-                return limit
-            },
-            effect(x) {
-                let base1 = new Decimal(2.2e13)
-                let base2 = x
-                let expo = new Decimal(1.375)
-                let eff = base1.pow(Decimal.pow(base2, expo))
-                return eff
-            },
-        },
-        14: {
-            title: "Definity (Locked)",
-            unlocked() { return player.mF.unlocked },
-            cost(x) {
-                let exp1 = new Decimal(1.6)
-                let exp2 = new Decimal(1.065)
-                let costdef = new Decimal(1)
-                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
-            },
-            display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br>Effect: ???????????? ??????????? ???????????????"
-            },
-            canAfford() {
-                return player[this.layer].points.gte(this.cost())
-            },
-            buy() {
-                let cost = new Decimal(1)
-                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
-                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
-            },
-            purchaseLimit() {
-                let limit = 0
-                return limit
-            },
-            effect(x) {
-                let base1 = new Decimal(4.3e20)
-                let base2 = x
-                let expo = new Decimal(1.375)
-                let eff = base1.pow(Decimal.pow(base2, expo))
-                return eff
-            },
-        },
-        21: {
-            title: "Crystalitivate (Locked)",
-            unlocked() { return player.mF.unlocked },
-            cost(x) {
-                let exp1 = new Decimal(1)
-                let exp2 = new Decimal(1.025)
-                let costdef = new Decimal(1)
-                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
-            },
-            display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br>Effect: ???????????? ??????????? ???????????????"
-            },
-            canAfford() {
-                return player[this.layer].points.gte(this.cost())
-            },
-            buy() {
-                let cost = new Decimal(1)
-                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
-                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
-            },
-            purchaseLimit() {
-                let limit = 0
-                return limit
-            },
-            effect(x) {
-                let base1 = new Decimal(66)
-                let base2 = x
-                let expo = new Decimal(1.1)
-                let eff = base1.pow(Decimal.pow(base2, expo))
-                return eff
-            },
-        },
-        22: {
-            title: "Metativity II (Locked)",
-            unlocked() { return player.mF.unlocked },
-            cost(x) {
-                let exp1 = new Decimal(1.2)
-                let exp2 = new Decimal(1.04)
-                let costdef = new Decimal(1)
-                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
-            },
-            display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br>Effect: ???????????? ??????????? ???????????????"
-            },
-            canAfford() {
-                return player[this.layer].points.gte(this.cost())
-            },
-            buy() {
-                let cost = new Decimal(1)
-                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
-                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
-            },
-            purchaseLimit() {
-                let limit = 0
-                return limit
-            },
-            effect(x) {
-                let base1 = new Decimal(1300)
-                let base2 = x
-                let expo = new Decimal(1.2)
-                let eff = base1.pow(Decimal.pow(base2, expo))
-                return eff
-            },
-        },
-        23: {
-            title: "Longitivity II (Locked)",
-            unlocked() { return player.mF.unlocked },
-            cost(x) {
-                let exp1 = new Decimal(1.4)
-                let exp2 = new Decimal(1.07)
-                let costdef = new Decimal(1)
-                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
-            },
-            display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br>Effect: ???????????? ??????????? ???????????????"
-            },
-            canAfford() {
-                return player[this.layer].points.gte(this.cost())
-            },
-            buy() {
-                let cost = new Decimal(1)
-                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
-                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
-            },
-            purchaseLimit() {
-                let limit = 0
-                return limit
-            },
-            effect(x) {
-                let base1 = new Decimal(1959200)
-                let base2 = x
-                let expo = new Decimal(1.3)
-                let eff = base1.pow(Decimal.pow(base2, expo))
-                return eff
-            },
-        },
-        24: {
-            title: "Infinivate (Locked)",
-            unlocked() { return player.mF.unlocked },
-            cost(x) {
-                let exp1 = new Decimal(2)
-                let exp2 = new Decimal(1.2)
-                let costdef = new Decimal(1)
-                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
-            },
-            display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br>Effect: ???????????? ??????????? ???????????????"
-            },
-            canAfford() {
-                return player[this.layer].points.gte(this.cost())
-            },
-            buy() {
-                let cost = new Decimal(1)
-                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
-                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
-            },
-            purchaseLimit() {
-                let limit = 0
-                return limit
-            },
-            effect(x) {
-                let base1 = new Decimal(1.8e11)
-                let base2 = x
-                let expo = new Decimal(1.47)
-                let eff = base1.pow(Decimal.pow(base2, expo))
-                return eff
-            },
-        },
-        31: {
-            title: "Experimate (Locked)",
-            unlocked() { return player.mF.unlocked },
-            cost(x) {
-                let exp1 = new Decimal(1)
                 let exp2 = new Decimal(1.03)
                 let costdef = new Decimal(1)
-                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
+                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).add(1).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br>Effect: ???????????? ??????????? ???????????????"
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br>Effect: Fusions weren't always safe.<br> Weaken <metabox>Infection Wall</metabox> by <text style='color:cyan'>" + format(buyableEffect(this.layer, this.id) * 100) + "%"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -449,139 +222,87 @@ addLayer("mF", {
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
             purchaseLimit() {
-                let limit = 0
+                let limit = new Decimal(6)
                 return limit
             },
-            effect(x) {
-                let base1 = new Decimal(193)
-                let base2 = x
-                let expo = new Decimal(1.15)
-                let eff = base1.pow(Decimal.pow(base2, expo))
+            effect() {
+                let eff = new Decimal(0.15).times(getBuyableAmount('mF', 12))
                 return eff
             },
-        },
-        32: {
-            title: "Metativity III (Locked)",
-            unlocked() { return player.mF.unlocked },
-            cost(x) {
-                let exp1 = new Decimal(1.2)
-                let exp2 = new Decimal(1.06)
-                let costdef = new Decimal(1)
-                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
-            },
-            display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br>Effect: ???????????? ??????????? ???????????????"
-            },
-            canAfford() {
-                return player[this.layer].points.gte(this.cost())
-            },
-            buy() {
-                let cost = new Decimal(1)
-                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
-                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
-            },
-            purchaseLimit() {
-                let limit = 0
-                return limit
-            },
-            effect(x) {
-                let base1 = new Decimal(6210)
-                let base2 = x
-                let expo = new Decimal(1.2)
-                let eff = base1.pow(Decimal.pow(base2, expo))
-                return eff
-            },
-        },
-        33: {
-            title: "Longitivity III (Locked)",
-            unlocked() { return player.mF.unlocked },
-            cost(x) {
-                let exp1 = new Decimal(1.5)
-                let exp2 = new Decimal(1.1)
-                let costdef = new Decimal(1)
-                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
-            },
-            display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br>Effect: ???????????? ??????????? ???????????????"
-            },
-            canAfford() {
-                return player[this.layer].points.gte(this.cost())
-            },
-            buy() {
-                let cost = new Decimal(1)
-                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
-                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
-            },
-            purchaseLimit() {
-                let limit = 0
-                return limit
-            },
-            effect(x) {
-                let base1 = new Decimal(1.8e7)
-                let base2 = x
-                let expo = new Decimal(1.27)
-                let eff = base1.pow(Decimal.pow(base2, expo))
-                return eff
-            },
-        },
-        34: {
-            title: "Enterative (Locked)",
-            unlocked() { return player.mF.unlocked },
-            cost(x) {
-                let exp1 = new Decimal(2)
-                let exp2 = new Decimal(1.25)
-                let costdef = new Decimal(1)
-                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
-            },
-            display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Fusions" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br>Effect: ???????????? ??????????? ???????????????"
-            },
-            canAfford() {
-                return player[this.layer].points.gte(this.cost())
-            },
-            buy() {
-                let cost = new Decimal(1)
-                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
-                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
-            },
-            purchaseLimit() {
-                let limit = 0
-                return limit
-            },
-            effect(x) {
-                let base1 = new Decimal(5.2e11)
-                let base2 = x
-                let expo = new Decimal(1.4)
-                let eff = base1.pow(Decimal.pow(base2, expo))
-                return eff
-            },
+            unlocked() {
+                return hasMilestone('mH', 14) || getBuyableAmount('mF', 12).gte(1)
+            }
         },
     },
     upgrades: {
         rows: 5,
         cols: 5,
         11: {
-            title: "Artifact I",
-            description: "1,700x Infects & 15x Meta-Crystals",
-            cost: new Decimal(999),
+            title: "Into the Unknown",
+            description: "Lower Meta-Human requirement by a decent amount",
+            cost: new Decimal(1),
             unlocked() {
                 return player.mH.unlocked
             },
         },
-        21: {
-            title: "Artifact II",
-            description: "1,800,000x Infects & 190,000x Meta-Crystals",
-            cost: new Decimal(999),
+        12: {
+            title: "Battle Bounding Experiments",
+            description: "Raise 'Experiment Regime IV' Effect to be stronger",
+            cost: new Decimal(13),
+            currencyDisplayName: "Meta Humans",
+            currencyInternalName: "points",
+            currencyLayer: "mH",
             unlocked() {
                 return hasUpgrade('mF', 11)
             },
         },
-        22: {
-            title: "Relic I",
-            description: "^1.1 Infects & Improved 'Experiment Regime I' Effect",
-            cost: new Decimal(999),
+        13: {
+            title: "Perfected Mutations",
+            description: "Raise 'Experiment Regime I' effect to be stronger",
+            cost: new Decimal("1e935"),
+            currencyDisplayName: "Meta Experiments",
+            currencyInternalName: "points",
+            currencyLayer: "mE",
             unlocked() {
-                return hasUpgrade('mF', 11)
+                return hasUpgrade('mF', 12)
+            },
+        },
+        14: {
+            title: "Breaker's Reunion",
+            description: "Weaken the <metabox>Infection Wall</metabox> by 17%",
+            cost: new Decimal("1.3e987"),
+            currencyDisplayName: "Meta Experiments",
+            currencyInternalName: "points",
+            currencyLayer: "mE",
+            unlocked() {
+                return hasUpgrade('mF', 13)
+            },
+        },
+        15: {
+            title: "Wall Breaker",
+            description: "Break the 'mC-U12', 'mC-U4', and 'mC-U10 Cap to be much higher",
+            cost: new Decimal("1.1e1011"),
+            currencyDisplayName: "Meta Experiments",
+            currencyInternalName: "points",
+            currencyLayer: "mE",
+            unlocked() {
+                return hasUpgrade('mF', 14)
+            },
+        },
+        21: {
+            title: "Undisputed Rights",
+            description: "Unlock another <glow-text>Collapsed Timeline</glow-text> Challenge",
+            cost: new Decimal(1),
+            unlocked() {
+                return hasUpgrade('mF', 15)
+            },
+        },
+        22: {
+            title: "Mutated Azure",
+            description: "Unlock yet another <glow-text>Collapsed Timeline</glow-text> Challenge.",
+            cost: new Decimal(1),
+            unlocked() {
+                return hasChallenge('CT', 31)
             },
         },
         31: {
@@ -589,7 +310,7 @@ addLayer("mF", {
             description: "1e17x Infects, 1.4e12x Meta-Crystals, 5x Meta-Experiments",
             cost: new Decimal(999),
             unlocked() {
-                return hasUpgrade('mF', 21)
+                return hasUpgrade('mF', 22)
             },
         },
         32: {
@@ -622,7 +343,7 @@ addLayer("mF", {
             description: "1e31x Infects & 1e23 Meta-Crystals & 850x Meta-Experiments",
             cost: new Decimal(1200000),
             unlocked() {
-                return hasUpgrade('mF', 11)
+                return hasUpgrade('mF', 12)
             },
         },
         42: {

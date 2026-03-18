@@ -8,7 +8,7 @@ addLayer("mE", {
         best: new Decimal(0),
     }},
 
-    color: "#9aa3cd",
+    color: "#fc716d",
     requires(){ 
         let requirement = new Decimal("5e10")
         if (getBuyableAmount('mE', 14).gte(1)) requirement = requirement.div(buyableEffect('mE', 14))
@@ -19,6 +19,15 @@ addLayer("mE", {
     baseResource: "Meta-Crystals", // Name of resource prestige is based on
     baseAmount() {return player.mC.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    style() {
+                    return {
+                        'background': 'transparent',
+                        'background-image': 'radial-gradient(ellipse at top, #790707d8, transparent),radial-gradient(ellipse at bottom, #f74e4e, transparent)',
+                        'background-color': 'transparent',
+                        'background-size': '100% 100%',
+                        "background-position": "center"
+                    }
+                },
     exponent(){ 
         let expo1 = 0.27
         if (hasUpgrade('mE', 21)) expo1 = 0.32
@@ -29,7 +38,6 @@ addLayer("mE", {
         if (hasUpgrade('mE', 16)) mult = mult.times(upgradeEffect('mE', 16))
         if (hasUpgrade('mE', 24)) mult = mult.times(64)
         if (getBuyableAmount('mE', 13).gte(1)) mult = mult.times(buyableEffect('mE', 13).div(1.5))
-        if (getBuyableAmount('mH', 11).gte(1)) mult = mult.times(buyableEffect('mH', 11))
         if (hasUpgrade('mE', 25)) mult = mult.times(upgradeEffect('mE', 25))
         if (hasUpgrade('mE', 32)) mult = mult.times(upgradeEffect('mE', 32))
         if (hasUpgrade('mE', 11)) mult = mult.times(3)
@@ -39,7 +47,6 @@ addLayer("mE", {
         if (hasUpgrade('mE', 34)) mult = mult.times(1e15)
         if (hasUpgrade('mE', 36)) mult = mult.times(1e9)
         if (hasUpgrade('mH', 11)) mult = mult.times(20)
-        if (getBuyableAmount('mF', 11).gte(1)) mult = mult.times(buyableEffect('mF', 11))
         if (player.mF.unlocked) mult = mult.times(tmp.mF.effect)
         return mult
     },
@@ -178,6 +185,7 @@ buyables: {
                 if (hasUpgrade('mE', 32)) base1 = base1.add(0.35)
                 if (hasMilestone('mE', 14)) base1 = base1.add(0.1)
                 if (hasUpgrade('mF', 22)) base1 = base1.add(0.8)
+                if (hasUpgrade('mF', 13)) expo = expo.add(0.21)
                 let eff = base1.pow(Decimal.pow(base2, expo)).times(buyableEffect('mE', 14).pow(0.2))
                 if (hasUpgrade('mE', 35)) eff = eff.times(25)
                 return eff
@@ -283,6 +291,7 @@ buyables: {
                 let base2 = x
                 let expo = new Decimal(1.1)
                 if (hasUpgrade('mH', 32)) base1 = base1.add(2)
+                if (hasUpgrade('mF', 12)) expo = expo.add(0.255)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (hasUpgrade('mH', 13)) eff = eff.times(23)
                 return eff

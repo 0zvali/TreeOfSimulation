@@ -405,11 +405,18 @@ addLayer("a", {
                 `Reach the Infectious Wall...`
         },
         92: {
-            name: "Humanity's Cure",
-            done() { return player.CT.points.gte(2) && player.points.gte("1ee10")},
+            name: "Fusionative Future",
+            done() { return player.mF.unlocked},
             unlocked() { return hasAchievement('a', 76) },
             tooltip:
-                `Unlock Experiment Cure`
+                `Complete the <glow-text>5th Collapsed Timeline Challenge</glow-text>`
+        },
+        93: {
+            name: "Breaker's Delight",
+            done() { return hasChallenge('CT', 31)},
+            unlocked() { return hasAchievement('a', 76) },
+            tooltip:
+                `Complete the <glow-text>5th Collapsed Timeline Challenge</glow-text>`
         },
     },
 },

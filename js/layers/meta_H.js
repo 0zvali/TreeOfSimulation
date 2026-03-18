@@ -11,6 +11,7 @@ addLayer("mH", {
     color: "#5bd6cd",
     requires(){ 
         let requirement = new Decimal("2.3e106")
+        if (player.mH.points == 12 && player.mF.points == 0) requirement = new Decimal("1e59")
         return requirement
         
     }, // Can be a function that takes requirement increases into account
@@ -18,8 +19,19 @@ addLayer("mH", {
     baseResource: "Meta-Experiments", // Name of resource prestige is based on
     baseAmount() {return player.mE.points}, // Get the current amount of baseResource
     type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    style() {
+                    return {
+                        'background': 'transparent',
+                        'background-image': 'radial-gradient(ellipse at top, #0e84b3d8, transparent),radial-gradient(ellipse at bottom, #4879ff, transparent)',
+                        'background-color': 'transparent',
+                        'background-size': '100% 100%',
+                        "background-position": "center"
+                    }
+                },
+
     exponent(){ 
         let expo1 = new Decimal(3.1413)
+        if (hasUpgrade('mF', 11)) expo1 = expo1.minus(0.07)
         return expo1
      }, // Prestige currency exponent
 
@@ -40,11 +52,6 @@ addLayer("mH", {
         let value = false
         if (hasMilestone('mE', 17) || player.mH.unlocked) value = true
         return value
-    },
-    autoPrestige(){
-        let prestige = false
-        if (hasMilestone('mH', 14)) prestige = true
-        return prestige
     },
     canBuyMax(){
         let prestige = false
@@ -75,9 +82,9 @@ milestones: {
             unlocked(){ return hasMilestone('mH', 12) }, 
         },
         14: {
-            requirementDescription: "35 Meta-Humans",
-            effectDescription: `Automate Meta-Humans. With that, unlock a Meta-Human Buyable`,
-            done() { return player.mH.points.gte(35) },
+            requirementDescription: "20 Meta-Humans",
+            effectDescription: `Unlock a Meta-Fusion Buyable`,
+            done() { return player.mH.points.gte(20) },
             unlocked(){ return hasMilestone('mH', 13) }, 
         },
         15: {
@@ -87,43 +94,6 @@ milestones: {
             unlocked(){ return hasMilestone('mH', 14) }, 
         },
     },
-
-buyables: {
-        11: {
-            title: "Human Regime",
-            unlocked() { return hasMilestone("mH", 14) },
-            cost(x) {
-                let exp1 = new Decimal(2)
-                if (getBuyableAmount(this.layer, this.id).gte(5)) exp1 = exp1.times(4)
-                let costdef = new Decimal(4)
-                if (getBuyableAmount(this.layer, this.id).gte(15)) exp1 = exp1.times(2)
-                return new Decimal(costdef).mul(exp1, x).floor()
-            },
-            display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Meta-Humans" + "<br>Bought: " + getBuyableAmount(this.layer, this.id)+"/"+ formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br>Effect: Boost Meta-Experiment gain by x" + format(buyableEffect(this.layer, this.id))
-            },
-            canAfford() {
-                return player[this.layer].points.gte(this.cost())
-            },
-            purchaseLimit(){
-                let limit = 15
-                return limit
-            },
-            buy() {
-                let cost = new Decimal (1)
-                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
-                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
-            },
-            effect(x) {
-                let base1 = new Decimal("5e1933")
-                let base2 = x
-                let expo = new Decimal(1.15)
-                let eff = base1.pow(Decimal.pow(base2, expo)).pow(1.04)
-                return eff
-            },
-        },
-},
-
 
 upgrades: {
     rows: 4,
@@ -231,15 +201,21 @@ upgrades: {
         33: {
             title: "Economic Success",
             description: "^1.03 Infects & ^1.03 Meta-Experiments",
-            cost: new Decimal(11),
+            cost: new Decimal("6.25e506"),
+            currencyDisplayName: "Meta Experiments",
+            currencyInternalName: "points",
+            currencyLayer: "mE",
             unlocked(){
                 return hasUpgrade('mH', 32)
             },
         },
         34: {
-            title: "We skipped a layer!",
+            title: "Wall of Destruction",
             description: "Unlock Meta-Fusions, ^1.033 Infect Gain",
-            cost: new Decimal(12),
+            cost: new Decimal("3.33e635"),
+            currencyDisplayName: "Meta Experiments",
+            currencyInternalName: "points",
+            currencyLayer: "mE",
             unlocked(){
                 return hasUpgrade('mH', 33)
             },

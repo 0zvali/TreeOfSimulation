@@ -8,7 +8,7 @@ addLayer("mC", {
         best: new Decimal(0),
     }},
 
-    color: "#75d7ed",
+    color: "#2b7686",
     requires(){ 
         let requirement = new Decimal("4500")
         if (hasUpgrade('mC', 13)) requirement = requirement.div(upgradeEffect('mC', 13))
@@ -22,6 +22,15 @@ addLayer("mC", {
     baseResource: "infects",
     baseAmount() {return player.points}, 
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    style() {
+                    return {
+                        'background': 'transparent',
+                        'background-image': 'radial-gradient(ellipse at top, #12737ad8, transparent),radial-gradient(ellipse at bottom, #0a638d, transparent)',
+                        'background-color': 'transparent',
+                        'background-size': '100% 100%',
+                        "background-position": "center"
+                    }
+                },
     exponent(){ 
               let expo = new Decimal(0.39)
               if (hasUpgrade('mC', 15)) expo = expo.add(0.04) 
@@ -225,6 +234,7 @@ upgrades: {
                 let cap = new Decimal(773.66)
                 if (hasUpgrade('mE', 22)) cap = new Decimal(1.47e9)
                 if (hasUpgrade('mE', 31)) cap = cap.pow(2)
+                    if (hasUpgrade('mF', 15)) cap = cap.times("1e300")
                 let eff = (player.points.max(1).add(1.5).pow(0.089)).max(1).min(cap);
                 if (hasUpgrade('mC', 26)) eff = (player.points.max(1).add(1.5).pow(0.089).times(upgradeEffect('mC', 26))).max(1).min(cap);
                 return eff
@@ -233,6 +243,7 @@ upgrades: {
                 let cap = new Decimal(773.66)
                 if (hasUpgrade('mE', 22)) cap = new Decimal(1.47e9)
                 if (hasUpgrade('mE', 31)) cap = cap.pow(2)
+                if (hasUpgrade('mF', 15)) cap = cap.times("1e300")
                 let capped = upgradeEffect(this.layer, this.id).gte(cap) ? "(Capped)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
@@ -322,6 +333,7 @@ upgrades: {
             effect() {
                 let cap = new Decimal(1963.44)
                 if (hasUpgrade('mH', 31)) cap = cap.times("1e40")
+                    if (hasUpgrade('mF', 15)) cap = cap.times("1e300")
                 let eff =  (player.points.max(1).add(2).pow(0.026).times(4)).max(1).min(cap);
                 if (hasUpgrade('mC', 26)) eff = (player.points.max(1).add(2).pow(0.022).times(4).times(upgradeEffect('mC', 26))).max(1).min(cap);
                 if (hasUpgrade('mE', 22)) eff = (player.points.max(1).add(2).pow(0.022).times(4).times(upgradeEffect('mC', 26)).times(upgradeEffect('mC', 25).div(3.8))).max(1).min(cap);
@@ -330,6 +342,7 @@ upgrades: {
             effectDisplay() {
                 let cap = new Decimal(1963.44)
                 if (hasUpgrade('mH', 31)) cap = cap.times("1e40")
+                if (hasUpgrade('mF', 15)) cap = cap.times("1e300")
                 let capped = upgradeEffect(this.layer, this.id).gte(cap) ? "(Capped)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} (x${format(upgradeEffect(this.layer, this.id).div(2))}) ${capped}`;
                 return text;
@@ -368,6 +381,7 @@ upgrades: {
             effect() {
                 let cap = new Decimal(60)
                 if (hasUpgrade('mH', 31)) cap = cap.times("1e30")
+                    if (hasUpgrade('mF', 15)) cap = cap.times("1e300")
                 let eff = (player.points.max(1).add(1).pow(0.0122)).max(1).min(cap);
                 if (hasMilestone('mC', 12)) eff = ((player.points.max(1).add(1).pow(0.0122)).times(tmp.mE.effect.pow(0.15))).max(1).min(cap);
                 return eff
@@ -375,6 +389,7 @@ upgrades: {
             effectDisplay() {
                 let cap = new Decimal(60)
                 if (hasUpgrade('mH', 31)) cap = cap.times("1e30")
+                if (hasUpgrade('mF', 15)) cap = cap.times("1e300")
                 let capped = upgradeEffect(this.layer, this.id).gte(cap) ? "(Capped)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
