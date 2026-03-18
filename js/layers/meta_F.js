@@ -166,9 +166,13 @@ addLayer("mF", {
             done() { return hasChallenge('CT', 31) && !inChallenge('CT', 32) },
         },
         12: {
-            requirementDescription: "???",
+             requirementDescription() {
+                let desc = "??????"
+                if (hasChallenge('CT', 32)) desc = "Complete <glow-text>CT Challenge 6</glow-text>"
+                if (inChallenge('CT', 32)) desc = "Disabled inside <glow-text>'Corruptive Generator'</glow-text>"
+                return desc},
             effectDescription: `Keep the current Meta-Experiment Milestones, Upgrades, and Buy max Meta-Humans`,
-            done() { return player.mF.points.gte(999) },
+            done() { return hasChallenge('CT', 32) && !inChallenge('CT', 32) },
         },
     },
 
