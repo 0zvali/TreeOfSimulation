@@ -409,7 +409,7 @@ addLayer("a", {
             done() { return player.mF.unlocked},
             unlocked() { return hasAchievement('a', 76) },
             tooltip:
-                `Complete the <glow-text>5th Collapsed Timeline Challenge</glow-text>`
+                `Unlock Meta-Fusions`
         },
         93: {
             name: "Breaker's Delight",
