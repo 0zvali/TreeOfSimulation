@@ -173,5 +173,19 @@ challenges: {
                 return unlock
             },
         },
+        32: {
+            name: "<glow-text>Collapsive Generator</glow-text>",
+            challengeDescription: 
+            `Unlock <glow-text>Corruptive Crystal</glow-text>'s Layer.<br>
+            Disable all previous layers and <metabox>Infection Wall</metabox> starts much earlier.<br><br>`,
+            canComplete: function() {return player.cC.generator.gte("1e40")},
+            goalDescription: "Reach 1e40 <glow-text>Corruptive Generator Points</glow-text>",
+            rewardDescription() { return "Unlock 5 more Meta-Experiment Upgrades"},
+            onEnter(){ player.mF.upgrades.push('22')},
+            unlocked(){
+                let unlock = (hasUpgrade('mF', 22) || inChallenge('CT', 32) || hasChallenge('CT', 32))
+                return unlock
+            },
+        },
     },
 })

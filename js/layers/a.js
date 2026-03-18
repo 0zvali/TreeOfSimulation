@@ -416,7 +416,14 @@ addLayer("a", {
             done() { return hasChallenge('CT', 31)},
             unlocked() { return hasAchievement('a', 76) },
             tooltip:
-                `Complete the <glow-text>5th Collapsed Timeline Challenge</glow-text>`
+                `Complete the 5th <glow-text>Collapsed Timeline Challenge</glow-text>`
+        },
+        94: {
+            name: "Repaired Crystals",
+            done() { return hasChallenge('CT', 32)},
+            unlocked() { return hasAchievement('a', 76) },
+            tooltip:
+                `Complete the 6th <glow-text>Collapsed Timeline Challenge</glow-text>`
         },
     },
 },

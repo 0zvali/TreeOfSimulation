@@ -8,10 +8,11 @@ addLayer("mE", {
         best: new Decimal(0),
     }},
 
-    color: "#fc716d",
+    color: "#9c4e89",
     requires(){ 
         let requirement = new Decimal("5e10")
         if (getBuyableAmount('mE', 14).gte(1)) requirement = requirement.div(buyableEffect('mE', 14))
+        if (inChallenge('CT', 32)) requirement = requirement.times("1e999")
         return requirement
         
     }, // Can be a function that takes requirement increases into account
@@ -184,7 +185,6 @@ buyables: {
                 if (hasUpgrade('mE', 14)) base1 = base1.add(0.15)
                 if (hasUpgrade('mE', 32)) base1 = base1.add(0.35)
                 if (hasMilestone('mE', 14)) base1 = base1.add(0.1)
-                if (hasUpgrade('mF', 22)) base1 = base1.add(0.8)
                 if (hasUpgrade('mF', 13)) expo = expo.add(0.21)
                 let eff = base1.pow(Decimal.pow(base2, expo)).times(buyableEffect('mE', 14).pow(0.2))
                 if (hasUpgrade('mE', 35)) eff = eff.times(25)
@@ -501,6 +501,14 @@ upgrades: {
             cost: new Decimal(2.3e88),
             unlocked(){
                 return hasUpgrade('mE', 35)
+            },
+        },
+        41: {
+            title: "Generative Passing",
+            description: "Unlock an Meta-Experiment Generator!<br>Must be on v3.0.6!",
+            cost: new Decimal("1e9999"),
+            unlocked(){
+                return hasChallenge('CT', 32)
             },
         },
     },

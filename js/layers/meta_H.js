@@ -12,6 +12,7 @@ addLayer("mH", {
     requires(){ 
         let requirement = new Decimal("2.3e106")
         if (player.mH.points == 12 && player.mF.points == 0) requirement = new Decimal("1e59")
+            if (inChallenge('CT', 32)) requirement = requirement.times("1e999")
         return requirement
         
     }, // Can be a function that takes requirement increases into account

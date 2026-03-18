@@ -160,9 +160,10 @@ addLayer("mF", {
             requirementDescription() {
                 let desc = "??????"
                 if (hasChallenge('CT', 31)) desc = "Complete <glow-text>CT Challenge 5</glow-text>"
+                if (inChallenge('CT', 32)) desc = "Disabled inside <glow-text>'Corruptive Generator'</glow-text>"
                 return desc},
             effectDescription: `Keep Meta-Crystals Milestones & Upgrades`,
-            done() { return hasChallenge('CT', 31) },
+            done() { return hasChallenge('CT', 31) && !inChallenge('CT', 32) },
         },
         12: {
             requirementDescription: "???",

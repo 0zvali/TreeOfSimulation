@@ -1,9 +1,9 @@
 let modInfo = {
-	name: "The Experimental Tree v3.0.4",
+	name: "The Experimental Tree v3.0.5",
 	id: "experiments",
 	author: "Ozvali",
 	pointsName: "infects",
-	modFiles: ["layers/a.js", "layers/c.js", "layers/E.js", "layers/F.js", "layers/H.js", "layers/R.js", "layers/W.js", "layers/timeline.js", "layers/timeline_FL.js", "layers/timeline_EX.js", "layers/timeline_SL.js", "layers/timeline_O.js", "layers/submergence_D.js", "layers/meta_C.js", "layers/meta_E.js", "layers/meta_H.js", "layers/meta_F.js", "tree.js"],
+	modFiles: ["layers/a.js", "layers/c.js", "layers/E.js", "layers/F.js", "layers/H.js", "layers/R.js", "layers/W.js", "layers/timeline.js", "layers/timeline_FL.js", "layers/timeline_EX.js", "layers/timeline_SL.js", "layers/timeline_O.js", "layers/submergence_D.js", "layers/meta_C.js", "layers/meta_E.js", "layers/meta_H.js", "layers/meta_F.js", "layers/corruptive_C.js", "tree.js"],
 	discordName: "Solstice Studio Discord",
 	discordLink: "https://discord.gg/solsticestudios",
 	initialStartPoints: new Decimal(0), // Used for hard resets and new players
@@ -12,8 +12,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "3.0.4",
-	name: "Collapsive Wall",
+	num: "3.0.5",
+	name: "Corrupted Crystalization",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -24,6 +24,15 @@ let changelog = `<h1>Changelog:</h1><br>
 		a = bug/mechanic fixes<br><br>
 
 <div class="link" onclick="showTab('info-tab')">Settings</div><br><br>
+
+	<h2>v3.0.5: Corrupted Crystalization</h2><br>
+	- Added 1 Achievement<br>
+	- More Balancing<br>
+	- Added 1 new Challenge<br>
+	- Added 25 new Upgrades<br>
+	- Added 1 new Layer<br>
+	- Introduced a new Mechanic<br>
+	- Endgame: Complete CT6 Challenge.<br><br>
 
 	<h2>v3.0.4: Collapsive Wall</h2><br>
 - Added 2 more Achievements<br>
@@ -462,8 +471,11 @@ function StatChecker() {
 	if (inChallenge('CT', 31)) nerf = nerf.times(0.15)
 	let ooms = new Decimal(player.points.log10().div(10000)).max(0.00001).min(100)
 	if (inChallenge('mF', 11)) nerf = nerf.times(new Decimal(0.85).minus(ooms))
+	if (inChallenge('CT', 32)) nerf = new Decimal(29)
 	let num = (new Decimal(1).minus((player.points.log10()).div(nerf)).max(0.001).min(1))
-	if (isNaN(num)) return 1
+
+	if (num < 0.1) return 0.1
+	else if (isNaN(num)) return 1
 	else return num
 }
 
@@ -606,12 +618,15 @@ function getPointGen() {
 	if (challengeEffect('mF', 11) >= 1) gain = gain.times(challengeEffect("mF", 11))
 	if (hasUpgrade('mF', 11)) gain = gain.times(1700)
 	if (hasUpgrade('mF', 21)) gain = gain.times(1800000)
-	if (hasUpgrade('mF', 22)) gain = gain.pow(1.1)
 	if (hasUpgrade('mF', 31)) gain = gain.times(1e17)
 	if (hasUpgrade('mF', 32)) gain = gain.pow(1.12)
 	if (hasUpgrade('mF', 33)) gain = gain.pow(upgradeEffect('mF', 33))
 	if (hasUpgrade('mF', 41)) gain = gain.times(1e31)
 	if (hasUpgrade('mF', 42)) gain = gain.pow(1.15)
+
+
+	if (tmp.cC.effect2 >= 1) gain = gain.times(tmp.cC.effect2)
+
 	return gain
 }
 
@@ -666,6 +681,7 @@ function infectionWall() {
 	let baseinfectionWall = new Decimal("1e1700")
 	if (getBuyableAmount('mF', 11).gte(1)) baseinfectionWall = baseinfectionWall.times(buyableEffect('mF', 11))
 	if (inChallenge('CT', 31)) baseinfectionWall = new Decimal("1e100")
+	if (inChallenge('CT', 32)) baseinfectionWall = new Decimal("6.5e6")
 	return baseinfectionWall
 }
 
@@ -683,7 +699,7 @@ setInterval(() => {
 var displayThings = [
 	function () {
 		let x = getUndulatingColor()
-		let a = colorText("b", x, "Endgame: Meta-Fusion Upgrade 7 (Timeline 3)")
+		let a = colorText("b", x, "Endgame: Complete <i>CT6 Challenge</i> (Timeline 3)")
 		return a
 	},
 	function () {
@@ -697,8 +713,11 @@ var displayThings = [
 			return "You are currently in: 'Soul Shield' (Infects /500 & EX /200)"
 		else if (hasMilestone('O', 11))
 			return "You are currently in: Submergence Timeline"
+		else if (inChallenge('CT', 32))
+			return "<glow-text>You are currently in: 'Corruptive Generator' Challenge</glow-text>"
 		else if (player.CT.points.gte(2))
 			return "You are currently in: Meta Timeline"
+		
 		else
 			return "You are currently in: Normal Timeline"
 	},
@@ -750,7 +769,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return hasUpgrade('mF', 22)
+	return hasChallenge('CT', 32)
 }
 // Less important things beyond this point!
 
