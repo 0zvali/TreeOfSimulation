@@ -56,6 +56,9 @@ addLayer("CT", {
     hotkeys: [
         {key: "t", description: "T: reset for Collapsed Timelines", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+    doReset(resettingLayer) {
+        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
+    },
     layerShown() {
         let value = false
         if (player.points.gte(1e9999) || player.CT.unlocked) value = true
@@ -152,6 +155,7 @@ challenges: {
             goalDescription: "1.77e22 Souls",
             rewardDescription() { return "Souls boosts itself (" + (format(player.SL.points.add(1).pow(0.06)) + "x)") + `<br> Keep Floors & Explosive Upgrades.`},
             onEnter(){ return player.SL.upgrades.push('11', '12', '13', '14', '15', '21')},
+            onExit(){ return player.SL.upgrades.push('11', '12', '13', '14', '15', '21')},
             unlocked(){
                 let unlock =  (hasUpgrade('SL', 21) || inChallenge('CT', 22) || hasChallenge('CT', 22))
                 if (hasUpgrade('D', 45) || player.CT.points.gte(2)) unlock = false
@@ -168,6 +172,7 @@ challenges: {
             goalDescription: "Reach 'Experiment Breaker' Lv2",
             rewardDescription() { return "<metabox>Infection Wall</metabox> is much weaker outside of <glow-text>CT Challenges</glow-text>"},
             onEnter(){ player.mF.upgrades.push('11', '12', '13', '14', '15', '21')},
+            onExit(){ player.mF.upgrades.keep('11', '12', '13', '14', '15', '21')},
             unlocked(){
                 let unlock = (hasUpgrade('mF', 21) || inChallenge('CT', 31) || hasChallenge('CT', 31))
                 return unlock
@@ -182,6 +187,7 @@ challenges: {
             goalDescription: "Reach 1e40 <glow-text>Corruptive Generator Points</glow-text>",
             rewardDescription() { return "Unlock 5 more Meta-Experiment Upgrades"},
             onEnter(){ player.mF.upgrades.push('22')},
+            onExit(){ player.mF.upgrades.keep('11', '12', '13', '14', '15', '21', '22')},
             unlocked(){
                 let unlock = (hasUpgrade('mF', 22) || inChallenge('CT', 32) || hasChallenge('CT', 32))
                 return unlock

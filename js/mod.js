@@ -12,7 +12,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "3.0.5",
+	num: "3.0.5.0a",
 	name: "Corrupted Crystalization",
 }
 
