@@ -163,7 +163,7 @@ challenges: {
             },
         },
         31: {
-            name: "<glow-text>Unknown Fate</glow-text>",
+            name: "<glow-text>Unknown Fate [CT5]</glow-text>",
             challengeDescription: 
             `<metabox>Infection Wall</metabox> has been mutated into <glow-text>Collapsed Wall</glow-text>.<br>
             Be careful... as the wall is much stronger than before.<br>
@@ -179,7 +179,7 @@ challenges: {
             },
         },
         32: {
-            name: "<glow-text>Collapsive Generator</glow-text>",
+            name: "<glow-text>Collapsive Generator [CT6]</glow-text>",
             challengeDescription: 
             `Unlock <glow-text>Corruptive Crystal</glow-text>'s Layer.<br>
             Disable all previous layers and <metabox>Infection Wall</metabox> starts much earlier.<br><br>`,
