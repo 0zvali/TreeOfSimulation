@@ -167,3 +167,75 @@
 	border-color: rgba(0, 0, 0, 0.125);
 }
 
+#cC{
+	color: rgb(4, 0, 223);
+	text-shadow: rgb(93, 82, 245) 2.25px 2.25px 10px ;
+	background: rgb(109, 12, 189);
+	background-image:repeating-radial-gradient(circle at center,
+      hsla(180, 100%, 55%, 0.15),
+      hsla(180, 100%, 55%, .15) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 300% 300%;
+	background-position: 0% 0%;
+	animation: climb 25s ease-in-out infinite;
+	border: 5px solid rgb(25, 0, 138);
+}
+
+#cC{
+	color: rgb(4, 0, 223);
+	text-shadow: rgb(93, 82, 245) 2.25px 2.25px 10px ;
+	background: rgb(109, 12, 189);
+	background-image:repeating-radial-gradient(circle at center,
+      hsla(180, 100%, 55%, 0.15),
+      hsla(180, 100%, 55%, .15) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 300% 300%;
+	background-position: 0% 0%;
+	animation: climb 25s ease-in-out infinite;
+	border: 5px solid rgb(25, 0, 138);
+}
+
+.cC.reset.can{
+	color: white;
+	text-shadow: rgb(119, 13, 189) 2.25px 2.25px 10px ;
+	background: rgb(103, 20, 170);
+	background-image:repeating-radial-gradient(circle at center,
+      hsla(180, 100%, 55%, 0.15),
+      hsla(180, 100%, 55%, .15) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: main 120s linear infinite;
+	border: 3px solid rgb(155, 60, 219);
+	box-shadow: 2px -3px 3px rgb(110, 177, 203);
+}
+
+.cC.reset.locked{
+	color: black;
+	text-shadow: rgb(240, 156, 156) 2.25px 2.25px 10px ;
+	background: rgb(240, 156, 156);
+	background-image:repeating-radial-gradient(circle at center,
+      hsla(0, 100%, 55%, 0.15),
+      hsla(0, 100%, 55%, 0.15) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: main 240s linear infinite;
+	border: 3px solid rgb(161, 54, 54);
+}
+
+@keyframes climb {
+	0% {
+		background-position: 0% 0%;
+	}
+	50% {
+		background-position: 100% 0%;
+	}
+	100% {
+		background-position: 200% 0%;
+	}
+}

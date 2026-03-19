@@ -22,6 +22,7 @@ addLayer("cC", {
     baseResource: "infects",
     baseAmount() {return player.points}, 
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+
     style() {
                     return {
                         'background': 'transparent',
