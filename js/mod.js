@@ -1,5 +1,5 @@
 let modInfo = {
-	name: "The Experimental Tree v3.0.5",
+	name: "The Experimental Tree v3.0.5.1",
 	id: "experiments",
 	author: "Ozvali",
 	pointsName: "infects",
@@ -12,8 +12,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "3.0.5.0a",
-	name: "Corrupted Crystalization",
+	num: "3.0.5.1",
+	name: "Experimental Isotopes",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -466,6 +466,7 @@ function canGenPoints() {
 function StatChecker() {
 	let nerf = new Decimal(100000)
 	if (hasUpgrade('mF', 14)) nerf = nerf.times(1.25)
+	if (hasUpgrade('mE', 42)) nerf = nerf.times(1.08)
 	if (getBuyableAmount('mF', 12).gte(1)) nerf = nerf.times(buyableEffect('mF', 12).add(1))
 	if (hasChallenge('CT', 31)) nerf = nerf.times(1.4)
 	if (inChallenge('CT', 31)) nerf = nerf.times(0.15)
@@ -699,7 +700,7 @@ setInterval(() => {
 var displayThings = [
 	function () {
 		let x = getUndulatingColor()
-		let a = colorText("b", x, "Endgame: Complete <i>CT6 Challenge</i> (Timeline 3)")
+		let a = colorText("b", x, "Endgame: <i>Meta-Experiment Upgrade 20</i> (Timeline 3)")
 		return a
 	},
 	function () {
@@ -769,7 +770,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return hasChallenge('CT', 32)
+	return hasUpgrade('mE', 45)
 }
 // Less important things beyond this point!
 

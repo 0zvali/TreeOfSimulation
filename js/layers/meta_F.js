@@ -311,24 +311,24 @@ addLayer("mF", {
             },
         },
         31: {
-            title: "Artifact III",
-            description: "1e17x Infects, 1.4e12x Meta-Crystals, 5x Meta-Experiments",
+            title: "<metabox>????????</metabox>",
+            description: "<metabox>^cKOSf929 CJ0asjd && 2304kccsld  okfoada",
             cost: new Decimal(999),
             unlocked() {
                 return hasUpgrade('mF', 22)
             },
         },
         32: {
-            title: "Relic II",
-            description: "^1.12 Infects & Improved 'Experiment Regime II' Effect",
+            title: "<metabox>??????</metabox>",
+            description: "<metabox>^?????? 241923413 & 251523 '????' Esadft</metabox>",
             cost: new Decimal(10),
             unlocked() {
                 return hasUpgrade('mF', 21) && hasUpgrade('mF', 22)
             },
         },
         33: {
-            title: "Ancient I",
-            description: "Meta-Experiments boosts Infects",
+            title: "<metabox>???????? ????</metabox>",
+            description: "<metabox>infecks9dtion meta kosacfn</metabox>",
             cost: new Decimal(1700),
             effect() {
                 let eff = ((player.mE.points.pow(0.02)).add(1).max(0)).max(1).min(1.3);
@@ -336,7 +336,7 @@ addLayer("mF", {
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(1.3) ? "(Capped)" : "";
-                let text = `^${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
             unlocked() {
@@ -348,7 +348,7 @@ addLayer("mF", {
             description: "1e31x Infects & 1e23 Meta-Crystals & 850x Meta-Experiments",
             cost: new Decimal(1200000),
             unlocked() {
-                return hasUpgrade('mF', 12)
+                return hasUpgrade('mF', 33)
             },
         },
         42: {

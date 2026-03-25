@@ -339,3 +339,50 @@ glow-text {
   color: rgb(200, 81, 255); /* Text color */
   animation: glow 2s ease-in-out infinite alternate; /* Alternate direction makes it smoother */
 }
+
+glitch-text {
+    font-weight: bold;
+    position: relative;
+    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #ffffff,
+      0.025em 0.04em 0 #fffc00;
+    animation: litch 1.65s infinite;
+}
+
+ 
+@keyframes litch {
+    0% {
+      text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #ffffff,
+        0.025em 0.04em 0 #fffc00;
+		color:black;
+    }
+    15% {
+      text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #ffffff,
+        0.025em 0.04em 0 #fffc00;
+		color:black;
+    }
+    16% {
+      text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #ffffff,
+        -0.05em -0.05em 0 #fffc00;
+		color: black;
+    }
+    49% {
+      text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #ffffff,
+        -0.05em -0.05em 0 #fffc00;
+		color:black
+    }
+    50% {
+      text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #ffffff,
+        0 -0.04em 0 #fffc00;
+		color: white
+    }
+    99% {
+      text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #ffffff,
+        0 -0.04em 0 #fffc00;
+	  color: white;
+    }
+    100% {
+      text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #ffffff,
+        -0.04em -0.025em 0 #fffc00;
+		color: white
+    }
+  }

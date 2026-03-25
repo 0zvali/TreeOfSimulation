@@ -6,6 +6,8 @@ addLayer("mE", {
         unlocked: false,
         points: new Decimal(0),
         best: new Decimal(0),
+        generator: new Decimal(0),
+
     }},
 
     color: "#9c4e89",
@@ -29,6 +31,56 @@ addLayer("mE", {
                         "background-position": "center"
                     }
                 },
+     tabFormat: {
+        "Experiments": {
+            content: [
+                "main-display",
+                "blank",
+                "prestige-button",
+                "blank",
+                "h-line",
+                "blank",
+                "buyables",
+                "blank",
+                ["upgrades", [1,2,3]]
+            ],
+            buttonStyle() { return { 'background': 'linear-gradient(to right,purple 33%, black 92%)', 'color': 'white', 'box-shadow': '2px 2px 2px purple' } },
+        },
+        "Experimental Isotopes": {
+            content: [
+                "main-display",
+                "blank",
+                ["display-text",
+                    function () { 
+                        if (hasUpgrade('mE', 41)) return 'You have ' + format(player.mE.generator) + ' <text style="color:red">Experimental Points</text> (' + format(tmp.mE.genEffect)  + '/s),<br>which is boosting "ER-I" by ' + format(tmp.mE.effect2) + 'x' 
+                    },
+                    {}],
+                "blank",
+                "h-line",
+                "blank",
+                ["upgrades", [4]]
+            ],
+            buttonStyle() { return { 'background': 'linear-gradient(to right,black 33%, purple 92%)', 'color': 'white', 'box-shadow': '2px 2px 2px purple' } },
+        }
+     },
+    genEffect(){
+        let generator = new Decimal(0)
+        if (hasUpgrade('mE', 41)) generator = generator.add(0.2)
+        if (hasUpgrade('mE', 44)) generator = generator.add(0.35)
+        return generator
+    },
+    effect2(){
+        if (!hasUpgrade('mE', 41)) 
+            return new Decimal(1)
+        let eff = player.mE.generator.pow(0.835).max(1)
+        return eff
+    },
+        update(diff) {
+        if (player.mE.unlocked && hasUpgrade('mE', 41))
+            player.mE.generator = player.mE.generator.plus(tmp.mE.genEffect.times(diff));
+    },
+
+
     exponent(){ 
         let expo1 = 0.27
         if (hasUpgrade('mE', 21)) expo1 = 0.32
@@ -187,6 +239,7 @@ buyables: {
                 if (hasMilestone('mE', 14)) base1 = base1.add(0.1)
                 if (hasUpgrade('mF', 13)) expo = expo.add(0.21)
                 let eff = base1.pow(Decimal.pow(base2, expo)).times(buyableEffect('mE', 14).pow(0.2))
+                if (hasUpgrade('mE', 41)) eff = eff.times(tmp.mE.effect2)
                 if (hasUpgrade('mE', 35)) eff = eff.times(25)
                 return eff
             },
@@ -503,12 +556,56 @@ upgrades: {
                 return hasUpgrade('mE', 35)
             },
         },
+        // POST CT Challenge 6
         41: {
             title: "Generative Passing",
-            description: "Unlock an Meta-Experiment Generator!<br>Must be on v3.0.6!",
-            cost: new Decimal("1e9999"),
+            description: "Unlock an Meta-Experiment Generator!",
+            cost: new Decimal("1.35e3040"),
             unlocked(){
                 return hasChallenge('CT', 32)
+            },
+        },
+        42: {
+            title: "Decayable Wall",
+            description: "Lower the <metabox>Infection Wall</metabox> by 13%",
+            cost: new Decimal(13),
+            currencyInternalName: "generator",
+            currencyDisplayName: "Experimental G-Points",
+            currencyLayer: "mE",
+            unlocked(){
+                return hasUpgrade('mE', 41)
+            },
+        },
+        43: {
+            title: "Entering the 2nd Dimension",
+            description: "Break 'WoT2nd' Effect and improve it significantly<br>(Requires 21 mH)",
+            cost: new Decimal("1.73e3090"),
+            canClick(){
+                let click = false
+                if (player.mH.points.gte(21)) click = true
+                return click
+            },
+            unlocked(){
+                return hasUpgrade('mE', 42)
+            },
+        },
+        44: {
+            title: "Almost time...",
+            description: "Improve the Generator's Gain Formula",
+            cost: new Decimal("3e3289"),
+            unlocked(){
+                return hasUpgrade('mE', 43)
+            },
+        },
+        45: {
+            title: "Another Challenge",
+            description: "Something is wrong...<br>Coming in v3.0.5.2!",
+            cost: new Decimal(150),
+            currencyInternalName: "generator",
+            currencyDisplayName: "Experimental G-Points",
+            currencyLayer: "mE",
+            unlocked(){
+                return hasUpgrade('mE', 44)
             },
         },
     },

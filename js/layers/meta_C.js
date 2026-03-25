@@ -216,6 +216,7 @@ addLayer("mC", {
                 if (hasUpgrade('mE', 15)) eff = (player.mC.points.max(1).add(2).pow(0.125).times(1.3).times(1.8).times(tmp.mE.effect)).max(1).min(1.4e10);
                 if (hasUpgrade('mE', 31)) eff = (player.mC.points.max(1).add(2).pow(0.125).times(1.3).times(1.8).times(tmp.mE.effect)).max(1).min(1.96e17);
                 if (hasUpgrade('mH', 21)) eff = (player.mC.points.max(1).add(2).pow(0.125).times(1.3).times(1.8).times(tmp.mE.effect)).max(1).min("1e9999");
+                if (hasUpgrade('mE', 43)) eff = (player.mC.points.max(1).add(2).pow(0.1335).times(1.45).times(1.8).times(tmp.mE.effect)).max(1).min("1e9999");
                 return eff
             },
             effectDisplay() {

@@ -189,9 +189,23 @@ challenges: {
             goalDescription: "Reach 1e40 <glow-text>Corruptive Generator Points</glow-text>",
             rewardDescription() { return "Unlock 5 more Meta-Experiment Upgrades"},
             onEnter(){ player.mF.upgrades.push('22')},
-            onExit(){ player.mF.upgrades.keep('11', '12', '13', '14', '15', '21', '22')},
+            onExit(){ player.mF.upgrades.push('11', '12', '13', '14', '15', '21', '22') && player.mF.upgrades.keep('11', '12', '13', '14', '15', '21', '22')  },
             unlocked(){
                 let unlock = (hasUpgrade('mF', 22) || inChallenge('CT', 32) || hasChallenge('CT', 32))
+                return unlock
+            },
+        },
+        41: {
+            name: "<glitch-text>Reality of Falsitude [CT7]</glitch-text>",
+            challengeDescription: 
+            `<glitch-text>???? ????????? ???????? ???????? </glitch-text>`,
+            canComplete: function() {return player.cC.generator.gte("1e40")},
+            goalDescription: "<glitch-text>Reach ??? ????????? ??????????</glitch-text>",
+            rewardDescription() { return "Break free from 1 Meta-Fusion Point."},
+            onEnter(){ player.mE.upgrades.push('41', '42', '43', '44', '45')},
+            onExit(){ player.mF.upgrades.push('11', '12', '13', '14', '15', '21', '22') && player.mF.upgrades.keep('11', '12', '13', '14', '15', '21', '22') && player.mE.upgrades.keep('41', '42', '43', '44', '45')  },
+            unlocked(){
+                let unlock = (hasUpgrade('mE', 46) || inChallenge('CT', 41) || hasChallenge('CT', 41))
                 return unlock
             },
         },
