@@ -1,0 +1,44 @@
+.loader {
+    /* Position the loader as a fixed overlay */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* 100% of the viewport width */
+    height: 100vh; /* 100% of the viewport height */
+    
+    /* Set the background to black */
+    background-color: black; 
+
+    /* Ensure it's on top of all other content */
+    z-index: 10; 
+    
+    /* Center the spinner (optional) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Add a smooth transition for the fade-out effect */
+    transition: opacity 0.75s, visibility 0.75s;
+}
+
+
+/* Optional: Style a simple white spinner (refer to [W3Schools](https://www.w3schools.com/howto/howto_css_loader.asp) for more options) */
+.spinner {
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid rgb(194, 87, 255);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Class to hide the loader with a fade effect */
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
